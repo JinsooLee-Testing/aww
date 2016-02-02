@@ -4,10 +4,12 @@ using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour {
     private static PlayerManager inst = null;
+    public int parentidx = 0;
     public GameObject GO_player;
     public GameObject GO_aiplayer;
     public List<PlayerBase> Players = new List<PlayerBase>();
     public int CurTurnIdx = 0;
+    
 
 
     public static PlayerManager GetInst()
@@ -50,14 +52,14 @@ public class PlayerManager : MonoBehaviour {
     public void MovePlayer(Hex start,Hex dest)
     {
         PlayerBase pb = Players[CurTurnIdx];
-        if(MapManager.GetInst().IsReachAble(start,dest,pb.MoveRange)==false)
+        if (MapManager.GetInst().IsReachAble(start, dest, pb.status.MoveRange) == false)
         {
             return; 
         }
         if (pb.act == ACT.MOVEHILIGHT)
         {
             float distance = MapManager.GetInst().GetDistance(start, dest);
-            if (distance <= Players[CurTurnIdx].MoveRange && distance != 0 &&dest.Passable==true)
+            if (distance <= Players[CurTurnIdx].status.MoveRange && distance != 0 && dest.Passable == true)
             {
                 pb.MoveHexes = MapManager.GetInst().GetPath(start, dest);
                 if (pb.MoveHexes.Count == 0)
@@ -78,9 +80,10 @@ public class PlayerManager : MonoBehaviour {
         pb.act = ACT.IDLE;
         CurTurnIdx++;
         if (CurTurnIdx == Players.Count)
-        {
-            CurTurnIdx = 0;
+        {         
+               CurTurnIdx = 0;
         }
+        Manager.GetInst().MoveCamPosToTile(Players[CurTurnIdx].CurHex);
     }
     void OnGUI()
     {
@@ -88,7 +91,35 @@ public class PlayerManager : MonoBehaviour {
     }
     public void RemovePlayer(PlayerBase pb)
     {
+    
+            
         Players.Remove(pb);
         GameObject.Destroy(pb.gameObject);
     }
+    public void MouseInputProc(int btn)
+    {
+        if(btn==1)
+        {
+            //step - aI일때는 리턴
+            PlayerBase pb = Players[CurTurnIdx];
+            if(pb is AIPlayer)
+            {
+                return;
+            }
+            //step1 idle 할일 x
+            ACT act = Players[CurTurnIdx].act;
+            if(act==ACT.IDLE)
+            {
+                return;
+            }
+            //step2 attack 무브일떄 하이라이트 초기화 
+            if (act == ACT.MOVEHILIGHT||act==ACT.ATTACKHIGHLIGHT)
+            {
+                Players[CurTurnIdx].act = ACT.IDLE;
+                MapManager.GetInst().ResetMapColor();
+                return;
+            }
+        }
+    }
+
 }

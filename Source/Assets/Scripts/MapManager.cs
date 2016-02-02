@@ -201,6 +201,7 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                         //헥사곤 상의 셀과 셀간의 공식
                         if (distance <= AtkRange && distance != 0)
                         {
+                            /*
                             bool isExit = false;
                             foreach(PlayerBase pb in pm.Players)
                             {
@@ -210,15 +211,16 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                                     break;
                                 }
                             }
-                            if(isExit==true)
-                            {
-                                if (IsReachAble(start, Map[x][y][z], AtkRange))
-                                {
+                             * */
+                            //if(isExit==true)
+                            //{
+                               // if (IsReachAble(start, Map[x][y][z], AtkRange))
+                               // {
                                     Map[x][y][z].SetColor(4);
                                     highLighedCount++;
-                                }
+                                //}
 
-                            }
+                          //  }
 
                         }
 

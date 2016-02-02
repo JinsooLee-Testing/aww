@@ -7,7 +7,7 @@ public class AIPlayer : PlayerBase
     void Awake()
     {
         act = ACT.IDLE;
-        MoveRange = 5;
+        status = new PlayerStatus();
     }
     void Start()
     {
@@ -36,7 +36,7 @@ public class AIPlayer : PlayerBase
             float distance = Vector3.Distance(transform.position, nextHex.transform.position);
             if (distance > 0.1f) //이동중
             {
-                transform.position += (nextHex.transform.position - transform.position).normalized * MoveSpeed * Time.smoothDeltaTime;
+                transform.position += (nextHex.transform.position - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
 
             }
             else //다음 목표 hex에 도착함

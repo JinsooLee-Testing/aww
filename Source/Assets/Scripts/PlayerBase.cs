@@ -9,16 +9,14 @@ public enum ACT
     ATTACKHIGHLIGHT
 }
 public class PlayerBase : MonoBehaviour {
+    public PlayerStatus status;
     public Hex CurHex;
-    public int MoveRange = 3;
-    public float MoveSpeed = 5.0f;
-    public int attackRange = 2;
-    public int Curhp = 100;
     public ACT act;
     public List<Hex> MoveHexes;
     void Awake()
     {
         act = ACT.IDLE;
+        status = new PlayerStatus();
     }
 	void Start () {
 	}
@@ -30,7 +28,7 @@ public class PlayerBase : MonoBehaviour {
             float distance=Vector3.Distance(transform.position,nextHex.transform.position);
             if(distance>0.1f) //이동중
             {
-                transform.position += (nextHex.transform.position - transform.position).normalized * MoveSpeed * Time.smoothDeltaTime;
+                transform.position += (nextHex.transform.position - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
                 
             }
             else //다음 목표 hex에 도착함
@@ -50,38 +48,17 @@ public class PlayerBase : MonoBehaviour {
 	}
     public void GetDamage(int damage)
     {
-        Curhp -= damage;
-        if(Curhp<=0)
+       status.Curhp -= damage;
+       if (status.Curhp <= 0)
         {
             Debug.Log("Died");
             PlayerManager.GetInst().RemovePlayer(this);
         }
 
     }
-    public void DrawCommand()
+    public virtual void DrawCommand()
     {
-        float btnW = 100f;
-        float btnH = 25f;
-        Rect rect = new Rect(0, Screen.height / 2, btnW, btnH );
-        if (GUI.Button(rect, "Move"))
-        {
-            Debug.Log("Move");
-
-            if (MapManager.GetInst().HilightMoveRange(CurHex, MoveRange))
-            {
-                act = ACT.MOVEHILIGHT;
-            }
-        }
-        rect = new Rect(0, (Screen.height /2)+20, btnW, btnH);
-        if (GUI.Button(rect, "Attack"))
-        {
-            Debug.Log("Attack");
-
-            if (MapManager.GetInst().HilightAttackRange(CurHex, 2))
-            {
-                act = ACT.ATTACKHIGHLIGHT;
-            }
-        }
+     
     }
 
 }

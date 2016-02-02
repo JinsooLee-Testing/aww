@@ -64,9 +64,9 @@ public class AIthink  {
         {
             List<Hex> path = mm.GetPath(aiplayer.CurHex, nearUserPlayer.CurHex);
 
-            if (path.Count > aiplayer.MoveRange)
+            if (path.Count > aiplayer.status.MoveRange) 
             {
-                path.RemoveRange(aiplayer.MoveRange,path.Count-aiplayer.MoveRange);
+                path.RemoveRange(aiplayer.status.MoveRange, path.Count - aiplayer.status.MoveRange);
                 
             }
             aiplayer.MoveHexes = path;

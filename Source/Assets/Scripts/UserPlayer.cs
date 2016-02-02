@@ -7,6 +7,7 @@ public class UserPlayer : PlayerBase
     void Awake()
     {
         act = ACT.IDLE;
+        status = new PlayerStatus();
     }
     void Start()
     {
@@ -20,7 +21,7 @@ public class UserPlayer : PlayerBase
             float distance = Vector3.Distance(transform.position, nextHex.transform.position);
             if (distance > 0.1f) //이동중
             {
-                transform.position += (nextHex.transform.position - transform.position).normalized * MoveSpeed * Time.smoothDeltaTime;
+                transform.position += (nextHex.transform.position - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
 
             }
             else //다음 목표 hex에 도착함
@@ -39,17 +40,41 @@ public class UserPlayer : PlayerBase
 
     }
 
-    public void DrawCommand()
+    public override void DrawCommand()
     {
-        Rect rect = new Rect(0, Screen.height / 2, 100, 50);
+        float btnW = 100f;
+        float btnH = 25f;
+        Rect rect = new Rect(0, Screen.height / 2, btnW, btnH);
         if (GUI.Button(rect, "Move"))
         {
             Debug.Log("Move");
-            act = ACT.MOVEHILIGHT;
-            if (MapManager.GetInst().HilightMoveRange(CurHex, MoveRange))
-            {
 
+            if (MapManager.GetInst().HilightMoveRange(CurHex, status.MoveRange))
+            {
+                act = ACT.MOVEHILIGHT;
+            }
+        }
+        rect = new Rect(0, (Screen.height / 2) + 20, btnW, btnH);
+        if (GUI.Button(rect, "Attack"))
+        {
+            Debug.Log("Attack");
+
+            if (MapManager.GetInst().HilightAttackRange(CurHex, 1))
+            {
+                act = ACT.ATTACKHIGHLIGHT;
+            }
+        }
+         rect = new Rect(0, (Screen.height / 2) + 40, btnW, btnH);
+         if (GUI.Button(rect, "Turn Over"))
+        {
+            Debug.Log("Turn Over");
+            
+            if (MapManager.GetInst().HilightAttackRange(CurHex, 1))
+            {
+                act = ACT.ATTACKHIGHLIGHT;
+                PlayerManager.GetInst().TurnOver();
             }
         }
     }
+    
 }
