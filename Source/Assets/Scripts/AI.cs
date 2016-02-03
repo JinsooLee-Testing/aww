@@ -79,6 +79,7 @@ public class AIthink  {
                 return;
             }
             aiplayer.act = ACT.MOVING;
+            MapManager.GetInst().ResetMapColor(aiplayer.CurHex.MapPos);
         }
 
     }

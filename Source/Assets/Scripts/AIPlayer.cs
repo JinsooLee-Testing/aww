@@ -15,9 +15,14 @@ public class AIPlayer : PlayerBase
     // Update is called once per frame
     void Update()
     {
+        PlayerManager pm = PlayerManager.GetInst();
+     
         if(act==ACT.IDLE)
         {
-            PlayerManager pm = PlayerManager.GetInst();
+            if (pm.Players[pm.CurTurnIdx] == this)
+            {
+                MapManager.GetInst().SetHexColor(CurHex, Color.black);
+            }   
             if(pm.Players[pm.CurTurnIdx]==this)
             { 
                 AiProc();

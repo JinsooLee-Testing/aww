@@ -252,6 +252,13 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
         }
 
     }
+    public void ResetMapColor(Point pos)
+    {
+        int x =pos.GetX();
+        int y =pos.GetY();
+        int z =pos.GetZ();
+        Map[x][y][z].SetColor(Map[x][y][z].onto); 
+    }
     public List<Hex> GetPath(Hex start, Hex dest)
     {
         OpenList = new List<Path>();
@@ -359,5 +366,8 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
     {
           return Map[x][y][z];
     }
-    
+    public void SetHexColor(Hex hex,Color color)
+    {
+        hex.GetComponent<Renderer>().material.color = color;
+    }
 }

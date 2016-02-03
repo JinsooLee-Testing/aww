@@ -15,6 +15,14 @@ public class UserPlayer : PlayerBase
     // Update is called once per frame
     void Update()
     {
+        PlayerManager pm = PlayerManager.GetInst();
+       if(act==ACT.IDLE)
+       {
+           if (pm.Players[pm.CurTurnIdx] == this)
+           {
+               MapManager.GetInst().SetHexColor(CurHex, Color.black);
+           }
+       }
         if (act == ACT.MOVING)
         {//이동처리
             Hex nextHex = MoveHexes[0];

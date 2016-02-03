@@ -84,6 +84,7 @@ public class PlayerManager : MonoBehaviour {
                CurTurnIdx = 0;
         }
         Manager.GetInst().MoveCamPosToTile(Players[CurTurnIdx].CurHex);
+      
     }
     void OnGUI()
     {
