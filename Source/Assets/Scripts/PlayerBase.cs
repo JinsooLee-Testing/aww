@@ -6,7 +6,8 @@ public enum ACT
     IDLE,
     MOVEHILIGHT,
     MOVING,
-    ATTACKHIGHLIGHT
+    ATTACKHIGHLIGHT,
+    ATTACKENABLE
 }
 public class PlayerBase : MonoBehaviour {
     public PlayerStatus status;

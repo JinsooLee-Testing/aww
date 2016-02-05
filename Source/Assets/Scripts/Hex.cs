@@ -57,8 +57,13 @@ public class Hex : MonoBehaviour {
 	// Use this for initialization
     void Start()
     {
-        matid = 1;
-        GetComponent<Renderer>().material = mat1;
+        
+        if (matid == 1)
+            GetComponent<Renderer>().material = mat1;
+        if (matid == 2)
+            GetComponent<Renderer>().material = mat2;
+        if (matid == 3)
+            GetComponent<Renderer>().material = mat3;
         
     }
     
@@ -72,7 +77,7 @@ public class Hex : MonoBehaviour {
             GetComponent<Renderer>().material = mat3;
         }
 
-
+  
 	}
  
     public void SetMapPos(Point pos)
@@ -86,12 +91,12 @@ public class Hex : MonoBehaviour {
         if (on == 1)
         {
 
-            GetComponent<Renderer>().material.color = Color.blue;
+            GetComponent<Renderer>().material.color = Color.yellow;
         }
         else if (on==2)
         {
 
-            GetComponent<Renderer>().material.color = Color.yellow;
+            GetComponent<Renderer>().material.color = Color.blue;
         }
         else if(on==4)
         {
@@ -107,17 +112,12 @@ public class Hex : MonoBehaviour {
     public void SetMat(int id)
     {
         matid = id;
-        if (matid == 1)
-            GetComponent<Renderer>().material = mat1;
-        if (matid == 2)
-            GetComponent<Renderer>().material = mat2;
-        if (matid == 3)
-            GetComponent<Renderer>().material = mat3;
+
 
     }
     public void SetMapPos(int x,float y,int z)
     {
-        MapPos = new Point(x, y+0.5f, z);
+        MapPos = new Point(x, y, z);
     }
     void OnMouseDown()
     {

@@ -64,13 +64,13 @@ public class AIthink  {
         {
             List<Hex> path = mm.GetPath(aiplayer.CurHex, nearUserPlayer.CurHex);
 
-            if (path.Count > aiplayer.status.MoveRange) 
+            if (path.Count > aiplayer.status.MoveRange)
             {
                 path.RemoveRange(aiplayer.status.MoveRange, path.Count - aiplayer.status.MoveRange);
-                
+
             }
             aiplayer.MoveHexes = path;
-            if(nearUserPlayer.CurHex.MapPos==aiplayer.MoveHexes[aiplayer.MoveHexes.Count-1].MapPos)
+            if (nearUserPlayer.CurHex.MapPos == aiplayer.MoveHexes[aiplayer.MoveHexes.Count - 1].MapPos)
             {
                 aiplayer.MoveHexes.RemoveAt(aiplayer.MoveHexes.Count - 1);
             }

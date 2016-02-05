@@ -36,9 +36,11 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
 
     public float HexW; //Awake에서 설정
     public float HexH; //Awake
+    public float BoxH; //Awake
     public int MapSizeX;
     public int MapSizeY;
     public int MapSizeZ;
+   
     List<Path> OpenList;
     List<Path> ClosedList;
     public Point[] Dirs;
@@ -75,7 +77,7 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
     // Update is called once per frame
 	void Start () {
         inst = this;
-    
+   
 	}
 
 	void Update () {
@@ -85,16 +87,18 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
     {
         HexW = GO_hex.GetComponent<Renderer>().bounds.size.x;
         HexH = GO_hex.GetComponent<Renderer>().bounds.size.z;
+        BoxH = GO_hex.GetComponent<Renderer>().bounds.size.y;
     }
   
     public Vector3 GetWorldPos(int x,int y, int z)
     {
-        float X, Z;
+        float X, Y,Z;
        // X=x*HexW+(z*HexW*0.5f);
         //Z=(-z)*HexH*(0.75f);
         X = x * HexW;
+        Y = y * BoxH;
         Z = (z) * HexH;
-        return new Vector3(X, 0, Z);
+        return new Vector3(X, Y, Z);
     }
    
     public void CreateMap()
@@ -131,11 +135,37 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                 Map[x][y] = new Hex[MapSizeZ+1];
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
+                        if(x==0|| z==0 ||x==MapSizeX||z==MapSizeZ )
+                        {
+                        
+                            Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                            Map[x][y][z].matid = 2;
+                           
+                            Vector3 pos = GetWorldPos(x, y, z);
+                            Map[x][y][z].transform.position = pos;
+                            Map[x][y][z].SetMapPos(x, y, z);
+                        }
+                        else if(x>5&&x<10 &&z>5&&z<10)
+                        {
+                              Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                            Map[x][y][z].matid = 3;
+                            Vector3 pos = GetWorldPos(x, 0, z);
+                            Map[x][y][z].transform.position = pos;
+                            Map[x][y][z].SetMapPos(x, 0, z);
 
-                        Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
-                        Vector3 pos = GetWorldPos(x, y, z);
-                        Map[x][y][z].transform.position = pos;
-                        Map[x][y][z].SetMapPos(x, y, z);
+                        }
+                        else
+                        {
+                      
+                            Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                            Map[x][y][z].matid = 1;
+                            Vector3 pos = GetWorldPos(x, 0, z);
+                            Map[x][y][z].transform.position = pos;
+                            Map[x][y][z].SetMapPos(x, 0, z);
+                        }
+                    
+                    
+                    
                 }
             }
         }
@@ -162,12 +192,12 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                         //헥사곤 상의 셀과 셀간의 공식
                         
                         if(distance<=moveRange && distance!=0)
-                        {
+                        {//
                            // if (IsReachAble(start, Map[x][y][z], moveRange))
-                            //{
+                           // {
                                 Map[x][y][z].SetColor(1);                         
                                highLighedCount++;
-                          // }
+                         //  }
   
                         }
 
@@ -201,7 +231,7 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                         //헥사곤 상의 셀과 셀간의 공식
                         if (distance <= AtkRange && distance != 0)
                         {
-                            /*
+                            Map[x][y][z].SetColor(4);
                             bool isExit = false;
                             foreach(PlayerBase pb in pm.Players)
                             {
@@ -211,16 +241,16 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                                     break;
                                 }
                             }
-                             * */
-                            //if(isExit==true)
-                            //{
-                               // if (IsReachAble(start, Map[x][y][z], AtkRange))
-                               // {
-                                    Map[x][y][z].SetColor(4);
+                            
+                            if(isExit==true)
+                            {
+                               //if (IsReachAble(start, Map[x][y][z], AtkRange))
+                               //{
+                                    
                                     highLighedCount++;
-                                //}
+                               //}
 
-                          //  }
+                           }
 
                         }
 
@@ -265,6 +295,7 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
         ClosedList = new List<Path>();
         List<Hex> rtnVal = new List<Hex>();
         int H = (int)(MapManager.GetInst().GetDistance(start, dest));
+        
         Path startPath = new Path(null, start, 0, H);
         ClosedList.Add(startPath);
         Path result = Recursive_FindPath(startPath, dest);
