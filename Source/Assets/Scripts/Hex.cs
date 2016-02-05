@@ -3,7 +3,7 @@ using System.Collections;
 public class Point
 {
     int X;
-    int Y;
+    float Y;
     int Z;
     public int GetX()
     {
@@ -11,13 +11,13 @@ public class Point
     }
     public int GetY()
     {
-        return Y;
+        return (int)Y;
     }
     public int GetZ()
     {
         return Z;
     }
-    public Point(int x,int y ,int z)
+    public Point(int x, float y, int z)
     {
         X = x;
         Y = y;
@@ -59,7 +59,7 @@ public class Hex : MonoBehaviour {
     {
         matid = 1;
         GetComponent<Renderer>().material = mat1;
- 
+        
     }
     
 	// Update is called once per frame
@@ -78,6 +78,7 @@ public class Hex : MonoBehaviour {
     public void SetMapPos(Point pos)
     {
         MapPos = pos;
+        
     }
 
     public void SetColor(int on)
@@ -114,9 +115,9 @@ public class Hex : MonoBehaviour {
             GetComponent<Renderer>().material = mat3;
 
     }
-    public void SetMapPos(int x,int y,int z)
+    public void SetMapPos(int x,float y,int z)
     {
-        MapPos = new Point(x, y, z);
+        MapPos = new Point(x, y+0.5f, z);
     }
     void OnMouseDown()
     {

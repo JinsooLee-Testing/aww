@@ -42,7 +42,7 @@ public class AIPlayer : PlayerBase
             if (distance > 0.1f) //이동중
             {
                 transform.position += (nextHex.transform.position - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
-
+                transform.rotation = Quaternion.LookRotation((nextHex.transform.position - transform.position).normalized);
             }
             else //다음 목표 hex에 도착함
             {

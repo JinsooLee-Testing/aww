@@ -17,6 +17,7 @@ public class PlayerBase : MonoBehaviour {
     {
         act = ACT.IDLE;
         status = new PlayerStatus();
+        
     }
 	void Start () {
 	}
