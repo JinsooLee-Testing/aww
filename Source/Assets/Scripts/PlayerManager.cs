@@ -65,6 +65,7 @@ public class PlayerManager : MonoBehaviour {
                 if (pb.MoveHexes.Count == 0)
                     return;
                 pb.act = ACT.MOVING;
+
                //  Players[CurTurnIdx].transform.position = dest.transform.position;
                // Players[CurTurnIdx].CurHex = dest;
                // TurnOver();
@@ -102,6 +103,7 @@ public class PlayerManager : MonoBehaviour {
         if(btn==1)
         {
             //step - aI일때는 리턴
+        
             PlayerBase pb = Players[CurTurnIdx];
             if(pb is AIPlayer)
             {
@@ -111,13 +113,15 @@ public class PlayerManager : MonoBehaviour {
             ACT act = Players[CurTurnIdx].act;
             if(act==ACT.IDLE)
             {
+                MapManager.GetInst().ResetMapColor();
                 return;
             }
             //step2 attack 무브일떄 하이라이트 초기화 
             if (act == ACT.MOVEHILIGHT||act==ACT.ATTACKHIGHLIGHT)
             {
-                Players[CurTurnIdx].act = ACT.IDLE;
                 MapManager.GetInst().ResetMapColor();
+                Players[CurTurnIdx].act = ACT.IDLE;
+                
                 return;
             }
         }

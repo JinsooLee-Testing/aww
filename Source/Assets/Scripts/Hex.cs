@@ -57,14 +57,24 @@ public class Hex : MonoBehaviour {
 	// Use this for initialization
     void Start()
     {
-        
+
         if (matid == 1)
+        {
             GetComponent<Renderer>().material = mat1;
+            Passable = true;
+        }
+
         if (matid == 2)
+        {
             GetComponent<Renderer>().material = mat2;
+            Passable = false;
+        }
         if (matid == 3)
+        {
             GetComponent<Renderer>().material = mat3;
-        
+            Passable = false;
+        }
+       
     }
     
 	// Update is called once per frame
@@ -96,7 +106,8 @@ public class Hex : MonoBehaviour {
         else if (on==2)
         {
 
-            GetComponent<Renderer>().material.color = Color.blue;
+            GetComponent<Renderer>().material = mat2;
+            Passable = false;
         }
         else if(on==4)
         {
@@ -124,21 +135,24 @@ public class Hex : MonoBehaviour {
         PlayerManager pm = PlayerManager.GetInst();
         PlayerBase pb = pm.Players[pm.CurTurnIdx];
         Debug.Log(MapPos + "OnMouseDown");
+        
         if(pb.act==ACT.IDLE)
         {
             if(Passable==true)
             {
-                GetComponent<Renderer>().material.color = Color.yellow;
-                GetComponent<Renderer>().material = mat2;
+                GetComponent<Renderer>().material = mat2;   
                 onto = 2;
+                matid = 2;
+                Passable = false;
             }
             else
             {
-                GetComponent<Renderer>().material.color = Color.white;
-                GetComponent<Renderer>().material = mat1;
+                GetComponent<Renderer>().material = mat1;     
                 onto = 3;
+                matid = 1;
+                Passable = true;
             }
-            Passable=!Passable;
+            
         }
         else if(pb.act==ACT.MOVEHILIGHT)
         {

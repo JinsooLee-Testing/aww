@@ -145,13 +145,18 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                             Map[x][y][z].transform.position = pos;
                             Map[x][y][z].SetMapPos(x, y, z);
                         }
-                        else if(x>5&&x<10 &&z>5&&z<10)
+                        else if(x>5&&x<15 &&z>5&&z<15)
                         {
                               Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                             if (x == 6 || z == 6 || x == 14 || z == 14)
+                             {
+                                 Map[x][y][z].matid = 2;
+                             }
+                             else
                             Map[x][y][z].matid = 3;
-                            Vector3 pos = GetWorldPos(x, 0, z);
+                            Vector3 pos = GetWorldPos(x, y, z);
                             Map[x][y][z].transform.position = pos;
-                            Map[x][y][z].SetMapPos(x, 0, z);
+                            Map[x][y][z].SetMapPos(x, y, z);
 
                         }
                         else
@@ -193,11 +198,11 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                         
                         if(distance<=moveRange && distance!=0)
                         {//
-                           // if (IsReachAble(start, Map[x][y][z], moveRange))
-                           // {
+                           //if (IsReachAble(start, Map[x][y][z], moveRange))
+                            //{
                                 Map[x][y][z].SetColor(1);                         
                                highLighedCount++;
-                         //  }
+                           //}
   
                         }
 
@@ -395,6 +400,18 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
 
     public Hex GetHex(int x, int y, int z)
     {
+        if (x < 0)
+            x = 0;
+        if (y < 0)
+            y = 0;
+        if (z < 0)
+            z = 0;
+        if (x > MapSizeX)
+            x = MapSizeX;
+        if (y > MapSizeY)
+            y = MapSizeY;
+        if (z > MapSizeZ)
+            z = MapSizeZ;
           return Map[x][y][z];
     }
     public void SetHexColor(Hex hex,Color color)

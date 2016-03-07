@@ -11,6 +11,7 @@ public enum ACT
 }
 public class PlayerBase : MonoBehaviour {
     public PlayerStatus status;
+    public Animator anim;
     public Hex CurHex;
     public ACT act;
     public List<Hex> MoveHexes;
@@ -18,6 +19,7 @@ public class PlayerBase : MonoBehaviour {
     {
         act = ACT.IDLE;
         status = new PlayerStatus();
+  
         
     }
 	void Start () {

@@ -3,11 +3,13 @@ using System.Collections;
 
 public class UserPlayer : PlayerBase
 {
-
+    
     void Awake()
     {
+        anim = GetComponent<Animator>();
         act = ACT.IDLE;
         status = new PlayerStatus();
+      
     }
     void Start()
     {
@@ -18,18 +20,20 @@ public class UserPlayer : PlayerBase
         PlayerManager pm = PlayerManager.GetInst();
        if(act==ACT.IDLE)
        {
-           if (pm.Players[pm.CurTurnIdx] == this)
+            anim.SetBool("running", false);
+            if (pm.Players[pm.CurTurnIdx] == this)
            {
                MapManager.GetInst().SetHexColor(CurHex, Color.black);
            }
        }
         if (act == ACT.MOVING)
         {//이동처리
+            anim.SetBool("running",true);
             Hex nextHex = MoveHexes[0];
             float distance = Vector3.Distance(transform.position, nextHex.transform.position);
             if (distance > 0.1f) //이동중
             {
-                
+                anim.SetBool("running", true);
                 transform.position += (nextHex.transform.position - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
                 transform.rotation = Quaternion.LookRotation((nextHex.transform.position - transform.position).normalized);
             }
@@ -68,7 +72,7 @@ public class UserPlayer : PlayerBase
         {
             Debug.Log("Attack");
 
-            if (MapManager.GetInst().HilightAttackRange(CurHex, 1))
+            if (MapManager.GetInst().HilightAttackRange(CurHex, status.attackRange))
             {
                 act = ACT.ATTACKHIGHLIGHT;
             }
@@ -77,12 +81,8 @@ public class UserPlayer : PlayerBase
          if (GUI.Button(rect, "Turn Over"))
         {
             Debug.Log("Turn Over");
+           PlayerManager.GetInst().TurnOver();
             
-            if (MapManager.GetInst().HilightAttackRange(CurHex, 1))
-            {
-                act = ACT.ATTACKHIGHLIGHT;
-                PlayerManager.GetInst().TurnOver();
-            }
         }
     }
     
