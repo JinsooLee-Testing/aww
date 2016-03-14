@@ -35,7 +35,7 @@ public class AIthink  {
         }
         if(nearUserPlayer!=null)
         {
-            nearUserPlayer.GetDamage(35);
+            nearUserPlayer.GetDamage(15);
             Debug.Log("AIPlayer Attack!!");
         }
         pm.TurnOver();

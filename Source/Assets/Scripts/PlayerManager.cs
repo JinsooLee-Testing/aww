@@ -32,21 +32,26 @@ public class PlayerManager : MonoBehaviour {
     public void GenPlayerTest()
     {
         UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
-        Hex hex = MapManager.GetInst().GetPlayerHex(8, 0, 2);
+        Hex hex = MapManager.GetInst().GetPlayerHex(0, 0, 0);
         userplayer.CurHex = hex;
         userplayer.transform.position = userplayer.CurHex.transform.position;
         Players.Add(userplayer);
-
+        /*
         userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
          hex = MapManager.GetInst().GetPlayerHex(8, 0, 5);
         userplayer.CurHex = hex;
         userplayer.transform.position = userplayer.CurHex.transform.position;
         Players.Add(userplayer);
-
+        */
         AIPlayer aiplayer = ((GameObject)Instantiate(GO_aiplayer)).GetComponent<AIPlayer>();
-        hex = MapManager.GetInst().GetPlayerHex(2, 0, 8);
+        hex = MapManager.GetInst().GetPlayerHex(1, 0, 8);
         aiplayer.CurHex = hex;
-        aiplayer.transform.position = aiplayer.CurHex.transform.position;
+        Vector3 p = aiplayer.CurHex.transform.position;
+        p.y = 1;
+
+        aiplayer.transform.position = p;
+       
+       
         Players.Add(aiplayer);
     }
     public void MovePlayer(Hex start,Hex dest)

@@ -5,6 +5,10 @@ public class Point
     int X;
     float Y;
     int Z;
+    public void SetY(float y)
+    {
+        Y = y;
+    }
     public int GetX()
     {
         return X;
