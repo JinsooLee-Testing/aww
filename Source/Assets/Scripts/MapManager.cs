@@ -135,6 +135,7 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                 Map[x][y] = new Hex[MapSizeZ+1];
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
+                    /*
                         if(x==0|| z==0 ||x==MapSizeX||z==MapSizeZ )
                         {
                         
@@ -145,29 +146,31 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                             Map[x][y][z].transform.position = pos;
                             Map[x][y][z].SetMapPos(x, y, z);
                         }
-                        else if(x>5&&x<15 &&z>5&&z<15)
-                        {
-                              Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
-                             if (x == 6 || z == 6 || x == 14 || z == 14)
-                             {
-                                 Map[x][y][z].matid = 2;
-                             }
-                             else
-                            Map[x][y][z].matid = 3;
-                            Vector3 pos = GetWorldPos(x, y, z);
-                            Map[x][y][z].transform.position = pos;
-                            Map[x][y][z].SetMapPos(x, y, z);
+                    
+                    else if(x>5&&x<15 &&z>5&&z<15)
+                    {
 
-                        }
-                        else
-                        {
+                          Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                         if (x == 6 || z == 6 || x == 14 || z == 14)
+                         {
+                             Map[x][y][z].matid = 2;
+                         }
+                         else
+                        Map[x][y][z].matid = 3;
+                        Vector3 pos = GetWorldPos(x, y, z);
+                        Map[x][y][z].transform.position = pos;
+                        Map[x][y][z].SetMapPos(x, y, z);
                       
+
+                }
+                  */
+             
                             Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
                             Map[x][y][z].matid = 1;
                             Vector3 pos = GetWorldPos(x, 0, z);
                             Map[x][y][z].transform.position = pos;
                             Map[x][y][z].SetMapPos(x, 0, z);
-                        }
+                        
                     
                     
                     

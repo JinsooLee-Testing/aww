@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class AIPlayer : PlayerBase
 {
-
+    
     void Awake()
     {
         act = ACT.IDLE;
@@ -19,6 +20,7 @@ public class AIPlayer : PlayerBase
      
         if(act==ACT.IDLE)
         {
+          
             if (pm.Players[pm.CurTurnIdx] == this)
             {
                 MapManager.GetInst().SetHexColor(CurHex, Color.black);
@@ -41,12 +43,17 @@ public class AIPlayer : PlayerBase
             float distance = Vector3.Distance(transform.position, nextHex.transform.position);
             if (distance > 0.1f) //이동중
             {
-                transform.position += (nextHex.transform.position - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
+
+                
+                transform.position += (nextHex.transform.position - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;    
                 transform.rotation = Quaternion.LookRotation((nextHex.transform.position - transform.position).normalized);
+              
             }
             else //다음 목표 hex에 도착함
             {
-                transform.position = nextHex.transform.position;
+                Vector3 v = nextHex.transform.position;
+                v.y = 1.0f;
+                transform.position = v;
                 MoveHexes.RemoveAt(0);
                 if (MoveHexes.Count == 0)//최종 dest
                 {

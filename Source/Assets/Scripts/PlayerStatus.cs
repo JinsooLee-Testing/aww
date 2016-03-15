@@ -7,7 +7,7 @@ public class PlayerStatus
     public int MoveRange = 3;
     public float MoveSpeed = 5.0f;
     public int attackRange = 1;
-    public int Curhp = 100;
+    public int Curhp = 150;
 
 
     public PlayerStatus()

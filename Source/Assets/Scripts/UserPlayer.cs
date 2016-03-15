@@ -56,8 +56,8 @@ public class UserPlayer : PlayerBase
     public override void DrawCommand()
     {
         float btnW = 100f;
-        float btnH = 25f;
-        Rect rect = new Rect(0, Screen.height / 2, btnW, btnH);
+        float btnH = 75f;
+        Rect rect = new Rect(0, Screen.height/2+100, btnW, btnH);
         if (GUI.Button(rect, "Move"))
         {
             Debug.Log("Move");
@@ -67,7 +67,7 @@ public class UserPlayer : PlayerBase
                 act = ACT.MOVEHILIGHT;
             }
         }
-        rect = new Rect(0, (Screen.height / 2) + 20, btnW, btnH);
+        rect = new Rect(100, (Screen.height / 2 + 100), btnW, btnH);
         if (GUI.Button(rect, "Attack"))
         {
             Debug.Log("Attack");
@@ -77,7 +77,7 @@ public class UserPlayer : PlayerBase
                 act = ACT.ATTACKHIGHLIGHT;
             }
         }
-         rect = new Rect(0, (Screen.height / 2) + 40, btnW, btnH);
+         rect = new Rect(200,(Screen.height / 2 + 100), btnW , btnH);
          if (GUI.Button(rect, "Turn Over"))
         {
             Debug.Log("Turn Over");
