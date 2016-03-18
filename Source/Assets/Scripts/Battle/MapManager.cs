@@ -47,15 +47,15 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
     // Use this for initialization
     public void initDirs()
     {
-        Dirs = new Point[8];
+        Dirs = new Point[4];
         Dirs[0] = new Point(+1, 0, 0); //right
-        Dirs[1] = new Point(1, 0, 1);  //up right
-        Dirs[2] = new Point(-1, 0, 1);  //up left
-        Dirs[3] = new Point(-1, 0, 0);  //left
-        Dirs[4] = new Point(-1, 0, -1);  //down left
-        Dirs[5] = new Point(1, 0, -1);  //down right
-        Dirs[6] = new Point(0, 0, -1);  //down 
-        Dirs[7] = new Point(0, 0, 1);  //up
+       // Dirs[1] = new Point(1, 0, 1);  //up right
+       // Dirs[2] = new Point(-1, 0, 1);  //up left
+        Dirs[1] = new Point(-1, 0, 0);  //left
+      //  Dirs[4] = new Point(-1, 0, -1);  //down left
+       // Dirs[5] = new Point(1, 0, -1);  //down right
+        Dirs[2] = new Point(0, 0, -1);  //down 
+        Dirs[3] = new Point(0, 0, 1);  //up
 
 
     }
@@ -164,15 +164,13 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
 
                 }
                   */
-             
-                            Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
-                            Map[x][y][z].matid = 1;
-                            Vector3 pos = GetWorldPos(x, 0, z);
-                            Map[x][y][z].transform.position = pos;
-                            Map[x][y][z].SetMapPos(x, 0, z);
-                        
-                    
-                    
+
+                        Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                        Map[x][y][z].matid = 1;
+                        Vector3 pos = GetWorldPos(x, 0, z);
+                        Map[x][y][z].transform.position = pos;
+                        Map[x][y][z].SetMapPos(x, 0, z);
+   
                     
                 }
             }
@@ -201,11 +199,11 @@ public class MapManager : MonoBehaviour { //todo; 이거 싱글톤으로
                         
                         if(distance<=moveRange && distance!=0)
                         {//
-                           //if (IsReachAble(start, Map[x][y][z], moveRange))
-                            //{
+                           if (IsReachAble(start, Map[x][y][z], moveRange))
+                            {
                                 Map[x][y][z].SetColor(1);                         
                                highLighedCount++;
-                           //}
+                           }
   
                         }
 

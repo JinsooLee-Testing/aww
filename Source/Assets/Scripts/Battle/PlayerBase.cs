@@ -29,7 +29,9 @@ public class PlayerBase : MonoBehaviour {
         if (act == ACT.MOVING)
         {//이동처리
             Hex nextHex = MoveHexes[0];
-            float distance=Vector3.Distance(transform.position,nextHex.transform.position);
+            Vector3 v = nextHex.transform.position;
+            v.y = 1.0f;
+            float distance=Vector3.Distance(transform.position,v);
             if(distance>0.1f) //이동중
             {
                 transform.position += (nextHex.transform.position - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;

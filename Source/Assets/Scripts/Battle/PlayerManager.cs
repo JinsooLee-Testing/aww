@@ -35,7 +35,9 @@ public class PlayerManager : MonoBehaviour {
         UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
         Hex hex = MapManager.GetInst().GetPlayerHex(0, 0, 0);
         userplayer.CurHex = hex;
-        userplayer.transform.position = userplayer.CurHex.transform.position;
+        Vector3 v = userplayer.CurHex.transform.position;
+        v.y = 1.5f;
+        userplayer.transform.position = v;
         Players.Add(userplayer);
         /*
         userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
