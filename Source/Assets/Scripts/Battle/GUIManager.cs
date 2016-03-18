@@ -5,6 +5,7 @@ public class GUIManager : MonoBehaviour {
     private static GUIManager inst = null;
     private PlayerManager pm = null;
     public bool battle = false;
+    public bool small = false;
     void Awake()
     {
         inst = this;
