@@ -49,7 +49,9 @@ public class AIPlayer : PlayerBase
                 
                 transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;    
                 transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
-              
+                Vector3 r = transform.rotation.eulerAngles;
+                r.y -= 90;
+                transform.rotation = Quaternion.Euler(r);
             }
             else //다음 목표 hex에 도착함
             {
