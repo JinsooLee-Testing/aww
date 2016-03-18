@@ -96,6 +96,7 @@ public class Hex : MonoBehaviour {
  
     public void SetMapPos(Point pos)
     {
+         pos.SetY((float)1);
         MapPos = pos;
         
     }
@@ -130,6 +131,7 @@ public class Hex : MonoBehaviour {
 
 
     }
+
     public void SetMapPos(int x,float y,int z)
     {
         MapPos = new Point(x, y, z);

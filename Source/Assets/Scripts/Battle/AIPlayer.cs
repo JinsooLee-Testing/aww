@@ -40,18 +40,22 @@ public class AIPlayer : PlayerBase
 
             }
             Hex nextHex = MoveHexes[0];
-            float distance = Vector3.Distance(transform.position, nextHex.transform.position);
+            Vector3 v = nextHex.transform.position;
+            v.y = 1.0f;
+            float distance = Vector3.Distance(transform.position, v);
             if (distance > 0.1f) //이동중
             {
 
                 
-                transform.position += (nextHex.transform.position - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;    
-                transform.rotation = Quaternion.LookRotation((nextHex.transform.position - transform.position).normalized);
-              
+                transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;    
+                transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
+                Vector3 r = transform.rotation.eulerAngles;
+                r.y -= 90;
+                transform.rotation = Quaternion.Euler(r);
             }
             else //다음 목표 hex에 도착함
             {
-                Vector3 v = nextHex.transform.position;
+                v = nextHex.transform.position;
                 v.y = 1.0f;
                 transform.position = v;
                 MoveHexes.RemoveAt(0);

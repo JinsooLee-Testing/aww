@@ -6,6 +6,7 @@ public class Manager : MonoBehaviour {
     MapManager mm;
     PlayerManager pm;
     GUIManager gm;
+
     public static Manager GetInst()
     {
         return inst;
@@ -16,6 +17,7 @@ public class Manager : MonoBehaviour {
         mm = MapManager.GetInst();
         pm = PlayerManager.GetInst();
         gm = GUIManager.GetInst();
+
     }
 	// Use this for initialization
 	void Start () {
@@ -54,6 +56,7 @@ public class Manager : MonoBehaviour {
         {
             Debug.Log("Mouse1Down");
             pm.MouseInputProc(1);
+
         }
         
     }
@@ -62,6 +65,6 @@ public class Manager : MonoBehaviour {
         float destX = hex.transform.position.x;
         float destZ = hex.transform.position.z;
 
-        GetComponent<Camera>().transform.position = new Vector3(destX, GetComponent<Camera>().transform.position.y, destZ);
+     //   GetComponent<Camera>().transform.position = new Vector3(destX, GetComponent<Camera>().transform.position.y, destZ);
     }
 }
