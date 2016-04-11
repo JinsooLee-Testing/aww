@@ -23,12 +23,7 @@ public class ui : MonoBehaviour {
         if (GUI.Button(rect, ""))
         {
             
-            if(gm.battle==true)
-            gm.battle = false;
-            else
-            {
-                gm.battle = true;
-            }
+
         }
     }
 }

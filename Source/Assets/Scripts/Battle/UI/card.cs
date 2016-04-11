@@ -5,12 +5,17 @@ public class card : MonoBehaviour {
     GUIManager gm;
     public GameObject GO_Card;
     // Use this for initialization
+    void Awake()
+    {
+        gm = GUIManager.GetInst();
+    }
     void Start () {
-  gm = GUIManager.GetInst();
+         
     }
 	
 	// Update is called once per frame
 	void Update () {
+        
         if (gm.small == false)
         {
             Vector3 v;
@@ -31,6 +36,7 @@ public class card : MonoBehaviour {
             transform.localScale = v;
 
         }
+        
     }
     void OnGUI()
     {
