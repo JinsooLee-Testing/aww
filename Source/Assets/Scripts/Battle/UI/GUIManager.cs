@@ -47,7 +47,8 @@ public class GUIManager : MonoBehaviour {
         int cmdCnt = 3;
         float btnW = 100;
         float btnH = 200;
-     
+
+        /*
         GUILayout.BeginArea(new Rect(Screen.width - cmdW, Screen.height - cmdCnt * btnH, cmdW, cmdCnt * btnH), GUI.skin.window);
         Rect rect = new Rect(0, Screen.height / 2 + 100, btnW, btnH);
         if (GUILayout.Button("Move", GUILayout.Height(100)))
@@ -79,7 +80,8 @@ public class GUIManager : MonoBehaviour {
             SceneManager.LoadScene(0);
         }
         GUILayout.EndArea();
-        
+        */
+
     }
 
 }

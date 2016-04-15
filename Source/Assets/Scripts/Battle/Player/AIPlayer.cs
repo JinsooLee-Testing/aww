@@ -9,11 +9,13 @@ public class AIPlayer : PlayerBase
     {
         act = ACT.IDLE;
         status = new PlayerStatus();
+       
         main_char = false;
         live = true;
     }
     void Start()
     {
+        
     }
     // Update is called once per frame
     void Update()
@@ -90,9 +92,18 @@ public class AIPlayer : PlayerBase
     {
         PlayerManager pm = PlayerManager.GetInst();
         PlayerBase pb = pm.Players[pm.CurTurnIdx];
+        BattleManager bm = BattleManager.GetInst();
         if (pm.Players[pm.CurTurnIdx].act==ACT.ATTACKHIGHLIGHT)
         {
-            BattleManager.GetInst().AttackAtoB(pb, this);
+
+            pb.transform.rotation = Quaternion.LookRotation((this.CurHex.transform.position - pb.transform.position).normalized);
+            Vector3 r = transform.rotation.eulerAngles;
+            r.y -= 90;
+            pb.transform.rotation = Quaternion.Euler(r);
+            //a.anim.SetBool("Attack",true);
+            pb.act = ACT.ATTACKING;
+            this.GetDamage(80);
+            PlayerManager.GetInst().TurnOver();
         }
 
     }

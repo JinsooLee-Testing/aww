@@ -37,6 +37,7 @@ public class BattleManager:MonoBehaviour {
 	}
     public void AttackAtoB(PlayerBase a,PlayerBase b)
     {
+       
         a.transform.rotation=Quaternion.LookRotation((b.CurHex.transform.position-a.transform.position).normalized);
         Vector3 r = transform.rotation.eulerAngles;
         r.y -= 90;
@@ -44,7 +45,7 @@ public class BattleManager:MonoBehaviour {
         //a.anim.SetBool("Attack",true);
         a.act = ACT.ATTACKING;
         normalAttackTime = Time.smoothDeltaTime;
-        attacker = a;
+         attacker = a;
         defender = b;
     }
 }

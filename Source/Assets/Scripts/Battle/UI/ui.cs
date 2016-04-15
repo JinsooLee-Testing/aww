@@ -1,29 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ui : MonoBehaviour {
+public class ui : MonoBehaviour
+{
 
+    private PlayerManager pm = null;
     GUIManager gm;
+    public string act = "IDLE";
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         gm = GUIManager.GetInst();
+        pm = PlayerManager.GetInst();
     }
-    void Update () {
-       // CheckMouseButtonDown();
-
-    }
-    void OnGUI()
+    void Update()
     {
-        float btnW = 200f;
-        float btnH = 200f;
-        GUI.color = Color.white;
-        Rect rect = new Rect(10, (Screen.height / 2 +370), btnW, btnH);
-        
-        if (GUI.Button(rect, ""))
-        {
-            
+        // CheckMouseButtonDown();
 
+    }
+    void OnMouseDown()
+    {
+        if (act == "move")
+        {
+            Debug.Log("move");
+            PlayerBase pb = pm.Players[pm.CurTurnIdx];
+            if (MapManager.GetInst().HilightMoveRange(pb.CurHex, pb.status.MoveRange))
+            {
+                pm.Players[pm.CurTurnIdx].act = ACT.MOVEHILIGHT;
+            }
+
+        }
+        if (act == "attack")
+        {
+            Debug.Log("Attack");
+            PlayerBase pb = pm.Players[pm.CurTurnIdx];
+            if (MapManager.GetInst().HilightAttackRange(pb.CurHex, pb.status.attackRange))
+            {
+                pm.Players[pm.CurTurnIdx].act = ACT.ATTACKHIGHLIGHT;
+            }
         }
     }
 }

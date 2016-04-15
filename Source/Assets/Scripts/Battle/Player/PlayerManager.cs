@@ -52,6 +52,16 @@ public class PlayerManager : MonoBehaviour {
 	void Update () {
         CheckTurnOver();
 	}
+    public void GenPlayer(int x,int z)
+    {
+        UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
+        Hex hex = MapManager.GetInst().GetPlayerHex(1, 0, 1);
+        userplayer.CurHex = hex;
+        Vector3 v = userplayer.CurHex.transform.position;
+        v.y = 1.0f;
+        userplayer.transform.position = v;
+        Players.Add(userplayer);
+    }
     public void GenPlayerTest()
     {
         UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();

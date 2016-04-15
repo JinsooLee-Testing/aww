@@ -3,7 +3,9 @@ using System.Collections;
 
 public class card : MonoBehaviour {
     GUIManager gm;
+   
     public GameObject GO_Card;
+    string act = "Idle";
     // Use this for initialization
     void Awake()
     {
@@ -12,51 +14,24 @@ public class card : MonoBehaviour {
     void Start () {
          
     }
-	
 	// Update is called once per frame
-	void Update () {
-        
-        if (gm.small == false)
+	void Update () {      
+        if(act=="put")
         {
-            Vector3 v;
-            v.x = 1;
-            v.y = 1;
-            v.z = 1;
-            transform.localScale = v;
-
-        }
-        else
-        {
-
-            Vector3 v;
-            v.x = 0.7f;
-            v.y = 0.7f;
-            v.z = 0.7f;
-            //v.z = 0;
-            transform.localScale = v;
-
+            Vector3 v = transform.position;
+            v.y += 15;
+            transform.position += (v - transform.position).normalized  * 5*Time.smoothDeltaTime;
+            
         }
         
     }
-    void OnGUI()
+    void OnMouseDown()
     {
-        float btnW = 200f;
-        float btnH = 200f;
-        GUI.color = Color.white;
-        Rect rect = new Rect(780, (Screen.height / 2 + 500), btnW, btnH);
+        PlayerManager pm = PlayerManager.GetInst();
+        Debug.Log("card");
+        act = "put";
+        pm.GenPlayer(0, 1);
 
-        if (GUI.Button(rect, ""))
-        {
-            if (gm.small == false)
-            {
-                gm.small = true;
-            }
-            else
-            {
-                gm.small = false;
-
-            }
-
-        }
     }
+
 }
