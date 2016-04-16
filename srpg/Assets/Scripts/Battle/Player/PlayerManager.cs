@@ -71,7 +71,7 @@ public class PlayerManager : MonoBehaviour {
     public void GenPlayerTest()
     {
         UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
-        Hex hex = MapManager.GetInst().GetPlayerHex(0, 0, 0);
+        Hex hex = MapManager.GetInst().GetPlayerHex(5, 0, 0);
         userplayer.CurHex = hex;
         Vector3 v = userplayer.CurHex.transform.position;
         v.y = 1.0f;
