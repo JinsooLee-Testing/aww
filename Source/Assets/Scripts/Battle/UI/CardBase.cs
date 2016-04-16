@@ -6,6 +6,7 @@ public class CardBase : MonoBehaviour {
    
     public GameObject GO_Card;
     string act = "Idle";
+    public Point MapPos;
     // Use this for initialization
     void Awake()
     {
@@ -24,6 +25,12 @@ public class CardBase : MonoBehaviour {
             
         }
         
+    }
+
+    // Use this for initialization
+    public void SetMapPos(int x, float y)
+    {
+        MapPos = new Point(x, y, 0);
     }
     void OnMouseDown()
     {
