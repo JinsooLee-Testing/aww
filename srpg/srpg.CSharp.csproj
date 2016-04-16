@@ -63,8 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Animal Friends\Scripts\ModelRotate.cs" />
-    <Compile Include="Assets\Animal Friends\Scripts\VoxelModel1Manager.cs" />
     <Compile Include="Assets\Scripts\Battle\Manager.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\Hex.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\MapManager.cs" />
@@ -82,6 +80,8 @@
     <Compile Include="Assets\Scripts\CardPage\CardLoadManager.cs" />
     <Compile Include="Assets\Scripts\MainTitle\BattleStart.cs" />
     <Compile Include="Assets\Scripts\MainTitle\MainTitle.cs" />
+    <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\ModelRotate.cs" />
+    <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\VoxelModel1Manager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\reference\큐비클모델\ani_list.txt" />
