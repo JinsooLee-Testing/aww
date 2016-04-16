@@ -43,44 +43,6 @@ public class GUIManager : MonoBehaviour {
     public void DrawCommand(PlayerBase pb)
     {
 
-        float cmdW = 300;
-        int cmdCnt = 3;
-        float btnW = 100;
-        float btnH = 200;
-
-        /*
-        GUILayout.BeginArea(new Rect(Screen.width - cmdW, Screen.height - cmdCnt * btnH, cmdW, cmdCnt * btnH), GUI.skin.window);
-        Rect rect = new Rect(0, Screen.height / 2 + 100, btnW, btnH);
-        if (GUILayout.Button("Move", GUILayout.Height(100)))
-        {
-            Debug.Log("Move");
-
-            if (MapManager.GetInst().HilightMoveRange(pb.CurHex, pb.status.MoveRange))
-            {
-                pb.act = ACT.MOVEHILIGHT;
-            }
-        }
-        if (GUILayout.Button("Attack", GUILayout.Height(100)))
-        {
-            Debug.Log("Attack");
-
-            if (MapManager.GetInst().HilightAttackRange(pb.CurHex, pb.status.attackRange))
-            {
-                pb.act = ACT.ATTACKHIGHLIGHT;
-            }
-        }
-        if (GUILayout.Button("Turn Over", GUILayout.Height(100)))
-        {
-            Debug.Log("Turn Over");
-            PlayerManager.GetInst().TurnOver();
-
-        }
-        if (GUILayout.Button("Title", GUILayout.Height(100)))
-        {
-            SceneManager.LoadScene(0);
-        }
-        GUILayout.EndArea();
-        */
 
     }
 

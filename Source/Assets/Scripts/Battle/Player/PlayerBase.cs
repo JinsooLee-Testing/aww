@@ -40,12 +40,6 @@ public class PlayerBase : MonoBehaviour {
         }
 
     }
-    /*
-    public virtual void 
-    ()
-    {
-     
-    }
-    */
+
 
 }

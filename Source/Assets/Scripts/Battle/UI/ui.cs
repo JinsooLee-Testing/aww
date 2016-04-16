@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class ui : MonoBehaviour
 {
 
@@ -39,6 +39,11 @@ public class ui : MonoBehaviour
             {
                 pm.Players[pm.CurTurnIdx].act = ACT.ATTACKHIGHLIGHT;
             }
+        }
+        if (act == "exit")
+        {
+            Debug.Log("Attack");
+            SceneManager.LoadScene(0);
         }
     }
 }

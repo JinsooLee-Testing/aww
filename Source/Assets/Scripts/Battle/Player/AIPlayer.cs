@@ -9,7 +9,7 @@ public class AIPlayer : PlayerBase
     {
         act = ACT.IDLE;
         status = new PlayerStatus();
-       
+        anim = GetComponent<Animator>();
         main_char = false;
         live = true;
     }
@@ -37,6 +37,7 @@ public class AIPlayer : PlayerBase
         if (act == ACT.MOVING)
         {//이동처리
          //   CurHex.Passable = true;
+         
             if (MoveHexes.Count==0)
             {
                 act = ACT.IDLE;
@@ -50,13 +51,12 @@ public class AIPlayer : PlayerBase
             float distance = Vector3.Distance(transform.position, v);
             if (distance > 0.1f) //이동중
             {
+                anim.SetBool("run", true);
 
-                
                 transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;    
                 transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
                 Vector3 r = transform.rotation.eulerAngles;
                 r.y -= 90;
-                transform.rotation = Quaternion.Euler(r);
             }
             else //다음 목표 hex에 도착함
             {
@@ -68,7 +68,8 @@ public class AIPlayer : PlayerBase
                 {
                     CurHex = nextHex;
                     act = ACT.IDLE;
-                  //  CurHex.Passable = false;
+                    //  CurHex.Passable = false;
+                    anim.SetBool("run", false);
                     PlayerManager.GetInst().TurnOver();
                 }
 
@@ -84,9 +85,15 @@ public class AIPlayer : PlayerBase
         ai.MoveToNearUserPlayer(this);
         if(act==ACT.IDLE)
         {
+            anim.SetBool("attack", false);
             ai.AtkAItoUser(this);
+     
+            
         }
-       
+        if (act == ACT.ATTACKING)
+        {
+            anim.SetBool("attack", true);
+        }
     }
     void OnMouseDown()
     {
@@ -95,11 +102,15 @@ public class AIPlayer : PlayerBase
         BattleManager bm = BattleManager.GetInst();
         if (pm.Players[pm.CurTurnIdx].act==ACT.ATTACKHIGHLIGHT)
         {
-
-            pb.transform.rotation = Quaternion.LookRotation((this.CurHex.transform.position - pb.transform.position).normalized);
-            Vector3 r = transform.rotation.eulerAngles;
+            Vector3 v = pb.transform.position;
+            v.y = PlayerManager.GetInst().m_y;
+            Vector3 v2 = this.CurHex.transform.position;
+            v2.y = PlayerManager.GetInst().m_y;
+            pb.transform.rotation = Quaternion.LookRotation((v2 - v).normalized);
+            Vector3 r = pb.transform.rotation.eulerAngles;
             r.y -= 90;
             pb.transform.rotation = Quaternion.Euler(r);
+
             //a.anim.SetBool("Attack",true);
             pb.act = ACT.ATTACKING;
             this.GetDamage(80);

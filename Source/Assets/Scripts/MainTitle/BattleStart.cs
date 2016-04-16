@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-public class MainTitle : MonoBehaviour {
+public class BattleStart : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,8 +12,8 @@ public class MainTitle : MonoBehaviour {
 	void Update () {
 	
 	}
-    void OnGUI()
+    void OnMouseDown()
     {
-     
+        SceneManager.LoadScene(1);
     }
 }

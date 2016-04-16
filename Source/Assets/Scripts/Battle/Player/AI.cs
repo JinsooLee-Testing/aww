@@ -35,9 +35,17 @@ public class AIthink  {
         }
         if(nearUserPlayer!=null)
         {
+            aiplayer.act = ACT.ATTACKING;
+            Vector3 v = aiplayer.transform.position;
+            v.y = PlayerManager.GetInst().m_y;
+            Vector3 v2 = nearUserPlayer.CurHex.transform.position;
+            v2.y = PlayerManager.GetInst().m_y;
+            aiplayer.transform.rotation = Quaternion.LookRotation((v2 - v).normalized);
+
             nearUserPlayer.GetDamage(15);
             Debug.Log("AIPlayer Attack!!");
         }
+      //  aiplayer.act = ACT.IDLE;
         pm.TurnOver();
     }
     public void MoveToNearUserPlayer(PlayerBase aiplayer)
