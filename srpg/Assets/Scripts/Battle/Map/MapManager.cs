@@ -105,23 +105,25 @@ public class MapManager : MonoBehaviour {
                 Map[x][y] = new Hex[MapSizeZ+1];
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
-                   
-                        if(x > 5 && x < 8 && z > 5 && z < 8)
-                        {
-                        
-                            Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
-                            Map[x][y][z].matid = 2;
-                            Map[x][y][z].Passable = false;
-                           Vector3 pos = GetWorldPos(x, 0, z);
-                            Map[x][y][z].transform.position = pos;
-                            Map[x][y][z].SetMapPos(x, 0, z);
-                        }
 
-                    Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                    if (x > 0 && x < 2 && z > 0 && z < 2)
+                    {
+
+                        Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                        Map[x][y][z].matid = 2;
+                        Map[x][y][z].Passable = false;
+                        Vector3 pos = GetWorldPos(x, 0, z);
+                        Map[x][y][z].transform.position = pos;
+                        Map[x][y][z].SetMapPos(x, 0, z);
+                    }
+                    else
+                    {
+                        Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
                         Map[x][y][z].matid = 1;
-                    Vector3 pos2 = GetWorldPos(x, 0, z);
+                        Vector3 pos2 = GetWorldPos(x, 0, z);
                         Map[x][y][z].transform.position = pos2;
                         Map[x][y][z].SetMapPos(x, 0, z);
+                    }
    
                     
                 }
@@ -150,9 +152,9 @@ public class MapManager : MonoBehaviour {
                         if(distance<=moveRange && distance!=0)
                         {//
                            if (IsReachAble(start, Map[x][y][z], moveRange))
-                            {
-                                Map[x][y][z].GetComponent<Renderer>().material.color = Color.yellow;
-                                   highLighedCount++;
+                           {
+                                Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
+                                  highLighedCount++;          
                            }
                         }
                     }

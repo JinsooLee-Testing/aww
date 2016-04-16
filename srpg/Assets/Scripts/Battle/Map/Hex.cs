@@ -107,7 +107,8 @@ public class Hex : MonoBehaviour {
         Debug.Log(MapPos + "OnMouseDown");
         if (pb.act == ACT.SUMMONES)
         {
-            PlayerManager.GetInst().GenPlayer(MapPos.GetX(),MapPos.GetZ());
+            if(Passable==true&& GetComponent<Renderer>().material.color == Color.green)
+                PlayerManager.GetInst().GenPlayer(MapPos.GetX(),MapPos.GetZ());
         }
         if (pb.act==ACT.IDLE)
         {
