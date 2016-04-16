@@ -43,6 +43,7 @@ public class ui : MonoBehaviour
         if (act == "exit")
         {
             Debug.Log("Attack");
+            MapManager.GetInst().num = 0;
             SceneManager.LoadScene(0);
         }
     }

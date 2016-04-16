@@ -15,7 +15,7 @@ public class MainTitle : MonoBehaviour {
 	}
     void OnMouseDown()
     {
-      
+
         SceneManager.LoadScene(sceennum);
     }
 }

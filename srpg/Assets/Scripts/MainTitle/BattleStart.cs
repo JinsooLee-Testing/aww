@@ -14,6 +14,7 @@ public class BattleStart : MonoBehaviour {
 	}
     void OnMouseDown()
     {
+
         SceneManager.LoadScene(1);
     }
 }

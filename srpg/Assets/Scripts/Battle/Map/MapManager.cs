@@ -40,7 +40,7 @@ public class MapManager : MonoBehaviour {
     public int MapSizeX;
     public int MapSizeY;
     public int MapSizeZ;
-   
+    public int num = 0;
     List<Path> OpenList;
     List<Path> ClosedList;
     public Point[] Dirs;
@@ -106,7 +106,7 @@ public class MapManager : MonoBehaviour {
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
 
-                    if (x > 0 && x < 2 && z > 0 && z < 2)
+                    if (x > 0 && x < 0 && z > 0 && z < 0)
                     {
 
                         Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
@@ -320,6 +320,10 @@ public class MapManager : MonoBehaviour {
         List<Hex> rtn = new List<Hex>();
         Point cur = pos.MapPos;
         if (pos.Passable == false)
+        {
+            return rtn;
+        }
+        if (pos.isonTotile == true)
         {
             return rtn;
         }

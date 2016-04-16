@@ -37,7 +37,7 @@ public class AIPlayer : PlayerBase
         if (act == ACT.MOVING)
         {//이동처리
          //   CurHex.Passable = true;
-         
+          
             if (MoveHexes.Count==0)
             {
                 act = ACT.IDLE;
@@ -49,6 +49,7 @@ public class AIPlayer : PlayerBase
             Vector3 v = nextHex.transform.position;
             v.y = PlayerManager.GetInst().m_y;
             float distance = Vector3.Distance(transform.position, v);
+           
             if (distance > 0.1f) //이동중
             {
                 anim.SetBool("run", true);
@@ -68,8 +69,9 @@ public class AIPlayer : PlayerBase
                 {
                     CurHex = nextHex;
                     act = ACT.IDLE;
-                    //  CurHex.Passable = false;
+
                     anim.SetBool("run", false);
+                   // CurHex.isonTotile = true;
                     PlayerManager.GetInst().TurnOver();
                 }
 
@@ -79,20 +81,23 @@ public class AIPlayer : PlayerBase
     }
     public void AiProc()
     {
-        AIthink ai = AIthink.GetInst();
-        //근점 플레이어찾는과정 추가내용 
-        //이미 근접상태면 act는 IDLE 유지 이동 필요하면 act는 MOVING으로
-        ai.MoveToNearUserPlayer(this);
-        if(act==ACT.IDLE)
+        if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx] == this)
         {
-            anim.SetBool("attack", false);
-            ai.AtkAItoUser(this);
-     
-            
-        }
-        if (act == ACT.ATTACKING)
-        {
-            anim.SetBool("attack", true);
+            AIthink ai = AIthink.GetInst();
+            //근점 플레이어찾는과정 추가내용 
+            //이미 근접상태면 act는 IDLE 유지 이동 필요하면 act는 MOVING으로
+            ai.MoveToNearUserPlayer(this);
+            if (act == ACT.IDLE)
+            {
+                anim.SetBool("attack", false);
+                ai.AtkAItoUser(this);
+
+
+            }
+            if (act == ACT.ATTACKING)
+            {
+                anim.SetBool("attack", true);
+            }
         }
     }
     void OnMouseDown()

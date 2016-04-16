@@ -54,6 +54,7 @@ public class Hex : MonoBehaviour {
     public Point MapPos;
     public int matid;
     public bool Passable = true;
+    public bool isonTotile = false;
     public Material mat1;
     public Material mat2;
     public Material mat3;

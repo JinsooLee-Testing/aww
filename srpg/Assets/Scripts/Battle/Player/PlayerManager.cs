@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour {
     public int parentidx = 0;
     public GameObject GO_player;
     public GameObject GO_aiplayer;
-
+    public GameObject GO_tree;
     public int Monster_num = 0;
     public List<PlayerBase> Players = new List<PlayerBase>();
     public int CurTurnIdx = 0;
@@ -34,8 +34,9 @@ public class PlayerManager : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
+      
 
-	}
+    }
 	void CheckTurnOver()
     {
         if(curTurnOverTiem!=0)
@@ -68,6 +69,7 @@ public class PlayerManager : MonoBehaviour {
         Players.Add(userplayer);
         MapManager.GetInst().ResetMapColor();
     }
+
     public void GenPlayerTest()
     {
         UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
@@ -77,7 +79,7 @@ public class PlayerManager : MonoBehaviour {
         v.y = 1.0f;
         userplayer.transform.position = v;
         Players.Add(userplayer);
-
+        
         for (int i = 0; i < Monster_num; ++i)
         {
             AIPlayer aiplayer = ((GameObject)Instantiate(GO_aiplayer)).GetComponent<AIPlayer>();
@@ -88,6 +90,27 @@ public class PlayerManager : MonoBehaviour {
             p.y = m_y;
             aiplayer.transform.position = p;
             Players.Add(aiplayer);
+        }
+        if (MapManager.GetInst().num == 2)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                tree tre = ((GameObject)Instantiate(GO_tree)).GetComponent<tree>();
+                hex = MapManager.GetInst().GetPlayerHex(j, 0, 10);
+                tre.CurHex = hex;
+                v = tre.CurHex.transform.position;
+                v.y = 2.0f;
+                tre.transform.position = v;
+                Players.Add(tre);
+
+                tree tre2 = ((GameObject)Instantiate(GO_tree)).GetComponent<tree>();
+                hex = MapManager.GetInst().GetPlayerHex(10, 0, j);
+                tre2.CurHex = hex;
+                v = tre2.CurHex.transform.position;
+                v.y = 2.0f;
+                tre2.transform.position = v;
+                Players.Add(tre2);
+            }
         }
     }
     public void MovePlayer(Hex start,Hex dest)
@@ -142,13 +165,17 @@ public class PlayerManager : MonoBehaviour {
             }
             Players.Remove(pb);
             GameObject.Destroy(pb.gameObject);
-            if(cnt+1>=Players.Count)
+            if (cnt + 1 >= Players.Count)
+            {
+                MapManager.GetInst().num = 2;
                 SceneManager.LoadScene(2);
+            }
 
         }
         else
         {
             GameObject.Destroy(pb.gameObject);
+            MapManager.GetInst().num = 0;
             SceneManager.LoadScene(0);
         }
     
