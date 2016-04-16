@@ -11,6 +11,7 @@ public class AIPlayer : PlayerBase
         status = new PlayerStatus();
         anim = GetComponent<Animator>();
         main_char = false;
+        m_type = Type.MONSTER;
         live = true;
     }
     void Start()

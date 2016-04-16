@@ -153,24 +153,24 @@ public class PlayerManager : MonoBehaviour {
     public void RemovePlayer(PlayerBase pb)
     {
         
-        if (pb.main_char == false)
+        if (pb.m_type==Type.MONSTER)
         {
             int cnt = 0;
-            for (int i = 0; i < Players.Count; i++)
+            for (int i = 0; i <= Players.Count; i++)
             {
-                if (pb.live == false)
+                if (pb.m_type == Type.MONSTER && pb.live==true)
                 {
                         cnt++;
                  }
             }
-            Players.Remove(pb);
-            GameObject.Destroy(pb.gameObject);
-            if (cnt + 1 >= Players.Count)
+   
+            if (cnt<=0)
             {
                 MapManager.GetInst().num = 2;
                 SceneManager.LoadScene(2);
             }
-
+            //Players.Remove(pb);
+            GameObject.Destroy(pb.gameObject);
         }
         else
         {

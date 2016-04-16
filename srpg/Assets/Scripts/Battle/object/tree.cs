@@ -6,6 +6,7 @@ public class tree : PlayerBase {
     void awake()
     {
         act = ACT.IDLE;
+        m_type = Type.OBJECT ;
     }
     // Use this for initialization
     void Start () {

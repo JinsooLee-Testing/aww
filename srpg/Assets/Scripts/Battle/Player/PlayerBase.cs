@@ -10,6 +10,12 @@ public enum ACT
     ATTACKING,
     SUMMONES
 }
+public enum Type
+{
+    USER,
+    MONSTER,
+    OBJECT
+}
 public class PlayerBase : MonoBehaviour {
     public PlayerStatus status;
     public Animator anim;
@@ -18,6 +24,7 @@ public class PlayerBase : MonoBehaviour {
     public bool main_char;
     public bool live;
     public List<Hex> MoveHexes;
+    public Type m_type;
     void Awake()
     {
         act = ACT.IDLE;
@@ -37,6 +44,8 @@ public class PlayerBase : MonoBehaviour {
        if (status.Curhp <= 0)
         {
             Debug.Log("Died");
+            if (m_type == Type.MONSTER)
+                live = false;
             PlayerManager.GetInst().RemovePlayer(this);
         }
 

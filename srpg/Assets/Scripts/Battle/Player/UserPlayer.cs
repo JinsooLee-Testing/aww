@@ -11,6 +11,7 @@ public class UserPlayer : PlayerBase
         status = new PlayerStatus();
         main_char = true;
         live = true;
+        m_type = Type.MONSTER;
     }
     void Start()
     {
