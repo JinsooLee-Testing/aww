@@ -60,7 +60,7 @@ public class PlayerManager : MonoBehaviour {
     }
     public void GenPlayer(int x,int z)
     {
-        UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
+        UserPlayer userplayer = ((GameObject)Instantiate(GO_tree)).GetComponent<UserPlayer>();
         Hex hex = MapManager.GetInst().GetPlayerHex(x, 0, z);
         userplayer.CurHex = hex;
         Vector3 v = userplayer.CurHex.transform.position;
