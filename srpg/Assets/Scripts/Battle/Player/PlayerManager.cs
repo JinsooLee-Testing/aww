@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour {
     private static PlayerManager inst = null;
     public int parentidx = 0;
+    
     public GameObject GO_player;
     public GameObject GO_aiplayer;
     public GameObject GO_tree;
@@ -14,8 +15,8 @@ public class PlayerManager : MonoBehaviour {
     public float m_y;
     private float turnOverTiem;
     private float curTurnOverTiem;
-
-   
+    public Transform PlayersParent;
+    public Transform ObcParent;
 
     public void SetTurnOverTime(float time)
     {
@@ -34,8 +35,8 @@ public class PlayerManager : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-      
 
+        
     }
 	void CheckTurnOver()
     {
@@ -73,24 +74,46 @@ public class PlayerManager : MonoBehaviour {
     public void GenPlayerTest()
     {
         UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
-        Hex hex = MapManager.GetInst().GetPlayerHex(5, 0, 0);
+        Hex hex = MapManager.GetInst().GetPlayerHex(2, 0, 0);
         userplayer.CurHex = hex;
         Vector3 v = userplayer.CurHex.transform.position;
         v.y = 1.0f;
         userplayer.transform.position = v;
         Players.Add(userplayer);
-        
-        for (int i = 0; i < Monster_num; ++i)
+
+        for (int i = 0; i < ObcParent.childCount; i++)
         {
-            AIPlayer aiplayer = ((GameObject)Instantiate(GO_aiplayer)).GetComponent<AIPlayer>();
-            hex = MapManager.GetInst().GetPlayerHex(1, 0, 8-i);
-            aiplayer.CurHex = hex;
-            aiplayer.CurHex.Passable = false;
-            Vector3 p = aiplayer.CurHex.transform.position;
-            p.y = m_y;
-            aiplayer.transform.position = p;
-            Players.Add(aiplayer);
+            var obj = ObcParent.GetChild(i).GetComponent<tree>();
+            if (obj != null)
+            {
+                //player.transform.position = curpos;           
+                hex = MapManager.GetInst().GetPlayerHex(obj.x, 0, obj.z);
+                obj.CurHex = hex;
+                Vector3 curpos = obj.CurHex.transform.position;
+                curpos.y = 2f;
+                obj.transform.position = curpos;
+          
+            }
+            else
+                Debug.LogError("Invalid object in cells paretn game object");
         }
+        for (int i = 0; i < PlayersParent.childCount; i++)
+        {
+            var player = PlayersParent.GetChild(i).GetComponent<AIPlayer>();
+            if (player != null)
+            {           
+                //player.transform.position = curpos;           
+                hex = MapManager.GetInst().GetPlayerHex(player.x, player.y, player.z);
+                player.CurHex = hex;
+                Vector3 curpos = player.CurHex.transform.position;
+                curpos.y = m_y;
+                player.transform.position = curpos;
+                Players.Add(player);
+            }
+            else
+                Debug.LogError("Invalid object in cells paretn game object");
+        }
+
         if (MapManager.GetInst().num == 2)
         {
             for (int j = 0; j < 10; j++)
@@ -112,6 +135,7 @@ public class PlayerManager : MonoBehaviour {
                 Players.Add(tre2);
             }
         }
+        
     }
     public void MovePlayer(Hex start,Hex dest)
     {
@@ -137,17 +161,17 @@ public class PlayerManager : MonoBehaviour {
     }
     public void TurnOver()
     {
-        MapManager.GetInst().ResetMapColor(); 
+        MapManager.GetInst().ResetMapColor();
         PlayerBase pb = Players[CurTurnIdx];
         pb.act = ACT.IDLE;
         if (Players.Count > 0)
             CurTurnIdx++;
         if (CurTurnIdx >= Players.Count)
-        {         
-               CurTurnIdx = 0;
+        {
+            CurTurnIdx = 0;
         }
         Manager.GetInst().MoveCamPosToTile(Players[CurTurnIdx].CurHex);
-      
+
     }
 
     public void RemovePlayer(PlayerBase pb)
@@ -167,9 +191,9 @@ public class PlayerManager : MonoBehaviour {
             if (cnt<=0)
             {
                 MapManager.GetInst().num = 2;
-                SceneManager.LoadScene(2);
+               //SceneManager.LoadScene(2);
             }
-            //Players.Remove(pb);
+            Players.Remove(pb);
             GameObject.Destroy(pb.gameObject);
         }
         else

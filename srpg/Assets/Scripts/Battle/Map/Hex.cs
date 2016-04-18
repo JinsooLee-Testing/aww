@@ -55,6 +55,8 @@ public class Hex : MonoBehaviour {
     public int matid;
     public bool Passable = true;
     public bool isonTotile = false;
+    public int x, y, z;
+    public float object_y;
     public Material mat1;
     public Material mat2;
     public Material mat3;
@@ -62,26 +64,31 @@ public class Hex : MonoBehaviour {
 	// Use this for initialization
     void Start()
     {
+        if (matid == 0)
+        {
+               GetComponent<Renderer>().material = mat1;
+
+        }
         if (matid == 1)
         {
             GetComponent<Renderer>().material = mat1;
-            Passable = true;
+           
         }
         if (matid == 2)
         {
             GetComponent<Renderer>().material = mat2;
-            Passable = false;
+           
         }
         if (matid == 3)
         {
             GetComponent<Renderer>().material = mat3;
-            Passable = false;
         }
        
     }
     
 	// Update is called once per frame
 	void Update () {
+
     }
  
     public void SetMapPos(Point pos)
@@ -108,7 +115,7 @@ public class Hex : MonoBehaviour {
         Debug.Log(MapPos + "OnMouseDown");
         if (pb.act == ACT.SUMMONES)
         {
-            if(Passable==true&& GetComponent<Renderer>().material.color == Color.green)
+            if(Passable==true&& (GetComponent<Renderer>().material.color == Color.green) || (GetComponent<Renderer>().material.color == Color.gray))
                 PlayerManager.GetInst().GenPlayer(MapPos.GetX(),MapPos.GetZ());
         }
         if (pb.act==ACT.IDLE)

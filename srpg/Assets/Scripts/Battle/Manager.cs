@@ -26,7 +26,9 @@ public class Manager : MonoBehaviour {
 
         mm.CreateMap();
         pm.GenPlayerTest();
-	}
+       
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -21,9 +21,10 @@ public class CardBase : MonoBehaviour {
         {
             Vector3 v = transform.position;
             v.y += 20;
+   
             transform.position += (v - transform.position).normalized * 6 * Time.smoothDeltaTime;
             Vector3 curpos = transform.position;
-            if (curpos.y > 6)
+            if (curpos.y > 25)
             {
                 PlayerManager.GetInst().HilightSummons();
                 act = ACT.IDLE;
