@@ -191,7 +191,7 @@ public class PlayerManager : MonoBehaviour {
             if (cnt<=0)
             {
                 MapManager.GetInst().num = 2;
-               //SceneManager.LoadScene(2);
+               SceneManager.LoadScene(2);
             }
             Players.Remove(pb);
             GameObject.Destroy(pb.gameObject);

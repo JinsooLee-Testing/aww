@@ -5,13 +5,11 @@ public class ui : MonoBehaviour
 {
 
     private PlayerManager pm = null;
-    GUIManager gm;
     public string act = "IDLE";
     // Use this for initialization
     void Start()
     {
 
-        gm = GUIManager.GetInst();
         pm = PlayerManager.GetInst();
     }
     void Update()

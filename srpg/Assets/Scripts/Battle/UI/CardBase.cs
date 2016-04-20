@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class CardBase : MonoBehaviour {
-    GUIManager gm;
    
    // public GameObject GO_Card;
     ACT act = ACT.IDLE;
@@ -10,7 +9,6 @@ public class CardBase : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-        gm = GUIManager.GetInst();
     }
     void Start () {
          

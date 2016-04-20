@@ -27,19 +27,9 @@ public class GUIManager : MonoBehaviour {
     public void DrawGUI()
     {
 
-        OnGUI();
+        //OnGUI();
     }
-  void OnGUI()
-    {
-        pm = PlayerManager.GetInst();
-        if (pm.Players != null)
-        {
-            if (pm.Players.Count > 0)
-            {
-                DrawCommand(pm.Players[pm.CurTurnIdx]);
-            }
-        }
-    }
+
     public void DrawCommand(PlayerBase pb)
     {
 

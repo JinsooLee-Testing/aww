@@ -64,8 +64,8 @@ public class Manager : MonoBehaviour {
     }
     public void MoveCamPosToTile(Hex hex)
     {
-        float destX = hex.transform.position.x;
-        float destZ = hex.transform.position.z;
+        //float destX = hex.transform.position.x;
+       // float destZ = hex.transform.position.z;
 
      //   GetComponent<Camera>().transform.position = new Vector3(destX, GetComponent<Camera>().transform.position.y, destZ);
     }

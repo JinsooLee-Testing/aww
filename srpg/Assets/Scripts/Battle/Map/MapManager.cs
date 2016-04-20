@@ -102,7 +102,7 @@ public class MapManager : MonoBehaviour
 
     public void CreateMap()
     {
-        var obj = false;
+
         Map = new Hex[MapSizeX + 1][][];
         for (int x = 0; x <= MapSizeX; x++)
         {
