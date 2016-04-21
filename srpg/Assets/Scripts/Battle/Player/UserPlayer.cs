@@ -21,6 +21,10 @@ public class UserPlayer : PlayerBase
     {
        
     }
+    public void DrawStatus()
+    {
+      
+    }
     void Update()
     {
         PlayerManager pm = PlayerManager.GetInst();
