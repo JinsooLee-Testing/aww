@@ -47,6 +47,7 @@ public class MapManager : MonoBehaviour
     public int num = 0;
     List<Path> OpenList;
     List<Path> ClosedList;
+    Mark mark;
     public Point[] Dirs;
     // Use this for initialization
     public void initDirs()
@@ -66,6 +67,7 @@ public class MapManager : MonoBehaviour
 
         inst = this;
         initDirs();
+        
         SetHexSize();
     }
 
@@ -152,6 +154,45 @@ public class MapManager : MonoBehaviour
     {
         return Map[x][y][z];
     }
+    public void MarkTile(Point pos,int range)
+    {
+        int highLighedCount = 0;
+        Point start = pos;
+        int s_x = start.GetX();
+        int s_y = start.GetY();
+        int s_z = start.GetZ();
+        if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act == ACT.IDLE)
+        {
+            for (int x = 0; x <= MapSizeX; x++)
+            {
+                for (int y = 0; y <= MapSizeY; y++)
+                {
+                    for (int z = 0; z <= MapSizeZ; z++)
+                    {                   
+                       if (Map[x][y][z].GetComponent<Renderer>().material.color == Color.green)
+                            highLighedCount++;
+                    }
+                }
+            }
+           
+                   // for(int i=0;i<5;++i)
+                  //  Map[s_x][s_y][s_z+i].GetComponent<Renderer>().material.color = Color.green;
+                
+            
+            
+            if (highLighedCount == 0)
+            {
+                Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material.color = Color.green;
+            }
+            else
+            {
+                ResetMapColor();
+                Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material.color = Color.green;
+            }
+            
+        }
+    }
+    
     public bool HilightMoveRange(Hex start, int moveRange)
     {
         int highLighedCount = 0;

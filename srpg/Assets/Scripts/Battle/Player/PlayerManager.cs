@@ -53,7 +53,9 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         CheckTurnOver();
-	}
+       // if(Players[CurTurnIdx].act==ACT.MOVING)
+            //Manager.GetInst().MoveCamPosToTile(Players[CurTurnIdx].CurHex);
+    }
     public void HilightSummons()
     {
         MapManager.GetInst().HilightMoveRange(Players[CurTurnIdx].CurHex, 3);
@@ -68,6 +70,7 @@ public class PlayerManager : MonoBehaviour {
         v.y = 1.0f;
         userplayer.transform.position = v;
         Players.Add(userplayer);
+
         MapManager.GetInst().ResetMapColor();
     }
 
@@ -140,12 +143,14 @@ public class PlayerManager : MonoBehaviour {
     public void MovePlayer(Hex start,Hex dest)
     {
         PlayerBase pb = Players[CurTurnIdx];
+
         if (MapManager.GetInst().IsReachAble(start, dest, pb.status.MoveRange) == false)
         {
             return; 
         }
         if (pb.act == ACT.MOVEHILIGHT)
         {
+           
             float distance = MapManager.GetInst().GetDistance(start, dest);
             if (distance <= Players[CurTurnIdx].status.MoveRange && distance != 0 && dest.Passable == true)
             {
@@ -170,7 +175,9 @@ public class PlayerManager : MonoBehaviour {
         {
             CurTurnIdx = 0;
         }
-        Manager.GetInst().MoveCamPosToTile(Players[CurTurnIdx].CurHex);
+        
+   
+        CameraManager.GetInst().ResetCameraTarget();
 
     }
 

@@ -62,11 +62,15 @@ public class Manager : MonoBehaviour {
         }
         
     }
+  
     public void MoveCamPosToTile(Hex hex)
     {
-        //float destX = hex.transform.position.x;
-       // float destZ = hex.transform.position.z;
-
-     //   GetComponent<Camera>().transform.position = new Vector3(destX, GetComponent<Camera>().transform.position.y, destZ);
+        float destX = hex.transform.position.x;
+        float destZ = hex.transform.position.z;
+        Vector3 pos =new Vector3(destX, destZ, destZ);
+        Vector3 rot = new Vector3(70,0,0);
+        
+        CameraManager.GetInst().SetPosition(pos);
+        CameraManager.GetInst().SetAngle(rot);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class TextDialog : MonoBehaviour {
     public int currentTextNumber = 0;
     private static TextDialog inst = null;
+    public bool talk_mode=false;
     // Use this for initialization
     public static TextDialog GetInst()
     {
@@ -23,7 +24,10 @@ public class TextDialog : MonoBehaviour {
 	}
     void OnMouseDown()
     {
-        Debug.Log("text");
-        currentTextNumber++;
+        if (talk_mode == true)
+        {
+            Debug.Log("text");
+            currentTextNumber++;
+        }
     }
 }

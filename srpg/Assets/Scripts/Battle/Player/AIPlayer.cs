@@ -38,7 +38,7 @@ public class AIPlayer : PlayerBase
         if (act == ACT.MOVING)
         {//이동처리
          //   CurHex.Passable = true;
-          
+           
             if (MoveHexes.Count==0)
             {
                 act = ACT.IDLE;

@@ -107,6 +107,10 @@ public class Hex : MonoBehaviour {
     {
         MapPos = new Point(x, y, z);
     }
+    void OnMouseOver()
+    {
+        MapManager.GetInst().MarkTile(MapPos,0);
+    }
     void OnMouseDown()
     {
         
@@ -115,14 +119,18 @@ public class Hex : MonoBehaviour {
         Debug.Log(MapPos + "OnMouseDown");
         if (pb.act == ACT.SUMMONES)
         {
-            if(Passable==true&& (GetComponent<Renderer>().material.color == Color.green) || (GetComponent<Renderer>().material.color == Color.gray))
-                PlayerManager.GetInst().GenPlayer(MapPos.GetX(),MapPos.GetZ());
+            if (Passable == true && (GetComponent<Renderer>().material.color == Color.green) || (GetComponent<Renderer>().material.color == Color.gray))
+            {
+                PlayerManager.GetInst().GenPlayer(MapPos.GetX(), MapPos.GetZ());
+               // pb.act = ACT.IDLE;
+               // MapManager.GetInst().ResetMapColor();
+            }
         }
         if (pb.act==ACT.IDLE)
         {
             if(Passable==true)
             {
-                GetComponent<Renderer>().material.color = Color.blue;
+                GetComponent<Renderer>().material.color = Color.white;
                 mat_color = Color.blue;
             }
             else
