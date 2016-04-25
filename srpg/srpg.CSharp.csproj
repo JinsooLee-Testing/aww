@@ -77,7 +77,8 @@
     <Compile Include="Assets\Scripts\Battle\Player\UserPlayer.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\GUIManager.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\ui.cs" />
-    <Compile Include="Assets\Scripts\Battle\cost\costManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\cost\CostManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\cost\costBase.cs" />
     <Compile Include="Assets\Scripts\Battle\object\Object_Manager.cs" />
     <Compile Include="Assets\Scripts\Battle\object\magic.cs" />
     <Compile Include="Assets\Scripts\Battle\object\tree.cs" />

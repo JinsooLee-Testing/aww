@@ -5,6 +5,7 @@ using System.Collections;
 public class AIPlayer : PlayerBase
 {
     public int x, y, z;
+    
     void Awake()
     {
         act = ACT.IDLE;

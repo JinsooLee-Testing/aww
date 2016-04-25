@@ -11,7 +11,7 @@ public class UserPlayer : PlayerBase
         status = new PlayerStatus();
         main_char = true;
         live = true;
-        m_type = Type.MONSTER;
+        m_type = Type.USER;
     }
     void Start()
     {
@@ -66,7 +66,7 @@ public class UserPlayer : PlayerBase
                 {
                     CurHex = nextHex;
                     act = ACT.IDLE;
-                    PlayerManager.GetInst().TurnOver();
+                    //PlayerManager.GetInst().TurnOver();
                 }
 
             }

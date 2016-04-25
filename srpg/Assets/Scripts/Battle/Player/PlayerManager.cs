@@ -2,6 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+public enum TURN
+{
+    PLAYERTURN,
+    NPCTURN
+
+}
 public class PlayerManager : MonoBehaviour {
     private static PlayerManager inst = null;
     public int parentidx = 0;
@@ -18,6 +24,9 @@ public class PlayerManager : MonoBehaviour {
     public Transform PlayersParent;
     public Transform ObcParent;
     public int EnemyCount=0;
+    public int EnemyTurnCount = 0;
+
+    public TURN turn= TURN.PLAYERTURN;
     public void SetTurnOverTime(float time)
     {
         turnOverTiem = time;
@@ -63,13 +72,14 @@ public class PlayerManager : MonoBehaviour {
     }
     public void GenPlayer(int x,int z)
     {
-        UserPlayer userplayer = ((GameObject)Instantiate(GO_tree)).GetComponent<UserPlayer>();
+        UserPlayer player = ((GameObject)Instantiate(GO_tree)).GetComponent<UserPlayer>();
         Hex hex = MapManager.GetInst().GetPlayerHex(x, 0, z);
-        userplayer.CurHex = hex;
-        Vector3 v = userplayer.CurHex.transform.position;
-        v.y = 1.0f;
-        userplayer.transform.position = v;
-        Players.Add(userplayer);
+        player.CurHex = hex;
+        Vector3 v = player.CurHex.transform.position;
+        v.y = 1.5f;
+        player.transform.position = v;
+        player.m_type = Type.USER;
+        Players.Add(player);
 
         MapManager.GetInst().ResetMapColor();
     }
@@ -82,8 +92,9 @@ public class PlayerManager : MonoBehaviour {
         Vector3 v = userplayer.CurHex.transform.position;
         v.y = 1.0f;
         userplayer.transform.position = v;
+        userplayer.m_type = Type.MAINCHARACTER;
         Players.Add(userplayer);
-
+        
         for (int i = 0; i < ObcParent.childCount; i++)
         {
             var obj = ObcParent.GetChild(i).GetComponent<tree>();
@@ -112,6 +123,7 @@ public class PlayerManager : MonoBehaviour {
                 curpos.y = m_y;
                 player.transform.position = curpos;
                 EnemyCount++;
+                EnemyTurnCount++;
                 Players.Add(player);
             }
             else
@@ -148,15 +160,23 @@ public class PlayerManager : MonoBehaviour {
     {
         MapManager.GetInst().ResetMapColor();
         PlayerBase pb = Players[CurTurnIdx];
+       
         pb.act = ACT.IDLE;
         if (Players.Count > 0)
             CurTurnIdx++;
         if (CurTurnIdx >= Players.Count)
         {
+            
             CurTurnIdx = 0;
+           
         }
-        
-   
+        PlayerBase pb2 = Players[CurTurnIdx];
+        if (pb2.m_type == Type.MAINCHARACTER)
+        {
+
+            CostManager.GetInst().AddCost();
+        }
+
         CameraManager.GetInst().ResetCameraTarget();
 
     }

@@ -30,14 +30,18 @@ public class CardBase : MonoBehaviour {
     }
     void OnMouseDown()
     {
-        if (On_active == true)
+        if(CostManager.GetInst().cur_cost_num>=3)
         {
-            PlayerManager.GetInst().HilightSummons();
-            act = ACT.SUMMONES;
-            Debug.Log("card");
+            if (On_active == true)
+            {
+                PlayerManager.GetInst().HilightSummons();
+                act = ACT.SUMMONES;
+                Debug.Log("card");
 
-            GetComponent<SpriteRenderer>().sprite = sp_image2;
-            On_active = false;
+                GetComponent<SpriteRenderer>().sprite = sp_image2;
+                On_active = false;
+                CostManager.GetInst().CostDecrease(3);
+            }
         }
         magic.GetInst().fire = true;
     }

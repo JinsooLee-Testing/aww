@@ -22,11 +22,16 @@ public class ui : MonoBehaviour
         if (act == "move")
         {
             Debug.Log("move");
-            PlayerBase pb = pm.Players[pm.CurTurnIdx];
-            if (MapManager.GetInst().HilightMoveRange(pb.CurHex, pb.status.MoveRange))
+            if (CostManager.GetInst().cur_cost_num >= 1)
             {
-                pm.Players[pm.CurTurnIdx].act = ACT.MOVEHILIGHT;
+                PlayerBase pb = pm.Players[pm.CurTurnIdx];
+                if (MapManager.GetInst().HilightMoveRange(pb.CurHex, pb.status.MoveRange))
+                {
+                    pm.Players[pm.CurTurnIdx].act = ACT.MOVEHILIGHT;
+                }
+                CostManager.GetInst().CostDecrease(1);
             }
+          
 
         }
         if (act == "attack")
@@ -37,6 +42,10 @@ public class ui : MonoBehaviour
             {
                 pm.Players[pm.CurTurnIdx].act = ACT.ATTACKHIGHLIGHT;
             }
+        }
+        if (act == "turnover")
+        {
+            PlayerManager.GetInst().TurnOver();
         }
         if (act == "exit")
         {
