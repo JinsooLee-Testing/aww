@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Battle\Map\Hex.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\MapManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\Mark.cs" />
+    <Compile Include="Assets\Scripts\Battle\Map\Path.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\AI.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\AIPlayer.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\BattleManager.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Battle\UI\GUIManager.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\ui.cs" />
     <Compile Include="Assets\Scripts\Battle\cost\costManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\object\Object_Manager.cs" />
     <Compile Include="Assets\Scripts\Battle\object\magic.cs" />
     <Compile Include="Assets\Scripts\Battle\object\tree.cs" />
     <Compile Include="Assets\Scripts\CameraManager.cs" />

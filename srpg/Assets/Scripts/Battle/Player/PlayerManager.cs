@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour {
     private float curTurnOverTiem;
     public Transform PlayersParent;
     public Transform ObcParent;
-
+    public int EnemyCount=0;
     public void SetTurnOverTime(float time)
     {
         turnOverTiem = time;
@@ -111,33 +111,13 @@ public class PlayerManager : MonoBehaviour {
                 Vector3 curpos = player.CurHex.transform.position;
                 curpos.y = m_y;
                 player.transform.position = curpos;
+                EnemyCount++;
                 Players.Add(player);
             }
             else
                 Debug.LogError("Invalid object in cells paretn game object");
         }
 
-        if (MapManager.GetInst().num == 2)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                tree tre = ((GameObject)Instantiate(GO_tree)).GetComponent<tree>();
-                hex = MapManager.GetInst().GetPlayerHex(j, 0, 10);
-                tre.CurHex = hex;
-                v = tre.CurHex.transform.position;
-                v.y = 2.0f;
-                tre.transform.position = v;
-                Players.Add(tre);
-
-                tree tre2 = ((GameObject)Instantiate(GO_tree)).GetComponent<tree>();
-                hex = MapManager.GetInst().GetPlayerHex(10, 0, j);
-                tre2.CurHex = hex;
-                v = tre2.CurHex.transform.position;
-                v.y = 2.0f;
-                tre2.transform.position = v;
-                Players.Add(tre2);
-            }
-        }
         
     }
     public void MovePlayer(Hex start,Hex dest)
@@ -186,16 +166,8 @@ public class PlayerManager : MonoBehaviour {
         
         if (pb.m_type==Type.MONSTER)
         {
-            int cnt = 0;
-            for (int i = 0; i <= Players.Count; i++)
-            {
-                if (pb.m_type == Type.MONSTER && pb.live==true)
-                {
-                        cnt++;
-                 }
-            }
-   
-            if (cnt<=0)
+            EnemyCount--;
+            if (EnemyCount<=0)
             {
                 MapManager.GetInst().num = 2;
                SceneManager.LoadScene(2);

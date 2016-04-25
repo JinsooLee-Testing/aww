@@ -39,6 +39,7 @@ public class CardBase : MonoBehaviour {
             GetComponent<SpriteRenderer>().sprite = sp_image2;
             On_active = false;
         }
+        magic.GetInst().fire = true;
     }
 
 }

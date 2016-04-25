@@ -42,7 +42,7 @@ public class UserPlayer : PlayerBase
             anim.SetBool("running",true);
             Hex nextHex = MoveHexes[0];
             Vector3 v = nextHex.transform.position;
-            v.y = 1.5f;
+           v.y = 1.0f;
             float distance = Vector3.Distance(transform.position, v);
             if (distance > 0.1f) //이동중
             {
@@ -59,7 +59,7 @@ public class UserPlayer : PlayerBase
             else //다음 목표 hex에 도착함
             {
                 v = nextHex.transform.position;
-                v.y = 1.5f;
+                v.y = 1.0f;
                 transform.position = v;
                 MoveHexes.RemoveAt(0);
                 if (MoveHexes.Count == 0)//최종 dest

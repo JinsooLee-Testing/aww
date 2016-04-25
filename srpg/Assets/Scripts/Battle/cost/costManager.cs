@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class costManager : MonoBehaviour {
+public class CostManager : MonoBehaviour
+{
+    private static CostManager inst = null;
+    public static CostManager GetInst()
+    {
+        return inst;
+    }
+    void Awake()
+    {
+        inst = this;
+    }
+    void Start()
+    {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
+    void Update()
+    {
+    }
+ 
 }

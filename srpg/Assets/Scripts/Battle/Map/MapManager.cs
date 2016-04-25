@@ -1,35 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class Path
-{
-    public Path Parent;
-    Hex curHex;
-    int F;
-    int H;//현재부터 도착점
-    int G; //시작점부터 현재까지
-    public int GetF()
-    {
-        return F;
-    }
-    public int GetDepth()
-    {
-        return G;
-    }
-    public Hex GetHex()
-    {
-        return curHex;
-    }
-    public Path(Path parent, Hex hex, int g, int h)
-    {
-        curHex = hex;
-        Parent = parent;
-        G = g;
-        H = h;
-        F = G + H;
-    }
 
-}
 public class MapManager : MonoBehaviour
 {
     private static MapManager inst = null;
@@ -47,6 +19,8 @@ public class MapManager : MonoBehaviour
     public int num = 0;
     List<Path> OpenList;
     List<Path> ClosedList;
+    int index = 0;
+    Vector3[] objpos = new Vector3[150];
     Mark mark;
     public Point[] Dirs;
     // Use this for initialization
@@ -67,7 +41,7 @@ public class MapManager : MonoBehaviour
 
         inst = this;
         initDirs();
-        
+
         SetHexSize();
     }
 
@@ -79,7 +53,7 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         inst = this;
-     
+
     }
 
     void Update()
@@ -104,7 +78,7 @@ public class MapManager : MonoBehaviour
 
     public void CreateMap()
     {
-
+      
         Map = new Hex[MapSizeX + 1][][];
         for (int x = 0; x <= MapSizeX; x++)
         {
@@ -114,38 +88,71 @@ public class MapManager : MonoBehaviour
                 Map[x][y] = new Hex[MapSizeZ + 1];
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
-
-                    for (int i = 0; i < map.childCount; i++)
+                    for (int i = 0; i < map.childCount; ++i)
                     {
                         var tile = map.GetChild(i).GetComponent<Hex>();
                         if (tile != null)
                         {
                             if (x == tile.x && y == tile.y && z == tile.z)
                             {
-
-                                Map[x][y][z] = tile;
-                                Map[x][y][z].matid = tile.matid;
-                                Map[x][y][z].Passable = tile.Passable;
+                                Map[tile.x][tile.y][tile.z] = tile;
+                                Map[tile.x][tile.y][tile.z].matid = tile.matid;
+                                // Map[x][y][z].Passable = tile.Passable;
+                                Map[tile.x][tile.y][tile.z].Passable = false;
                                 Vector3 pos = GetWorldPos(tile.x, 0, tile.z);
                                 pos.y = tile.object_y;
-                                Map[x][y][z].transform.position = pos;
-                                Map[x][y][z].SetMapPos(tile.x, 0, tile.z);
+                                Map[tile.x][tile.y][tile.z].transform.position = pos;
+                                Map[tile.x][tile.y][tile.z].SetMapPos(tile.x, 0, tile.z);
+                                Map[tile.x][tile.y][tile.z].isonTotile = false;
+                                Vector3 v = new Vector3(tile.x, tile.y, tile.z);
+                                objpos[index] = v;
+                                index++;
+                            }
+                         
+                        }
+                     
+                        /*
+                        for (int k = 0; k < index; k++)
+                        {
+                            Vector3 temp = new Vector3(x, y, z);
+                            if (objpos[k] == temp)
+                            {
+                                Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                                Map[x][y][z].matid = default_matid;
+
+                                Vector3 pos2 = GetWorldPos(x, 0, z);
+                                Map[x][y][z].transform.position = pos2;
+                                Map[x][y][z].SetMapPos(x, 0, z);
+                                Map[x][y][z].Passable = false;
+                            }
+                            else
+                            {
+                                Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                                Map[x][y][z].matid = default_matid;
+
+                                Vector3 pos2 = GetWorldPos(x, 0, z);
+                                Map[x][y][z].transform.position = pos2;
+                                Map[x][y][z].SetMapPos(x, 0, z);
+                                Map[x][y][z].Passable = true;
                             }
                         }
+                        */
+
                     }
-                    
+
                     if (Map[x][y][z] == null)
-                   {
+                    {
                         Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
-                           Map[x][y][z].matid = default_matid;
-                        Map[x][y][z].Passable = true;
+                        Map[x][y][z].matid = default_matid;
+
                         Vector3 pos2 = GetWorldPos(x, 0, z);
-                            Map[x][y][z].transform.position = pos2;
-                            Map[x][y][z].SetMapPos(x, 0, z);
-                        
-                        
+                        Map[x][y][z].transform.position = pos2;
+                        Map[x][y][z].SetMapPos(x, 0, z);
+                        Map[x][y][z].Passable = true;
                     }
-                    
+
+
+
                 }
             }
         }
@@ -154,7 +161,7 @@ public class MapManager : MonoBehaviour
     {
         return Map[x][y][z];
     }
-    public void MarkTile(Point pos,int range)
+    public void MarkTile(Point pos, int range)
     {
         int highLighedCount = 0;
         Point start = pos;
@@ -168,18 +175,18 @@ public class MapManager : MonoBehaviour
                 for (int y = 0; y <= MapSizeY; y++)
                 {
                     for (int z = 0; z <= MapSizeZ; z++)
-                    {                   
-                       if (Map[x][y][z].GetComponent<Renderer>().material.color == Color.green)
+                    {
+                        if (Map[x][y][z].GetComponent<Renderer>().material.color == Color.green)
                             highLighedCount++;
                     }
                 }
             }
-           
-                   // for(int i=0;i<5;++i)
-                  //  Map[s_x][s_y][s_z+i].GetComponent<Renderer>().material.color = Color.green;
-                
-            
-            
+
+            // for(int i=0;i<5;++i)
+            //  Map[s_x][s_y][s_z+i].GetComponent<Renderer>().material.color = Color.green;
+
+
+
             if (highLighedCount == 0)
             {
                 Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material.color = Color.green;
@@ -189,10 +196,10 @@ public class MapManager : MonoBehaviour
                 ResetMapColor();
                 Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material.color = Color.green;
             }
-            
+
         }
     }
-    
+
     public bool HilightMoveRange(Hex start, int moveRange)
     {
         int highLighedCount = 0;
@@ -212,8 +219,8 @@ public class MapManager : MonoBehaviour
                         {//
                             if (IsReachAble(start, Map[x][y][z], moveRange))
                             {
-                                if(default_matid==1)
-                                Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
+                                if (default_matid == 1)
+                                    Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
                                 else
                                 {
                                     Map[x][y][z].GetComponent<Renderer>().material.color = Color.gray;
@@ -248,7 +255,7 @@ public class MapManager : MonoBehaviour
                     {
                         int distance = (GetDistance(start, Map[x][y][z]));
 
-     
+
                         if (distance <= AtkRange && distance != 0)
                         {
                             Map[x][y][z].GetComponent<Renderer>().material.color = Color.red;
@@ -388,7 +395,7 @@ public class MapManager : MonoBehaviour
         }
         if (pos.isonTotile == true)
         {
-            return rtn;
+            // return rtn;
         }
         foreach (Point p in Dirs)
         {
