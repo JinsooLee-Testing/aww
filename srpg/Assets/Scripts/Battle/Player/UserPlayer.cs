@@ -30,7 +30,16 @@ public class UserPlayer : PlayerBase
     void Update()
     {
         PlayerManager pm = PlayerManager.GetInst();
-       if(act==ACT.IDLE)
+        if (removeTime != 0)
+        {
+            removeTime += Time.deltaTime;
+            if (removeTime >= 1.5f)
+            {
+                pm.TurnOver();
+                pm.RemovePlayer(this);
+            }
+        }
+        if (act==ACT.IDLE)
        {
             anim.SetBool("running", false);
             if (pm.Players[pm.CurTurnIdx] == this)

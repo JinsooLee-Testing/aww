@@ -8,7 +8,8 @@ public enum ACT
     MOVING,
     ATTACKHIGHLIGHT,
     ATTACKING,
-    SUMMONES
+    SUMMONES,
+    DIYING
 }
 public enum Type
 {
@@ -22,6 +23,7 @@ public class PlayerBase : MonoBehaviour {
     public Animator anim;
     public Hex CurHex;
     public ACT act;
+    public float removeTime = 0;
     public bool main_char;
     public bool live;
     public List<Hex> MoveHexes;
@@ -44,10 +46,11 @@ public class PlayerBase : MonoBehaviour {
        status.Curhp -= damage;
        if (status.Curhp <= 0)
         {
-            Debug.Log("Died");
+            act = ACT.DIYING;
             if (m_type == Type.MONSTER)
                 live = false;
-            PlayerManager.GetInst().RemovePlayer(this);
+            removeTime += Time.deltaTime;
+            //PlayerManager.GetInst().RemovePlayer(this);
         }
 
     }

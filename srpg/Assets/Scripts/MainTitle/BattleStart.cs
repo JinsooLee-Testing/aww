@@ -14,7 +14,7 @@ public class BattleStart : MonoBehaviour {
 	}
     void OnMouseDown()
     {
-
+        SoundManager.GetInst().PlayClickSound();
         SceneManager.LoadScene(1);
     }
 }

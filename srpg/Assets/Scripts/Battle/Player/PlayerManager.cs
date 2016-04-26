@@ -164,7 +164,7 @@ public class PlayerManager : MonoBehaviour {
     {
         MapManager.GetInst().ResetMapColor();
         PlayerBase pb = Players[CurTurnIdx];
-       
+  
         pb.act = ACT.IDLE;
         if (Players.Count > 0)
         {
@@ -183,10 +183,9 @@ public class PlayerManager : MonoBehaviour {
         CameraManager.GetInst().ResetCameraTarget();
 
     }
-
+   
     public void RemovePlayer(PlayerBase pb)
     {
-        pb.live = false;
         pb.CurHex.Passable = true;
         if (pb.m_type==Type.MONSTER)
         {

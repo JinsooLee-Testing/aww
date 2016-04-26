@@ -29,6 +29,7 @@ public class BattleManager:MonoBehaviour {
                 normalAttackTime = 0f;
                 Debug.Log("attack!!" + attacker.status.Name + "to" + defender.status.Name);
                 defender.GetDamage(attacker.status.Attack);
+                //EffectManager.GetInst().ShowDamage(defender.CurHex,attacker.status.Attack);
                 PlayerManager.GetInst().SetTurnOverTime(0.9f);
             }
         }
@@ -48,7 +49,7 @@ public class BattleManager:MonoBehaviour {
         if(a.status.Name!="chick")
          a.transform.rotation = Quaternion.Euler(r);
 
-        //a.anim.SetBool("Attack",true);
+        // a.anim.SetBool("Attack",true);
         a.act = ACT.ATTACKING;
         normalAttackTime = Time.smoothDeltaTime;
          attacker = a;

@@ -27,6 +27,7 @@ public class ui : MonoBehaviour
                
                     PlayerBase pb = pm.Players[pm.CurTurnIdx];
                 pb.CurHex.Passable = true;
+                SoundManager.GetInst().PlayClickSound();
                 if (pb.m_type != Type.MONSTER)
                 {
 
@@ -43,7 +44,7 @@ public class ui : MonoBehaviour
         if (act == "attack")
         {
             MapManager.GetInst().ResetMapColor();
-            
+            SoundManager.GetInst().PlayClickSound();
             Debug.Log("Attack");
             PlayerBase pb = pm.Players[pm.CurTurnIdx];
             pb.CurHex.Passable = true;
@@ -57,10 +58,12 @@ public class ui : MonoBehaviour
         }
         if (act == "turnover")
         {
+            SoundManager.GetInst().PlayClickSound();
             PlayerManager.GetInst().TurnOver();
         }
         if (act == "exit")
         {
+            SoundManager.GetInst().PlayClickSound();
             Debug.Log("Attack");
             MapManager.GetInst().num = 0;
             SceneManager.LoadScene(0);

@@ -76,6 +76,7 @@ public class Hex : MonoBehaviour {
     public Material mat1;
     public Material mat2;
     public Material mat3;
+
     public Color mat_color = Color.white;
 	// Use this for initialization
     void Start()
@@ -148,7 +149,7 @@ public class Hex : MonoBehaviour {
         PlayerManager pm = PlayerManager.GetInst();
         PlayerBase pb = pm.Players[pm.CurTurnIdx];
         Debug.Log(MapPos + "OnMouseDown");
-        
+      
             if (pb.act == ACT.SUMMONES)
             {
                 if (Passable == true && (GetComponent<Renderer>().material.color == Color.green) || (GetComponent<Renderer>().material.color == Color.gray))

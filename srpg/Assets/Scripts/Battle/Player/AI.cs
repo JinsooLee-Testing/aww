@@ -45,8 +45,10 @@ public class AIthink  {
             nearUserPlayer.GetDamage(30);
 
             EffectManager.GetInst().ShowEffect(nearUserPlayer.gameObject);
+            SoundManager.GetInst().PlayAttackSound();
             aiplayer.anim.SetBool("attack", true);
-          //  BattleManager.GetInst().AttackAtoB(aiplayer, nearUserPlayer);
+            aiplayer.act = ACT.ATTACKING;
+            //  BattleManager.GetInst().AttackAtoB(aiplayer, nearUserPlayer);
             Debug.Log("AIPlayer Attack!!");
         }
       //  aiplayer.act = ACT.IDLE;
@@ -89,7 +91,6 @@ public class AIthink  {
             }
             if (aiplayer.MoveHexes.Count == 0)
             {
-                AtkAItoUser(aiplayer);
                 return;
             }
             aiplayer.act = ACT.MOVING;

@@ -28,7 +28,17 @@ public class AIPlayer : PlayerBase
     void Update()
     {
         PlayerManager pm = PlayerManager.GetInst();
-     
+        if(removeTime!=0)
+        {
+            removeTime += Time.deltaTime;
+            if(removeTime>=1.5f)
+            {
+                pm.TurnOver();
+                pm.RemovePlayer(this);
+             
+  
+            }
+        }
         if(act==ACT.IDLE)
         {
           
@@ -75,15 +85,16 @@ public class AIPlayer : PlayerBase
                 v.y = PlayerManager.GetInst().m_y;
                 transform.position = v;
                 MoveHexes.RemoveAt(0);
+             
                 if (MoveHexes.Count == 0)//최종 dest
                 {
+                    anim.SetBool("run", false);
+                    act = ACT.IDLE;
                     CurHex = nextHex;
                     CurHex.Passable = false;
-                    act = ACT.IDLE;
-
-                    anim.SetBool("run", false);
                    // CurHex.isonTotile = true;
                     PlayerManager.GetInst().TurnOver();
+                    
                 }
 
             }
@@ -97,11 +108,11 @@ public class AIPlayer : PlayerBase
             AIthink ai = AIthink.GetInst();
             //근점 플레이어찾는과정 추가내용 
             //이미 근접상태면 act는 IDLE 유지 이동 필요하면 act는 MOVING으로
-            if (live == false)
-                PlayerManager.GetInst().TurnOver();
+
             CurHex.Passable = true;
             ai.MoveToNearUserPlayer(this);
-           
+            if (act == ACT.IDLE)
+                ai.AtkAItoUser(this);
        
          
         }
@@ -114,9 +125,11 @@ public class AIPlayer : PlayerBase
         BattleManager bm = BattleManager.GetInst();
         if (pm.Players[pm.CurTurnIdx].act==ACT.ATTACKHIGHLIGHT)
         {
-            bm.AttackAtoB(pb, this);
             EffectManager.GetInst().ShowEffect(this.gameObject);
-            PlayerManager.GetInst().TurnOver();
+            SoundManager.GetInst().PlayAttackSound();
+            bm.AttackAtoB(pb, this);
+            
+           
         }
 
     }
