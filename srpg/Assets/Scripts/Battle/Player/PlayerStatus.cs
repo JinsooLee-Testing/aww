@@ -8,6 +8,7 @@ public class PlayerStatus
     public float MoveSpeed = 5.0f;
     public int attackRange = 1;
     public int Curhp = 150;
+    public int Attack = 30;
 
 
     public PlayerStatus()
@@ -17,6 +18,6 @@ public class PlayerStatus
         MoveSpeed = 5.0f;
         attackRange = 1;
         Curhp = 100;
-
+        Attack = 80;
     }
 }

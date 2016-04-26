@@ -3,12 +3,14 @@ using System.Collections;
 
 public class UserPlayer : PlayerBase
 {
-   
+    public int hp;
+    public string[] na;
     void Awake()
     {
         anim = GetComponent<Animator>();
         act = ACT.IDLE;
         status = new PlayerStatus();
+        
         main_char = true;
         live = true;
         m_type = Type.USER;
@@ -35,10 +37,12 @@ public class UserPlayer : PlayerBase
            {
                MapManager.GetInst().SetHexColor(CurHex, Color.black);
            }
-       }
+            //CurHex.Passable = true;
+        }
      
         if (act == ACT.MOVING)
         {//이동처리
+            CurHex.Passable = true;
             anim.SetBool("running",true);
             Hex nextHex = MoveHexes[0];
             Vector3 v = nextHex.transform.position;
@@ -62,9 +66,11 @@ public class UserPlayer : PlayerBase
                 v.y = 1.0f;
                 transform.position = v;
                 MoveHexes.RemoveAt(0);
+               
                 if (MoveHexes.Count == 0)//최종 dest
                 {
                     CurHex = nextHex;
+                    CurHex.Passable = false;
                     act = ACT.IDLE;
                     //PlayerManager.GetInst().TurnOver();
                 }

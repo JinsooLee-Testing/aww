@@ -168,6 +168,7 @@ public class Hex : MonoBehaviour {
             }
             else if (pb.act == ACT.MOVEHILIGHT)
             {
+            if(Passable==true)
                 pm.MovePlayer(pm.Players[pm.CurTurnIdx].CurHex, this);
 
             }

@@ -35,14 +35,18 @@ public class AIthink  {
         }
         if(nearUserPlayer!=null)
         {
-            aiplayer.act = ACT.ATTACKING;
+            
+            //aiplayer.act = ACT.ATTACKING;
             Vector3 v = aiplayer.transform.position;
             v.y = PlayerManager.GetInst().m_y;
             Vector3 v2 = nearUserPlayer.CurHex.transform.position;
             v2.y = PlayerManager.GetInst().m_y;
             aiplayer.transform.rotation = Quaternion.LookRotation((v2 - v).normalized);
+            nearUserPlayer.GetDamage(30);
 
-            nearUserPlayer.GetDamage(15);
+            EffectManager.GetInst().ShowEffect(nearUserPlayer.gameObject);
+            aiplayer.anim.SetBool("attack", true);
+          //  BattleManager.GetInst().AttackAtoB(aiplayer, nearUserPlayer);
             Debug.Log("AIPlayer Attack!!");
         }
       //  aiplayer.act = ACT.IDLE;
@@ -70,6 +74,7 @@ public class AIthink  {
 
         if (nearUserPlayer != null)
         {
+           
             List<Hex> path = mm.GetPath(aiplayer.CurHex, nearUserPlayer.CurHex);
 
             if (path.Count > aiplayer.status.MoveRange)
@@ -84,6 +89,7 @@ public class AIthink  {
             }
             if (aiplayer.MoveHexes.Count == 0)
             {
+                AtkAItoUser(aiplayer);
                 return;
             }
             aiplayer.act = ACT.MOVING;

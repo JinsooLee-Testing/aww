@@ -88,73 +88,38 @@ public class MapManager : MonoBehaviour
                 Map[x][y] = new Hex[MapSizeZ + 1];
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
-                    for (int i = 0; i < map.childCount; ++i)
-                    {
-                        var tile = map.GetChild(i).GetComponent<Hex>();
-                        if (tile != null)
-                        {
-                            if (x == tile.x && y == tile.y && z == tile.z)
-                            {
-                                Map[tile.x][tile.y][tile.z] = tile;
-                                Map[tile.x][tile.y][tile.z].matid = tile.matid;
-                                // Map[x][y][z].Passable = tile.Passable;
-                                Map[tile.x][tile.y][tile.z].Passable = false;
-                                Vector3 pos = GetWorldPos(tile.x, 0, tile.z);
-                                pos.y = tile.object_y;
-                                Map[tile.x][tile.y][tile.z].transform.position = pos;
-                                Map[tile.x][tile.y][tile.z].SetMapPos(tile.x, 0, tile.z);
-                                Map[tile.x][tile.y][tile.z].isonTotile = false;
-                                Vector3 v = new Vector3(tile.x, tile.y, tile.z);
-                                objpos[index] = v;
-                                index++;
-                            }
-                         
-                        }
-                     
-                        /*
-                        for (int k = 0; k < index; k++)
-                        {
-                            Vector3 temp = new Vector3(x, y, z);
-                            if (objpos[k] == temp)
-                            {
-                                Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
-                                Map[x][y][z].matid = default_matid;
-
-                                Vector3 pos2 = GetWorldPos(x, 0, z);
-                                Map[x][y][z].transform.position = pos2;
-                                Map[x][y][z].SetMapPos(x, 0, z);
-                                Map[x][y][z].Passable = false;
-                            }
-                            else
-                            {
-                                Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
-                                Map[x][y][z].matid = default_matid;
-
-                                Vector3 pos2 = GetWorldPos(x, 0, z);
-                                Map[x][y][z].transform.position = pos2;
-                                Map[x][y][z].SetMapPos(x, 0, z);
-                                Map[x][y][z].Passable = true;
-                            }
-                        }
-                        */
-
-                    }
-
-                    if (Map[x][y][z] == null)
-                    {
+                  
                         Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
                         Map[x][y][z].matid = default_matid;
 
                         Vector3 pos2 = GetWorldPos(x, 0, z);
                         Map[x][y][z].transform.position = pos2;
                         Map[x][y][z].SetMapPos(x, 0, z);
-                        Map[x][y][z].Passable = true;
-                    }
-
-
+                         Map[x][y][z].Passable = true;
 
                 }
             }
+        }
+    }
+    public void LoadObjMap()
+    {
+        for (int i = 0; i < map.childCount; ++i)
+        {
+            var tile = map.GetChild(i).GetComponent<Hex>();
+            if (tile != null)
+            {
+                    Map[tile.x][tile.y][tile.z] = tile;
+                    Map[tile.x][tile.y][tile.z].matid = tile.matid;
+                    // Map[x][y][z].Passable = tile.Passable;
+                    Map[tile.x][tile.y][tile.z].Passable = false;
+                    Vector3 pos = GetWorldPos(tile.x, 0, tile.z);
+                    pos.y = tile.object_y;
+                    Map[tile.x][tile.y][tile.z].transform.position = pos;
+                    Map[tile.x][tile.y][tile.z].SetMapPos(tile.x, 0, tile.z);
+
+            }
+
+
         }
     }
     public Hex GetPlayerHex(int x, int y, int z)
@@ -251,8 +216,7 @@ public class MapManager : MonoBehaviour
             {
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
-                    if (Map[x][y][z].Passable == true)
-                    {
+   
                         int distance = (GetDistance(start, Map[x][y][z]));
 
 
@@ -279,7 +243,7 @@ public class MapManager : MonoBehaviour
 
                             }
 
-                        }
+                        
 
                     }
                 }

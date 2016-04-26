@@ -25,6 +25,7 @@ public class Manager : MonoBehaviour {
         pm = PlayerManager.GetInst();
 
         mm.CreateMap();
+        mm.LoadObjMap();
         pm.GenPlayerTest();
        
 

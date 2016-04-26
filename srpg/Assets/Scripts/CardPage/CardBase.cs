@@ -3,11 +3,14 @@ using System.Collections;
 
 public class CardBase : MonoBehaviour {
 
+
     public Sprite sp_image;
     public Sprite sp_image2;
-    bool On_active = true;
+   
+    protected bool  On_active = true;
+    ACT act;
     // public GameObject GO_Card;
-    ACT act = ACT.IDLE;
+  
     string type;
     //public Point MapPos;
     // Use this for initialization
@@ -30,7 +33,7 @@ public class CardBase : MonoBehaviour {
     }
     void OnMouseDown()
     {
-        if(CostManager.GetInst().cur_cost_num>=3)
+        if (CostManager.GetInst().cur_cost_num >= 3)
         {
             if (On_active == true)
             {
@@ -43,7 +46,7 @@ public class CardBase : MonoBehaviour {
                 CostManager.GetInst().CostDecrease(3);
             }
         }
-        magic.GetInst().fire = true;
+        //magic.GetInst().fire = true;
     }
 
 }

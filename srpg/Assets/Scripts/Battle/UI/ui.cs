@@ -21,26 +21,38 @@ public class ui : MonoBehaviour
     {
         if (act == "move")
         {
-            Debug.Log("move");
+      
             if (CostManager.GetInst().cur_cost_num >= 1)
-            {
-                PlayerBase pb = pm.Players[pm.CurTurnIdx];
-                if (MapManager.GetInst().HilightMoveRange(pb.CurHex, pb.status.MoveRange))
                 {
-                    pm.Players[pm.CurTurnIdx].act = ACT.MOVEHILIGHT;
+               
+                    PlayerBase pb = pm.Players[pm.CurTurnIdx];
+                pb.CurHex.Passable = true;
+                if (pb.m_type != Type.MONSTER)
+                {
+
+                    if (MapManager.GetInst().HilightMoveRange(pb.CurHex, pb.status.MoveRange))
+                    {
+                        pm.Players[pm.CurTurnIdx].act = ACT.MOVEHILIGHT;
+                    }
+                    CostManager.GetInst().CostDecrease(1);
                 }
-                CostManager.GetInst().CostDecrease(1);
             }
-          
+        
 
         }
         if (act == "attack")
         {
+            MapManager.GetInst().ResetMapColor();
+            
             Debug.Log("Attack");
             PlayerBase pb = pm.Players[pm.CurTurnIdx];
-            if (MapManager.GetInst().HilightAttackRange(pb.CurHex, pb.status.attackRange))
+            pb.CurHex.Passable = true;
+            if (pb.m_type != Type.MONSTER)
             {
-                pm.Players[pm.CurTurnIdx].act = ACT.ATTACKHIGHLIGHT;
+                if (MapManager.GetInst().HilightAttackRange(pb.CurHex, pb.status.attackRange))
+                {
+                    pm.Players[pm.CurTurnIdx].act = ACT.ATTACKHIGHLIGHT;
+                }
             }
         }
         if (act == "turnover")

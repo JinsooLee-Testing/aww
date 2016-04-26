@@ -8,10 +8,14 @@ public enum TURN
     NPCTURN
 
 }
+
 public class PlayerManager : MonoBehaviour {
     private static PlayerManager inst = null;
+    private float turnOverTiem;
+    private int Max_CurIdx;
+
+    public float curTurnOverTiem;
     public int parentidx = 0;
-    
     public GameObject GO_player;
     public GameObject GO_aiplayer;
     public GameObject GO_tree;
@@ -19,8 +23,6 @@ public class PlayerManager : MonoBehaviour {
     public List<PlayerBase> Players = new List<PlayerBase>();
     public int CurTurnIdx = 0;
     public float m_y;
-    private float turnOverTiem;
-    private float curTurnOverTiem;
     public Transform PlayersParent;
     public Transform ObcParent;
     public int EnemyCount=0;
@@ -55,6 +57,7 @@ public class PlayerManager : MonoBehaviour {
             if(curTurnOverTiem>=turnOverTiem)
             {
                 curTurnOverTiem = 0;
+                Players[CurTurnIdx].anim.SetBool("attack", false);
                 TurnOver();
             }
         }
@@ -67,6 +70,7 @@ public class PlayerManager : MonoBehaviour {
     }
     public void HilightSummons()
     {
+        Players[CurTurnIdx].CurHex.Passable = true;
         MapManager.GetInst().HilightMoveRange(Players[CurTurnIdx].CurHex, 3);
         Players[CurTurnIdx].act = ACT.SUMMONES;
     }
@@ -163,17 +167,16 @@ public class PlayerManager : MonoBehaviour {
        
         pb.act = ACT.IDLE;
         if (Players.Count > 0)
-            CurTurnIdx++;
-        if (CurTurnIdx >= Players.Count)
         {
-            
-            CurTurnIdx = 0;
-           
+            CurTurnIdx++;
+        }
+        if (CurTurnIdx >= Players.Count)
+        {        
+            CurTurnIdx = 0;       
         }
         PlayerBase pb2 = Players[CurTurnIdx];
         if (pb2.m_type == Type.MAINCHARACTER)
         {
-
             CostManager.GetInst().AddCost();
         }
 
@@ -183,23 +186,34 @@ public class PlayerManager : MonoBehaviour {
 
     public void RemovePlayer(PlayerBase pb)
     {
-        
+        pb.live = false;
+        pb.CurHex.Passable = true;
         if (pb.m_type==Type.MONSTER)
         {
+           
             EnemyCount--;
             if (EnemyCount<=0)
             {
-                MapManager.GetInst().num = 2;
-               SceneManager.LoadScene(2);
+                Players.Remove(pb);
+                GameObject.Destroy(pb.gameObject);
+                SceneManager.LoadScene(2);
             }
+            else
+            {
+               Players.Remove(pb);
+                GameObject.Destroy(pb.gameObject);
+            }
+        }
+        else if (pb.m_type == Type.MAINCHARACTER)
+        {
             Players.Remove(pb);
             GameObject.Destroy(pb.gameObject);
+         SceneManager.LoadScene(0);
         }
         else
         {
+            Players.Remove(pb);
             GameObject.Destroy(pb.gameObject);
-            MapManager.GetInst().num = 0;
-            SceneManager.LoadScene(0);
         }
     
         

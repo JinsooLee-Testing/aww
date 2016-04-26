@@ -11,7 +11,6 @@ public class BattleManager:MonoBehaviour {
     {
         return inst;
     }
-
     void Awake()
     {
         inst = this;
@@ -29,19 +28,26 @@ public class BattleManager:MonoBehaviour {
             {
                 normalAttackTime = 0f;
                 Debug.Log("attack!!" + attacker.status.Name + "to" + defender.status.Name);
-                defender.GetDamage(80);
-                PlayerManager.GetInst().SetTurnOverTime(0.2f);
+                defender.GetDamage(attacker.status.Attack);
+                PlayerManager.GetInst().SetTurnOverTime(0.9f);
             }
         }
 	
 	}
     public void AttackAtoB(PlayerBase a,PlayerBase b)
     {
-       
-        a.transform.rotation=Quaternion.LookRotation((b.CurHex.transform.position-a.transform.position).normalized);
-        Vector3 r = transform.rotation.eulerAngles;
+        Vector3 v = a.transform.position;
+        v.y = 1.0f;
+        Vector3 v2 = b.CurHex.transform.position;
+        v2.y = PlayerManager.GetInst().m_y;
+
+        
+        a.transform.rotation = Quaternion.LookRotation((v2 - v).normalized);
+        Vector3 r = a.transform.rotation.eulerAngles;
         r.y -= 90;
-        a.transform.rotation = Quaternion.Euler(r);
+        if(a.status.Name!="chick")
+         a.transform.rotation = Quaternion.Euler(r);
+
         //a.anim.SetBool("Attack",true);
         a.act = ACT.ATTACKING;
         normalAttackTime = Time.smoothDeltaTime;
