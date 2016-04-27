@@ -130,9 +130,7 @@ public class MapManager : MonoBehaviour
     {
         int highLighedCount = 0;
         Point start = pos;
-        int s_x = start.GetX();
-        int s_y = start.GetY();
-        int s_z = start.GetZ();
+
         if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act == ACT.IDLE)
         {
             for (int x = 0; x <= MapSizeX; x++)
@@ -291,11 +289,13 @@ public class MapManager : MonoBehaviour
         ClosedList.Add(startPath);
         Path result = Recursive_FindPath(startPath, dest);
 
-        while (result.Parent != null)
-        {
-            rtnVal.Insert(0, result.GetHex());
-            result = result.Parent;
-        }
+
+            while (result.Parent != null)
+            {
+                rtnVal.Insert(0, result.GetHex());
+                result = result.Parent;
+            }
+
         return rtnVal;
     }
     public Path Recursive_FindPath(Path parent, Hex dest)
@@ -357,10 +357,7 @@ public class MapManager : MonoBehaviour
         {
             return rtn;
         }
-        if (pos.isonTotile == true)
-        {
-            // return rtn;
-        }
+
         foreach (Point p in Dirs)
         {
             Point tmp = p + cur;

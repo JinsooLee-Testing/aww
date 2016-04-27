@@ -5,6 +5,7 @@ using System.Collections;
 public class AIPlayer : PlayerBase
 {
     public int x, y, z;
+    public float m_y=1.0f;
     public int hp;
     public int Attack;
     public string m_name;
@@ -14,6 +15,7 @@ public class AIPlayer : PlayerBase
         status = new PlayerStatus();
         status.Name = m_name;
         status.Curhp = hp;
+        status.Maxhp = hp;
         status.Attack = Attack;
         anim = GetComponent<Animator>();
         main_char = false;
@@ -33,10 +35,27 @@ public class AIPlayer : PlayerBase
             removeTime += Time.deltaTime;
             if(removeTime>=1.5f)
             {
-                pm.TurnOver();
-                pm.RemovePlayer(this);
-             
-  
+                for (int i = 0; i < pm.Players.Count; ++i)
+                {
+                    if (pm.Players[i].act == ACT.DIYING)
+                    {
+                        if (pm.CurTurnIdx == i)
+                        {
+                            pm.RemoveAfter();
+                            pm.RemovePlayer(pm.Players[i]);
+                            pm.RemoveAfter();
+                        }
+                        else
+                        {
+
+                            pm.RemoveAfter();
+                            pm.RemovePlayer(pm.Players[i]);
+                            pm.RemoveAfter();
+                        }
+                    }
+                }
+           
+
             }
         }
         if(act==ACT.IDLE)
@@ -64,7 +83,7 @@ public class AIPlayer : PlayerBase
             }
             Hex nextHex = MoveHexes[0];
             Vector3 v = nextHex.transform.position;
-            v.y = PlayerManager.GetInst().m_y;
+            v.y = m_y;
             float distance = Vector3.Distance(transform.position, v);
            
             if (distance > 0.1f) //이동중
@@ -82,7 +101,7 @@ public class AIPlayer : PlayerBase
             {
 
                 v = nextHex.transform.position;
-                v.y = PlayerManager.GetInst().m_y;
+                v.y = m_y;
                 transform.position = v;
                 MoveHexes.RemoveAt(0);
              
@@ -92,7 +111,6 @@ public class AIPlayer : PlayerBase
                     act = ACT.IDLE;
                     CurHex = nextHex;
                     CurHex.Passable = false;
-                   // CurHex.isonTotile = true;
                     PlayerManager.GetInst().TurnOver();
                     
                 }
@@ -123,10 +141,19 @@ public class AIPlayer : PlayerBase
         PlayerManager pm = PlayerManager.GetInst();
         PlayerBase pb = pm.Players[pm.CurTurnIdx];
         BattleManager bm = BattleManager.GetInst();
+
+         PlayerManager.GetInst().select_object = this;
+        if (pb.act == ACT.MAGIC)
+        {
+            magic.GetInst().SetTarget(this.CurHex, pb.CurHex);
+            magic.GetInst().targetAI = this;
+            
+
+        }
+       
         if (pm.Players[pm.CurTurnIdx].act==ACT.ATTACKHIGHLIGHT)
         {
-            EffectManager.GetInst().ShowEffect(this.gameObject);
-            SoundManager.GetInst().PlayAttackSound();
+           
             bm.AttackAtoB(pb, this);
             
            

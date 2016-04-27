@@ -9,6 +9,7 @@ public enum ACT
     ATTACKHIGHLIGHT,
     ATTACKING,
     SUMMONES,
+    MAGIC,
     DIYING
 }
 public enum Type
@@ -46,9 +47,8 @@ public class PlayerBase : MonoBehaviour {
        status.Curhp -= damage;
        if (status.Curhp <= 0)
         {
+           // hpContorl.GetInst().SetPos(this);
             act = ACT.DIYING;
-            if (m_type == Type.MONSTER)
-                live = false;
             removeTime += Time.deltaTime;
             //PlayerManager.GetInst().RemovePlayer(this);
         }

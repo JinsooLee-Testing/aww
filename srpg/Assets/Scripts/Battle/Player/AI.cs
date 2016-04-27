@@ -35,8 +35,8 @@ public class AIthink  {
         }
         if(nearUserPlayer!=null)
         {
-            
-            //aiplayer.act = ACT.ATTACKING;
+           
+      
             Vector3 v = aiplayer.transform.position;
             v.y = PlayerManager.GetInst().m_y;
             Vector3 v2 = nearUserPlayer.CurHex.transform.position;
@@ -48,7 +48,9 @@ public class AIthink  {
             SoundManager.GetInst().PlayAttackSound();
             aiplayer.anim.SetBool("attack", true);
             aiplayer.act = ACT.ATTACKING;
-            //  BattleManager.GetInst().AttackAtoB(aiplayer, nearUserPlayer);
+            aiplayer.CurHex.Passable = false;
+            
+             //BattleManager.GetInst().AttackAtoB(aiplayer, nearUserPlayer);
             Debug.Log("AIPlayer Attack!!");
         }
       //  aiplayer.act = ACT.IDLE;

@@ -21,11 +21,12 @@ public class ui : MonoBehaviour
     {
         if (act == "move")
         {
-      
+            
             if (CostManager.GetInst().cur_cost_num >= 1)
                 {
                
                     PlayerBase pb = pm.Players[pm.CurTurnIdx];
+                PlayerManager.GetInst().select_object = pb;
                 pb.CurHex.Passable = true;
                 SoundManager.GetInst().PlayClickSound();
                 if (pb.m_type != Type.MONSTER)
@@ -35,7 +36,7 @@ public class ui : MonoBehaviour
                     {
                         pm.Players[pm.CurTurnIdx].act = ACT.MOVEHILIGHT;
                     }
-                    CostManager.GetInst().CostDecrease(1);
+                  
                 }
             }
         
@@ -47,6 +48,7 @@ public class ui : MonoBehaviour
             SoundManager.GetInst().PlayClickSound();
             Debug.Log("Attack");
             PlayerBase pb = pm.Players[pm.CurTurnIdx];
+            PlayerManager.GetInst().select_object = pb;
             pb.CurHex.Passable = true;
             if (pb.m_type != Type.MONSTER)
             {

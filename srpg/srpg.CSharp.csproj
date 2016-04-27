@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.3.3f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -89,6 +87,8 @@
     <Compile Include="Assets\Scripts\Battle\Player\PlayerStatus.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\UserPlayer.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\GUIManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\SelectObject.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\hpContorl.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\ui.cs" />
     <Compile Include="Assets\Scripts\Battle\cost\CostManager.cs" />
     <Compile Include="Assets\Scripts\Battle\cost\costBase.cs" />
@@ -99,7 +99,10 @@
     <Compile Include="Assets\Scripts\CardPage\CardBase.cs" />
     <Compile Include="Assets\Scripts\CardPage\CardLoad.cs" />
     <Compile Include="Assets\Scripts\CardPage\CardLoadManager.cs" />
+    <Compile Include="Assets\Scripts\CardPage\CardUseBase.cs" />
+    <Compile Include="Assets\Scripts\CardPage\MagicCard.cs" />
     <Compile Include="Assets\Scripts\CardPage\SummonCard.cs" />
+    <Compile Include="Assets\Scripts\CardPage\fireball.cs" />
     <Compile Include="Assets\Scripts\ETC\CameraManager.cs" />
     <Compile Include="Assets\Scripts\ETC\EffectManager.cs" />
     <Compile Include="Assets\Scripts\ETC\Manager.cs" />
@@ -136,6 +139,7 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\기획 추가FBX파일\denti_10_ani\denti_list.txt" />
     <None Include="Assets\어셋 다운자료\Elementals\Readme.txt" />
     <None Include="Assets\어셋 다운자료\GE Common Assets\Readme.txt" />
     <None Include="Assets\어셋 다운자료\GUI Animator\GUI Animator FREE\!How to.txt" />

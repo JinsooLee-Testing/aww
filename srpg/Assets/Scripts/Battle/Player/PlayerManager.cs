@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour {
     public Transform ObcParent;
     public int EnemyCount=0;
     public int EnemyTurnCount = 0;
-
+    public PlayerBase select_object;
     public TURN turn= TURN.PLAYERTURN;
     public void SetTurnOverTime(float time)
     {
@@ -79,6 +79,7 @@ public class PlayerManager : MonoBehaviour {
         UserPlayer player = ((GameObject)Instantiate(GO_tree)).GetComponent<UserPlayer>();
         Hex hex = MapManager.GetInst().GetPlayerHex(x, 0, z);
         player.CurHex = hex;
+        player.CurHex.Passable = false;
         Vector3 v = player.CurHex.transform.position;
         v.y = 1.5f;
         player.transform.position = v;
@@ -98,7 +99,7 @@ public class PlayerManager : MonoBehaviour {
         userplayer.transform.position = v;
         userplayer.m_type = Type.MAINCHARACTER;
         Players.Add(userplayer);
-        
+        select_object = userplayer;
         for (int i = 0; i < ObcParent.childCount; i++)
         {
             var obj = ObcParent.GetChild(i).GetComponent<tree>();
@@ -124,7 +125,9 @@ public class PlayerManager : MonoBehaviour {
                 hex = MapManager.GetInst().GetPlayerHex(player.x, player.y, player.z);
                 player.CurHex = hex;
                 Vector3 curpos = player.CurHex.transform.position;
-                curpos.y = m_y;
+                curpos.y = player.m_y;
+                player.CurHex.Passable = false;
+
                 player.transform.position = curpos;
                 EnemyCount++;
                 EnemyTurnCount++;
@@ -164,26 +167,37 @@ public class PlayerManager : MonoBehaviour {
     {
         MapManager.GetInst().ResetMapColor();
         PlayerBase pb = Players[CurTurnIdx];
-  
+        pb.CurHex.Passable = false;
         pb.act = ACT.IDLE;
+
         if (Players.Count > 0)
         {
             CurTurnIdx++;
+            
         }
         if (CurTurnIdx >= Players.Count)
         {        
-            CurTurnIdx = 0;       
+            CurTurnIdx = 0;
+            
         }
+
         PlayerBase pb2 = Players[CurTurnIdx];
         if (pb2.m_type == Type.MAINCHARACTER)
         {
             CostManager.GetInst().AddCost();
         }
-
+        select_object = pb2;
         CameraManager.GetInst().ResetCameraTarget();
 
     }
-   
+    public void RemoveAfter()
+    {
+        
+        if (CurTurnIdx >= Players.Count)
+        {
+            CurTurnIdx = 0;
+        }
+    }
     public void RemovePlayer(PlayerBase pb)
     {
         pb.CurHex.Passable = true;

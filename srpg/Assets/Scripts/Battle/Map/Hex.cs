@@ -149,8 +149,10 @@ public class Hex : MonoBehaviour {
         PlayerManager pm = PlayerManager.GetInst();
         PlayerBase pb = pm.Players[pm.CurTurnIdx];
         Debug.Log(MapPos + "OnMouseDown");
-      
-            if (pb.act == ACT.SUMMONES)
+
+        
+     
+        if (pb.act == ACT.SUMMONES)
             {
                 if (Passable == true && (GetComponent<Renderer>().material.color == Color.green) || (GetComponent<Renderer>().material.color == Color.gray))
                 {
@@ -161,9 +163,7 @@ public class Hex : MonoBehaviour {
             }
             if (pb.act == ACT.IDLE)
             {
-                Vector3 v = transform.position;
-                v = new Vector3(v.x, 2, v.z);
-                /// magic.GetInst().SetTarget(v);
+                
 
 
             }

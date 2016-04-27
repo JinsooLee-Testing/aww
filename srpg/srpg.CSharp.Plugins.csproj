@@ -122,6 +122,7 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\기획 추가FBX파일\denti_10_ani\denti_list.txt" />
     <None Include="Assets\어셋 다운자료\Elementals\Readme.txt" />
     <None Include="Assets\어셋 다운자료\GE Common Assets\Readme.txt" />
     <None Include="Assets\어셋 다운자료\GUI Animator\GUI Animator FREE\!How to.txt" />

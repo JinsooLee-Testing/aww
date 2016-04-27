@@ -7,6 +7,10 @@ public class magic : MonoBehaviour
 
     private static magic inst = null;
     public Vector3 target;
+    public Hex targetHex;
+    public GameObject GO_mis;
+    public AIPlayer targetAI;
+    public bool fired = false;
     public static magic GetInst()
     {
         return inst;
@@ -23,30 +27,22 @@ public class magic : MonoBehaviour
 
         transform.position = v;
     }
-   public void SetTarget(Vector3 v)
-    {
-        target = v;
-
-        fire = true;
-    }
-    // Update is called once per frame
     void Update()
     {
-        if (fire == true)
-        {
-            float distance = Vector3.Distance(transform.position, target);
-            if (distance > 0.1f) //이동중
-            {
 
-                transform.position += (target - transform.position).normalized * 8 * Time.smoothDeltaTime;
-            }
-           // fire = false;
-        }
-        else //다음 목표 hex에 도착함
-        {
-
-            transform.position = target;
-
-        }
     }
+   public void SetTarget(Hex v,Hex start)
+    {
+        fireball fireb = ((GameObject)Instantiate(GO_mis)).GetComponent<fireball>();
+        fireb.targetHex = v;
+        Vector3 v2 = v.transform.position;
+        v2 = new Vector3(v2.x, 2, v2.z);
+        Vector3 Start = start.transform.position;
+        Start.y = 3f;
+        fireb.target = v2;
+        fireb.transform.position = Start;
+        fireb.fire = true;
+    }
+    // Update is called once per frame
+
 }
