@@ -70,6 +70,7 @@ public class Hex : MonoBehaviour {
     public Point MapPos;
     public int matid;
     public bool Passable = true;
+    public bool Marked = false;
     public bool isonTotile = true;
     public int x, y, z;
     public float object_y;

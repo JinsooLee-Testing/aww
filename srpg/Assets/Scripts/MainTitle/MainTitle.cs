@@ -15,7 +15,7 @@ public class MainTitle : MonoBehaviour {
 	}
     void OnMouseDown()
     {
-        SoundManager.GetInst().PlayClickSound();
+        //SoundManager.GetInst().PlayClickSound();
         SceneManager.LoadScene(sceennum);
     }
 }

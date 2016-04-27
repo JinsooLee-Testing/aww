@@ -221,6 +221,7 @@ public class MapManager : MonoBehaviour
                         if (distance <= AtkRange && distance != 0)
                         {
                             Map[x][y][z].GetComponent<Renderer>().material.color = Color.red;
+                              Map[x][y][z].Marked = true;
                             bool isExit = false;
                             foreach (PlayerBase pb in pm.Players)
                             {
@@ -266,6 +267,7 @@ public class MapManager : MonoBehaviour
                 {
 
                     Map[x][y][z].GetComponent<Renderer>().material.color = Map[x][y][z].mat_color;
+                    Map[x][y][z].Marked = false;
                 }
             }
         }

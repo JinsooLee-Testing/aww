@@ -4,11 +4,13 @@ using System.Collections;
 
 public class AIPlayer : PlayerBase
 {
+   
     public int x, y, z;
     public float m_y=1.0f;
     public int hp;
     public int Attack;
     public string m_name;
+    public int id = 1;
     void Awake()
     {
         act = ACT.IDLE;
@@ -21,6 +23,7 @@ public class AIPlayer : PlayerBase
         main_char = false;
         m_type = Type.MONSTER;
         live = true;
+        Monster_id = id;
     }
     void Start()
     {
@@ -145,15 +148,16 @@ public class AIPlayer : PlayerBase
          PlayerManager.GetInst().select_object = this;
         if (pb.act == ACT.MAGIC)
         {
-            magic.GetInst().SetTarget(this.CurHex, pb.CurHex);
-            magic.GetInst().targetAI = this;
-            
-
+            if (CurHex.Marked == true)
+            {
+                magic.GetInst().SetTarget(this.CurHex, pb.CurHex);
+                magic.GetInst().targetAI = this;
+            }
         }
        
         if (pm.Players[pm.CurTurnIdx].act==ACT.ATTACKHIGHLIGHT)
         {
-           
+         if(CurHex.Marked==true)
             bm.AttackAtoB(pb, this);
             
            

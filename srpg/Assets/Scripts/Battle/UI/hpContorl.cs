@@ -52,7 +52,8 @@ public class hpContorl : MonoBehaviour {
         barpos /= 10;
         
         int percent = (int)barpos;
-  
+        if (percent == 0)
+            percent = 1;
         transform.position = pos[10-percent];
         transform.localScale = Local[10 - percent];
 

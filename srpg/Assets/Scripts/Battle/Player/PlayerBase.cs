@@ -29,6 +29,7 @@ public class PlayerBase : MonoBehaviour {
     public bool live;
     public List<Hex> MoveHexes;
     public Type m_type;
+    public int Monster_id;
     void Awake()
     {
         act = ACT.IDLE;

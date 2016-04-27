@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour {
     public int EnemyTurnCount = 0;
     public PlayerBase select_object;
     public TURN turn= TURN.PLAYERTURN;
+    public int nextScene_Num=3;
     public void SetTurnOverTime(float time)
     {
         turnOverTiem = time;
@@ -209,7 +210,7 @@ public class PlayerManager : MonoBehaviour {
             {
                 Players.Remove(pb);
                 GameObject.Destroy(pb.gameObject);
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(nextScene_Num);
             }
             else
             {

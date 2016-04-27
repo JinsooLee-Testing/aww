@@ -19,9 +19,9 @@ public class UserPlayer : PlayerBase
     {
     }
     // Update is called once per frame
-    void onMouseDown()
+    void OnMouseDown()
     {
-       
+        PlayerManager.GetInst().select_object = this;
     }
     public void DrawStatus()
     {

@@ -5,7 +5,8 @@ public class SelectObject : MonoBehaviour {
    public Sprite DENTI;
     public Sprite Obj;
     public Sprite chick;
-    
+    public Sprite bunny;
+    public Sprite gorilra;
     // Use this for initialization
     void Start () {
 	
@@ -17,18 +18,21 @@ public class SelectObject : MonoBehaviour {
         if (pb.m_type == Type.MAINCHARACTER)
         {
             GetComponent<SpriteRenderer>().sprite = DENTI;
-            PlayerManager.GetInst().select_object = pb;
            
         }
         else if (pb.m_type == Type.USER)
         {
             GetComponent<SpriteRenderer>().sprite = Obj;
-            PlayerManager.GetInst().select_object = pb;
         }
         else
         {
+            if(pb.Monster_id == 1)
             GetComponent<SpriteRenderer>().sprite = chick;
-            PlayerManager.GetInst().select_object = pb;
+            if (pb.Monster_id == 2)
+                GetComponent<SpriteRenderer>().sprite = bunny;
+            if (pb.Monster_id == 3)
+                GetComponent<SpriteRenderer>().sprite = gorilra;
+
         }
     }
     
