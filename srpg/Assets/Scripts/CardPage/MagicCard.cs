@@ -22,8 +22,9 @@ public class MagicCard : CardUseBase {
         {
             if (On_active == true)
             {
-         
+               
                 PlayerBase pb = PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx];
+                Manager.GetInst().MoveCamPosToTile(pb.CurHex);
                 PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.MAGIC;
                 MapManager.GetInst().HilightAttackRange(pb.CurHex, 4);
                 On_click = true;

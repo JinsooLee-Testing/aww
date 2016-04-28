@@ -18,6 +18,7 @@ public class fireball : MonoBehaviour {
                 MapManager.GetInst().ResetMapColor();
                 float distance = Vector3.Distance(transform.position, target);
                 magic.GetInst().fired = true;
+                 CameraManager.GetInst().ResetCameraTarget();
                 if (distance >= 0.1f) //이동중
                 {
 

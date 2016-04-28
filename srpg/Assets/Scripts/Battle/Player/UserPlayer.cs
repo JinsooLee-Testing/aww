@@ -22,6 +22,7 @@ public class UserPlayer : PlayerBase
     void OnMouseDown()
     {
         PlayerManager.GetInst().select_object = this;
+              PlayerManager.GetInst().SetPickPos(this); 
     }
     public void DrawStatus()
     {
@@ -69,6 +70,7 @@ public class UserPlayer : PlayerBase
      
         if (act == ACT.MOVING)
         {//이동처리
+            CameraManager.GetInst().ResetCameraTarget();
             CurHex.Passable = true;
             anim.SetBool("run",true);
             Hex nextHex = MoveHexes[0];

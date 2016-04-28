@@ -20,7 +20,10 @@ public class SummonCard : CardUseBase {
         {
             if (On_active == true)
             {
+                PlayerBase pb = PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx];
+                Manager.GetInst().MoveCamPosToTile(pb.CurHex);
                 PlayerManager.GetInst().HilightSummons();
+             
                 act = ACT.SUMMONES;
                 CostManager.GetInst().CostDecrease(3);
                 On_active = false;

@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Battle\Map\MapManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\Mark.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\Path.cs" />
+    <Compile Include="Assets\Scripts\Battle\Map\pick.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\AI.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\AIPlayer.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\BattleManager.cs" />

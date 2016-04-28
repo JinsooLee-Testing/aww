@@ -159,7 +159,8 @@ public class Hex : MonoBehaviour {
                 {
                     PlayerManager.GetInst().GenPlayer(MapPos.GetX(), MapPos.GetZ());
                     pb.act = ACT.IDLE;
-                    MapManager.GetInst().ResetMapColor();
+                CameraManager.GetInst().ResetCameraTarget();
+                MapManager.GetInst().ResetMapColor();
                 }
             }
             if (pb.act == ACT.IDLE)

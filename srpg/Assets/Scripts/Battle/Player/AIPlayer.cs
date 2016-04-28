@@ -146,6 +146,7 @@ public class AIPlayer : PlayerBase
         BattleManager bm = BattleManager.GetInst();
 
          PlayerManager.GetInst().select_object = this;
+        PlayerManager.GetInst().SetPickPos(this);
         if (pb.act == ACT.MAGIC)
         {
             if (CurHex.Marked == true)
@@ -157,8 +158,12 @@ public class AIPlayer : PlayerBase
        
         if (pm.Players[pm.CurTurnIdx].act==ACT.ATTACKHIGHLIGHT)
         {
-         if(CurHex.Marked==true)
-            bm.AttackAtoB(pb, this);
+
+            if (CurHex.Marked == true)
+            {
+                CameraManager.GetInst().ResetCameraTarget();
+                bm.AttackAtoB(pb, this);
+            }
             
            
         }

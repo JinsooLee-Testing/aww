@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour {
     public GameObject GO_player;
     public GameObject GO_aiplayer;
     public GameObject GO_tree;
+    public GameObject GO_pick;
     public int Monster_num = 0;
     public List<PlayerBase> Players = new List<PlayerBase>();
     public int CurTurnIdx = 0;
@@ -30,6 +31,7 @@ public class PlayerManager : MonoBehaviour {
     public PlayerBase select_object;
     public TURN turn= TURN.PLAYERTURN;
     public int nextScene_Num=3;
+    public pick pick_ob = new pick();
     public void SetTurnOverTime(float time)
     {
         turnOverTiem = time;
@@ -66,8 +68,11 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         CheckTurnOver();
-       // if(Players[CurTurnIdx].act==ACT.MOVING)
-            //Manager.GetInst().MoveCamPosToTile(Players[CurTurnIdx].CurHex);
+        Vector3 temp= select_object.transform.position;
+        temp.y = 3;
+        pick_ob.transform.position = temp;
+        // if(Players[CurTurnIdx].act==ACT.MOVING)
+        //Manager.GetInst().MoveCamPosToTile(Players[CurTurnIdx].CurHex);
     }
     public void HilightSummons()
     {
@@ -89,9 +94,15 @@ public class PlayerManager : MonoBehaviour {
 
         MapManager.GetInst().ResetMapColor();
     }
-
+    public void SetPickPos(PlayerBase pb)
+    {
+        Vector3 temp = pb.transform.position;
+        temp.y = 3;
+        pick_ob.transform.position = temp;
+    }
     public void GenPlayerTest()
     {
+        pick_ob = ((GameObject)Instantiate(GO_pick)).GetComponent<pick>();
         UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
         Hex hex = MapManager.GetInst().GetPlayerHex(2, 0, 0);
         userplayer.CurHex = hex;
@@ -101,6 +112,8 @@ public class PlayerManager : MonoBehaviour {
         userplayer.m_type = Type.MAINCHARACTER;
         Players.Add(userplayer);
         select_object = userplayer;
+        v.y = 3.0f;
+        pick_ob.transform.position = v;
         for (int i = 0; i < ObcParent.childCount; i++)
         {
             var obj = ObcParent.GetChild(i).GetComponent<tree>();

@@ -6,6 +6,7 @@ public class MapManager : MonoBehaviour
 {
     private static MapManager inst = null;
     public GameObject GO_hex;
+    
 
     public int default_matid = 1;
     public float HexW; //Awake에서 설정
