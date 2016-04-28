@@ -79,9 +79,9 @@ public class UserPlayer : PlayerBase
             float distance = Vector3.Distance(transform.position, v);
             if (distance >= 0.1f) //이동중
             {
-                transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;             
-                transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
-                Vector3 r = transform.rotation.eulerAngles;
+                transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
+                Quaternion s = Quaternion.LookRotation((v - transform.position).normalized);
+                Vector3 r = s.eulerAngles;
                 r.y -= 90;
                 transform.rotation =Quaternion.Euler(r);
            
@@ -94,8 +94,8 @@ public class UserPlayer : PlayerBase
                 v.y = 1.0f;
                 transform.position = v;
                 MoveHexes.RemoveAt(0);
-               
-                if (MoveHexes.Count == 0)//최종 dest
+
+                if (MoveHexes.Count <= 0)//최종 dest
                 {
                     CostManager.GetInst().CostDecrease(1);
                     CurHex = nextHex;

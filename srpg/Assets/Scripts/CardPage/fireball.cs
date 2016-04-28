@@ -28,12 +28,12 @@ public class fireball : MonoBehaviour {
                 else //다음 목표 hex에 도착함
                 {
                 transform.position = target;
-                EffectManager.GetInst().ShowEffect_Fire(targetHex.gameObject, this.gameObject);
-                    PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.IDLE;
-                    CostManager.GetInst().CostDecrease(1);
-              
                 magic.GetInst().fired = false;
-                    magic.GetInst().targetAI.GetDamage(180);
+                magic.GetInst().targetAI.GetDamage(180);
+                EffectManager.GetInst().ShowEffect_Fire(targetHex.gameObject, this.gameObject);
+                PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.IDLE;
+                CostManager.GetInst().CostDecrease(1);
+               
 
                 }
                 // fire = false;
