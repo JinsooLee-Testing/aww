@@ -89,7 +89,7 @@ public class AIPlayer : PlayerBase
             v.y = m_y;
             float distance = Vector3.Distance(transform.position, v);
            
-            if (distance > 0.1f) //이동중
+            if (distance >= 0.1f) //이동중
             {
                 anim.SetBool("attack", false);
                 anim.SetBool("run", true);

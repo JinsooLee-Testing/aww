@@ -18,19 +18,19 @@ public class fireball : MonoBehaviour {
                 MapManager.GetInst().ResetMapColor();
                 float distance = Vector3.Distance(transform.position, target);
                 magic.GetInst().fired = true;
-                if (distance > 0.1f) //이동중
+                if (distance >= 0.1f) //이동중
                 {
 
-                    transform.position += (target - transform.position).normalized * 8 * Time.smoothDeltaTime;
+                    transform.position += (target - transform.position).normalized * 7 * Time.smoothDeltaTime;
 
                 }
                 else //다음 목표 hex에 도착함
                 {
-   
+                transform.position = target;
                 EffectManager.GetInst().ShowEffect_Fire(targetHex.gameObject, this.gameObject);
                     PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.IDLE;
                     CostManager.GetInst().CostDecrease(1);
-                transform.position = target;
+              
                 magic.GetInst().fired = false;
                     magic.GetInst().targetAI.GetDamage(180);
 
