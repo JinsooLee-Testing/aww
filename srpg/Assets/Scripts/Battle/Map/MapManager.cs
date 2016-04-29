@@ -45,7 +45,20 @@ public class MapManager : MonoBehaviour
 
         SetHexSize();
     }
+    public void CreateTestMap()
+    {
+        MapInfo info = FIleManager.Getinst().LoadMap();
+        if(info==null)
+        {
 
+        }
+        if(info.bonInfos==null)
+        {
+
+
+        }
+        CreateXMLmap(info);
+    }
     public static MapManager GetInst()
     {
         return inst;
@@ -101,6 +114,45 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
+    }
+    public void CreateXMLmap(MapInfo info)
+    {
+        MapSizeX = info.MapSizeX;
+        MapSizeY = info.MapSizeY;
+        MapSizeZ = info.MapSizeZ;
+        Map = new Hex[info.MapSizeX + 1][][];
+        for (int x = 0; x <= info.MapSizeX; x++)
+        {
+            Map[x] = new Hex[1 + 1][];
+            for (int y = 0; y <= info.MapSizeY; y++)
+            {
+                Map[x][y] = new Hex[info.MapSizeZ + 1];
+                for(int z=0;z<=info.MapSizeZ;z++)
+                {
+                  
+                }
+     
+            }
+        }
+
+        for(int i= 0; i < info.bonInfos.Count; ++i)
+             {
+
+            int x1 = info.bonInfos[i].MapPosX;
+            int y1 = info.bonInfos[i].MapPosY;
+            int z1 = info.bonInfos[i].MapPosZ;
+
+            Map[x1][y1][z1] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+            Map[x1][y1][z1].matid = info.bonInfos[i].mat_id;
+
+            Vector3 pos2 = GetWorldPos(x1, 0, z1);
+            Map[x1][y1][z1].transform.position = pos2;
+            Map[x1][y1][z1].SetMapPos(x1, 0, z1);
+            Map[x1][y1][z1].Passable = info.bonInfos[i].Passable;
+
+
+        }
+
     }
     public void LoadObjMap()
     {

@@ -32,8 +32,12 @@ public class fileMagr {
         int MapSizeX = MapMgr.GetInst().MapSizeX;
         int MapSizeY = MapMgr.GetInst().MapSizeY;
        int MapSizeZ = MapMgr.GetInst().MapSizeZ;
-      
-        for(int x=0;x<=MapSizeX;x++)
+
+
+        XmlElement size = xmlFile.CreateElement("MapSize");
+        size.InnerText = MapSizeX + " " + MapSizeY + " " + MapSizeZ;
+        rootNode.AppendChild(size);
+        for (int x=0;x<=MapSizeX;x++)
         {
             for(int y=0;y<=MapSizeY;y++)
             {
@@ -44,7 +48,7 @@ public class fileMagr {
 
                     XmlElement mapPos = xmlFile.CreateElement("MapPos");
                     boxinfo box = mm.Map[x][y][z];
-                    mapPos.InnerText=" "+box.X+" "+box.Y+" "+box.Z;
+                    mapPos.InnerText=box.X+" "+box.Y+" "+box.Z;
                     hexNode.AppendChild(mapPos);
 
                     XmlElement passable = xmlFile.CreateElement("Passable");
@@ -52,7 +56,7 @@ public class fileMagr {
                     hexNode.AppendChild(passable);
 
                     XmlElement material = xmlFile.CreateElement("Material");
-                    material.InnerText = " " + box.mat_id;
+                    material.InnerText =box.mat_id+" "+box.mat_id;
                     hexNode.AppendChild(material);
 
                 }

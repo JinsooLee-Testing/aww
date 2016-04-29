@@ -7,6 +7,7 @@ using System.Collections;
     MapManager mm;
     PlayerManager pm;
     GUIManager gm;
+    FIleManager fm;
     public GameObject GO_Damage;
     public static Manager GetInst()
     {
@@ -18,15 +19,16 @@ using System.Collections;
         mm = MapManager.GetInst();
         pm = PlayerManager.GetInst();
         gm = GUIManager.GetInst();
-        
+        fm = FIleManager.Getinst();
 
     }
 	// Use this for initialization
 	void Start () {
         mm = MapManager.GetInst();
         pm = PlayerManager.GetInst();
-
-        mm.CreateMap();
+        mm.CreateTestMap();
+        //mm.CreateMap();
+        
         mm.LoadObjMap();
         pm.GenPlayerTest();
         SoundManager.GetInst().PlayMusic(transform.position);

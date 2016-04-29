@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\ETC\EffectManager.cs" />
     <Compile Include="Assets\Scripts\ETC\Manager.cs" />
     <Compile Include="Assets\Scripts\ETC\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\FIleManager.cs" />
     <Compile Include="Assets\Scripts\Font\TextDialog.cs" />
     <Compile Include="Assets\Scripts\Font\font.cs" />
     <Compile Include="Assets\Scripts\MainTitle\BattleStart.cs" />
