@@ -71,6 +71,7 @@ public class Hex : MonoBehaviour {
     public int matid;
     public bool Passable = true;
     public bool Marked = false;
+    public bool At_Marked = false;
     public bool isonTotile = true;
     public int x, y, z;
     public float object_y;
@@ -115,7 +116,7 @@ public class Hex : MonoBehaviour {
                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
                 if (Physics.Raycast(ray, out hit))
                 {
-                    MapManager.GetInst().MarkTile(MapPos, 0);
+                    MapManager.GetInst().MarkTile(MapPos, 0,this);
                     
                 }
 
@@ -141,7 +142,8 @@ public class Hex : MonoBehaviour {
     }
     void OnMouseOver()
     {
-        MapManager.GetInst().MarkTile(MapPos,0);
+
+        MapManager.GetInst().MarkTile(MapPos,0,this);
     }
 
     void OnMouseDown()
@@ -159,6 +161,7 @@ public class Hex : MonoBehaviour {
                 {
                     PlayerManager.GetInst().GenPlayer(MapPos.GetX(), MapPos.GetZ());
                     pb.act = ACT.IDLE;
+                EffectManager.GetInst().ShowEffect_Summon(pb.CurHex.gameObject);
                 CameraManager.GetInst().ResetCameraTarget();
                 MapManager.GetInst().ResetMapColor();
                 }

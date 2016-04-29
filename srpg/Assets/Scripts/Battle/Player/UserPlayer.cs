@@ -72,13 +72,15 @@ public class UserPlayer : PlayerBase
         {//이동처리
             CameraManager.GetInst().ResetCameraTarget();
             CurHex.Passable = true;
-            anim.SetBool("run",true);
-            Hex nextHex = MoveHexes[0];
+           
+                       Hex nextHex = MoveHexes[0];
             Vector3 v = nextHex.transform.position;
            v.y = 1.0f;
             float distance = Vector3.Distance(transform.position, v);
             if (distance >= 0.1f) //이동중
             {
+
+                anim.SetBool("run", true);
                 transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
                 Quaternion s = Quaternion.LookRotation((v - transform.position).normalized);
                 Vector3 r = s.eulerAngles;
@@ -90,18 +92,20 @@ public class UserPlayer : PlayerBase
             }
             else //다음 목표 hex에 도착함
             {
+                anim.SetBool("run", false);
                 v = nextHex.transform.position;
                 v.y = 1.0f;
                 transform.position = v;
                 MoveHexes.RemoveAt(0);
-
+                
                 if (MoveHexes.Count <= 0)//최종 dest
                 {
+                   
                     CostManager.GetInst().CostDecrease(1);
                     CurHex = nextHex;
                     CurHex.Passable = false;
                     act = ACT.IDLE;
-                    anim.SetBool("run", false);
+                   
                     //PlayerManager.GetInst().TurnOver();
                 }
 

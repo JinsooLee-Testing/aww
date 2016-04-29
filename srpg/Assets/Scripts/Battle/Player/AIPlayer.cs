@@ -151,7 +151,11 @@ public class AIPlayer : PlayerBase
         {
             if (CurHex.Marked == true)
             {
-                magic.GetInst().SetTarget(this.CurHex, pb.CurHex);
+                EffectManager.GetInst().ShowEffect_Summon(pb.CurHex.gameObject);
+                if (magic.GetInst().type=="fire")
+                    magic.GetInst().SetTarget(this.CurHex, pb.CurHex,4);
+                else
+                    magic.GetInst().SetTarget(this.CurHex, pb.CurHex, 1);
                 magic.GetInst().targetAI = this;
             }
         }

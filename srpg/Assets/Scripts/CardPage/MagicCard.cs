@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MagicCard : CardUseBase {
     // Use this for initialization
+    public int magic_id = 1;
     bool On_click = false;
     void Awake()
     {
@@ -22,7 +23,10 @@ public class MagicCard : CardUseBase {
         {
             if (On_active == true)
             {
-               
+                if (magic_id == 2)
+                    magic.GetInst().type = "water";
+                else
+                    magic.GetInst().type = "fire";
                 PlayerBase pb = PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx];
                 Manager.GetInst().MoveCamPosToTile(pb.CurHex);
                 PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.MAGIC;

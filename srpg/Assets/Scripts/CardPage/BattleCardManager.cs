@@ -8,6 +8,7 @@ public class BattleCardManager : MonoBehaviour
     public GameObject GO_hex;
     public GameObject GO_SUMMON;
     public GameObject GO_Fire;
+    public GameObject GO_water;
     public int MapSizeX;
     public int MapSizeY;
 
@@ -58,7 +59,7 @@ public class BattleCardManager : MonoBehaviour
 
             card[x] = ((GameObject)Instantiate(GO_hex)).GetComponent<CardBase>();
             card[x].transform.position = Initpos;
-         
+            
             card[x].Buttonnum = x;
             Initpos.x += 5;
  
@@ -74,12 +75,24 @@ public class BattleCardManager : MonoBehaviour
         }
         for (int x = 2; x <= MapSizeX; x++)
         {
-            cardUse[x] = ((GameObject)Instantiate(GO_Fire)).GetComponent<MagicCard>();
-            cardUse[x].transform.position = Initpos2;
-            cardUse[x].Buttonnum = x;
-            cardUse[x].On_active = true;
-            Initpos.x += 5;
-            Initpos2.x += 5;
+            if (x == 2)
+            {
+                cardUse[x] = ((GameObject)Instantiate(GO_Fire)).GetComponent<MagicCard>();
+                cardUse[x].transform.position = Initpos2;
+                cardUse[x].Buttonnum = x;
+                cardUse[x].On_active = true;
+                Initpos.x += 5;
+                Initpos2.x += 5;
+            }
+            else
+            {
+                cardUse[x] = ((GameObject)Instantiate(GO_water)).GetComponent<MagicCard>();
+                cardUse[x].transform.position = Initpos2;
+                cardUse[x].Buttonnum = x;
+                cardUse[x].On_active = true;
+                Initpos.x += 5;
+                Initpos2.x += 5;
+            }
         }
     }
     void Start()

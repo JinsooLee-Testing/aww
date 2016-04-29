@@ -6,7 +6,7 @@ public class MapManager : MonoBehaviour
 {
     private static MapManager inst = null;
     public GameObject GO_hex;
-    
+  
 
     public int default_matid = 1;
     public float HexW; //Awake에서 설정
@@ -16,7 +16,7 @@ public class MapManager : MonoBehaviour
     public int MapSizeY;
     public int MapSizeZ;
     public Transform map;
-
+   
     public int num = 0;
     List<Path> OpenList;
     List<Path> ClosedList;
@@ -79,7 +79,7 @@ public class MapManager : MonoBehaviour
 
     public void CreateMap()
     {
-      
+        
         Map = new Hex[MapSizeX + 1][][];
         for (int x = 0; x <= MapSizeX; x++)
         {
@@ -90,7 +90,7 @@ public class MapManager : MonoBehaviour
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
                   
-                        Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+                    Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
                         Map[x][y][z].matid = default_matid;
 
                         Vector3 pos2 = GetWorldPos(x, 0, z);
@@ -127,7 +127,7 @@ public class MapManager : MonoBehaviour
     {
         return Map[x][y][z];
     }
-    public void MarkTile(Point pos, int range)
+    public void MarkTile(Point pos, int range,Hex hex)
     {
         int highLighedCount = 0;
         Point start = pos;
@@ -140,8 +140,15 @@ public class MapManager : MonoBehaviour
                 {
                     for (int z = 0; z <= MapSizeZ; z++)
                     {
-                        if (Map[x][y][z].GetComponent<Renderer>().material.color == Color.green)
-                            highLighedCount++;
+                        //int distance = (GetDistance(hex, Map[x][y][z]));
+                        //헥사곤 상의 셀과 셀간의 공식
+
+                        //if (distance <= range && distance != 0)
+                        //{
+                           // Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
+                            if (Map[x][y][z].GetComponent<Renderer>().material.color == Color.green)
+                                highLighedCount++;
+                       // }
                     }
                 }
             }
@@ -150,8 +157,8 @@ public class MapManager : MonoBehaviour
             //  Map[s_x][s_y][s_z+i].GetComponent<Renderer>().material.color = Color.green;
 
 
-
-            if (highLighedCount == 0)
+            
+            if (highLighedCount==0)
             {
                 Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material.color = Color.green;
             }
@@ -258,6 +265,30 @@ public class MapManager : MonoBehaviour
             return true;
         }
     }
+    public void MarkAttackRange(Hex start, int AtkRange)
+    {
+
+        PlayerManager pm = PlayerManager.GetInst();
+        for (int x = 0; x <= MapSizeX; x++)
+        {
+            for (int y = 0; y <= MapSizeY; y++)
+            {
+                for (int z = 0; z <= MapSizeZ; z++)
+                {
+
+                    int distance = (GetDistance(start, Map[x][y][z]));
+
+
+                    if (distance <= AtkRange && distance != 0)
+                    {
+                        Map[x][y][z].At_Marked = true;
+                        Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
+                    }
+                }
+            }
+        }
+
+    }
     public void ResetMapColor()
     {
         for (int x = 0; x <= MapSizeX; x++)
@@ -269,6 +300,7 @@ public class MapManager : MonoBehaviour
 
                     Map[x][y][z].GetComponent<Renderer>().material.color = Map[x][y][z].mat_color;
                     Map[x][y][z].Marked = false;
+                    Map[x][y][z].At_Marked = false;
                 }
             }
         }
@@ -280,6 +312,8 @@ public class MapManager : MonoBehaviour
         int y = pos.GetY();
         int z = pos.GetZ();
         Map[x][y][z].GetComponent<Renderer>().material.color = Map[x][y][z].mat_color;
+        Map[x][y][z].Marked = false;
+        Map[x][y][z].At_Marked = false;
     }
     public List<Hex> GetPath(Hex start, Hex dest)
     {

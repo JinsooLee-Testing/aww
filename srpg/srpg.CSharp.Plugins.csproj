@@ -115,6 +115,8 @@
     <Compile Include="Assets\Standard Assets\Utility\WaypointProgressTracker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\KY_effects\FX_pack0\ReadMe.txt" />
+    <None Include="Assets\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
     <None Include="Assets\Resources\Prefabs\reference\큐비클모델\ani_list.txt" />
     <None Include="Assets\Resources\text\data.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

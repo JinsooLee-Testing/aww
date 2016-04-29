@@ -68,9 +68,13 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         CheckTurnOver();
-        Vector3 temp= select_object.transform.position;
-        temp.y = 3;
-        pick_ob.transform.position = temp;
+        if (select_object.act != ACT.DIYING)
+        {
+            Vector3 temp = select_object.transform.position;
+            temp.y = 3;
+            pick_ob.transform.position = temp;
+        }
+        
         // if(Players[CurTurnIdx].act==ACT.MOVING)
         //Manager.GetInst().MoveCamPosToTile(Players[CurTurnIdx].CurHex);
     }

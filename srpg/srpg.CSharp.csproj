@@ -111,7 +111,14 @@
     <Compile Include="Assets\Scripts\Font\TextDialog.cs" />
     <Compile Include="Assets\Scripts\Font\font.cs" />
     <Compile Include="Assets\Scripts\MainTitle\BattleStart.cs" />
+    <Compile Include="Assets\Scripts\MainTitle\MainTilteStart.cs" />
     <Compile Include="Assets\Scripts\MainTitle\MainTitle.cs" />
+    <Compile Include="Assets\Sky FX Pack\Scripts\LightBeamsControlScript.cs" />
+    <Compile Include="Assets\Sky FX Pack\Scripts\LookAtBehaviour.cs" />
+    <Compile Include="Assets\Sky FX Pack\Scripts\LookAtCameraBehaviour.cs" />
+    <Compile Include="Assets\Sky FX Pack\Scripts\RayBehavior.cs" />
+    <Compile Include="Assets\Sky FX Pack\Scripts\RotateBehaviour.cs" />
+    <Compile Include="Assets\Sky FX Pack\Scripts\ScrollBehaviour.cs" />
     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\ModelRotate.cs" />
     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\VoxelModel1Manager.cs" />
     <Compile Include="Assets\어셋 다운자료\Elementals\Demo\Scripts\GE_Elementals_Demo.cs" />
@@ -133,6 +140,8 @@
     <Compile Include="Assets\어셋 다운자료\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\KY_effects\FX_pack0\ReadMe.txt" />
+    <None Include="Assets\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
     <None Include="Assets\Resources\Prefabs\reference\큐비클모델\ani_list.txt" />
     <None Include="Assets\Resources\text\data.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
