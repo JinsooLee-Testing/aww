@@ -85,8 +85,19 @@ public class AIPlayer : PlayerBase
 
             }
             Hex nextHex = MoveHexes[0];
+            if (MapManager.GetInst().MapSizeY > 0)
+            {
+                Point p = new Point(nextHex.MapPos.GetX(), nextHex.MapPos.GetY() + 1, nextHex.MapPos.GetZ());
+                if (MapManager.GetInst().Map[p.GetX()][p.GetY()][p.GetZ()].mesh_draw == true)
+                {
+                    nextHex = MapManager.GetInst().Map[p.GetX()][p.GetY()][p.GetZ()];
+                    jump = true;
+                }
+                else
+                    jump = false;
+            }
             Vector3 v = nextHex.transform.position;
-            v.y = m_y;
+            v.y += m_y;
             float distance = Vector3.Distance(transform.position, v);
 
             if (distance >= 0.1f) //이동중
@@ -94,17 +105,21 @@ public class AIPlayer : PlayerBase
                 anim.SetBool("attack", false);
                 anim.SetBool("run", true);
 
-                transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
-                transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
-                Vector3 r = transform.rotation.eulerAngles;
-                r.y -= 90;
+              
+                    transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
+                if (jump == false)
+                {
+                    transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
+                    Vector3 r = transform.rotation.eulerAngles;
+                    r.y -= 90;
+                }
                 //transform.rotation = Quaternion.Euler(r);
             }
             else //다음 목표 hex에 도착함
             {
 
                 v = nextHex.transform.position;
-                v.y = m_y;
+                v.y += m_y;
                 transform.position = v;
                 MoveHexes.RemoveAt(0);
 
@@ -112,7 +127,9 @@ public class AIPlayer : PlayerBase
                {
                     anim.SetBool("run", false);
                     act = ACT.IDLE;
-                    CurHex = nextHex;
+                    Point temppos = new Point(nextHex.MapPos.GetX(), 0, nextHex.MapPos.GetZ());
+
+                    CurHex = MapManager.GetInst().Map[temppos.GetX()][temppos.GetY()][temppos.GetZ()];
                     CurHex.Passable = false;
                     PlayerManager.GetInst().TurnOver();
 

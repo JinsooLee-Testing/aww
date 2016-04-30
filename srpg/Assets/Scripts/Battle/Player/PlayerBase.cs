@@ -30,6 +30,7 @@ public class PlayerBase : MonoBehaviour {
     public List<Hex> MoveHexes;
     public Type m_type;
     public int Monster_id;
+    protected bool jump = false;
     void Awake()
     {
         act = ACT.IDLE;

@@ -1,7 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Xml;
+public class MapInfo
+{
+    public int MapSizeX;
+    public int MapSizeY;
+    public int MapSizeZ;
 
+
+    public List<boxinfo> bonInfos = new List<boxinfo>();
+}
 public class fileMagr {
     private static fileMagr inst = null;
     public static fileMagr GetInst()
@@ -12,13 +21,62 @@ public class fileMagr {
         }
         return inst;
     }
-    public void LoadData()
+    public MapInfo LoadMap()
     {
+        MapInfo info = new MapInfo();
+
         XmlDocument xmlFile = new XmlDocument();
         xmlFile.Load("test.xml");
-        XmlNode mappSize = xmlFile.SelectSingleNode("MapInfo/MapSize");
-        string innerTest = mappSize.InnerText;
-        Debug.Log(innerTest);
+        XmlNode mapSize = xmlFile.SelectSingleNode("MapInfo/MapSize");
+
+        string mapSizeString = mapSize.InnerText;
+        string[] sizes = mapSizeString.Split(' ');
+        Debug.Log(info.MapSizeX = int.Parse(sizes[0]));
+        int mapSizeX = info.MapSizeX = int.Parse(sizes[0]);
+        int mapSizeY = info.MapSizeY = int.Parse(sizes[1]);
+        int mapSizeZ = info.MapSizeZ = int.Parse(sizes[2]);
+
+        XmlNodeList hexes = xmlFile.SelectNodes("MapInfo/box");
+        foreach (XmlNode hex in hexes)
+        {
+            string mapposStr = hex["MapPos"].InnerText;
+            string[] maposes = mapposStr.Split(' ');
+            int mapX = int.Parse(maposes[0]);
+            int mapY = int.Parse(maposes[1]);
+            int mapZ = int.Parse(maposes[2]);
+
+            string passalbe = hex["Passable"].InnerText;
+            bool pass = passalbe == "True";
+
+
+            string mat = hex["Material"].InnerText;
+           
+            string mat_name = mat;
+
+            string mesh = hex["Mesh"].InnerText;
+            bool draw = mesh == "True";
+
+
+            string posstr = hex["Object"].InnerText;
+            string[] obj = posstr.Split(' ');
+            int obj_id = int.Parse(obj[0]);
+            float obj_y = float.Parse(obj[1]);
+
+
+            boxinfo box = new boxinfo();
+            box.X = mapX;
+            box.Y = mapY;
+            box.Z = mapZ;
+            box.Passable = pass;
+            box.mat_name = mat_name;
+            box.mesh_draw = draw;
+            box.objId = obj_id;
+            box.y = obj_y;
+            info.bonInfos.Add(box);
+
+
+        }
+        return info;
     }
     public void SaveData()
     {
@@ -41,7 +99,7 @@ public class fileMagr {
         {
             for(int y=0;y<=MapSizeY;y++)
             {
-                for(int z=0;z<MapSizeZ; z++)
+                for(int z=0;z<=MapSizeZ; z++)
                 {
                     XmlNode hexNode = xmlFile.CreateNode(XmlNodeType.Element, "box", string.Empty);
                     rootNode.AppendChild(hexNode);
@@ -56,8 +114,16 @@ public class fileMagr {
                     hexNode.AppendChild(passable);
 
                     XmlElement material = xmlFile.CreateElement("Material");
-                    material.InnerText =box.mat_id+" "+box.mat_id;
+                    material.InnerText = box.mat_name;
                     hexNode.AppendChild(material);
+
+                    XmlElement mesh = xmlFile.CreateElement("Mesh");
+                    mesh.InnerText = box.mesh_draw.ToString();
+                    hexNode.AppendChild(mesh);
+
+                    XmlElement obj = xmlFile.CreateElement("Object");
+                    obj.InnerText = box.objId + " " + box.y;
+                    hexNode.AppendChild(obj);
 
                 }
             }

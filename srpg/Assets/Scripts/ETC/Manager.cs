@@ -8,6 +8,7 @@ using System.Collections;
     PlayerManager pm;
     GUIManager gm;
     FIleManager fm;
+    public string MapPath;
     public GameObject GO_Damage;
     public static Manager GetInst()
     {
@@ -26,8 +27,8 @@ using System.Collections;
 	void Start () {
         mm = MapManager.GetInst();
         pm = PlayerManager.GetInst();
-        mm.CreateTestMap();
-        //mm.CreateMap();
+        mm.CreateTestMap(MapPath);
+       // mm.CreateMap();
         
         mm.LoadObjMap();
         pm.GenPlayerTest();

@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour {
     public int CurTurnIdx = 0;
     public float m_y;
     public Transform PlayersParent;
-    public Transform ObcParent;
+
     public int EnemyCount=0;
     public int EnemyTurnCount = 0;
     public PlayerBase select_object;
@@ -118,22 +118,7 @@ public class PlayerManager : MonoBehaviour {
         select_object = userplayer;
         v.y = 3.0f;
         pick_ob.transform.position = v;
-        for (int i = 0; i < ObcParent.childCount; i++)
-        {
-            var obj = ObcParent.GetChild(i).GetComponent<tree>();
-            if (obj != null)
-            {
-                //player.transform.position = curpos;           
-                hex = MapManager.GetInst().GetPlayerHex(obj.x, 0, obj.z);
-                obj.CurHex = hex;
-                Vector3 curpos = obj.CurHex.transform.position;
-                curpos.y = 2f;
-                obj.transform.position = curpos;
-          
-            }
-            else
-                Debug.LogError("Invalid object in cells paretn game object");
-        }
+  
         for (int i = 0; i < PlayersParent.childCount; i++)
         {
             var player = PlayersParent.GetChild(i).GetComponent<AIPlayer>();

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class Object_Manager : MonoBehaviour {
     private static Object_Manager inst = null;
-    public GameObject GO_mis;
     public int index = 0;
     public List<magic> magices = new List<magic>();
+    public GameObject[] Structures = new GameObject[10];
     public static Object_Manager GetInst()
     {
         return inst;
@@ -14,17 +14,16 @@ public class Object_Manager : MonoBehaviour {
     void Awake()
     {
         inst = this;
+        inst.Structures[0] = (GameObject)Resources.Load("object/carrot");
+        inst.Structures[1] = (GameObject)Resources.Load("object/carrot2");
+        inst.Structures[2] = (GameObject)Resources.Load("object/carrotbasket");
+        inst.Structures[3] = (GameObject)Resources.Load("object/tree");
+        inst.Structures[4] = (GameObject)Resources.Load("object/bone");
+        inst.Structures[5] = (GameObject)Resources.Load("object/bonebig");
     }
-    public void GenObject(int x, int z)
-    {
-        magic userplayer = ((GameObject)Instantiate(GO_mis)).GetComponent<magic>();
-        magices[index].transform.position = new Vector3(x+1, 1, z+1);
-        magices.Add(userplayer);
-        index++;
-    }
+
     void Start () {
-        magic mis = ((GameObject)Instantiate(GO_mis)).GetComponent<magic>();
-        GenObject(1, 1);
+
     }
 	
 	// Update is called once per frame

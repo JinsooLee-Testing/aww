@@ -21,9 +21,9 @@ public class MapMgr  {
     public Vector3 GetWorldPos(int x, int y, int z)
     {
         float X, Y, Z;
-        X = x * HexW;
-        Y = y * BoxH;
-        Z = (z) * HexH;
+        X = x * 1.5f;
+        Y = y * 1.5f;
+        Z = (z) * 1.5f;
         return new Vector3(X, Y, Z);
     }
     public static MapMgr GetInst()
@@ -43,8 +43,59 @@ public class MapMgr  {
         GameObject.Destroy(Maproot);
 
     }
-  
-	public void CreateMap(int sizeX, int sizeY,int sizeZ)
+    public void CreateXMLmap(MapInfo info)
+    {
+        MapSizeX = info.MapSizeX;
+        MapSizeY = info.MapSizeY;
+        MapSizeZ = info.MapSizeZ;
+        Map = new boxinfo[info.MapSizeX + 1][][];
+        for (int x = 0; x <= info.MapSizeX; x++)
+        {
+            Map[x] = new boxinfo[info.MapSizeY + 1][];
+            for (int y = 0; y <= info.MapSizeY; y++)
+            {
+                Map[x][y] = new boxinfo[MapSizeZ + 1];
+
+            }
+        }
+
+        for (int i = 0; i < info.bonInfos.Count; ++i)
+        {
+
+            int x1 = info.bonInfos[i].X;
+            int y1 = info.bonInfos[i].Y;
+            int z1 = info.bonInfos[i].Z;
+        
+            Map[x1][y1][z1] = GameObject.Instantiate(hex).GetComponent<boxinfo>();
+            Map[x1][y1][z1].mat_name = info.bonInfos[i].mat_name;
+            if (y1 <=0)
+                Map[x1][y1][z1].SetCol(new Vector3(1, 1, 1));
+           Vector3 pos2 = GetWorldPos(x1, y1, z1);
+            Map[x1][y1][z1].transform.position = pos2;
+            Map[x1][y1][z1].SetMapPos(x1, y1, z1);
+            Map[x1][y1][z1].Passable = info.bonInfos[i].Passable;
+            Map[x1][y1][z1].mesh_draw = info.bonInfos[i].mesh_draw;
+            Map[x1][y1][z1].objId = info.bonInfos[i].objId;
+            Map[x1][y1][z1].y = info.bonInfos[i].y;
+
+        }
+
+    }
+    public void SetActive(int pos,Vector3 size)
+    {
+        for (int x = 0; x <= MapSizeX; x++)
+        {
+            for (int y = 0; y <= MapSizeY; y++)
+            {
+                for (int z = 0; z <= MapSizeZ; z++)
+                {
+                    if (pos >= 0)
+                        Map[x][pos][z].SetCol(size);
+                }
+            }
+        }
+    }
+    public void CreateMap(int sizeX, int sizeY,int sizeZ)
     {
         MapSizeZ = sizeZ;
          MapSizeX = sizeX;
@@ -63,6 +114,10 @@ public class MapMgr  {
                     {
                         GameObject box = (GameObject)GameObject.Instantiate(hex);
                         boxinfo box2 = box.GetComponent<boxinfo>();
+                        if(y==0)
+                        {
+                            box2.SetMesh();
+                        }
                         box2.transform.parent = Maproot.transform;
                         //Vector3 pos2 = GetWorldPos(x, y, z);
                         //box2.transform.position = pos2;

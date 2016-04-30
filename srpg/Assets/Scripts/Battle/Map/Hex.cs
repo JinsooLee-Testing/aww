@@ -68,11 +68,18 @@ public class Point
 
 public class Hex : MonoBehaviour {
     public Point MapPos;
+    public Mesh mesh;
+    public GameObject obj;
+    public int obj_id = 0;
+    public float obj_y = 1;
     public int matid;
     public bool Passable = true;
     public bool Marked = false;
+    public bool mesh_draw = false;
+    public string mat_name = "soil";
     public bool At_Marked = false;
-    public bool isonTotile = true;
+    public bool is_object = false;
+
     public int x, y, z;
     public float object_y;
     public Material mat1;
@@ -83,12 +90,43 @@ public class Hex : MonoBehaviour {
 	// Use this for initialization
     void Start()
     {
-    
-        if (matid == 0)
+      
+            if (mesh_draw == true)
+            {
+                GetComponent<MeshFilter>().mesh = mesh;
+                if (MapPos.GetY() == 0)
+                    SetCol();
+
+            }
+            else
+            {
+
+                GetComponent<MeshFilter>().mesh = null;
+                Passable = false;
+                if (MapPos.GetY() == 0)
+                    SetCol();
+            }
+        
+        if (obj_id != 0)
         {
-               GetComponent<Renderer>().material = mat1;
+
+            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[obj_id - 1]);
+            Vector3 v = transform.position;
+            obj.transform.position = new Vector3(v.x, obj_y, v.z);
+            
+        }
+        if (mat_name == "soil")
+        {
+            GetComponent<Renderer>().material = mat1;
+
+        }
+        if (mat_name == "grass")
+        {
+          GetComponent<Renderer>().material = mat2;
                 
         }
+        
+        /*
         if (matid == 1)
         {
             GetComponent<Renderer>().material = mat1;
@@ -103,7 +141,7 @@ public class Hex : MonoBehaviour {
         {
             GetComponent<Renderer>().material = mat3;
         }
-       
+       */
     }
     
 	// Update is called once per frame
@@ -130,7 +168,20 @@ public class Hex : MonoBehaviour {
         MapPos = pos;
         
     }
-
+    public void SetCol()
+    {
+        GetComponent<BoxCollider>().size = new Vector3(1, 1, 1);
+    }
+    public void SetMesh()
+    {
+        GetComponent<MeshFilter>().mesh = mesh;
+        Vector3 v = GetComponent<BoxCollider>().size;
+        v.x = 1;
+        v.y = 1;
+        v.z = 1;
+        mesh_draw = true;
+        GetComponent<BoxCollider>().size = v;
+    }
     public void SetMat(int id)
     {
         matid = id;
@@ -143,7 +194,7 @@ public class Hex : MonoBehaviour {
     void OnMouseOver()
     {
 
-        MapManager.GetInst().MarkTile(MapPos,0,this);
+        //MapManager.GetInst().MarkTile(MapPos,0,this);
     }
 
     void OnMouseDown()
@@ -167,11 +218,8 @@ public class Hex : MonoBehaviour {
                 }
             }
             if (pb.act == ACT.IDLE)
-            {
-                
-
-
-            }
+           {            
+           }
             else if (pb.act == ACT.MOVEHILIGHT)
             {
             if(Passable==true)

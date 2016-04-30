@@ -14,10 +14,15 @@ public class GUIMgr {
     private string MapSizeX = "0";
     private string MapSizeY = "0";
     private string MapSizeZ = "0";
-
+    public string x = "0";
+    public string y = "1";
+    public string z = "0";
+    private string m_y = "1";
+    public bool y_draw =true;
     public Texture[] Texures= new Texture[10];
     public Material[] mat = new Material[10];
     public bool structable = false;
+    public bool Load = false;
     public GameObject[] Structures = new GameObject[10];
     //public List<Structure> AddedStructures = new List<Structure>();
     public SELECTION sel;
@@ -25,6 +30,7 @@ public class GUIMgr {
     public Material Curmat;
     public int CurTextureIdx;
     public GameObject CurStruct;
+    public int CurHeight =0;
     public int CurMatIdx;
     public string curSel = "passable";
     public bool passble = true;
@@ -38,6 +44,7 @@ public class GUIMgr {
             inst.Texures[1] = (Texture)Resources.Load("texture/grass");
             inst.Texures[2] = (Texture)Resources.Load("texture/road");
             inst.Texures[3] = (Texture)Resources.Load("texture/fire");
+     
             inst.mat[0] = (Material)Resources.Load("material/soil");
             inst.mat[1] = (Material)Resources.Load("material/grass");
             inst.mat[2] = (Material)Resources.Load("material/road");
@@ -47,6 +54,8 @@ public class GUIMgr {
             inst.Structures[1] = (GameObject)Resources.Load("object/carrot2");
             inst.Structures[2] = (GameObject)Resources.Load("object/carrotbasket");
             inst.Structures[3] = (GameObject)Resources.Load("object/tree");
+            inst.Structures[4] = (GameObject)Resources.Load("object/bone");
+            inst.Structures[5] = (GameObject)Resources.Load("object/bonebig");
             inst.CurStruct = inst.Structures[0];
             inst.CurTexture = inst.Texures[0];
             inst.CurTextureIdx = 0;
@@ -96,6 +105,12 @@ public class GUIMgr {
         {
             fileMagr.GetInst().SaveData();
         }
+        if (GUILayout.Button("Load"))
+        {
+            MapInfo info = fileMagr.GetInst().LoadMap();
+            MapMgr.GetInst().CreateXMLmap(info);
+                
+        }
         GUILayout.Label("curcel");
         if (GUILayout.Button("passable"))
         {
@@ -133,42 +148,97 @@ public class GUIMgr {
             GUILayout.EndHorizontal();
 
 
-        GUILayout.BeginHorizontal();
 
-        if (GUILayout.Button("StructObj"))
-        {
-            if (structable == false)
-                structable = true;
-            else
-                structable = false;
-        }
-        if (GUILayout.Button("NextObj"))
-        {
-            CurStructIdx++;
-            if (CurStructIdx > 4)
-            {
-                CurStructIdx = 0;
-            }
-            CurStruct = Structures[CurStructIdx];
-
-
-        }
-
-        GUILayout.EndHorizontal();
         GUILayout.EndArea();
        
     }
-    public void DrawRIghtLayout()
+    public void DrawRightLayout()
     {
-        //GUILayout.BeginArea(new Rect((Screen.width - 200f, 0, 200f, Screen.height), "MapInfo", GUI.skin.window);
-        if(GUILayout.Button("Show Struct"))
+
+        GUILayout.BeginArea(new Rect(Screen.width-200f, 0, 200f, Screen.height), "MapInfo", GUI.skin.window);
+        GUILayout.BeginVertical();
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("x:");
+        x = GUILayout.TextField(x);
+        GUILayout.EndHorizontal();
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("y:");
+        y = GUILayout.TextField(y);
+        GUILayout.EndHorizontal();
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("z:");
+        z = GUILayout.TextField(z);
+        GUILayout.EndHorizontal();
+        GUILayout.EndVertical();
+
+
+        if (GUILayout.Button("y_Box"))
         {
-           
+            if (y_draw == false)
+                y_draw = true;
+            else
+                y_draw = false;
+
         }
+        if (GUILayout.Button("nextY"))
+        {
+            CurHeight++;
+            if (CurHeight > 2)
+                CurHeight = 2;
+            Vector3 v = new Vector3(1, 1, 1);
+            MapMgr.GetInst().SetActive(CurHeight, v);
+
+        }
+        if (GUILayout.Button("prevY"))
+        {
+            CurHeight--;
+            if (CurHeight < 1)
+                CurHeight = 1;
+            Vector3 v = new Vector3(0, 0, 0);
+            MapMgr.GetInst().SetActive(CurHeight, v);
+
+        }
+        GUILayout.Label("struct");
+        if (GUILayout.Button("struct_on"))
+        {
+            structable = true;
+
+        }
+        if (GUILayout.Button("struct_off"))
+        {
+            structable = false;
+        }
+        GUILayout.Label("Current Selected");
+        GUILayout.BeginHorizontal();
+
+        GUILayout.Box(CurStruct.name.ToString(), GUILayout.Width(80f), GUILayout.Height(80f));
+        //GUILayout.Box(CurStruct, GUILayout.Width(80f), GUILayout.Height(80f));
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        if (GUILayout.Button("NexStruct"))
+        {
+            CurStructIdx++;
+            if (CurStructIdx > 5)
+            {
+                CurStructIdx = 0;
+             }
+            CurStruct = Structures[CurStructIdx];
+           
+
+        }
+        GUILayout.EndHorizontal();
+
+
+
+        GUILayout.EndArea();
+
 
     }
     public void OnGUI()
     {
+        DrawRightLayout();
         DrawLeftLayout();
+
     }
 }

@@ -32,6 +32,7 @@ public class Main : MonoBehaviour {
     void OnGUI()
     {
         gm.DrawLeftLayout();
+        gm.DrawRightLayout();
     }
     void CheckArrow()
     {

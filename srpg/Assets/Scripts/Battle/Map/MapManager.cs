@@ -16,6 +16,7 @@ public class MapManager : MonoBehaviour
     public int MapSizeY;
     public int MapSizeZ;
     public Transform map;
+ 
    
     public int num = 0;
     List<Path> OpenList;
@@ -34,7 +35,7 @@ public class MapManager : MonoBehaviour
         Dirs[3] = new Point(0, 0, 1);  //up
     }
 
-    Hex[][][] Map;
+    public Hex[][][] Map;
 
 
     void Awake()
@@ -45,9 +46,9 @@ public class MapManager : MonoBehaviour
 
         SetHexSize();
     }
-    public void CreateTestMap()
+    public void CreateTestMap(string MapPath)
     {
-        MapInfo info = FIleManager.Getinst().LoadMap();
+        MapInfo info = FIleManager.Getinst().LoadMap(MapPath);
         if(info==null)
         {
 
@@ -102,11 +103,17 @@ public class MapManager : MonoBehaviour
                 Map[x][y] = new Hex[MapSizeZ + 1];
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
-                  
-                    Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
-                        Map[x][y][z].matid = default_matid;
+                    
 
-                        Vector3 pos2 = GetWorldPos(x, 0, z);
+
+                    Map[x][y][z] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
+         
+                        
+                    Map[x][y][z].matid = default_matid;
+                    
+                    //Map[x][y][z].SetMesh();
+                    Vector3 pos2 = GetWorldPos(x, 0, z);
+             
                         Map[x][y][z].transform.position = pos2;
                         Map[x][y][z].SetMapPos(x, 0, z);
                          Map[x][y][z].Passable = true;
@@ -123,39 +130,40 @@ public class MapManager : MonoBehaviour
         Map = new Hex[info.MapSizeX + 1][][];
         for (int x = 0; x <= info.MapSizeX; x++)
         {
-            Map[x] = new Hex[1 + 1][];
+            Map[x] = new Hex[info.MapSizeY + 1][];
             for (int y = 0; y <= info.MapSizeY; y++)
             {
                 Map[x][y] = new Hex[info.MapSizeZ + 1];
-                for(int z=0;z<=info.MapSizeZ;z++)
-                {
-                  
-                }
-     
+
             }
         }
 
-        for(int i= 0; i < info.bonInfos.Count; ++i)
-             {
+        for (int i = 0; i <info.bonInfos.Count; ++i)
+        {
 
             int x1 = info.bonInfos[i].MapPosX;
             int y1 = info.bonInfos[i].MapPosY;
             int z1 = info.bonInfos[i].MapPosZ;
 
             Map[x1][y1][z1] = ((GameObject)Instantiate(GO_hex)).GetComponent<Hex>();
-            Map[x1][y1][z1].matid = info.bonInfos[i].mat_id;
-
-            Vector3 pos2 = GetWorldPos(x1, 0, z1);
+            Map[x1][y1][z1].mat_name = info.bonInfos[i].mat_name;
+            if (y1 == 0)
+            {
+                Map[x1][y1][z1].SetMesh();
+            }
+            Vector3 pos2 = GetWorldPos(x1, y1, z1);
             Map[x1][y1][z1].transform.position = pos2;
-            Map[x1][y1][z1].SetMapPos(x1, 0, z1);
+            Map[x1][y1][z1].SetMapPos(x1, y1, z1);
             Map[x1][y1][z1].Passable = info.bonInfos[i].Passable;
-
-
+            Map[x1][y1][z1].mesh_draw = info.bonInfos[i].mat_draw;
+            Map[x1][y1][z1].obj_id= info.bonInfos[i].obj_id;
+            Map[x1][y1][z1].obj_y = info.bonInfos[i].obj_y;
         }
 
     }
     public void LoadObjMap()
     {
+        /*
         for (int i = 0; i < map.childCount; ++i)
         {
             var tile = map.GetChild(i).GetComponent<Hex>();
@@ -174,6 +182,7 @@ public class MapManager : MonoBehaviour
 
 
         }
+        */
     }
     public Hex GetPlayerHex(int x, int y, int z)
     {
@@ -198,8 +207,8 @@ public class MapManager : MonoBehaviour
                         //if (distance <= range && distance != 0)
                         //{
                            // Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
-                            if (Map[x][y][z].GetComponent<Renderer>().material.color == Color.green)
-                                highLighedCount++;
+                           // if (Map[x][y][z].GetComponent<Renderer>().material.color == Color.green)
+                            //    highLighedCount++;
                        // }
                     }
                 }
@@ -229,7 +238,7 @@ public class MapManager : MonoBehaviour
 
         for (int x = 0; x <= MapSizeX; x++)
         {
-            for (int y = 0; y <= MapSizeY; y++)
+            for (int y = 0; y <= 0; y++)
             {
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
@@ -249,7 +258,23 @@ public class MapManager : MonoBehaviour
                                     Map[x][y][z].GetComponent<Renderer>().material.color = Color.gray;
                                 }
                                 highLighedCount++;
+                                if (y + 1 <= MapSizeY)
+                                {
+                                    if (Map[x][y + 1][z].mesh_draw == true)
+                                    {
+                                        if (default_matid == 1)
+                                            Map[x][y + 1][z].GetComponent<Renderer>().material.color = Color.green;
+                                        else
+                                        {
+                                            Map[x][y + 1][z].GetComponent<Renderer>().material.color = Color.gray;
+                                        }
+                                        highLighedCount++;
+                                    }
+                                }
                             }
+
+                          
+
                         }
                     }
                 }
@@ -281,7 +306,7 @@ public class MapManager : MonoBehaviour
                         if (distance <= AtkRange && distance != 0)
                         {
                             Map[x][y][z].GetComponent<Renderer>().material.color = Color.red;
-                              Map[x][y][z].Marked = true;
+                            Map[x][y][z].Marked = true;
                             bool isExit = false;
                             foreach (PlayerBase pb in pm.Players)
                             {
