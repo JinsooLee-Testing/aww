@@ -125,27 +125,17 @@ public class Hex : MonoBehaviour {
           GetComponent<Renderer>().material = mat2;
                 
         }
-        
-        /*
-        if (matid == 1)
-        {
-            GetComponent<Renderer>().material = mat1;
-           
-        }
-        if (matid == 2)
-        {
-            GetComponent<Renderer>().material = mat2;
-           
-        }
-        if (matid == 3)
+        if (mat_name == "fire")
         {
             GetComponent<Renderer>().material = mat3;
+
         }
-       */
+
     }
     
 	// Update is called once per frame
 	void Update () {
+        /*
         RaycastHit hit = new RaycastHit();
         for (int i = 0; i < Input.touchCount; ++i)
         {
@@ -160,6 +150,7 @@ public class Hex : MonoBehaviour {
 
             }
         }
+        */
     }
  
     public void SetMapPos(Point pos)

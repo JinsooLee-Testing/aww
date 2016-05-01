@@ -9,6 +9,9 @@ using System.Collections;
     GUIManager gm;
     FIleManager fm;
     public string MapPath;
+    public float Speed;
+    public Vector2 nowPos, prePos;
+    public Vector3 movePos;
     public GameObject GO_Damage;
     public static Manager GetInst()
     {
@@ -42,7 +45,54 @@ using System.Collections;
         //gm.DrawGUI();
         CheckMouseZoom();
         CheckMouseButtonDown();
-	}
+        /*
+        Touch touch = Input.GetTouch(0);
+        //T//ouch touch2 = Input.GetTouch(1);
+
+        if (Input.touchCount == 1)
+        {
+
+            if (touch.phase == TouchPhase.Began)
+            {
+
+                prePos = touch.position - touch.deltaPosition;
+
+            }
+
+            else if (touch.phase == TouchPhase.Moved)
+            {
+
+
+                nowPos = touch.position - touch.deltaPosition;
+
+                movePos = (Vector3)(prePos - nowPos) * Speed;
+                if (touch.position.y < Screen.height / 2)
+                    movePos.y = -1;
+                else
+                    movePos.y = 1;
+                Vector3 v = GetComponent<Camera>().transform.position;
+                // if (v.y>-25 && v.y=< 25)
+               // GetComponent<Camera>().transform.Translate(movePos); // 이럴수가 !!!!!!!
+               // CameraManager.GetInst().InitPos.y = v.y;
+
+
+
+                prePos = touch.position - touch.deltaPosition;
+
+
+            }
+
+            else if (touch.phase == TouchPhase.Ended)
+
+            {
+
+            }
+           
+
+        }
+         */
+    }
+
     void CheckMouseZoom()
     {
         // 마으스 최저 5 최대 25
@@ -69,12 +119,18 @@ using System.Collections;
         }
         
     }
-  
+    public void MoveCamPos(Hex hex)
+    {
+        float destX = hex.transform.position.x;
+        float destZ = hex.transform.position.z;
+        Vector3 pos = new Vector3(destX, 0, destZ);
+        CameraManager.GetInst().SetPosition(pos);
+    }
     public void MoveCamPosToTile(Hex hex)
     {
         float destX = hex.transform.position.x;
         float destZ = hex.transform.position.z;
-        Vector3 pos =new Vector3(destX, destZ, destZ);
+        Vector3 pos =new Vector3(destX, 0, destZ);
         Vector3 rot = new Vector3(70,45,0);
         
         CameraManager.GetInst().SetPosition(pos);

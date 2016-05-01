@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraManager : MonoBehaviour {
 
     private static CameraManager inst = null;
-    private Vector3 InitPos;
+    public Vector3 InitPos;
     private Vector3 InitRot;
     private float Default_Iso_x=30f;
     private float Default_Iso_y = 45;
@@ -41,7 +41,7 @@ public class CameraManager : MonoBehaviour {
     }
     public void ResetCameraTarget()
     {
-        transform.position = InitPos;
+        //transform.position = InitPos;
         transform.rotation = Quaternion.Euler(InitRot);
     }
     void Start () {

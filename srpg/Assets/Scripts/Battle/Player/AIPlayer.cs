@@ -47,6 +47,9 @@ public class AIPlayer : PlayerBase
                             pm.RemoveAfter();
                             pm.RemovePlayer(pm.Players[i]);
                             pm.RemoveAfter();
+                            pm.select_object = pm.Players[pm.CurTurnIdx];
+                            //pm.TurnOver();
+                      ;
                         }
                         else
                         {
@@ -54,6 +57,7 @@ public class AIPlayer : PlayerBase
                             pm.RemoveAfter();
                             pm.RemovePlayer(pm.Players[i]);
                             pm.RemoveAfter();
+                            pm.select_object = pm.Players[pm.CurTurnIdx];
                         }
                     }
                 }
@@ -149,8 +153,8 @@ public class AIPlayer : PlayerBase
 
             CurHex.Passable = true;
             ai.MoveToNearUserPlayer(this);
-            if (act == ACT.IDLE)
-                ai.AtkAItoUser(this);
+            //if (act == ACT.IDLE)
+               
 
 
         }

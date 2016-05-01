@@ -2,6 +2,7 @@
 using System.Xml;
 using System.Collections.Generic;
 using System.Collections;
+using System.IO;
 public class boxInfo
 {
     public int MapPosX;
@@ -29,10 +30,36 @@ public class FIleManager : MonoBehaviour {
     }
     public MapInfo LoadMap(string MapPath)
     {
+      
         MapInfo info = new MapInfo();
 
+
+        // xmlFile.Load(MapPath);
+        string strFile = MapPath;
+        string strPath = string.Empty;
+        string strFilePath = Application.persistentDataPath + "/" + strFile;
         XmlDocument xmlFile = new XmlDocument();
-        xmlFile.Load(MapPath);
+        if (Application.platform == RuntimePlatform.Android)
+        {
+
+            //WWW wwwUrl = new WWW("jar:file://" + Application.dataPath + "!/assets/" + strFile);
+
+
+            //  xmlFile.Load(wwwUrl.text.Trim());
+            TextAsset textAsset = Resources.Load("XML/"+strFile) as TextAsset;
+            xmlFile.LoadXml(textAsset.text);
+        }
+        else
+        {
+
+            string Path = Application.streamingAssetsPath + "/" + strFile+".xml";
+            xmlFile.Load(Path);
+            //xmlFile.Load(MapPath);
+          
+
+        }
+
+
         XmlNode mapSize = xmlFile.SelectSingleNode("MapInfo/MapSize");
 
         string mapSizeString = mapSize.InnerText;
@@ -66,7 +93,7 @@ public class FIleManager : MonoBehaviour {
             string[] obj = posstr.Split(' ');
             int obj_id = int.Parse(obj[0]);
             float obj_y = float.Parse(obj[1]);
-            
+
             boxInfo box = new boxInfo();
             box.MapPosX = mapX;
             box.MapPosY = mapY;
@@ -81,6 +108,7 @@ public class FIleManager : MonoBehaviour {
 
         }
         return info;
+
     }
     void Awake()
     {

@@ -12,6 +12,7 @@ public class boxinfo : MonoBehaviour
     public float y = 1;
     public Mesh mesh;
     public GameObject obj;
+    public bool objn = false;
     public bool mesh_draw = false;
 
     // Use this for initialization
@@ -22,20 +23,31 @@ public class boxinfo : MonoBehaviour
     }
     void Start()
     {
-        if (mat_name == "grass")
-            GetComponent<Renderer>().material = GUIMgr.GetInst().mat[1];
+        
         if (objId != 0)
         {
-
+    
             obj = (GameObject)GameObject.Instantiate(GUIMgr.GetInst().Structures[objId - 1]);
             Vector3 v = transform.position;
             obj.transform.position = new Vector3(v.x, y, v.z);
             Debug.Log(y);
         }
+        if (mesh_draw == false)
+        {
+            GetComponent<MeshFilter>().mesh = null;
+            SetCol(new Vector3(0, 0, 0));
+        }
         if (mesh_draw==true)
         {
+            SetCol(new Vector3(1,1,1));
             GetComponent<MeshFilter>().mesh = mesh;
         }
+        if (mat_name == "grass")
+            GetComponent<Renderer>().material = GUIMgr.GetInst().mat[1];
+        if (mat_name == "fire")
+            GetComponent<Renderer>().material = GUIMgr.GetInst().mat[2];
+        if (mat_name == "soil")
+            GetComponent<Renderer>().material = GUIMgr.GetInst().mat[0];
     }
     void OnMouseOver()
     {
@@ -92,12 +104,16 @@ public class boxinfo : MonoBehaviour
         {
 
             obj = (GameObject)GameObject.Instantiate(GUIMgr.GetInst().CurStruct);
+
             Vector3 v = transform.position;
-            // obj_id = GUIMgr.GetInst().CurStructIdx;
             v.y = float.Parse(GUIMgr.GetInst().y);
+
+            
+            v.y+=1.0f;
             y = v.y;
             Passable = false;
-            obj.transform.position = v;
+            obj.transform.position = new Vector3(v.x, y, v.z);
+            y = v.y - 1;
             objId = GUIMgr.GetInst().CurStructIdx+1;
         }
         else
@@ -108,6 +124,8 @@ public class boxinfo : MonoBehaviour
         GetComponent<Renderer>().material = GUIMgr.GetInst().Curmat;
         if (GUIMgr.GetInst().CurMatIdx == 1)
             mat_name = "grass";
+        else if (GUIMgr.GetInst().CurMatIdx == 2)
+            mat_name = "fire";
         else
             mat_name = "soil";
         if (GUIMgr.GetInst().passble == false)

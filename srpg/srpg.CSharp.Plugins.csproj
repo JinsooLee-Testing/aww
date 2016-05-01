@@ -115,16 +115,34 @@
     <Compile Include="Assets\Standard Assets\Utility\WaypointProgressTracker.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\2.xml" />
+    <None Include="Assets\3.xml" />
     <None Include="Assets\KY_effects\FX_pack0\ReadMe.txt" />
     <None Include="Assets\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
-    <None Include="Assets\Resources\Prefabs\reference\큐비클모델\ani_list.txt" />
+    <None Include="Assets\Resources\XML\stage1.xml" />
+    <None Include="Assets\Resources\XML\stage2-2.xml" />
+    <None Include="Assets\Resources\XML\stage2.xml" />
+    <None Include="Assets\Resources\XML\stage3.xml" />
+    <None Include="Assets\Resources\XML\stage4.xml" />
     <None Include="Assets\Resources\text\data.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\StreamingAssets\a.xml" />
+    <None Include="Assets\StreamingAssets\asd.xml" />
+    <None Include="Assets\StreamingAssets\stage1.xml" />
+    <None Include="Assets\StreamingAssets\stage2-2.xml" />
+    <None Include="Assets\StreamingAssets\stage2.xml" />
+    <None Include="Assets\StreamingAssets\stage3.xml" />
+    <None Include="Assets\StreamingAssets\stage4.xml" />
+    <None Include="Assets\StreamingAssets\testcc.xml" />
+    <None Include="Assets\stage1.xml" />
+    <None Include="Assets\stage2.xml" />
+    <None Include="Assets\stage3.xml" />
     <None Include="Assets\기획 추가FBX파일\denti_10_ani\denti_list.txt" />
+    <None Include="Assets\기획 추가FBX파일\reference\큐비클모델\ani_list.txt" />
     <None Include="Assets\어셋 다운자료\Elementals\Readme.txt" />
     <None Include="Assets\어셋 다운자료\GE Common Assets\Readme.txt" />
     <None Include="Assets\어셋 다운자료\GUI Animator\GUI Animator FREE\!How to.txt" />

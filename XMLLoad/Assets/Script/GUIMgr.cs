@@ -42,13 +42,13 @@ public class GUIMgr {
             inst = new GUIMgr();
             inst.Texures[0] = (Texture)Resources.Load("texture/soil");
             inst.Texures[1] = (Texture)Resources.Load("texture/grass");
-            inst.Texures[2] = (Texture)Resources.Load("texture/road");
-            inst.Texures[3] = (Texture)Resources.Load("texture/fire");
+            inst.Texures[2] = (Texture)Resources.Load("texture/fire");
+            inst.Texures[3] = (Texture)Resources.Load("texture/road");
      
             inst.mat[0] = (Material)Resources.Load("material/soil");
             inst.mat[1] = (Material)Resources.Load("material/grass");
-            inst.mat[2] = (Material)Resources.Load("material/road");
-            inst.mat[3] = (Material)Resources.Load("material/fire");
+            inst.mat[2] = (Material)Resources.Load("material/fire");
+            inst.mat[3] = (Material)Resources.Load("material/road");
 
             inst.Structures[0] =(GameObject)Resources.Load("object/carrot");
             inst.Structures[1] = (GameObject)Resources.Load("object/carrot2");

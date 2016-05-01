@@ -5,6 +5,9 @@ public class UserPlayer : PlayerBase
 {
     public int hp;
     public string[] na;
+    public int x=0;
+    public int y=0;
+    public int z=0;
    
     void Awake()
     {
@@ -94,6 +97,7 @@ public class UserPlayer : PlayerBase
             {
 
                 anim.SetBool("run", true);
+                
                 transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
                 if (jump == false)
                 {
@@ -101,6 +105,7 @@ public class UserPlayer : PlayerBase
                     Vector3 r = s.eulerAngles;
                     r.y -= 90;
                     transform.rotation = Quaternion.Euler(r);
+                
 
                 }
 
@@ -110,16 +115,18 @@ public class UserPlayer : PlayerBase
                 anim.SetBool("run", false);
                 Hex temp = nextHex;
 
-          
-                 v = nextHex.transform.position;
+                
+                v = nextHex.transform.position;
                   v.y += 1.0f;
                   transform.position = v;
-                
+           
                 MoveHexes.RemoveAt(0);
                 
                 if (MoveHexes.Count <= 0)//최종 dest
                 {
-                   
+                    Manager.GetInst().MoveCamPos(nextHex);
+                    CameraManager.GetInst().InitPos.x = nextHex.x;
+                    CameraManager.GetInst().InitPos.z = nextHex.z;
                     CostManager.GetInst().CostDecrease(1);
                     Point temppos = new Point(nextHex.MapPos.GetX(),0, nextHex.MapPos.GetZ());
 

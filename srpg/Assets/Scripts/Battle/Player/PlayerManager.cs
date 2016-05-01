@@ -108,7 +108,7 @@ public class PlayerManager : MonoBehaviour {
     {
         pick_ob = ((GameObject)Instantiate(GO_pick)).GetComponent<pick>();
         UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
-        Hex hex = MapManager.GetInst().GetPlayerHex(2, 0, 0);
+        Hex hex = MapManager.GetInst().GetPlayerHex(userplayer.x, 0, userplayer.z);
         userplayer.CurHex = hex;
         Vector3 v = userplayer.CurHex.transform.position;
         v.y = 1.0f;
@@ -200,6 +200,7 @@ public class PlayerManager : MonoBehaviour {
         {
             CurTurnIdx = 0;
         }
+        MapManager.GetInst().ResetMapColor();
     }
     public void RemovePlayer(PlayerBase pb)
     {

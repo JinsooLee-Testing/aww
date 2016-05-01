@@ -235,46 +235,48 @@ public class MapManager : MonoBehaviour
     public bool HilightMoveRange(Hex start, int moveRange)
     {
         int highLighedCount = 0;
-
-        for (int x = 0; x <= MapSizeX; x++)
+        if(PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].m_type!=Type.MONSTER)
         {
-            for (int y = 0; y <= 0; y++)
+            for (int x = 0; x <= MapSizeX; x++)
             {
-                for (int z = 0; z <= MapSizeZ; z++)
+                for (int y = 0; y <= 0; y++)
                 {
-                    if (Map[x][y][z].Passable == true)
+                    for (int z = 0; z <= MapSizeZ; z++)
                     {
-                        int distance = (GetDistance(start, Map[x][y][z]));
-                        //헥사곤 상의 셀과 셀간의 공식
+                        if (Map[x][y][z].Passable == true)
+                        {
+                            int distance = (GetDistance(start, Map[x][y][z]));
+                            //헥사곤 상의 셀과 셀간의 공식
 
-                        if (distance <= moveRange && distance != 0)
-                        {//
-                            if (IsReachAble(start, Map[x][y][z], moveRange))
-                            {
-                                if (default_matid == 1)
-                                    Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
-                                else
+                            if (distance <= moveRange && distance != 0)
+                            {//
+                                if (IsReachAble(start, Map[x][y][z], moveRange))
                                 {
-                                    Map[x][y][z].GetComponent<Renderer>().material.color = Color.gray;
-                                }
-                                highLighedCount++;
-                                if (y + 1 <= MapSizeY)
-                                {
-                                    if (Map[x][y + 1][z].mesh_draw == true)
+                                    if (default_matid == 1)
+                                        Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
+                                    else
                                     {
-                                        if (default_matid == 1)
-                                            Map[x][y + 1][z].GetComponent<Renderer>().material.color = Color.green;
-                                        else
+                                        Map[x][y][z].GetComponent<Renderer>().material.color = Color.gray;
+                                    }
+                                    highLighedCount++;
+                                    if (y + 1 <= MapSizeY)
+                                    {
+                                        if (Map[x][y + 1][z].mesh_draw == true)
                                         {
-                                            Map[x][y + 1][z].GetComponent<Renderer>().material.color = Color.gray;
+                                            if (default_matid == 1)
+                                                Map[x][y + 1][z].GetComponent<Renderer>().material.color = Color.green;
+                                            else
+                                            {
+                                                Map[x][y + 1][z].GetComponent<Renderer>().material.color = Color.gray;
+                                            }
+                                            highLighedCount++;
                                         }
-                                        highLighedCount++;
                                     }
                                 }
+
+
+
                             }
-
-                          
-
                         }
                     }
                 }
@@ -359,7 +361,7 @@ public class MapManager : MonoBehaviour
                     if (distance <= AtkRange && distance != 0)
                     {
                         Map[x][y][z].At_Marked = true;
-                        Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
+                       // Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
                     }
                 }
             }
@@ -402,7 +404,8 @@ public class MapManager : MonoBehaviour
         Path startPath = new Path(null, start, 0, H);
         ClosedList.Add(startPath);
         Path result = Recursive_FindPath(startPath, dest);
-
+        if (result == null)
+            return null;
 
             while (result.Parent != null)
             {
@@ -422,7 +425,10 @@ public class MapManager : MonoBehaviour
         foreach (Hex h in neibhors)
         {
             Path nevP = new Path(parent, h, parent.GetDepth() + 1, (int)(MapManager.GetInst().GetDistance(h, dest)));
+          
             AddToOpenList(nevP);
+            if ((int)(MapManager.GetInst().GetDistance(h, dest)) > 10)
+                return null;
         }
         Path bestP;
         if (OpenList.Count == 0)
@@ -492,8 +498,8 @@ public class MapManager : MonoBehaviour
     {
         Point pos1 = h1.MapPos;
         Point pos2 = h2.MapPos;
-        return (int)(Mathf.Sqrt(Mathf.Pow(pos1.GetX() - pos2.GetX(), 2) + Mathf.Pow((pos1.GetZ() - pos2.GetZ()), 2)));
-
+       return (int)(Mathf.Sqrt(Mathf.Pow(pos1.GetX() - pos2.GetX(), 2) + Mathf.Pow((pos1.GetZ() - pos2.GetZ()), 2)));
+       // return((pos1.GetX() - pos2.GetX())+( pos1.GetZ() - pos2.GetZ()));
     }
 
     public Hex GetHex(int x, int y, int z)

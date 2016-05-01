@@ -116,12 +116,13 @@ public class MapMgr  {
                         boxinfo box2 = box.GetComponent<boxinfo>();
                         if(y==0)
                         {
-                            box2.SetMesh();
+                           box2.SetMesh();
                         }
                         box2.transform.parent = Maproot.transform;
                         //Vector3 pos2 = GetWorldPos(x, y, z);
                         //box2.transform.position = pos2;
-                        box2.transform.position = GetWorldPos(x, y, z); 
+                        box2.transform.position = GetWorldPos(x, y, z);
+                       
                         box2.SetMapPos(x, y, z);
                         box2.SetPassable(true);
                         Map[x][y][z] = box2;
