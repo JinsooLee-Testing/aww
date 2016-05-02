@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_3;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_WEBPLAYER;ENABLE_SUBSTANCE;WEBPLUG;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_1;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_WEBPLAYER;ENABLE_SUBSTANCE;WEBPLUG;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -45,94 +45,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Battle\Map\Hex.cs" />
-     <Compile Include="Assets\Scripts\Battle\Map\MapManager.cs" />
-     <Compile Include="Assets\Scripts\Battle\Map\Mark.cs" />
-     <Compile Include="Assets\Scripts\Battle\Map\Path.cs" />
-     <Compile Include="Assets\Scripts\Battle\Map\pick.cs" />
-     <Compile Include="Assets\Scripts\Battle\Player\AI.cs" />
-     <Compile Include="Assets\Scripts\Battle\Player\AIPlayer.cs" />
-     <Compile Include="Assets\Scripts\Battle\Player\BattleManager.cs" />
-     <Compile Include="Assets\Scripts\Battle\Player\PlayerBase.cs" />
-     <Compile Include="Assets\Scripts\Battle\Player\PlayerManager.cs" />
-     <Compile Include="Assets\Scripts\Battle\Player\PlayerStatus.cs" />
-     <Compile Include="Assets\Scripts\Battle\Player\UserPlayer.cs" />
-     <Compile Include="Assets\Scripts\Battle\UI\GUIManager.cs" />
-     <Compile Include="Assets\Scripts\Battle\UI\SelectObject.cs" />
-     <Compile Include="Assets\Scripts\Battle\UI\hpContorl.cs" />
-     <Compile Include="Assets\Scripts\Battle\UI\ui.cs" />
-     <Compile Include="Assets\Scripts\Battle\cost\costBase.cs" />
-     <Compile Include="Assets\Scripts\Battle\cost\costManager.cs" />
-     <Compile Include="Assets\Scripts\Battle\object\Object_Manager.cs" />
-     <Compile Include="Assets\Scripts\Battle\object\magic.cs" />
-     <Compile Include="Assets\Scripts\Battle\object\tree.cs" />
-     <Compile Include="Assets\Scripts\CardPage\BattleCardManager.cs" />
-     <Compile Include="Assets\Scripts\CardPage\CardBase.cs" />
-     <Compile Include="Assets\Scripts\CardPage\CardLoad.cs" />
-     <Compile Include="Assets\Scripts\CardPage\CardLoadManager.cs" />
-     <Compile Include="Assets\Scripts\CardPage\CardUseBase.cs" />
-     <Compile Include="Assets\Scripts\CardPage\MagicCard.cs" />
-     <Compile Include="Assets\Scripts\CardPage\SummonCard.cs" />
-     <Compile Include="Assets\Scripts\CardPage\fireball.cs" />
-     <Compile Include="Assets\Scripts\ETC\CameraManager.cs" />
-     <Compile Include="Assets\Scripts\ETC\EffectManager.cs" />
-     <Compile Include="Assets\Scripts\ETC\Manager.cs" />
-     <Compile Include="Assets\Scripts\ETC\SoundManager.cs" />
-     <Compile Include="Assets\Scripts\FIleManager.cs" />
-     <Compile Include="Assets\Scripts\Font\TextDialog.cs" />
-     <Compile Include="Assets\Scripts\Font\font.cs" />
-     <Compile Include="Assets\Scripts\MainTitle\BattleStart.cs" />
-     <Compile Include="Assets\Scripts\MainTitle\MainTilteStart.cs" />
-     <Compile Include="Assets\Scripts\MainTitle\MainTitle.cs" />
-     <Compile Include="Assets\Sky FX Pack\Scripts\LightBeamsControlScript.cs" />
-     <Compile Include="Assets\Sky FX Pack\Scripts\LookAtBehaviour.cs" />
-     <Compile Include="Assets\Sky FX Pack\Scripts\LookAtCameraBehaviour.cs" />
-     <Compile Include="Assets\Sky FX Pack\Scripts\RayBehavior.cs" />
-     <Compile Include="Assets\Sky FX Pack\Scripts\RotateBehaviour.cs" />
-     <Compile Include="Assets\Sky FX Pack\Scripts\ScrollBehaviour.cs" />
-     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\ModelRotate.cs" />
-     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\VoxelModel1Manager.cs" />
-     <Compile Include="Assets\어셋 다운자료\Elementals\Demo\Scripts\GE_Elementals_Demo.cs" />
-     <None Include="Assets\Resources\XML\stage2.xml" />
-     <None Include="Assets\stage2.xml" />
-     <None Include="Assets\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
-     <None Include="Assets\3.xml" />
-     <None Include="Assets\KY_effects\FX_pack0\ReadMe.txt" />
-     <None Include="Assets\stage1.xml" />
-     <None Include="Assets\StreamingAssets\asd.xml" />
-     <None Include="Assets\기획 추가FBX파일\denti_10_ani\denti_list.txt" />
-     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
-     <None Include="Assets\기획 추가FBX파일\reference\큐비클모델\ani_list.txt" />
-     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
-     <None Include="Assets\Resources\XML\stage2-2.xml" />
-     <None Include="Assets\StreamingAssets\test.xml" />
-     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-     <None Include="Assets\StreamingAssets\stage1.xml" />
-     <None Include="Assets\어셋 다운자료\Elementals\Readme.txt" />
-     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
-     <None Include="Assets\Resources\XML\stage1.xml" />
-     <None Include="Assets\2.xml" />
-     <None Include="Assets\StreamingAssets\testcc.xml" />
-     <None Include="Assets\StreamingAssets\stage2-2.xml" />
-     <None Include="Assets\Resources\text\data.txt" />
-     <None Include="Assets\StreamingAssets\stage2.xml" />
-     <None Include="Assets\stage3.xml" />
-     <None Include="Assets\Resources\XML\stage3.xml" />
-     <None Include="Assets\StreamingAssets\a.xml" />
-     <None Include="Assets\Resources\XML\stage4.xml" />
-     <None Include="Assets\StreamingAssets\stage3.xml" />
-     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
-     <None Include="Assets\StreamingAssets\stage4.xml" />
+     <Compile Include="Assets\AllAssets\Scripts\AI.cs" />
+     <Compile Include="Assets\AllAssets\Scripts\AStar.cs" />
+     <Compile Include="Assets\AllAssets\Scripts\HexEntry.cs" />
+     <Compile Include="Assets\AllAssets\Scripts\HexGrid.cs" />
+     <Compile Include="Assets\AllAssets\Scripts\HexGridOriginal.cs" />
+     <Compile Include="Assets\AllAssets\Scripts\HexPosition.cs" />
+     <Compile Include="Assets\AllAssets\Scripts\Human.cs" />
+     <Compile Include="Assets\AllAssets\Scripts\NegativeBinomialDistribution.cs" />
+     <Compile Include="Assets\AllAssets\Scripts\Player.cs" />
+     <Compile Include="Assets\AllAssets\Scripts\Unit.cs" />
+     <Compile Include="Assets\Scripts\AI.cs" />
+     <Compile Include="Assets\Scripts\AIPlayer.cs" />
+     <Compile Include="Assets\Scripts\Hex.cs" />
+     <Compile Include="Assets\Scripts\Hexcolor.cs" />
+     <Compile Include="Assets\Scripts\Manager.cs" />
+     <Compile Include="Assets\Scripts\MapManager.cs" />
+     <Compile Include="Assets\Scripts\PlayerBase.cs" />
+     <Compile Include="Assets\Scripts\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\PlayerStatus.cs" />
+     <Compile Include="Assets\Scripts\UserPlayer.cs" />
+     <None Include="Assets\Prefabs\reference\큐비클모델\ani_list.txt" />
+     <None Include="Assets\AllAssets\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{66166638-DAA4-0619-7925-3327022DA68C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

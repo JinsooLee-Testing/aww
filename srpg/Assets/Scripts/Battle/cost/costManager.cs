@@ -21,6 +21,7 @@ public class CostManager : MonoBehaviour
         cur_cost_max++;
         cur_cost_num= cur_cost_max;
         SetCost();
+        BattleCardManager.GetInst().RandomDrawCard();
     }
     public void CostDecrease(int num)
     {

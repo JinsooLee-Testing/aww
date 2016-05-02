@@ -9,7 +9,7 @@ public class MagicCard : CardUseBase {
     {
     }
     void Start () {
-     
+        On_active = true;
     }
 	
 	// Update is called once per frame

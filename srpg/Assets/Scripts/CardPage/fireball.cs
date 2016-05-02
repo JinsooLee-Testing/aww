@@ -57,6 +57,7 @@ public class fireball : MonoBehaviour {
                             }
                         }
                     }
+
                     magic.GetInst().targetAI.GetDamage(100);
                     EffectManager.GetInst().ShowEffect_water(targetHex.gameObject, this.gameObject);
                 }

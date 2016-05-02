@@ -32,6 +32,7 @@ public class PlayerManager : MonoBehaviour {
     public TURN turn= TURN.PLAYERTURN;
     public int nextScene_Num=3;
     public pick pick_ob = new pick();
+
     public void SetTurnOverTime(float time)
     {
         turnOverTiem = time;
@@ -46,6 +47,7 @@ public class PlayerManager : MonoBehaviour {
         turnOverTiem = 0f;
         curTurnOverTiem = 0f;
         inst = this;
+    
     }
 	// Use this for initialization
 	void Start () {
@@ -188,8 +190,10 @@ public class PlayerManager : MonoBehaviour {
         if (pb2.m_type == Type.MAINCHARACTER)
         {
             CostManager.GetInst().AddCost();
+          
         }
         select_object = pb2;
+       
         CameraManager.GetInst().ResetCameraTarget();
 
     }

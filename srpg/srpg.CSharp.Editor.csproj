@@ -91,12 +91,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="GETween">
-      <HintPath>Assets\어셋 다운자료\GUI Animator\Common\Plugins\GETween.dll</HintPath>
-    </Reference>
-    <Reference Include="GUIAnimatorFREE">
-      <HintPath>Assets\어셋 다운자료\GUI Animator\GUI Animator FREE\Plugins\GUIAnimatorFREE.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-UnityScript">
       <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
     </Reference>
@@ -125,6 +119,27 @@
     <None Include="Assets\Resources\XML\stage3.xml" />
     <None Include="Assets\Resources\XML\stage4.xml" />
     <None Include="Assets\Resources\text\data.txt" />
+    <None Include="Assets\Shader\BasicToon\BasicOutline 1.shader" />
+    <None Include="Assets\Shader\BasicToon\BasicToon.shader" />
+    <None Include="Assets\Shader\BasicToon\Rim\BasicRimNoOutline.shader" />
+    <None Include="Assets\Shader\BasicToon\Rim\BasicRimOutline.shader" />
+    <None Include="Assets\Shader\Cartoon.shader" />
+    <None Include="Assets\Shader\Normals\UniNormal.shader" />
+    <None Include="Assets\Shader\Normals\UniNormalNoOutLine.shader" />
+    <None Include="Assets\Shader\Parallax\_Regular\UniParralax.shader" />
+    <None Include="Assets\Shader\Parallax\_Regular\UniParralaxOutline.shader" />
+    <None Include="Assets\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNoOutline.shader" />
+    <None Include="Assets\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNormal.shader" />
+    <None Include="Assets\Shader\Parallax\_Rim\_Specular\UniRimParrallaxSpecular.shader" />
+    <None Include="Assets\Shader\Parallax\_Rim\_Specular\UniRimParrallaxSpecularNoOutline.shader" />
+    <None Include="Assets\Shader\Parallax\_Specular\UniParrallaxNormalSpecOutline.shader" />
+    <None Include="Assets\Shader\Parallax\_Specular\UniParrallaxSpecular.shader" />
+    <None Include="Assets\Shader\Rims\Normals\NoOutLineRim.shader" />
+    <None Include="Assets\Shader\Rims\Normals\NormalRim.shader" />
+    <None Include="Assets\Shader\Rims\Specular\SpecularNoOutline.shader" />
+    <None Include="Assets\Shader\Rims\Specular\SpecularOutline.shader" />
+    <None Include="Assets\Shader\Specular\ToonSpecularNoOutline 1.shader" />
+    <None Include="Assets\Shader\Specular\ToonSpecularOutline 1.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
@@ -137,6 +152,7 @@
     <None Include="Assets\StreamingAssets\stage2.xml" />
     <None Include="Assets\StreamingAssets\stage3.xml" />
     <None Include="Assets\StreamingAssets\stage4.xml" />
+    <None Include="Assets\StreamingAssets\test.xml" />
     <None Include="Assets\StreamingAssets\testcc.xml" />
     <None Include="Assets\stage1.xml" />
     <None Include="Assets\stage2.xml" />
@@ -144,9 +160,6 @@
     <None Include="Assets\기획 추가FBX파일\denti_10_ani\denti_list.txt" />
     <None Include="Assets\기획 추가FBX파일\reference\큐비클모델\ani_list.txt" />
     <None Include="Assets\어셋 다운자료\Elementals\Readme.txt" />
-    <None Include="Assets\어셋 다운자료\GE Common Assets\Readme.txt" />
-    <None Include="Assets\어셋 다운자료\GUI Animator\GUI Animator FREE\!How to.txt" />
-    <None Include="Assets\어셋 다운자료\GUI Animator\GUI Animator FREE\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -8,6 +8,7 @@ using System.Collections;
     PlayerManager pm;
     GUIManager gm;
     FIleManager fm;
+    BattleCardManager bm;
     public string MapPath;
     public float Speed;
     public Vector2 nowPos, prePos;
@@ -24,7 +25,7 @@ using System.Collections;
         pm = PlayerManager.GetInst();
         gm = GUIManager.GetInst();
         fm = FIleManager.Getinst();
-
+        bm = BattleCardManager.GetInst();
     }
 	// Use this for initialization
 	void Start () {

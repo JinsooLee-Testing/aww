@@ -21,10 +21,16 @@ public class CardBase : CardUseBase {
     }
 	// Update is called once per frame
 	void Update () {
+        if (BattleCardManager.GetInst().cardUse[Buttonnum].On_active == false)
+            On_active = false;
+        else
+            On_active = true;
         if (On_active == false)
         {
             GetComponent<SpriteRenderer>().sprite = sp_image2;
         }
+        else
+            GetComponent<SpriteRenderer>().sprite = sp_image;
     }
 
     // Use this for initialization
@@ -35,7 +41,7 @@ public class CardBase : CardUseBase {
     void OnMouseDown()
     {
 
-       
+            
     }
         //magic.GetInst().fire = true;
     
