@@ -20,6 +20,7 @@ public class Object_Manager : MonoBehaviour {
         inst.Structures[3] = (GameObject)Resources.Load("object/tree");
         inst.Structures[4] = (GameObject)Resources.Load("object/bone");
         inst.Structures[5] = (GameObject)Resources.Load("object/bonebig");
+        inst.Structures[6] = (GameObject)Resources.Load("object/wall");
     }
 
     void Start () {

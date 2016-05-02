@@ -19,20 +19,31 @@ public class MagicCard : CardUseBase {
     }
     void OnMouseDown()
     {
-        if (CostManager.GetInst().cur_cost_num >= 1)
+        if (CostManager.GetInst().cur_cost_num >= cost)
         {
             if (On_active == true)
             {
                 if (magic_id == 2)
                     magic.GetInst().type = "water";
+                else if (magic_id == 3)
+                {
+                    magic.GetInst().type = "wall";
+                    Debug.Log("fire");
+                }
                 else
                     magic.GetInst().type = "fire";
+
                 PlayerBase pb = PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx];
                 Manager.GetInst().MoveCamPosToTile(pb.CurHex);
                 PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.MAGIC;
-                MapManager.GetInst().HilightAttackRange(pb.CurHex, 4);
+                CostManager.GetInst().Curcostnum = cost;
+                Debug.Log(CostManager.GetInst().Curcostnum);
+                if(magic_id==3)
+                    MapManager.GetInst().HilightAttackRange(pb.CurHex, 2);
+                else
+                    MapManager.GetInst().HilightAttackRange(pb.CurHex, 4);
                 On_click = true;
-                Debug.Log("fire");
+                
             }
         }
     }

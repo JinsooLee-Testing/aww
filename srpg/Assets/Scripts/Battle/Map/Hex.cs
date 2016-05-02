@@ -85,7 +85,7 @@ public class Hex : MonoBehaviour {
     public Material mat1;
     public Material mat2;
     public Material mat3;
-
+    
     public Color mat_color = Color.white;
 	// Use this for initialization
     void Start()
@@ -195,10 +195,38 @@ public class Hex : MonoBehaviour {
         PlayerBase pb = pm.Players[pm.CurTurnIdx];
         Debug.Log(MapPos + "OnMouseDown");
 
-        
-     
-        if (pb.act == ACT.SUMMONES)
+       
+       
+        if(pb.act==ACT.MAGIC)
+        {
+            if (magic.GetInst().type == "wall")
             {
+                obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
+                Vector3 v = transform.position;
+                obj.transform.position = new Vector3(v.x, 1, v.z);
+                Passable = false;
+
+                if (v.z > 4)
+                {
+                    Vector3 r = transform.rotation.eulerAngles;
+                    r.y += 90;
+                    transform.rotation = Quaternion.Euler(r);
+                    MapManager.GetInst().Map[MapPos.GetX()][MapPos.GetY()][MapPos.GetZ()+1].Passable = false;
+                    MapManager.GetInst().Map[MapPos.GetX()][MapPos.GetY()][MapPos.GetZ()-1].Passable = false;
+                }
+                else
+                {
+                    MapManager.GetInst().Map[MapPos.GetX() + 1][MapPos.GetY()][MapPos.GetZ()].Passable = false;
+                    MapManager.GetInst().Map[MapPos.GetX() - 1][MapPos.GetY()][MapPos.GetZ()].Passable = false;
+                }
+                CostManager.GetInst().CostDecrease(1);
+                pb.act = ACT.IDLE;
+                CameraManager.GetInst().ResetCameraTarget();
+                MapManager.GetInst().ResetMapColor();
+            }
+        }
+        if (pb.act == ACT.SUMMONES)
+          {
                 if (Passable == true && (GetComponent<Renderer>().material.color == Color.green) || (GetComponent<Renderer>().material.color == Color.gray))
                 {
                     PlayerManager.GetInst().GenPlayer(MapPos.GetX(), MapPos.GetZ());
@@ -207,7 +235,8 @@ public class Hex : MonoBehaviour {
                 CameraManager.GetInst().ResetCameraTarget();
                 MapManager.GetInst().ResetMapColor();
                 }
-            }
+          
+        }
             if (pb.act == ACT.IDLE)
            {            
            }

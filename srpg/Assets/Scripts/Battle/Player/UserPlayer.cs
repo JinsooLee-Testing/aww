@@ -93,7 +93,7 @@ public class UserPlayer : PlayerBase
             Vector3 v = nextHex.transform.position;
             v.y += 1.0f;
             float distance = Vector3.Distance(transform.position, v);
-            if (distance >= 0.1f) //이동중
+            if (distance >= 0.2f) //이동중
             {
 
                 anim.SetBool("run", true);

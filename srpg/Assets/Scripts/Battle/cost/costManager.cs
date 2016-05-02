@@ -5,12 +5,15 @@ public class CostManager : MonoBehaviour
 {
     private static CostManager inst = null;
     public GameObject GO_hex;
+    public GameObject GO_turn;
     public  Vector3 Initpos;
     public int MapSizeX;
     public int MapSizeY;
-
+    public int Curcostnum;
+   turn ui;
     int cur_cost_max=1;
     public int cur_cost_num=1;
+    float removeTime = 0;
     costBase[] cost;
     public static CostManager GetInst()
     {
@@ -22,6 +25,7 @@ public class CostManager : MonoBehaviour
         cur_cost_num= cur_cost_max;
         SetCost();
         BattleCardManager.GetInst().RandomDrawCard();
+        DrawTurn();
     }
     public void CostDecrease(int num)
     {
@@ -33,6 +37,14 @@ public class CostManager : MonoBehaviour
                 cost[MapSizeX - i].SetEmpty(true);
         }
        
+    }
+    void DrawTurn()
+    {
+        removeTime = 0;
+        ui = ((GameObject)Instantiate(GO_turn)).GetComponent<turn>();
+        ui.transform.position = new Vector3(0,50,0);
+        removeTime += Time.deltaTime;
+        //
     }
    void SetCost()
     {
@@ -59,6 +71,7 @@ public class CostManager : MonoBehaviour
             cost[x].transform.position = Initpos;
             Initpos.x += 3;
         }
+        DrawTurn();
     }
     void Awake()
     {
@@ -72,6 +85,19 @@ public class CostManager : MonoBehaviour
     }
     void Update()
     {
+
+        if (ui != null)
+        {
+            if (removeTime != 0)
+            {
+                removeTime += Time.deltaTime;
+                if (removeTime >= 1.5f)
+                {
+                    GameObject.Destroy(ui.gameObject);
+
+                }
+            }
+        }
     }
  
 }

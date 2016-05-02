@@ -80,7 +80,6 @@ public class AIPlayer : PlayerBase
         if (act == ACT.MOVING)
         {//이동처리
 
-
             if (MoveHexes.Count == 0)
             {
                 act = ACT.IDLE;
@@ -104,7 +103,7 @@ public class AIPlayer : PlayerBase
             v.y += m_y;
             float distance = Vector3.Distance(transform.position, v);
 
-            if (distance >= 0.1f) //이동중
+            if (distance >= 1.0f) //이동중
             {
                 anim.SetBool("attack", false);
                 anim.SetBool("run", true);
@@ -114,8 +113,8 @@ public class AIPlayer : PlayerBase
                 if (jump == false)
                 {
                     transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
-                    Vector3 r = transform.rotation.eulerAngles;
-                    r.y -= 90;
+                   // Vector3 r = transform.rotation.eulerAngles;
+                   // r.y -= 90;
                 }
                 //transform.rotation = Quaternion.Euler(r);
             }

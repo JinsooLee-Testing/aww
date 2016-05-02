@@ -8,11 +8,11 @@ public class magic : MonoBehaviour
     private static magic inst = null;
     public Vector3 target;
     public Hex targetHex;
-    public GameObject GO_mis;
-    public GameObject GO_water;
+
     public AIPlayer targetAI;
     public bool fired = false;
     public string type = "fire";
+    public GameObject[] magics = new GameObject[10];
     public static magic GetInst()
     {
         return inst;
@@ -23,6 +23,9 @@ public class magic : MonoBehaviour
     {
         target = new Vector3(0, 1, 0);
         inst = this;
+        inst.magics[0] = (GameObject)Resources.Load("magic/fireball");
+        inst.magics[1] = (GameObject)Resources.Load("magic/water");
+        inst.magics[2] = (GameObject)Resources.Load("magic/wall");
     }
     void Start()
     {
@@ -38,7 +41,7 @@ public class magic : MonoBehaviour
 
         if (type == "fire")
         {
-            fireball fireb = ((GameObject)Instantiate(GO_mis)).GetComponent<fireball>();
+            fireball fireb = ((GameObject)Instantiate(magics[0])).GetComponent<fireball>();
             fireb.targetHex = v;
             Vector3 v2 = v.transform.position;
             v2 = new Vector3(v2.x, 2, v2.z);
@@ -49,9 +52,13 @@ public class magic : MonoBehaviour
             fireb.transform.position = Start;
             fireb.fire = true;
         }
+        else if (type == "wall")
+        {
+          //  wall wal = ((GameObject)Instantiate(magics[2])).GetComponent<wall>();
+        }
         else
         {
-            fireball fireb = ((GameObject)Instantiate(GO_water)).GetComponent<fireball>();
+            fireball fireb = ((GameObject)Instantiate(magics[1])).GetComponent<fireball>();
             fireb.targetHex = v;
             Vector3 v2 = v.transform.position;
             v2 = new Vector3(v2.x, 0, v2.z);

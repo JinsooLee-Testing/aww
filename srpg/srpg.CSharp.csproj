@@ -108,6 +108,8 @@
     <Compile Include="Assets\Scripts\MainTitle\BattleStart.cs" />
     <Compile Include="Assets\Scripts\MainTitle\MainTilteStart.cs" />
     <Compile Include="Assets\Scripts\MainTitle\MainTitle.cs" />
+    <Compile Include="Assets\Scripts\turn.cs" />
+    <Compile Include="Assets\Scripts\wall.cs" />
     <Compile Include="Assets\Sky FX Pack\Scripts\LightBeamsControlScript.cs" />
     <Compile Include="Assets\Sky FX Pack\Scripts\LookAtBehaviour.cs" />
     <Compile Include="Assets\Sky FX Pack\Scripts\LookAtCameraBehaviour.cs" />

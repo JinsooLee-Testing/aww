@@ -6,6 +6,8 @@ public class CardBase : CardUseBase {
     
     public Sprite sp_image;
     public Sprite sp_image2;
+    public TextMesh text;
+  
 
     ACT act;
     // public GameObject GO_Card;
@@ -18,6 +20,11 @@ public class CardBase : CardUseBase {
     }
     void Start () {
         GetComponent<SpriteRenderer>().sprite = sp_image;
+        
+    }
+    public void SetCost(int cos)
+    {
+        text.text = cos.ToString();
     }
 	// Update is called once per frame
 	void Update () {

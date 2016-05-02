@@ -3,10 +3,10 @@ using System.Collections;
 
 public class SummonCard : CardUseBase {
     ACT act;
-   
+
     void Start () {
         //transform.position = pos;
-         
+
     }
 	
 	// Update is called once per frame
@@ -16,7 +16,7 @@ public class SummonCard : CardUseBase {
     void OnMouseDown()
     {
     
-        if (CostManager.GetInst().cur_cost_num >= 3)
+        if (CostManager.GetInst().cur_cost_num >= cost)
         {
             if (On_active == true)
             {
@@ -25,7 +25,7 @@ public class SummonCard : CardUseBase {
                 PlayerManager.GetInst().HilightSummons();
              
                 act = ACT.SUMMONES;
-                CostManager.GetInst().CostDecrease(3);
+                CostManager.GetInst().CostDecrease(cost);
                 On_active = false;
             }
         }

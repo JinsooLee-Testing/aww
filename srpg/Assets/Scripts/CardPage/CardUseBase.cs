@@ -4,7 +4,9 @@ using System.Collections;
 public class CardUseBase : MonoBehaviour {
    public bool On_active;
    public int Buttonnum;
+    public int cost = 1;
     public GameObject GO_Card;
+    
     // Use this for initialization
     void Start () {
 	

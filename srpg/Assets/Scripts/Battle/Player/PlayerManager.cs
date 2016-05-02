@@ -96,8 +96,17 @@ public class PlayerManager : MonoBehaviour {
         v.y = 1.5f;
         player.transform.position = v;
         player.m_type = Type.USER;
-        Players.Add(player);
-
+        int find = 0;
+        for(int i=0;i< Players.Count;++i)
+        {
+            if (player.m_type == Type.MAINCHARACTER)
+            {
+                find = i;
+            }
+            
+        }
+        Players.Insert(1,player);
+        
         MapManager.GetInst().ResetMapColor();
     }
     public void SetPickPos(PlayerBase pb)

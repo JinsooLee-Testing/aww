@@ -20,11 +20,11 @@ public class fireball : MonoBehaviour {
                 float distance = Vector3.Distance(transform.position, target);
                 magic.GetInst().fired = true;
                  CameraManager.GetInst().ResetCameraTarget();
-            if (distance >= 0.1f) //이동중
+            if (distance > 1f) //이동중
             {
 
 
-                transform.position += (target - transform.position).normalized * 7 * Time.smoothDeltaTime;
+                transform.position += (target - transform.position).normalized * 8 * Time.smoothDeltaTime;
                 transform.rotation = Quaternion.LookRotation((target - transform.position).normalized);
                 Vector3 r = transform.rotation.eulerAngles;
                 r.y -= 90;
@@ -38,7 +38,8 @@ public class fireball : MonoBehaviour {
 
                 MapManager.GetInst().MarkAttackRange(magic.GetInst().targetAI.CurHex, 2);
                 PlayerManager pm = PlayerManager.GetInst();
-
+                CostManager.GetInst().CostDecrease(CostManager.GetInst().Curcostnum);
+       
                 if (effect == 1)
                 {
                     EffectManager.GetInst().ShowEffect_Fire(targetHex.gameObject, this.gameObject);
@@ -62,7 +63,7 @@ public class fireball : MonoBehaviour {
                     EffectManager.GetInst().ShowEffect_water(targetHex.gameObject, this.gameObject);
                 }
                 PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.IDLE;
-                CostManager.GetInst().CostDecrease(1);
+          
                
 
                 }
