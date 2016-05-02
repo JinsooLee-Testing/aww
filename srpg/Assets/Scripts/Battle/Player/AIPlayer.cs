@@ -109,7 +109,7 @@ public class AIPlayer : PlayerBase
                 anim.SetBool("run", true);
 
               
-                    transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
+                    transform.position += (v - transform.position).normalized *3f * Time.smoothDeltaTime;
                 if (jump == false)
                 {
                     transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
