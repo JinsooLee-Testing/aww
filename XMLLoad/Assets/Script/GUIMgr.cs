@@ -14,6 +14,7 @@ public class GUIMgr {
     private string MapSizeX = "0";
     private string MapSizeY = "0";
     private string MapSizeZ = "0";
+    public int MaxCurStructIdx=0;
     public string x = "0";
     public string y = "1";
     public string z = "0";
@@ -56,6 +57,10 @@ public class GUIMgr {
             inst.Structures[3] = (GameObject)Resources.Load("object/tree");
             inst.Structures[4] = (GameObject)Resources.Load("object/bone");
             inst.Structures[5] = (GameObject)Resources.Load("object/bonebig");
+            inst.Structures[6] = (GameObject)Resources.Load("object/carrotshelf");
+            inst.Structures[7] = (GameObject)Resources.Load("object/watchtower");
+            inst.Structures[8] = (GameObject)Resources.Load("object/helmet");
+            inst.MaxCurStructIdx = 8;
             inst.CurStruct = inst.Structures[0];
             inst.CurTexture = inst.Texures[0];
             inst.CurTextureIdx = 0;
@@ -219,7 +224,7 @@ public class GUIMgr {
         if (GUILayout.Button("NexStruct"))
         {
             CurStructIdx++;
-            if (CurStructIdx > 5)
+            if (CurStructIdx > MaxCurStructIdx)
             {
                 CurStructIdx = 0;
              }
