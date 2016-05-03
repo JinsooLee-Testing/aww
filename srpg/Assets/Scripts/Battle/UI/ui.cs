@@ -53,8 +53,7 @@ public class ui : MonoBehaviour
             SoundManager.GetInst().PlayClickSound();
             Debug.Log("Attack");
             PlayerBase pb = pm.Players[pm.CurTurnIdx];
-            if (CostManager.GetInst().cur_cost_num >= 1)
-            {
+
                 if (pb.act != ACT.MOVING)
                 {
                     Manager.GetInst().MoveCamPosToTile(pb.CurHex);
@@ -68,7 +67,7 @@ public class ui : MonoBehaviour
                         }
                     }
                 }
-            }
+            
         }
         if (act == "turnover")
         {

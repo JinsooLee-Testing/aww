@@ -10,6 +10,8 @@ public enum ACT
     ATTACKING,
     SUMMONES,
     MAGIC,
+    JUMP,
+    JUMPDOWN,
     DIYING
 }
 public enum Type

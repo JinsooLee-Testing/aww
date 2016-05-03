@@ -375,7 +375,7 @@ public class MapManager : MonoBehaviour
                     if (distance <= AtkRange && distance != 0)
                     {
                         Map[x][y][z].At_Marked = true;
-                        // Map[x][y][z].GetComponent<Renderer>().material.color = Color.green;
+                        Map[x][y][z].GetComponent<Renderer>().material.color = Color.red;
                     }
                 }
             }

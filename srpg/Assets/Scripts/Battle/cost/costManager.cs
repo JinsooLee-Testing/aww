@@ -38,6 +38,7 @@ public class CostManager : MonoBehaviour
             if (cur_cost_num <= i)
                 cost[MapSizeX - i].SetEmpty(true);
         }
+
        
     }
     void DrawTurn()

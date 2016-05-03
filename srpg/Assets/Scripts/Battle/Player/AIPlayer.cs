@@ -29,42 +29,9 @@ public class AIPlayer : PlayerBase
     {
 
     }
-    // Update is called once per frame
-    void Update()
+    public void AIProcess()
     {
         PlayerManager pm = PlayerManager.GetInst();
-        if (removeTime != 0)
-        {
-            removeTime += Time.deltaTime;
-            if (removeTime >= 1.5f)
-            {
-                for (int i = 0; i < pm.Players.Count; ++i)
-                {
-                    if (pm.Players[i].act == ACT.DIYING)
-                    {
-                        if (pm.CurTurnIdx == i)
-                        {
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
-                            //pm.TurnOver();
-                      ;
-                        }
-                        else
-                        {
-
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
-                        }
-                    }
-                }
-
-
-            }
-        }
         if (act == ACT.IDLE)
         {
 
@@ -77,6 +44,42 @@ public class AIPlayer : PlayerBase
                 AiProc();
             }
         }
+        if (act == ACT.JUMP)
+        {
+            Vector3 gravity = new Vector3(0, -9.8f, 0);
+            Vector3 v = transform.position;
+            float speed = 15;
+            if (v.y <= 10)
+            {
+                v.y += Time.deltaTime * speed;
+                speed -= Time.deltaTime;
+                transform.position = v;
+            }
+            else
+                act = ACT.JUMPDOWN;
+            
+        }
+        if(act==ACT.JUMPDOWN)
+        {
+            Vector3 gravity = new Vector3(0, -9.8f, 0);
+            Vector3 v = transform.position;
+            float speed = 12;
+            if (v.y >= 1)
+            {
+                v.y -= Time.deltaTime * speed;
+                speed += Time.deltaTime * 2;
+                transform.position = v;
+                EffectManager.GetInst().ShowEffect_Summon(CurHex.gameObject, 7, v.y);
+            }
+            else
+            {
+                act = ACT.IDLE;
+       
+                EffectManager.GetInst().ShowEffect_Summon(CurHex.gameObject, 8, 1f);
+                PlayerManager.GetInst().TurnOver();
+            }
+        }
+
         if (act == ACT.MOVING)
         {//이동처리
 
@@ -108,19 +111,19 @@ public class AIPlayer : PlayerBase
                 anim.SetBool("attack", false);
                 anim.SetBool("run", true);
 
-              
-                    transform.position += (v - transform.position).normalized *3f * Time.smoothDeltaTime;
+
+                transform.position += (v - transform.position).normalized * 3f * Time.smoothDeltaTime;
                 if (jump == false)
                 {
                     transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
                     if (id != 1)
                     {
                         Vector3 r = transform.rotation.eulerAngles;
-                         r.y -= 90;
+                        r.y -= 90;
                         transform.rotation = Quaternion.Euler(r);
                     }
                 }
-                
+
             }
             else //다음 목표 hex에 도착함
             {
@@ -131,7 +134,7 @@ public class AIPlayer : PlayerBase
                 MoveHexes.RemoveAt(0);
 
                 if (MoveHexes.Count <= 0)//최종 dest
-               {
+                {
                     anim.SetBool("run", false);
                     act = ACT.IDLE;
                     Point temppos = new Point(nextHex.MapPos.GetX(), 0, nextHex.MapPos.GetZ());
@@ -144,6 +147,50 @@ public class AIPlayer : PlayerBase
 
             }
         }
+    }
+    void RemoveRoutine()
+    {
+        PlayerManager pm = PlayerManager.GetInst();
+        if (removeTime != 0)
+        {
+            removeTime += Time.deltaTime;
+            if (removeTime >= 1.5f)
+            {
+                for (int i = 0; i < pm.Players.Count; ++i)
+                {
+                    if (pm.Players[i].act == ACT.DIYING)
+                    {
+                        if (pm.CurTurnIdx == i)
+                        {
+                            pm.RemoveAfter();
+                            pm.RemovePlayer(pm.Players[i]);
+                            pm.RemoveAfter();
+                            pm.select_object = pm.Players[pm.CurTurnIdx];
+                            //pm.TurnOver();
+                            ;
+                        }
+                        else
+                        {
+
+                            pm.RemoveAfter();
+                            pm.RemovePlayer(pm.Players[i]);
+                            pm.RemoveAfter();
+                            pm.select_object = pm.Players[pm.CurTurnIdx];
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        PlayerManager pm = PlayerManager.GetInst();
+        AIProcess();
+
+        RemoveRoutine();
 
     }
     public void AiProc()
@@ -175,7 +222,7 @@ public class AIPlayer : PlayerBase
         {
             if (CurHex.Marked == true)
             {
-                EffectManager.GetInst().ShowEffect_Summon(pb.CurHex.gameObject);
+                EffectManager.GetInst().ShowEffect_Summon(pb.CurHex.gameObject,3,1.2f);
           
                 if (magic.GetInst().type=="fire")
                     magic.GetInst().SetTarget(this.CurHex, this.CurHex, 9);
@@ -192,7 +239,7 @@ public class AIPlayer : PlayerBase
             {
                 CameraManager.GetInst().ResetCameraTarget();
                 bm.AttackAtoB(pb, this);
-                CostManager.GetInst().CostDecrease(1);
+
             }
 
 

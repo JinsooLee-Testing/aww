@@ -3,9 +3,10 @@ using System.Collections;
 
 public class EffectManager : MonoBehaviour {
     private static EffectManager inst = null;
-
+    public float effect_time = 0;
     public GameObject[] effects = new GameObject[10];
     // Use this for initialization
+    GameObject curhex;
     public static EffectManager GetInst()
     {
         return inst;
@@ -19,16 +20,31 @@ public class EffectManager : MonoBehaviour {
         inst.effects[3] = (GameObject)Resources.Load("Prefabs/Effect/chant");
         inst.effects[4] = (GameObject)Resources.Load("Prefabs/Effect/water");
         inst.effects[5] = (GameObject)Resources.Load("Prefabs/Effect/frame");
-
+        inst.effects[6] = (GameObject)Resources.Load("Prefabs/Effect/chantbig");
+        inst.effects[7] = (GameObject)Resources.Load("Prefabs/Effect/earth");
+        inst.effects[8] = (GameObject)Resources.Load("Prefabs/Effect/ring");
     }
 	void Start () {
-	
-	}
+ 
+    }
+
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if (effect_time != 0)
+        {
+            effect_time += Time.deltaTime;
+            if (effect_time >= 1.5f)
+            {
+                Vector3 v;
+                v = curhex.transform.position;
+                v.y = 2;
+                GameObject go = (GameObject)Instantiate(inst.effects[0], v, curhex.transform.rotation);
+                curhex = null;
+                effect_time = 0;
+            }
+        }
+    }
     public void ShowDamage(Hex hex,int damage)
     {
      
@@ -37,14 +53,14 @@ public class EffectManager : MonoBehaviour {
        // Manager.GetInst().StartCoroutine("ShowDamage");
 
     }
-    public void ShowEffect_water(GameObject hex, GameObject destroy)
+    public void ShowEffect_water(GameObject hex, GameObject destroy,int id)
     {
         Vector3 v;
         v = hex.transform.position;
         v.y = 2;
 
-        GameObject go = (GameObject)Instantiate(inst.effects[4], v, hex.transform.rotation);
-
+        GameObject go = (GameObject)Instantiate(inst.effects[id], v, hex.transform.rotation);
+        
         Destroy(destroy);
 
     }
@@ -71,14 +87,15 @@ public class EffectManager : MonoBehaviour {
         Destroy(destroy);
 
     }
-    public void ShowEffect_Summon(GameObject hex)
+    public void ShowEffect_Summon(GameObject hex,int id,float y)
     {
         Vector3 v;
         v = hex.transform.position;
-        v.y = 1.2f;
-        GameObject go = (GameObject)Instantiate(inst.effects[3], v, hex.transform.rotation);
+        v.y = y;
+        GameObject go = (GameObject)Instantiate(inst.effects[id], v, inst.effects[id].transform.rotation);
 
     }
+
     public void ShowEffect(GameObject hex)
     {
         Vector3 v;
@@ -86,6 +103,11 @@ public class EffectManager : MonoBehaviour {
         v.y = 2;
         GameObject go = (GameObject)Instantiate(inst.effects[0], v,hex.transform.rotation);
 
+    }
+    public void Play(GameObject hex)
+    {
+        effect_time += Time.deltaTime;
+        curhex = hex;
     }
   
 }

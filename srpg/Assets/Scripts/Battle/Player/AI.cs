@@ -42,7 +42,13 @@ public class AIthink  {
             Vector3 v2 = nearUserPlayer.CurHex.transform.position;
             v2.y = PlayerManager.GetInst().m_y;
             aiplayer.transform.rotation = Quaternion.LookRotation((v2 - v).normalized);
-            nearUserPlayer.GetDamage(30);
+            if (aiplayer.Monster_id != 1)
+            {
+                Vector3 r = aiplayer.transform.rotation.eulerAngles;
+                r.y -= 90;
+                aiplayer.transform.rotation = Quaternion.Euler(r);
+            }
+            nearUserPlayer.GetDamage(aiplayer.status.Attack);
 
             EffectManager.GetInst().ShowEffect(nearUserPlayer.gameObject);
             SoundManager.GetInst().PlayAttackSound();
@@ -77,7 +83,7 @@ public class AIthink  {
                     }
                 }
             }
-        if (i < 3 || aiplayer.m_type==Type.MONSTER)
+        if (i < 2 || aiplayer.m_type==Type.MONSTER)
         {
             if (nearUserPlayer != null)
             {
@@ -110,10 +116,44 @@ public class AIthink  {
                 MapManager.GetInst().ResetMapColor(aiplayer.CurHex.MapPos);
             }
         }
+        else if(i==4)
+        {
+            List<Hex> path = mm.GetPath(aiplayer.CurHex, nearUserPlayer.CurHex);
+
+            if (path == null)
+                PlayerManager.GetInst().TurnOver();
+            Vector3 v = aiplayer.transform.position;
+            int x = Random.Range(-5, 5);
+            int z = Random.Range(-5, 5);
+            if ((int)v.x + x > MapManager.GetInst().MapSizeX)
+                v.x = MapManager.GetInst().MapSizeX;
+            if ((int)v.z + z > MapManager.GetInst().MapSizeZ)
+                v.z = MapManager.GetInst().MapSizeZ;
+            if ((int)v.x + x <= 0)
+                v.x = 0;
+            if ((int)v.z + z<=0)
+                v.z = 0;
+            PlayerManager.GetInst().GenAIPlayer((int)v.x, (int)v.z);
+            EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6,0f);
+            PlayerManager.GetInst().TurnOver();
+        }
         else
         {
-            Vector3 v = aiplayer.transform.position;
-            PlayerManager.GetInst().GenAIPlayer((int)v.x + 1, (int)v.z + 1);
+            aiplayer.act = ACT.JUMP;
+            MapManager.GetInst().MarkAttackRange(aiplayer.CurHex, 4);
+            
+            for (int j = 0; j < pm.Players.Count; ++j)
+            {
+                if (pm.Players[j].CurHex.At_Marked == true)
+                {
+                    if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type !=Type.BOSS)
+                    {
+                        pm.Players[j].GetDamage(100);
+                        EffectManager.GetInst().Play(pm.Players[j].CurHex.gameObject);
+                    }
+                }
+            }
+
         }
 
     }

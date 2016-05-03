@@ -64,17 +64,17 @@ public class fireball : MonoBehaviour {
                             if (pm.Players[i].m_type == Type.MONSTER)
                             {
                                 pm.Players[i].GetDamage(100);
-                                EffectManager.GetInst().ShowEffect_water(pm.Players[i].gameObject, this.gameObject);
+                                EffectManager.GetInst().ShowEffect_water(pm.Players[i].gameObject, this.gameObject,4);
                             }
                         }
                     }
 
                     magic.GetInst().targetAI.GetDamage(100);
-                    EffectManager.GetInst().ShowEffect_water(targetHex.gameObject, this.gameObject);
+                    EffectManager.GetInst().ShowEffect_water(targetHex.gameObject, this.gameObject,4);
                    
                 }
                 PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.IDLE;
-          
+                MapManager.GetInst().ResetMapColor();
                
 
                 }

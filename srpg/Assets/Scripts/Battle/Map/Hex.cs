@@ -252,7 +252,7 @@ public class Hex : MonoBehaviour {
                 {
                     PlayerManager.GetInst().GenPlayer(MapPos.GetX(), MapPos.GetZ());
                     pb.act = ACT.IDLE;
-                EffectManager.GetInst().ShowEffect_Summon(pb.CurHex.gameObject);
+                EffectManager.GetInst().ShowEffect_Summon(pb.CurHex.gameObject,3,1.2f);
                 CameraManager.GetInst().ResetCameraTarget();
                 MapManager.GetInst().ResetMapColor();
                 }

@@ -121,9 +121,9 @@ public class PlayerManager : MonoBehaviour {
         v.y = 1.5f;
         player.transform.position = v;
         player.m_type = Type.MONSTER;
-        Players.Add(player);
         EnemyCount++;
-        EnemyTurnCount++;
+        Players.Add(player);
+
         MapManager.GetInst().ResetMapColor();
     }
     public void SetPickPos(PlayerBase pb)

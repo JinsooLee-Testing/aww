@@ -5,6 +5,7 @@ public class UserPlayer : PlayerBase
 {
     public int hp;
     public string[] na;
+    bool hited = false;
     public bool Equip = false;
     public int x=0;
     public int y=0;
