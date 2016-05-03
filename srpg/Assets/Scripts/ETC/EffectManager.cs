@@ -3,11 +3,8 @@ using System.Collections;
 
 public class EffectManager : MonoBehaviour {
     private static EffectManager inst = null;
-    public GameObject GO_attackEffect;
-    public GameObject GO_Damage;
-    public GameObject GO_boom;
-    public GameObject GO_effect;
-    public GameObject GO_water;
+
+    public GameObject[] effects = new GameObject[10];
     // Use this for initialization
     public static EffectManager GetInst()
     {
@@ -16,6 +13,13 @@ public class EffectManager : MonoBehaviour {
     void Awake()
     {
         inst = this;
+        inst.effects[0] = (GameObject)Resources.Load("Prefabs/Effect/attack");
+        inst.effects[1] = (GameObject)Resources.Load("Prefabs/Effect/damage");
+        inst.effects[2] = (GameObject)Resources.Load("Prefabs/Effect/Boom");
+        inst.effects[3] = (GameObject)Resources.Load("Prefabs/Effect/chant");
+        inst.effects[4] = (GameObject)Resources.Load("Prefabs/Effect/water");
+        inst.effects[5] = (GameObject)Resources.Load("Prefabs/Effect/frame");
+
     }
 	void Start () {
 	
@@ -39,9 +43,21 @@ public class EffectManager : MonoBehaviour {
         v = hex.transform.position;
         v.y = 2;
 
-        GameObject go = (GameObject)Instantiate(GO_water, v, hex.transform.rotation);
+        GameObject go = (GameObject)Instantiate(inst.effects[4], v, hex.transform.rotation);
 
         Destroy(destroy);
+
+    }
+    public void ShowEffect(Transform pos,int magic_id)
+    {
+        if (magic_id == 1)
+        {
+            GameObject go = (GameObject)Instantiate(inst.effects[5], pos.position, pos.rotation);
+        }
+        else
+        {
+            GameObject go = (GameObject)Instantiate(inst.effects[4], pos.position, pos.rotation);
+        }
 
     }
     public void ShowEffect_Fire(GameObject hex,GameObject destroy)
@@ -50,7 +66,7 @@ public class EffectManager : MonoBehaviour {
         v = hex.transform.position;
         v.y = 2;
 
-        GameObject go = (GameObject)Instantiate(GO_boom, v, hex.transform.rotation);
+        GameObject go = (GameObject)Instantiate(inst.effects[2], v, hex.transform.rotation);
         
         Destroy(destroy);
 
@@ -60,7 +76,7 @@ public class EffectManager : MonoBehaviour {
         Vector3 v;
         v = hex.transform.position;
         v.y = 1.2f;
-        GameObject go = (GameObject)Instantiate(GO_effect, v, hex.transform.rotation);
+        GameObject go = (GameObject)Instantiate(inst.effects[3], v, hex.transform.rotation);
 
     }
     public void ShowEffect(GameObject hex)
@@ -68,7 +84,7 @@ public class EffectManager : MonoBehaviour {
         Vector3 v;
         v = hex.transform.position;
         v.y = 2;
-        GameObject go = (GameObject)Instantiate(GO_attackEffect,v,hex.transform.rotation);
+        GameObject go = (GameObject)Instantiate(inst.effects[0], v,hex.transform.rotation);
 
     }
   

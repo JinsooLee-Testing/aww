@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour {
     public GameObject GO_player;
     public GameObject GO_aiplayer;
     public GameObject GO_tree;
+    public GameObject GO_tree2;
     public GameObject GO_pick;
     public int Monster_num = 0;
     public List<PlayerBase> Players = new List<PlayerBase>();
@@ -107,6 +108,22 @@ public class PlayerManager : MonoBehaviour {
         }
         Players.Insert(1,player);
         
+        MapManager.GetInst().ResetMapColor();
+    }
+
+    public void GenAIPlayer(int x, int z)
+    {
+        AIPlayer player = ((GameObject)Instantiate(GO_tree2)).GetComponent<AIPlayer>();
+        Hex hex = MapManager.GetInst().GetPlayerHex(x, 0, z);
+        player.CurHex = hex;
+        player.CurHex.Passable = false;
+        Vector3 v = player.CurHex.transform.position;
+        v.y = 1.5f;
+        player.transform.position = v;
+        player.m_type = Type.MONSTER;
+        Players.Add(player);
+        EnemyCount++;
+        EnemyTurnCount++;
         MapManager.GetInst().ResetMapColor();
     }
     public void SetPickPos(PlayerBase pb)

@@ -5,10 +5,12 @@ public class UserPlayer : PlayerBase
 {
     public int hp;
     public string[] na;
+    public bool Equip = false;
     public int x=0;
     public int y=0;
     public int z=0;
-   
+    public GameObject eqip;
+    Equipment equip;
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -18,7 +20,9 @@ public class UserPlayer : PlayerBase
         main_char = true;
         live = true;
         m_type = Type.USER;
-        
+        Equip = false;
+
+
     }
     void Start()
     {
@@ -33,8 +37,16 @@ public class UserPlayer : PlayerBase
     {
       
     }
+    void EquipHelmet()
+    {
+        equip = ((GameObject)Instantiate(eqip)).GetComponent<Equipment>();
+        Equip = true;
+    }
     void Update()
     {
+
+    
+
         PlayerManager pm = PlayerManager.GetInst();
         if (removeTime != 0)
         {
@@ -61,6 +73,12 @@ public class UserPlayer : PlayerBase
                 }
 
             }
+        }
+        if (Equip == true)
+        {
+            Vector3 v2 = transform.position;
+            v2.y += 1.5f;
+           // equip.transform.position = v2;
         }
         if (act==ACT.IDLE)
        {
@@ -101,12 +119,14 @@ public class UserPlayer : PlayerBase
                 transform.position += (v - transform.position).normalized * status.MoveSpeed * Time.smoothDeltaTime;
                 if (jump == false)
                 {
+
                     Quaternion s = Quaternion.LookRotation((v - transform.position).normalized);
                     Vector3 r = s.eulerAngles;
                     r.y -= 90;
-                    transform.rotation = Quaternion.Euler(r);
-                
+                    if (Equip == true)
+                        equip.transform.rotation = Quaternion.Euler(r);
 
+                    transform.rotation = Quaternion.Euler(r);
                 }
 
             }

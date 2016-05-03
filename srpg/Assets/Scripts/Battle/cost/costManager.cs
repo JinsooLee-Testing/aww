@@ -22,6 +22,8 @@ public class CostManager : MonoBehaviour
     public void AddCost()
     {
         cur_cost_max++;
+        if (cur_cost_max >= MapSizeX)
+            cur_cost_max = MapSizeX;
         cur_cost_num= cur_cost_max;
         SetCost();
         BattleCardManager.GetInst().RandomDrawCard();

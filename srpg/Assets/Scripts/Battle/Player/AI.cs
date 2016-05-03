@@ -63,46 +63,57 @@ public class AIthink  {
         PlayerBase nearUserPlayer = null;
         int nearDistance = 50;
         //근접 플레이어 서치
-        foreach (PlayerBase up in pm.Players)
-        {
-            if (up is UserPlayer)
+        int i = Random.Range(1, 5);
+       
+            foreach (PlayerBase up in pm.Players)
             {
-                int distance = mm.GetDistance(up.CurHex, aiplayer.CurHex);
-                if (nearDistance > distance)
+                if (up is UserPlayer)
                 {
-                    nearUserPlayer = up;
-                    nearDistance = distance;
+                    int distance = mm.GetDistance(up.CurHex, aiplayer.CurHex);
+                    if (nearDistance > distance)
+                    {
+                        nearUserPlayer = up;
+                        nearDistance = distance;
+                    }
                 }
+            }
+        if (i < 3 || aiplayer.m_type==Type.MONSTER)
+        {
+            if (nearUserPlayer != null)
+            {
+
+                List<Hex> path = mm.GetPath(aiplayer.CurHex, nearUserPlayer.CurHex);
+
+                if (path == null)
+                    PlayerManager.GetInst().TurnOver();
+                else
+                {
+                    if (path.Count > aiplayer.status.MoveRange)
+                    {
+                        path.RemoveRange(aiplayer.status.MoveRange, path.Count - aiplayer.status.MoveRange);
+
+                    }
+                    aiplayer.MoveHexes = path;
+                    if (nearUserPlayer.CurHex.MapPos == aiplayer.MoveHexes[aiplayer.MoveHexes.Count - 1].MapPos)
+                    {
+                        aiplayer.MoveHexes.RemoveAt(aiplayer.MoveHexes.Count - 1);
+                    }
+                    if (aiplayer.MoveHexes.Count == 0)
+                    {
+                        AtkAItoUser(aiplayer);
+
+
+                        return;
+                    }
+                    aiplayer.act = ACT.MOVING;
+                }
+                MapManager.GetInst().ResetMapColor(aiplayer.CurHex.MapPos);
             }
         }
-
-        if (nearUserPlayer != null)
+        else
         {
-           
-            List<Hex> path = mm.GetPath(aiplayer.CurHex, nearUserPlayer.CurHex);
-
-            if (path == null)
-                PlayerManager.GetInst().TurnOver();
-            else
-            {
-                if (path.Count > aiplayer.status.MoveRange)
-                {
-                    path.RemoveRange(aiplayer.status.MoveRange, path.Count - aiplayer.status.MoveRange);
-
-                }
-                aiplayer.MoveHexes = path;
-                if (nearUserPlayer.CurHex.MapPos == aiplayer.MoveHexes[aiplayer.MoveHexes.Count - 1].MapPos)
-                {
-                    aiplayer.MoveHexes.RemoveAt(aiplayer.MoveHexes.Count - 1);
-                }
-                if (aiplayer.MoveHexes.Count == 0)
-                {
-                    AtkAItoUser(aiplayer);
-                    return;
-                }
-                aiplayer.act = ACT.MOVING;
-            }
-            MapManager.GetInst().ResetMapColor(aiplayer.CurHex.MapPos);
+            Vector3 v = aiplayer.transform.position;
+            PlayerManager.GetInst().GenAIPlayer((int)v.x + 1, (int)v.z + 1);
         }
 
     }

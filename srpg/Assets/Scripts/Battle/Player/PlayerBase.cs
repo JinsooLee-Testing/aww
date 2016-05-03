@@ -17,7 +17,8 @@ public enum Type
     USER,
     MONSTER,
     OBJECT,
-       MAINCHARACTER
+    MAINCHARACTER,
+    BOSS
 }
 public class PlayerBase : MonoBehaviour {
     public PlayerStatus status;

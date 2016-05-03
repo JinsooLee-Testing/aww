@@ -111,8 +111,6 @@
   <ItemGroup>
     <None Include="Assets\2.xml" />
     <None Include="Assets\3.xml" />
-    <None Include="Assets\KY_effects\FX_pack0\ReadMe.txt" />
-    <None Include="Assets\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
     <None Include="Assets\Resources\XML\stage1.xml" />
     <None Include="Assets\Resources\XML\stage2-2.xml" />
     <None Include="Assets\Resources\XML\stage2.xml" />
@@ -145,6 +143,7 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\StreamingAssets\C.xml" />
     <None Include="Assets\StreamingAssets\a.xml" />
     <None Include="Assets\StreamingAssets\asd.xml" />
     <None Include="Assets\StreamingAssets\stage1.xml" />
@@ -160,6 +159,9 @@
     <None Include="Assets\기획 추가FBX파일\denti_10_ani\denti_list.txt" />
     <None Include="Assets\기획 추가FBX파일\reference\큐비클모델\ani_list.txt" />
     <None Include="Assets\어셋 다운자료\Elementals\Readme.txt" />
+    <None Include="Assets\어셋 다운자료\Fantasy SFX for Particle Distort Texture effect library\readme_Fantasy SFX for Particle Distort Texture effect library.txt" />
+    <None Include="Assets\어셋 다운자료\KY_effects\FX_pack0\ReadMe.txt" />
+    <None Include="Assets\어셋 다운자료\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

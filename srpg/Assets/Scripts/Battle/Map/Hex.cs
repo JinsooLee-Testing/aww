@@ -112,7 +112,7 @@ public class Hex : MonoBehaviour {
 
             obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[obj_id - 1]);
             Vector3 v = transform.position;
-            obj.transform.position = new Vector3(v.x, obj_y, v.z);
+            obj.transform.position = new Vector3(v.x, obj_y-0.2f, v.z);
             
         }
         if (mat_name == "soil")
@@ -187,7 +187,7 @@ public class Hex : MonoBehaviour {
 
         //MapManager.GetInst().MarkTile(MapPos,0,this);
     }
-
+    
     void OnMouseDown()
     {
         
@@ -195,34 +195,55 @@ public class Hex : MonoBehaviour {
         PlayerBase pb = pm.Players[pm.CurTurnIdx];
         Debug.Log(MapPos + "OnMouseDown");
 
-       
-       
-        if(pb.act==ACT.MAGIC)
+        
+      
+        if (pb.act==ACT.MAGIC)
         {
             if (magic.GetInst().type == "wall")
             {
-                obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
-                Vector3 v = transform.position;
-                obj.transform.position = new Vector3(v.x, 1, v.z);
-                Passable = false;
-
-                if (v.z > 4)
+                MapManager.GetInst().MarkWall(this.MapPos);
+            }
+            if(GetComponent<Renderer>().material.color==Color.green)
+            {
+               
+                if (MapManager.GetInst().wallpos.GetX()>=MapPos.GetX())
                 {
-                    Vector3 r = transform.rotation.eulerAngles;
-                    r.y += 90;
-                    transform.rotation = Quaternion.Euler(r);
-                    MapManager.GetInst().Map[MapPos.GetX()][MapPos.GetY()][MapPos.GetZ()+1].Passable = false;
-                    MapManager.GetInst().Map[MapPos.GetX()][MapPos.GetY()][MapPos.GetZ()-1].Passable = false;
+                    for (int i = 0; i < 3; ++i)
+                    {
+                        if (MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable == true)
+                        {
+                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
+                            Vector3 v = transform.position;
+                            obj.transform.position = new Vector3(v.x, 1, v.z - i);
+
+                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
+                            MapManager.GetInst().Map[MapPos.GetX()][MapPos.GetY()][MapPos.GetZ() - i].Passable = false;
+                        }
+                    }
+                    
+                    //obj.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+                    MapManager.GetInst().ResetMapColor();
+                    CameraManager.GetInst().ResetCameraTarget();
+
                 }
                 else
                 {
-                    MapManager.GetInst().Map[MapPos.GetX() + 1][MapPos.GetY()][MapPos.GetZ()].Passable = false;
-                    MapManager.GetInst().Map[MapPos.GetX() - 1][MapPos.GetY()][MapPos.GetZ()].Passable = false;
+                    for (int i = 0; i < 3; ++i)
+                    {
+                        if (MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable == true)
+                        {
+                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
+                            Vector3 v = transform.position;
+                            obj.transform.position = new Vector3(v.x - i, 1, v.z);
+                            obj.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
+                            MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable = false;
+                        }
+                    }
+                    MapManager.GetInst().ResetMapColor();
+                    CameraManager.GetInst().ResetCameraTarget();
+                    
                 }
-                CostManager.GetInst().CostDecrease(1);
-                pb.act = ACT.IDLE;
-                CameraManager.GetInst().ResetCameraTarget();
-                MapManager.GetInst().ResetMapColor();
             }
         }
         if (pb.act == ACT.SUMMONES)

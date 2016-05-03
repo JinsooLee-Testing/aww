@@ -53,16 +53,19 @@ public class ui : MonoBehaviour
             SoundManager.GetInst().PlayClickSound();
             Debug.Log("Attack");
             PlayerBase pb = pm.Players[pm.CurTurnIdx];
-            if (pb.act != ACT.MOVING)
+            if (CostManager.GetInst().cur_cost_num >= 1)
             {
-                Manager.GetInst().MoveCamPosToTile(pb.CurHex);
-                PlayerManager.GetInst().select_object = pb;
-                pb.CurHex.Passable = true;
-                if (pb.m_type != Type.MONSTER)
+                if (pb.act != ACT.MOVING)
                 {
-                    if (MapManager.GetInst().HilightAttackRange(pb.CurHex, pb.status.attackRange))
+                    Manager.GetInst().MoveCamPosToTile(pb.CurHex);
+                    PlayerManager.GetInst().select_object = pb;
+                    pb.CurHex.Passable = true;
+                    if (pb.m_type != Type.MONSTER)
                     {
-                        pm.Players[pm.CurTurnIdx].act = ACT.ATTACKHIGHLIGHT;
+                        if (MapManager.GetInst().HilightAttackRange(pb.CurHex, pb.status.attackRange))
+                        {
+                            pm.Players[pm.CurTurnIdx].act = ACT.ATTACKHIGHLIGHT;
+                        }
                     }
                 }
             }

@@ -21,7 +21,7 @@ public class AIPlayer : PlayerBase
         status.Attack = Attack;
         anim = GetComponent<Animator>();
         main_char = false;
-        m_type = Type.MONSTER;
+        //m_type = Type.MONSTER;
         live = true;
         Monster_id = id;
     }
@@ -113,10 +113,14 @@ public class AIPlayer : PlayerBase
                 if (jump == false)
                 {
                     transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
-                   // Vector3 r = transform.rotation.eulerAngles;
-                   // r.y -= 90;
+                    if (id != 1)
+                    {
+                        Vector3 r = transform.rotation.eulerAngles;
+                         r.y -= 90;
+                        transform.rotation = Quaternion.Euler(r);
+                    }
                 }
-                //transform.rotation = Quaternion.Euler(r);
+                
             }
             else //다음 목표 hex에 도착함
             {
@@ -172,8 +176,9 @@ public class AIPlayer : PlayerBase
             if (CurHex.Marked == true)
             {
                 EffectManager.GetInst().ShowEffect_Summon(pb.CurHex.gameObject);
+          
                 if (magic.GetInst().type=="fire")
-                    magic.GetInst().SetTarget(this.CurHex, pb.CurHex,4);
+                    magic.GetInst().SetTarget(this.CurHex, this.CurHex, 9);
                 else
                     magic.GetInst().SetTarget(this.CurHex, pb.CurHex, 1);
                 magic.GetInst().targetAI = this;
@@ -187,6 +192,7 @@ public class AIPlayer : PlayerBase
             {
                 CameraManager.GetInst().ResetCameraTarget();
                 bm.AttackAtoB(pb, this);
+                CostManager.GetInst().CostDecrease(1);
             }
 
 

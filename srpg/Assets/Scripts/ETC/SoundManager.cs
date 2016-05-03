@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour {
     public AudioClip AC_ATTack;
     public AudioClip click;
     public AudioClip bgm;
+
     // Use this for initialization
     public static SoundManager GetInst()
     {
@@ -24,6 +25,8 @@ public class SoundManager : MonoBehaviour {
 	void Update () {
 
     }
+
+    
     public void PlayClickSound()
     {
         AudioSource.PlayClipAtPoint(click, this.transform.position);
