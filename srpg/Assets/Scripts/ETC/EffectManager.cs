@@ -23,6 +23,7 @@ public class EffectManager : MonoBehaviour {
         inst.effects[6] = (GameObject)Resources.Load("Prefabs/Effect/chantbig");
         inst.effects[7] = (GameObject)Resources.Load("Prefabs/Effect/earth");
         inst.effects[8] = (GameObject)Resources.Load("Prefabs/Effect/ring");
+        inst.effects[9] = (GameObject)Resources.Load("Prefabs/Effect/chant_wait");
     }
 	void Start () {
  
@@ -63,6 +64,10 @@ public class EffectManager : MonoBehaviour {
         
         Destroy(destroy);
 
+    }
+    public void DestoryEffect(int id)
+    {
+        GameObject.Destroy(inst.effects[id].gameObject);
     }
     public void ShowEffect(Transform pos,int magic_id)
     {

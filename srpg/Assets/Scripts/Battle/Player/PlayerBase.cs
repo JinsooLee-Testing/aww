@@ -10,6 +10,7 @@ public enum ACT
     ATTACKING,
     SUMMONES,
     MAGIC,
+    CASTING,
     JUMP,
     JUMPDOWN,
     DIYING
@@ -33,6 +34,7 @@ public class PlayerBase : MonoBehaviour {
     public List<Hex> MoveHexes;
     public Type m_type;
     public int Monster_id;
+    public bool casting = false;
     protected bool jump = false;
     void Awake()
     {

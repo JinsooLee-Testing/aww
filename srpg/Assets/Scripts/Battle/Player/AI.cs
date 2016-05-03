@@ -83,7 +83,8 @@ public class AIthink  {
                     }
                 }
             }
-        if (i < 2 || aiplayer.m_type==Type.MONSTER)
+ 
+        if (i < 2 || aiplayer.m_type == Type.MONSTER)
         {
             if (nearUserPlayer != null)
             {
@@ -116,7 +117,7 @@ public class AIthink  {
                 MapManager.GetInst().ResetMapColor(aiplayer.CurHex.MapPos);
             }
         }
-        else if(i==4)
+        else if (i == 4)
         {
             List<Hex> path = mm.GetPath(aiplayer.CurHex, nearUserPlayer.CurHex);
 
@@ -131,30 +132,19 @@ public class AIthink  {
                 v.z = MapManager.GetInst().MapSizeZ;
             if ((int)v.x + x <= 0)
                 v.x = 0;
-            if ((int)v.z + z<=0)
+            if ((int)v.z + z <= 0)
                 v.z = 0;
             PlayerManager.GetInst().GenAIPlayer((int)v.x, (int)v.z);
-            EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6,0f);
+            EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6, 0f);
             PlayerManager.GetInst().TurnOver();
         }
         else
         {
-            aiplayer.act = ACT.JUMP;
-            MapManager.GetInst().MarkAttackRange(aiplayer.CurHex, 4);
-            
-            for (int j = 0; j < pm.Players.Count; ++j)
-            {
-                if (pm.Players[j].CurHex.At_Marked == true)
-                {
-                    if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type !=Type.BOSS)
-                    {
-                        pm.Players[j].GetDamage(100);
-                        EffectManager.GetInst().Play(pm.Players[j].CurHex.gameObject);
-                    }
-                }
-            }
-
+            aiplayer.act = ACT.CASTING;
+            EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 9, 0.0f);
+            PlayerManager.GetInst().TurnOver();
         }
+
 
     }
 }

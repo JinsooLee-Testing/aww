@@ -9,6 +9,7 @@ public class UserPlayer : PlayerBase
     public bool Equip = false;
     public int x=0;
     public int y=0;
+  
     public int z=0;
     public GameObject eqip;
     Equipment equip;

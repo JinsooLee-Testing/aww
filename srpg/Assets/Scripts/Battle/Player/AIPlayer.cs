@@ -11,6 +11,7 @@ public class AIPlayer : PlayerBase
     public int Attack;
     public string m_name;
     public int id = 1;
+  
     void Awake()
     {
         act = ACT.IDLE;
@@ -32,6 +33,26 @@ public class AIPlayer : PlayerBase
     public void AIProcess()
     {
         PlayerManager pm = PlayerManager.GetInst();
+        if (act == ACT.CASTING && casting==true)
+        {
+            Debug.Log("hh");
+            act = ACT.JUMP;
+            MapManager.GetInst().MarkAttackRange(CurHex, 4);
+
+            for (int j = 0; j < pm.Players.Count; ++j)
+            {
+                if (pm.Players[j].CurHex.At_Marked == true)
+                {
+                    if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type != Type.BOSS)
+                    {
+                        pm.Players[j].GetDamage(100);
+                        EffectManager.GetInst().Play(pm.Players[j].CurHex.gameObject);
+                    }
+                }
+            }
+            casting = false;
+
+        }
         if (act == ACT.IDLE)
         {
 
@@ -201,7 +222,9 @@ public class AIPlayer : PlayerBase
             //근점 플레이어찾는과정 추가내용 
             //이미 근접상태면 act는 IDLE 유지 이동 필요하면 act는 MOVING으로
 
+
             CurHex.Passable = true;
+            if(act != ACT.CASTING)
             ai.MoveToNearUserPlayer(this);
             //if (act == ACT.IDLE)
                
@@ -238,6 +261,7 @@ public class AIPlayer : PlayerBase
             if (CurHex.Marked == true)
             {
                 CameraManager.GetInst().ResetCameraTarget();
+                MapManager.GetInst().ResetMapColor();
                 bm.AttackAtoB(pb, this);
 
             }
