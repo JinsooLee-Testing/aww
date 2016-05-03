@@ -51,15 +51,15 @@ public class GUIMgr {
             inst.mat[2] = (Material)Resources.Load("material/Fire_TILE");
             inst.mat[3] = (Material)Resources.Load("material/road");
 
-            inst.Structures[0] =(GameObject)Resources.Load("object/chapter2_carrotbasket");
+            inst.Structures[0] =(GameObject)Resources.Load("object/chapter2_wall");
             inst.Structures[1] = (GameObject)Resources.Load("object/chapter2_carrotbox");
-            inst.Structures[2] = (GameObject)Resources.Load("object/chapter2_carrotbox_emp");
+            inst.Structures[2] = (GameObject)Resources.Load("object/chapter2_carrotfield");
             inst.Structures[3] = (GameObject)Resources.Load("object/chapter2_carrotshelf");
             inst.Structures[4] = (GameObject)Resources.Load("object/chapter2_helmet");
             inst.Structures[5] = (GameObject)Resources.Load("object/chapter2_philar");
             inst.Structures[6] = (GameObject)Resources.Load("object/chapter2_pick2(big)");
             inst.Structures[7] = (GameObject)Resources.Load("object/chapter2_soildum");
-            inst.Structures[8] = (GameObject)Resources.Load("object/chapter2_sticktree");
+            inst.Structures[8] = (GameObject)Resources.Load("object/chapter2_dumbull");
            // inst.Structures[9] = (GameObject)Resources.Load("object/chapter2_torchlight");
             //inst.Structures[10] = (GameObject)Resources.Load("object/chapter2_wall");
            // inst.Structures[11] = (GameObject)Resources.Load("object/chapter2_watchtower");
