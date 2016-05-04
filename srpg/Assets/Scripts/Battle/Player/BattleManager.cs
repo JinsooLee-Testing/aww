@@ -35,7 +35,7 @@ public class BattleManager:MonoBehaviour {
                 attacker.CurHex.Passable = false;
                 
                 //EffectManager.GetInst().ShowDamage(defender.CurHex,attacker.status.Attack);
-                //PlayerManager.GetInst().SetTurnOverTime(0.9f);
+                PlayerManager.GetInst().SetTurnOverTime(0.9f);
             }
         }
 	

@@ -15,6 +15,7 @@ public class MainTitle : MonoBehaviour {
 	}
     void OnMouseDown()
     {
+       // FIleManager.Getinst().SaveCardData();
         //SoundManager.GetInst().PlayClickSound();
         SceneManager.LoadScene(sceennum);
     }

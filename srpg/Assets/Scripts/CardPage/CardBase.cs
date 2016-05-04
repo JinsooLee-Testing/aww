@@ -7,6 +7,7 @@ public class CardBase : CardUseBase {
     public Sprite sp_image;
     public Sprite sp_image2;
     public TextMesh text;
+   // public bool InGame = true;
   
 
     ACT act;
@@ -28,16 +29,19 @@ public class CardBase : CardUseBase {
     }
 	// Update is called once per frame
 	void Update () {
-        if (BattleCardManager.GetInst().cardUse[Buttonnum].On_active == false)
-            On_active = false;
-        else
-            On_active = true;
-        if (On_active == false)
+        if (InGame == true)
         {
-            GetComponent<SpriteRenderer>().sprite = sp_image2;
+            if (BattleCardManager.GetInst().cardUse[Buttonnum].On_active == false)
+                On_active = false;
+            else
+                On_active = true;
+            if (On_active == false)
+            {
+                GetComponent<SpriteRenderer>().sprite = sp_image2;
+            }
+            else
+                GetComponent<SpriteRenderer>().sprite = sp_image;
         }
-        else
-            GetComponent<SpriteRenderer>().sprite = sp_image;
     }
 
     // Use this for initialization

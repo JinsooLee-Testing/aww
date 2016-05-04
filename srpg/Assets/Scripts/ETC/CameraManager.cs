@@ -23,8 +23,8 @@ public class CameraManager : MonoBehaviour {
         inst = this;
         transform.position = pos;
         InitPos = pos;
-        xangle = Default_Iso_x;
-        yangle = Default_Iso_y;
+        Default_Iso_x= xangle;
+        Default_Iso_y = yangle;
         Vector3 r = transform.rotation.eulerAngles;
         r.x = xangle;
         r.y = yangle;

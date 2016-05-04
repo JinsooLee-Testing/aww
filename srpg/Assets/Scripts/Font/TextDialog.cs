@@ -5,6 +5,7 @@ public class TextDialog : MonoBehaviour {
     public int currentTextNumber = 0;
     private static TextDialog inst = null;
     public bool talk_mode=false;
+
     // Use this for initialization
     public static TextDialog GetInst()
     {
@@ -13,10 +14,13 @@ public class TextDialog : MonoBehaviour {
     void Awake()
     {
         inst = this;
+        talk_mode = true;
+          
     }
     void Start () {
-	
-	}
+        inst = this;
+        talk_mode = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -24,10 +28,9 @@ public class TextDialog : MonoBehaviour {
 	}
     void OnMouseDown()
     {
-        if (talk_mode == true)
-        {
+     
             Debug.Log("text");
             currentTextNumber++;
-        }
+        
     }
 }

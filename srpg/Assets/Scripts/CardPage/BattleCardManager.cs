@@ -4,6 +4,7 @@ using System.Collections;
 
 public class BattleCardManager : MonoBehaviour
 {
+    public bool active = true;
     private static BattleCardManager inst = null;
     public GameObject GO_hex;
     public GameObject GO_SUMMON;
@@ -55,35 +56,37 @@ public class BattleCardManager : MonoBehaviour
     }
     public void RandomDrawCard()
     {
-    
-        int i = Random.Range(0, 4);
-        int x = Random.Range(0, 3);
-        Vector3 temp =  cardUse[x].transform.position;
-        if (i == 0)
-        {
-            GameObject.Destroy(cardUse[x].gameObject);
-            cardUse[x] = ((GameObject)Instantiate(GO_SUMMON)).GetComponent<SummonCard>();
-        }
-        else if (i == 1)
-        {
-            GameObject.Destroy(cardUse[x].gameObject);
-            cardUse[x] = ((GameObject)Instantiate(GO_wall)).GetComponent<MagicCard>();
-        }
-        else if (i == 2)
-        {
-            GameObject.Destroy(cardUse[x].gameObject);
-            cardUse[x] = ((GameObject)Instantiate(GO_water)).GetComponent<MagicCard>();
-        }
-        else if (i >=3)
-        {
-            GameObject.Destroy(cardUse[x].gameObject);
-            cardUse[x] = ((GameObject)Instantiate(GO_Fire)).GetComponent<MagicCard>();
-        }
 
-        cardUse[x].transform.position = temp;
-        cardUse[x].Buttonnum = x;
-        cardUse[x].On_active = true;
-        card[x].SetCost(cardUse[x].cost);
+
+        Vector3 temp = Initpos2;
+        for (int x = 0; x <= MapSizeX; x++)
+        {
+            int i = Random.Range(0, 4);
+            GameObject.Destroy(cardUse[x].gameObject);
+            if (i == 0)
+            {
+
+                cardUse[x] = ((GameObject)Instantiate(GO_SUMMON)).GetComponent<SummonCard>();
+            }
+            else if (i == 1)
+            {
+                cardUse[x] = ((GameObject)Instantiate(GO_wall)).GetComponent<MagicCard>();
+            }
+            else if (i == 2)
+            {
+                cardUse[x] = ((GameObject)Instantiate(GO_water)).GetComponent<MagicCard>();
+            }
+            else if (i >= 3)
+            {
+                cardUse[x] = ((GameObject)Instantiate(GO_Fire)).GetComponent<MagicCard>();
+            }
+            cardUse[x].transform.position = temp;
+            cardUse[x].Buttonnum = x;
+            cardUse[x].On_active = true;
+            card[x].SetCost(cardUse[x].cost);
+            temp.x += 5;
+        }
+    
     }
     public void RandomDraw()
     {
@@ -103,7 +106,6 @@ public class BattleCardManager : MonoBehaviour
             cardUse[x].Buttonnum = x;
             card[x].On_active = true;
             card[x].SetCost(cardUse[x].cost);
-            Debug.Log(cardUse[x].cost);
             temp.x += 5;
         }
     }
@@ -128,6 +130,7 @@ public class BattleCardManager : MonoBehaviour
     }
     void Start()
     {
+        if(active==true)
         LoadCard();
 
     }
