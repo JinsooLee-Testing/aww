@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerStatus
 {
     public string Name = "wolf";
-    public int MoveRange = 3;
+    public int MoveRange = 4;
     public float MoveSpeed = 5.0f;
     public int attackRange = 1;
     public float Maxhp = 150;
@@ -15,7 +15,7 @@ public class PlayerStatus
     public PlayerStatus()
     {
         Name = "wolf";
-        MoveRange = 3;
+        MoveRange = 4;
         MoveSpeed = 5.0f;
         attackRange = 1;
         Curhp = 150;

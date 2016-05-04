@@ -11,6 +11,7 @@ public class AIPlayer : PlayerBase
     public int Attack;
     public string m_name;
     public int id = 1;
+  
     void Awake()
     {
         act = ACT.IDLE;
@@ -21,7 +22,7 @@ public class AIPlayer : PlayerBase
         status.Attack = Attack;
         anim = GetComponent<Animator>();
         main_char = false;
-        m_type = Type.MONSTER;
+        //m_type = Type.MONSTER;
         live = true;
         Monster_id = id;
     }
@@ -29,41 +30,28 @@ public class AIPlayer : PlayerBase
     {
 
     }
-    // Update is called once per frame
-    void Update()
+    public void AIProcess()
     {
         PlayerManager pm = PlayerManager.GetInst();
-        if (removeTime != 0)
+        if (act == ACT.CASTING && casting==true)
         {
-            removeTime += Time.deltaTime;
-            if (removeTime >= 1.5f)
-            {
-                for (int i = 0; i < pm.Players.Count; ++i)
-                {
-                    if (pm.Players[i].act == ACT.DIYING)
-                    {
-                        if (pm.CurTurnIdx == i)
-                        {
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
-                            //pm.TurnOver();
-                      ;
-                        }
-                        else
-                        {
+            Debug.Log("hh");
+            act = ACT.JUMP;
+            MapManager.GetInst().MarkAttackRange(CurHex, 4);
 
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
-                        }
+            for (int j = 0; j < pm.Players.Count; ++j)
+            {
+                if (pm.Players[j].CurHex.At_Marked == true)
+                {
+                    if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type != Type.BOSS)
+                    {
+                        pm.Players[j].GetDamage(100);
+                        EffectManager.GetInst().Play(pm.Players[j].CurHex.gameObject);
                     }
                 }
-
-
             }
+            casting = false;
+
         }
         if (act == ACT.IDLE)
         {
@@ -77,6 +65,42 @@ public class AIPlayer : PlayerBase
                 AiProc();
             }
         }
+        if (act == ACT.JUMP)
+        {
+            Vector3 gravity = new Vector3(0, -9.8f, 0);
+            Vector3 v = transform.position;
+            float speed = 15;
+            if (v.y <= 10)
+            {
+                v.y += Time.deltaTime * speed;
+                speed -= Time.deltaTime;
+                transform.position = v;
+            }
+            else
+                act = ACT.JUMPDOWN;
+            
+        }
+        if(act==ACT.JUMPDOWN)
+        {
+            Vector3 gravity = new Vector3(0, -9.8f, 0);
+            Vector3 v = transform.position;
+            float speed = 12;
+            if (v.y >= 1)
+            {
+                v.y -= Time.deltaTime * speed;
+                speed += Time.deltaTime * 2;
+                transform.position = v;
+                EffectManager.GetInst().ShowEffect_Summon(CurHex.gameObject, 7, v.y);
+            }
+            else
+            {
+                act = ACT.IDLE;
+       
+                EffectManager.GetInst().ShowEffect_Summon(CurHex.gameObject, 8, 1f);
+                PlayerManager.GetInst().TurnOver();
+            }
+        }
+
         if (act == ACT.MOVING)
         {//이동처리
 
@@ -108,15 +132,19 @@ public class AIPlayer : PlayerBase
                 anim.SetBool("attack", false);
                 anim.SetBool("run", true);
 
-              
-                    transform.position += (v - transform.position).normalized *3f * Time.smoothDeltaTime;
+
+                transform.position += (v - transform.position).normalized * 3f * Time.smoothDeltaTime;
                 if (jump == false)
                 {
                     transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
-                   // Vector3 r = transform.rotation.eulerAngles;
-                   // r.y -= 90;
+                    if (id != 1)
+                    {
+                        Vector3 r = transform.rotation.eulerAngles;
+                        r.y -= 90;
+                        transform.rotation = Quaternion.Euler(r);
+                    }
                 }
-                //transform.rotation = Quaternion.Euler(r);
+
             }
             else //다음 목표 hex에 도착함
             {
@@ -127,7 +155,7 @@ public class AIPlayer : PlayerBase
                 MoveHexes.RemoveAt(0);
 
                 if (MoveHexes.Count <= 0)//최종 dest
-               {
+                {
                     anim.SetBool("run", false);
                     act = ACT.IDLE;
                     Point temppos = new Point(nextHex.MapPos.GetX(), 0, nextHex.MapPos.GetZ());
@@ -140,6 +168,50 @@ public class AIPlayer : PlayerBase
 
             }
         }
+    }
+    void RemoveRoutine()
+    {
+        PlayerManager pm = PlayerManager.GetInst();
+        if (removeTime != 0)
+        {
+            removeTime += Time.deltaTime;
+            if (removeTime >= 1.5f)
+            {
+                for (int i = 0; i < pm.Players.Count; ++i)
+                {
+                    if (pm.Players[i].act == ACT.DIYING)
+                    {
+                        if (pm.CurTurnIdx == i)
+                        {
+                            pm.RemoveAfter();
+                            pm.RemovePlayer(pm.Players[i]);
+                            pm.RemoveAfter();
+                            pm.select_object = pm.Players[pm.CurTurnIdx];
+                            //pm.TurnOver();
+                            ;
+                        }
+                        else
+                        {
+
+                            pm.RemoveAfter();
+                            pm.RemovePlayer(pm.Players[i]);
+                            pm.RemoveAfter();
+                            pm.select_object = pm.Players[pm.CurTurnIdx];
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        PlayerManager pm = PlayerManager.GetInst();
+        AIProcess();
+
+        RemoveRoutine();
 
     }
     public void AiProc()
@@ -150,7 +222,9 @@ public class AIPlayer : PlayerBase
             //근점 플레이어찾는과정 추가내용 
             //이미 근접상태면 act는 IDLE 유지 이동 필요하면 act는 MOVING으로
 
+
             CurHex.Passable = true;
+            if(act != ACT.CASTING)
             ai.MoveToNearUserPlayer(this);
             //if (act == ACT.IDLE)
                
@@ -171,9 +245,10 @@ public class AIPlayer : PlayerBase
         {
             if (CurHex.Marked == true)
             {
-                EffectManager.GetInst().ShowEffect_Summon(pb.CurHex.gameObject);
+                EffectManager.GetInst().ShowEffect_Summon(pb.CurHex.gameObject,3,1.2f);
+          
                 if (magic.GetInst().type=="fire")
-                    magic.GetInst().SetTarget(this.CurHex, pb.CurHex,4);
+                    magic.GetInst().SetTarget(this.CurHex, this.CurHex, 9);
                 else
                     magic.GetInst().SetTarget(this.CurHex, pb.CurHex, 1);
                 magic.GetInst().targetAI = this;
@@ -186,7 +261,9 @@ public class AIPlayer : PlayerBase
             if (CurHex.Marked == true)
             {
                 CameraManager.GetInst().ResetCameraTarget();
+                MapManager.GetInst().ResetMapColor();
                 bm.AttackAtoB(pb, this);
+
             }
 
 

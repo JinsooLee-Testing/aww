@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.3.3f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -102,6 +104,7 @@
     <Compile Include="Assets\Scripts\ETC\EffectManager.cs" />
     <Compile Include="Assets\Scripts\ETC\Manager.cs" />
     <Compile Include="Assets\Scripts\ETC\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\object\Equipment.cs" />
     <Compile Include="Assets\Scripts\FIleManager.cs" />
     <Compile Include="Assets\Scripts\Font\TextDialog.cs" />
     <Compile Include="Assets\Scripts\Font\font.cs" />
@@ -110,21 +113,19 @@
     <Compile Include="Assets\Scripts\MainTitle\MainTitle.cs" />
     <Compile Include="Assets\Scripts\turn.cs" />
     <Compile Include="Assets\Scripts\wall.cs" />
-    <Compile Include="Assets\Sky FX Pack\Scripts\LightBeamsControlScript.cs" />
-    <Compile Include="Assets\Sky FX Pack\Scripts\LookAtBehaviour.cs" />
-    <Compile Include="Assets\Sky FX Pack\Scripts\LookAtCameraBehaviour.cs" />
-    <Compile Include="Assets\Sky FX Pack\Scripts\RayBehavior.cs" />
-    <Compile Include="Assets\Sky FX Pack\Scripts\RotateBehaviour.cs" />
-    <Compile Include="Assets\Sky FX Pack\Scripts\ScrollBehaviour.cs" />
     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\ModelRotate.cs" />
     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\VoxelModel1Manager.cs" />
     <Compile Include="Assets\어셋 다운자료\Elementals\Demo\Scripts\GE_Elementals_Demo.cs" />
+    <Compile Include="Assets\어셋 다운자료\Sky FX Pack\Scripts\LightBeamsControlScript.cs" />
+    <Compile Include="Assets\어셋 다운자료\Sky FX Pack\Scripts\LookAtBehaviour.cs" />
+    <Compile Include="Assets\어셋 다운자료\Sky FX Pack\Scripts\LookAtCameraBehaviour.cs" />
+    <Compile Include="Assets\어셋 다운자료\Sky FX Pack\Scripts\RayBehavior.cs" />
+    <Compile Include="Assets\어셋 다운자료\Sky FX Pack\Scripts\RotateBehaviour.cs" />
+    <Compile Include="Assets\어셋 다운자료\Sky FX Pack\Scripts\ScrollBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\2.xml" />
     <None Include="Assets\3.xml" />
-    <None Include="Assets\KY_effects\FX_pack0\ReadMe.txt" />
-    <None Include="Assets\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
     <None Include="Assets\Resources\XML\stage1.xml" />
     <None Include="Assets\Resources\XML\stage2-2.xml" />
     <None Include="Assets\Resources\XML\stage2.xml" />
@@ -157,6 +158,7 @@
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+    <None Include="Assets\StreamingAssets\C.xml" />
     <None Include="Assets\StreamingAssets\a.xml" />
     <None Include="Assets\StreamingAssets\asd.xml" />
     <None Include="Assets\StreamingAssets\stage1.xml" />
@@ -172,6 +174,9 @@
     <None Include="Assets\기획 추가FBX파일\denti_10_ani\denti_list.txt" />
     <None Include="Assets\기획 추가FBX파일\reference\큐비클모델\ani_list.txt" />
     <None Include="Assets\어셋 다운자료\Elementals\Readme.txt" />
+    <None Include="Assets\어셋 다운자료\Fantasy SFX for Particle Distort Texture effect library\readme_Fantasy SFX for Particle Distort Texture effect library.txt" />
+    <None Include="Assets\어셋 다운자료\KY_effects\FX_pack0\ReadMe.txt" />
+    <None Include="Assets\어셋 다운자료\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
