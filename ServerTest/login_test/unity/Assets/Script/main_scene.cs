@@ -3,13 +3,16 @@ using System.Collections;
 
 public class main_scene : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    public void LoadStage()
+    {
+        Application.LoadLevel("stage_sel_scene");
+       
+    }
+
+    public void LoadCard()
+    {
+        Application.LoadLevel("card_sel_scene");
+        
+    }
 }
