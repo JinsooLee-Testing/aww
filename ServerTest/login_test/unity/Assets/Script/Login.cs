@@ -33,12 +33,14 @@ public class Login : MonoBehaviour {
         if(null == www.error)
         {
             Debug.Log(www.text);
-
+            Application.LoadLevel("main_scene");
         }
         else
         {
             Debug.Log(www.error);
+            
 
         }
+       
     }
 }
