@@ -4,15 +4,24 @@ using UnityEngine.SceneManagement;
 public class MainTitle : MonoBehaviour {
 
     public int sceennum;
-	// Use this for initialization
-	void Start () {
-	
+    public float removeTime=0;
+    // Use this for initialization
+    void Start () {
+	    
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        if (removeTime != 0)
+        {
+            removeTime += Time.deltaTime;
+            if (removeTime >= 5.0f)
+            {
+                SceneManager.LoadScene(sceennum);
+
+            }
+        }
+    }
     void OnMouseDown()
     {
        // FIleManager.Getinst().SaveCardData();

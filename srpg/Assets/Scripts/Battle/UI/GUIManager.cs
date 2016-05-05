@@ -24,10 +24,13 @@ public class GUIManager : MonoBehaviour {
         inst = this;
      
         pm = PlayerManager.GetInst();
-        if(tutorial==true)
-        talk_box = ((GameObject)Instantiate(talk)).GetComponent<talkbox>();
-        else       
-         ui_box = ((GameObject)Instantiate(ui)).GetComponent<uibox>();
+        if (CameraManager.GetInst().event_mode == false)
+        {
+            if (tutorial == true)
+                talk_box = ((GameObject)Instantiate(talk)).GetComponent<talkbox>();
+            else
+                ui_box = ((GameObject)Instantiate(ui)).GetComponent<uibox>();
+        }
     }
 	// Use this for initialization
 	void Start () {
@@ -35,8 +38,13 @@ public class GUIManager : MonoBehaviour {
     }
 	public void CreateTalkBox()
     {
-       
-       
+        talk_box = ((GameObject)Instantiate(talk)).GetComponent<talkbox>();
+
+    }
+    public void DestoryTalkBox()
+    {
+        Destroy(talk_box.gameObject);
+
     }
     public void CreateUI()
     {
@@ -62,9 +70,7 @@ public class GUIManager : MonoBehaviour {
     {
        
             Vector3 pos = InitPos1;
-           
-          
-                
+             
             Vector3 pos2 = InitPos2;
             if (idx == 3)
             {

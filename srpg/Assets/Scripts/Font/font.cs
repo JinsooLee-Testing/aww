@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
  using System.IO;
+using UnityEngine.SceneManagement;
 using System.Collections;
 public class fontinfo
 {
@@ -52,7 +53,7 @@ public class font : MonoBehaviour {
             {
                 GUIManager.GetInst().CreateUI();
             }
-            else if (font_list.bonInfos[currentTextNumber].tesx_idx >= 3)
+            else if (font_list.bonInfos[currentTextNumber].tesx_idx >= 3 && font_list.bonInfos[currentTextNumber].tesx_idx<10)
             {
                 GUIManager.GetInst().MovePos(font_list.bonInfos[currentTextNumber].tesx_idx);
                 if (font_list.bonInfos[currentTextNumber].tesx_idx == 6)
@@ -61,6 +62,15 @@ public class font : MonoBehaviour {
                     currentTextNumber++;
                 }
 
+            }
+            else if (font_list.bonInfos[currentTextNumber].tesx_idx >= 3 && font_list.bonInfos[currentTextNumber].tesx_idx==100)
+            {
+
+            }
+            else if (font_list.bonInfos[currentTextNumber].tesx_idx >= 3 && font_list.bonInfos[currentTextNumber].tesx_idx == 101)
+            {
+                GUIManager.GetInst().DestoryTalkBox();
+                SceneManager.LoadScene(2);
             }
             else
                 CameraManager.GetInst().SetPosition(new Vector3(0, 5, 0));
