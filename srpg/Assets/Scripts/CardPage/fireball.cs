@@ -6,6 +6,7 @@ public class fireball : MonoBehaviour {
     public bool fire = false;
     public int effect = 1;
     public Hex targetHex;
+    public float ef_time=0f;
    
     // Use this for initialization
     void Start () {
@@ -14,34 +15,45 @@ public class fireball : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-            if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act ==ACT.MAGIC)
+        ef_time += Time.deltaTime;
+        if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act ==ACT.MAGIC)
            {
           
             MapManager.GetInst().ResetMapColor();
+            
                 float distance = Vector3.Distance(transform.position, target);
                 magic.GetInst().fired = true;
                  CameraManager.GetInst().ResetCameraTarget();
             if (distance > 1f) //이동중
             {
-
-
                 transform.position += (target - transform.position).normalized * 7 * Time.smoothDeltaTime;
 
-                EffectManager.GetInst().ShowEffect(this.transform,effect);
-                if (effect != 1)
+                if (ef_time > 0.2)
                 {
+                    EffectManager.GetInst().ShowEffect(this.transform, effect);
+                    ef_time = 0f;
+                }
+              
                     target.y = 1;
+                if (effect == 1)
+                {
+                    transform.rotation = Quaternion.LookRotation((target - transform.position).normalized);
+                    Vector3 r = transform.rotation.eulerAngles;
+                    r.x -= 90;
+                    transform.rotation = Quaternion.Euler(r);
+                }
+                else
+                {
                     transform.rotation = Quaternion.LookRotation((target - transform.position).normalized);
                     Vector3 r = transform.rotation.eulerAngles;
                     r.y -= 90;
                     transform.rotation = Quaternion.Euler(r);
                 }
-
+                
+         
             }
             else //다음 목표 hex에 도착함
-            {
-                
+            {                
                 transform.position = target;
                 magic.GetInst().fired = false;
 
@@ -51,9 +63,12 @@ public class fireball : MonoBehaviour {
        
                 if (effect == 1)
                 {
-                    EffectManager.GetInst().ShowEffect_Fire(targetHex.gameObject, this.gameObject);
-             
+                    if (magic.GetInst().act != ACT.HIT)
+                        EffectManager.GetInst().ShowEffect_Fire(targetHex.gameObject, this.gameObject);
+                    else
+                        Destroy(this.gameObject);
                     magic.GetInst().targetAI.GetDamage(180);
+                    magic.GetInst().act = ACT.HIT;
                 }
                 else
                 {
@@ -68,15 +83,16 @@ public class fireball : MonoBehaviour {
                             }
                         }
                     }
-
+                    Destroy(this.gameObject);
                     magic.GetInst().targetAI.GetDamage(100);
-                    EffectManager.GetInst().ShowEffect_water(targetHex.gameObject, this.gameObject,4);
-                   
-                }
-                PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.IDLE;
-                MapManager.GetInst().ResetMapColor();
-               
+                    if(magic.GetInst().act != ACT.HIT)
+                        EffectManager.GetInst().ShowEffect_water(targetHex.gameObject, this.gameObject,4);
+                    if (magic.GetInst().act != ACT.HIT)
+                        magic.GetInst().act = ACT.HIT;
 
+                }
+                //PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.IDLE;
+                MapManager.GetInst().ResetMapColor();              
                 }
                 // fire = false;
           }

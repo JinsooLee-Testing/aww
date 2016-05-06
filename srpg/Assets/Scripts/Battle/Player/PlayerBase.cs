@@ -13,7 +13,8 @@ public enum ACT
     CASTING,
     JUMP,
     JUMPDOWN,
-    DIYING
+    DIYING,
+        HIT
 }
 public enum Type
 {

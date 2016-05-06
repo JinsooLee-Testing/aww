@@ -54,6 +54,7 @@ public class EffectManager : MonoBehaviour {
        // Manager.GetInst().StartCoroutine("ShowDamage");
 
     }
+
     public void ShowEffect_water(GameObject hex, GameObject destroy,int id)
     {
         Vector3 v;

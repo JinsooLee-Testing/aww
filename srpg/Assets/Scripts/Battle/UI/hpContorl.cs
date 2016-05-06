@@ -49,17 +49,20 @@ public class hpContorl : MonoBehaviour
     public void SetPos()
     {
         ReSetPos();
-        float barpos = (PlayerManager.GetInst().select_object.status.Curhp / PlayerManager.GetInst().select_object.status.Maxhp) * 100.0f;
+        if (PlayerManager.GetInst().select_object != null)
+        {
+            float barpos = (PlayerManager.GetInst().select_object.status.Curhp / PlayerManager.GetInst().select_object.status.Maxhp) * 100.0f;
 
-        barpos /= 10;
+            barpos /= 10;
 
-        int percent = (int)barpos;
-        if (percent == 0)
-            percent = 1;
-        transform.position = pos[10 - percent];
-        transform.localScale = Local[10 - percent];
+            int percent = (int)barpos;
+            if (percent == 0)
+                percent = 1;
+            transform.position = pos[10 - percent];
+            transform.localScale = Local[10 - percent];
 
 
+        }
     }
     public void SetDIePos()
     {
@@ -74,11 +77,14 @@ public class hpContorl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PlayerManager.GetInst().select_object.act != ACT.DIYING)
-            SetPos();
-        else
+        if (PlayerManager.GetInst().select_object != null)
         {
-            SetDIePos();
+            if (PlayerManager.GetInst().select_object.act != ACT.DIYING)
+               SetPos();
+            else
+            {
+               SetDIePos();
+            }
         }
 
     }
