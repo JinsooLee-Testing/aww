@@ -24,6 +24,7 @@ public class GUIManager : MonoBehaviour {
         inst = this;
      
         pm = PlayerManager.GetInst();
+        //ui_box = ((GameObject)Instantiate(ui)).GetComponent<uibox>();
         if (CameraManager.GetInst().event_mode == false)
         {
             if (tutorial == true)
@@ -31,6 +32,7 @@ public class GUIManager : MonoBehaviour {
             else
                 ui_box = ((GameObject)Instantiate(ui)).GetComponent<uibox>();
         }
+       
     }
 	// Use this for initialization
 	void Start () {

@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\MainTitle\BattleStart.cs" />
     <Compile Include="Assets\Scripts\MainTitle\MainTilteStart.cs" />
     <Compile Include="Assets\Scripts\MainTitle\MainTitle.cs" />
+    <Compile Include="Assets\Scripts\ani.cs" />
     <Compile Include="Assets\Scripts\clickthis.cs" />
     <Compile Include="Assets\Scripts\talkbox.cs" />
     <Compile Include="Assets\Scripts\turn.cs" />
