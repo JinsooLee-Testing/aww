@@ -24,7 +24,7 @@ public class GUIMgr {
     public Material[] mat = new Material[10];
     public bool structable = false;
     public bool Load = false;
-    public GameObject[] Structures = new GameObject[10];
+    GameObject[] Structures = new GameObject[50];
     //public List<Structure> AddedStructures = new List<Structure>();
     public SELECTION sel;
     public Texture CurTexture;
@@ -60,9 +60,9 @@ public class GUIMgr {
             inst.Structures[6] = (GameObject)Resources.Load("object/chapter2_pick2(big)");
             inst.Structures[7] = (GameObject)Resources.Load("object/chapter2_soildum");
             inst.Structures[8] = (GameObject)Resources.Load("object/chapter2_dumbull");
-           // inst.Structures[9] = (GameObject)Resources.Load("object/chapter2_torchlight");
-            //inst.Structures[10] = (GameObject)Resources.Load("object/chapter2_wall");
-           // inst.Structures[11] = (GameObject)Resources.Load("object/chapter2_watchtower");
+            inst.Structures[9] = (GameObject)Resources.Load("object/chapter2_torchlight");
+            inst.Structures[10] = (GameObject)Resources.Load("object/chapter2_wall");
+            inst.Structures[11] = (GameObject)Resources.Load("object/chapter2_watchtower");
             inst.MaxCurStructIdx = 8;
             inst.CurStruct = inst.Structures[0];
             inst.CurTexture = inst.Texures[0];
@@ -71,6 +71,10 @@ public class GUIMgr {
             inst.Curmat = inst.mat[0];
         }
         return inst;
+    }
+    public GameObject FindObj(int id)
+    {
+        return Structures[id];
     }
     public void SetTextures(Texture[] textures)
     {

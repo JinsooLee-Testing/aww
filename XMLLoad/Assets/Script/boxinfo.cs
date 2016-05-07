@@ -27,7 +27,7 @@ public class boxinfo : MonoBehaviour
         if (objId != 0)
         {
     
-            obj = (GameObject)GameObject.Instantiate(GUIMgr.GetInst().Structures[objId - 1]);
+            obj = (GameObject)GameObject.Instantiate(GUIMgr.GetInst().FindObj(objId-1));
             Vector3 v = transform.position;
             obj.transform.position = new Vector3(v.x, y, v.z);
             Debug.Log(y);
