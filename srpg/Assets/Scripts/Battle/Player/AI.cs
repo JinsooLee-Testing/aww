@@ -84,7 +84,7 @@ public class AIthink  {
                 }
             }
  
-        if (i < 2 || aiplayer.m_type == Type.MONSTER)
+        if (aiplayer.m_type == Type.MONSTER|| CostManager.GetInst().enemy_cost_num < 3)
         {
             if (nearUserPlayer != null)
             {
@@ -105,10 +105,9 @@ public class AIthink  {
                     {
                         aiplayer.MoveHexes.RemoveAt(aiplayer.MoveHexes.Count - 1);
                     }
-                    if (aiplayer.MoveHexes.Count == 0)
+                    if (aiplayer.MoveHexes.Count == 1)
                     {
                         AtkAItoUser(aiplayer);
-
 
                         return;
                     }
@@ -117,7 +116,7 @@ public class AIthink  {
                 MapManager.GetInst().ResetMapColor(aiplayer.CurHex.MapPos);
             }
         }
-        else if (i == 4)
+        else if (CostManager.GetInst().enemy_cost_num >= 3 && CostManager.GetInst().enemy_cost_num<5 && aiplayer.m_type == Type.BOSS)
         {
             List<Hex> path = mm.GetPath(aiplayer.CurHex, nearUserPlayer.CurHex);
 
@@ -136,14 +135,55 @@ public class AIthink  {
                 v.z = 0;
             PlayerManager.GetInst().GenAIPlayer((int)v.x, (int)v.z);
             EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6, 0f);
+            CostManager.GetInst().enemy_cost_num -= 3;
+            //PlayerManager.GetInst().TurnOver();
+        }
+        else if (CostManager.GetInst().enemy_cost_num<8 && aiplayer.m_type == Type.BOSS)
+        {
+            aiplayer.act = ACT.CASTING;
+            EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 9, 0.0f);
+            CostManager.GetInst().enemy_cost_num -= 5;
             PlayerManager.GetInst().TurnOver();
         }
         else
         {
-            aiplayer.act = ACT.CASTING;
-            EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 9, 0.0f);
-            PlayerManager.GetInst().TurnOver();
+            if (aiplayer.m_type == Type.BOSS)
+            {
+                List<Hex> path = mm.GetPath(aiplayer.CurHex, nearUserPlayer.CurHex);
+
+                if (path == null)
+                    PlayerManager.GetInst().TurnOver();
+                Vector3 v = aiplayer.transform.position;
+                for (int j = 0; j < MapManager.GetInst().MapSizeX; ++j)
+                {
+                    for (int k = 0; k < MapManager.GetInst().MapSizeZ; ++k)
+                    {
+                        int x = Random.Range(-5, 5);
+                        int z = Random.Range(-5, 5);
+                        if ((int)v.x + x > MapManager.GetInst().MapSizeX)
+                            v.x = MapManager.GetInst().MapSizeX;
+                        if ((int)v.z + z > MapManager.GetInst().MapSizeZ)
+                            v.z = MapManager.GetInst().MapSizeZ;
+                        if ((int)v.x + x <= 0)
+                            v.x = 0;
+                        if ((int)v.z + z <= 0)
+                            v.z = 0;
+                        if (MapManager.GetInst().Map[x][0][z].Passable == true)
+                            break;
+                    }
+                }
+                
+                PlayerManager.GetInst().GenAIPlayer((int)v.x, (int)v.z);
+                EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6, 0f);
+                CostManager.GetInst().enemy_cost_num -= 3;
+
+                aiplayer.act = ACT.CASTING;
+                EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 9, 0.0f);
+                CostManager.GetInst().enemy_cost_num -= 5;
+                PlayerManager.GetInst().TurnOver();
+            }
         }
+       
 
 
     }

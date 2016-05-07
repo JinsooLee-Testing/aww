@@ -17,7 +17,7 @@ public class MapManager : MonoBehaviour
     public int MapSizeZ;
     public Transform map;
     public Point wallpos;
-    bool wall = false;
+    public bool wall = false;
 
     public int num = 0;
     List<Path> OpenList;
@@ -164,26 +164,6 @@ public class MapManager : MonoBehaviour
     }
     public void LoadObjMap()
     {
-        /*
-        for (int i = 0; i < map.childCount; ++i)
-        {
-            var tile = map.GetChild(i).GetComponent<Hex>();
-            if (tile != null)
-            {
-                    Map[tile.x][tile.y][tile.z] = tile;
-                    Map[tile.x][tile.y][tile.z].matid = tile.matid;
-                    // Map[x][y][z].Passable = tile.Passable;
-                    Map[tile.x][tile.y][tile.z].Passable = false;
-                    Vector3 pos = GetWorldPos(tile.x, 0, tile.z);
-                    pos.y = tile.object_y;
-                    Map[tile.x][tile.y][tile.z].transform.position = pos;
-                    Map[tile.x][tile.y][tile.z].SetMapPos(tile.x, 0, tile.z);
-
-            }
-
-
-        }
-        */
     }
     public Hex GetPlayerHex(int x, int y, int z)
     {
@@ -234,12 +214,12 @@ public class MapManager : MonoBehaviour
 
             if (highLighedCount == 0)
             {
-                Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material.color = Color.green;
+                Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material = Map[pos.GetX() + 1][pos.GetY()][pos.GetZ()].mat_move;
             }
             else
             {
                 ResetMapColor();
-                Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material.color = Color.green;
+                Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material = Map[pos.GetX() + 1][pos.GetY()][pos.GetZ()].mat_move;;
             }
 
         }
@@ -248,53 +228,52 @@ public class MapManager : MonoBehaviour
     public bool HilightMoveRange(Hex start, int moveRange)
     {
         int highLighedCount = 0;
-        if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].m_type != Type.MONSTER)
-        {
-            int tempx = start.x - moveRange+3;
-            int maxx = start.x + moveRange + 3;
-            int tempz = start.z - moveRange + 3;
-            int maxz = start.z + moveRange + 3;
+        
+     if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].m_type != Type.MONSTER)
+     {
+         int tempx = start.x - moveRange+3;
+         int maxx = start.x + moveRange + 3;
+         int tempz = start.z - moveRange + 3;
+         int maxz = start.z + moveRange + 3;
 
-            for (int x = 0; x <= MapSizeX; x++)
-            {
-                for(int z= 0; z<= MapSizeZ; z++)
-                {
-                    if (Map[x][0][z].Passable == true)
-                    {
-                        int distance = (GetDistance(start, Map[x][0][z]));
-                        //헥사곤 상의 셀과 셀간의 공식
+         for (int x = 0; x <= MapSizeX; x++)
+         {
+             for(int z= 0; z<= MapSizeZ; z++)
+             {
 
-                        if (distance <= moveRange && distance != 0)
-                        {
-                            if (IsReachAble(start, Map[x][0][z], moveRange))
-                            {
-                                if (default_matid == 1)
-                                    Map[x][0][z].GetComponent<Renderer>().material.color = Color.green;
-                                else
-                                {
-                                    Map[x][0][z].GetComponent<Renderer>().material.color = Color.gray;
-                                }
-                                highLighedCount++;
-                                if (1 <= MapSizeY)
-                                {
-                                    if (Map[x][1][z].mesh_draw == true)
-                                    {
-                                        if (default_matid == 1)
-                                            Map[x][1][z].GetComponent<Renderer>().material.color = Color.green;
-                                        else
-                                        {
-                                            Map[x][1][z].GetComponent<Renderer>().material.color = Color.gray;
-                                        }
-                                        highLighedCount++;
-                                    }
-                                }
-                            }
-                        }
-                        
-                    }
-                }      
-                
-            }
+                 if (Map[x][0][z].Passable == true)
+                 {
+                     int distance = (GetDistance(start, Map[x][0][z]));
+                     //헥사곤 상의 셀과 셀간의 공식
+
+                     if (distance <= moveRange && distance != 0)
+                     {
+                         if (IsReachAble(start, Map[x][0][z], moveRange))
+                         {
+                                Map[x][0][z].GetComponent<Renderer>().material = Map[x][0][z].mat_move;
+                                Map[x][0][z].At_Marked = true;
+
+
+                             highLighedCount++;
+                             if (1 <= MapSizeY)
+                             {
+                                 if (Map[x][1][z].mesh_draw == true)
+                                 {
+
+                                        Map[x][1][z].GetComponent<Renderer>().material = Map[x][1][z].mat_move;
+                                        Map[x][0][z].At_Marked = true; 
+                                     highLighedCount++;
+                                 }
+                             }
+                         }
+                     }
+
+
+                 }
+                  
+    }
+
+}
         }
         if (highLighedCount == 0)
         {
@@ -304,6 +283,8 @@ public class MapManager : MonoBehaviour
         {
             return true;
         }
+        
+
     }
     public bool HilightAttackRange(Hex start, int AtkRange)
     {
@@ -321,7 +302,7 @@ public class MapManager : MonoBehaviour
 
                     if (distance <= AtkRange && distance != 0)
                     {
-                        Map[x][y][z].GetComponent<Renderer>().material.color = Color.red;
+                        Map[x][y][z].GetComponent<Renderer>().material=Map[x][y][z].mat_attack;
                         Map[x][y][z].Marked = true;
                         bool isExit = false;
                         foreach (PlayerBase pb in pm.Players)
@@ -375,7 +356,7 @@ public class MapManager : MonoBehaviour
                     if (distance <= AtkRange && distance != 0)
                     {
                         Map[x][y][z].At_Marked = true;
-                        Map[x][y][z].GetComponent<Renderer>().material.color = Color.red;
+                        Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat_attack;
                     }
                 }
             }
@@ -391,9 +372,15 @@ public class MapManager : MonoBehaviour
                 for (int z = 0; z <= MapSizeZ; z++)
                 {
 
-                    Map[x][y][z].GetComponent<Renderer>().material.color = Map[x][y][z].mat_color;
+                    if (Map[x][y][z].default_matid == 1)
+                        Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat1;
+                    else if(Map[x][y][z].default_matid == 2)
+                        Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat2;
+                    else
+                        Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat3;
                     Map[x][y][z].Marked = false;
                     Map[x][y][z].At_Marked = false;
+                   
                 }
             }
         }
@@ -404,8 +391,10 @@ public class MapManager : MonoBehaviour
 
         if (wall == false && Map[Mappos.GetX()][Mappos.GetY()][Mappos.GetZ()].Passable == true)
         {
-            Map[Mappos.GetX() + 1][Mappos.GetY()][Mappos.GetZ()].GetComponent<Renderer>().material.color = Color.green;
-            Map[Mappos.GetX()][Mappos.GetY()][Mappos.GetZ() + 1].GetComponent<Renderer>().material.color = Color.green;
+            Map[Mappos.GetX() + 1][Mappos.GetY()][Mappos.GetZ()].GetComponent<Renderer>().material = Map[Mappos.GetX() + 1][Mappos.GetY()][Mappos.GetZ()].mat_move;
+            Map[Mappos.GetX() + 1][Mappos.GetY()][Mappos.GetZ()].At_Marked = true;
+            Map[Mappos.GetX()][Mappos.GetY()][Mappos.GetZ() + 1].GetComponent<Renderer>().material = Map[Mappos.GetX() + 1][Mappos.GetY()][Mappos.GetZ()].mat_move;
+            Map[Mappos.GetX()][Mappos.GetY()][Mappos.GetZ() + 1].At_Marked = true;
             wall = true;
             wallpos = Mappos;
 

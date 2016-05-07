@@ -13,6 +13,9 @@ public class CostManager : MonoBehaviour
    turn ui;
     int cur_cost_max=1;
     public int cur_cost_num=1;
+
+    int enemy_cost_max = 1;
+    public int enemy_cost_num = 1;
     float removeTime = 0;
     costBase[] cost;
     public static CostManager GetInst()
@@ -22,9 +25,11 @@ public class CostManager : MonoBehaviour
     public void AddCost()
     {
         cur_cost_max++;
+        enemy_cost_max++;
         if (cur_cost_max >= MapSizeX)
             cur_cost_max = MapSizeX;
         cur_cost_num= cur_cost_max;
+        enemy_cost_num = enemy_cost_max;
         SetCost();
         BattleCardManager.GetInst().RandomDrawCard();
         DrawTurn();

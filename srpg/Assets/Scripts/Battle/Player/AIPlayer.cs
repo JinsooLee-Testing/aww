@@ -11,6 +11,7 @@ public class AIPlayer : PlayerBase
     public int Attack;
     public string m_name;
     public int id = 1;
+    public float ef_time = 0f;
   
     void Awake()
     {
@@ -90,7 +91,11 @@ public class AIPlayer : PlayerBase
                 v.y -= Time.deltaTime * speed;
                 speed += Time.deltaTime * 2;
                 transform.position = v;
-                EffectManager.GetInst().ShowEffect_Summon(CurHex.gameObject, 7, v.y);
+                if (ef_time > 0.2)
+                {
+                    EffectManager.GetInst().ShowEffect_Summon(CurHex.gameObject, 7, v.y);
+                    ef_time = 0f;
+                }
             }
             else
             {
@@ -210,9 +215,21 @@ public class AIPlayer : PlayerBase
     {
         PlayerManager pm = PlayerManager.GetInst();
         AIProcess();
-
+        ef_time += Time.deltaTime;
         RemoveRoutine();
+       
+        if (magic.GetInst().type == "wind")
+        {
+            if (ef_time > 1.0f&&CurHex.At_Marked==true)
+            {
+                 EffectManager.GetInst().ShowEffect(this.gameObject);
+                 SoundManager.GetInst().PlayAttackSound();
+                 GetDamage(30);
+            }
 
+        }
+        if (ef_time > 1.0f)
+            ef_time = 0f;
     }
     public void AiProc()
     {

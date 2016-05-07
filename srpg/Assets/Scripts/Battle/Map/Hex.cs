@@ -82,10 +82,12 @@ public class Hex : MonoBehaviour {
 
     public int x, y, z;
     public float object_y;
+    public int default_matid;
     public Material mat1;
     public Material mat2;
     public Material mat3;
-    
+    public Material mat_move;
+    public Material mat_attack;
     public Color mat_color = Color.white;
 	// Use this for initialization
     void Start()
@@ -96,7 +98,6 @@ public class Hex : MonoBehaviour {
                 GetComponent<MeshFilter>().mesh = mesh;
                 if (MapPos.GetY() == 0)
                     SetCol();
-
             }
             else
             {
@@ -117,17 +118,22 @@ public class Hex : MonoBehaviour {
         }
         if (mat_name == "soil")
         {
+            
             GetComponent<Renderer>().material = mat1;
+            default_matid = 1;
 
         }
         if (mat_name == "grass")
         {
           GetComponent<Renderer>().material = mat2;
-                
+            default_matid = 2;
+
+
         }
         if (mat_name == "fire")
         {
             GetComponent<Renderer>().material = mat3;
+            default_matid = 3;
 
         }
 
@@ -173,9 +179,14 @@ public class Hex : MonoBehaviour {
         mesh_draw = true;
         GetComponent<BoxCollider>().size = v;
     }
-    public void SetMat(int id)
+    public void SetMat()
     {
-        matid = id;
+ 
+        Material mat =GetComponent<Renderer>().sharedMaterial;
+        mat1 = mat;
+        mat2 = mat;
+        mat_move = mat;
+        mat_attack = mat;
     }
 
     public void SetMapPos(int x,float y,int z)
@@ -195,16 +206,17 @@ public class Hex : MonoBehaviour {
         PlayerBase pb = pm.Players[pm.CurTurnIdx];
         Debug.Log(MapPos + "OnMouseDown");
 
-        
-      
+
+
         if (pb.act==ACT.MAGIC)
         {
             if (magic.GetInst().type == "wall")
             {
                 MapManager.GetInst().MarkWall(this.MapPos);
             }
-            if(GetComponent<Renderer>().material.color==Color.green)
+            if(At_Marked==true&& magic.GetInst().type == "wall")
             {
+                
                
                 if (MapManager.GetInst().wallpos.GetX()>=MapPos.GetX())
                 {
@@ -248,7 +260,7 @@ public class Hex : MonoBehaviour {
         }
         if (pb.act == ACT.SUMMONES)
           {
-                if (Passable == true && (GetComponent<Renderer>().material.color == Color.green) || (GetComponent<Renderer>().material.color == Color.gray))
+                if (Passable == true && At_Marked == true)
                 {
                     PlayerManager.GetInst().GenPlayer(MapPos.GetX(), MapPos.GetZ());
                     pb.act = ACT.IDLE;

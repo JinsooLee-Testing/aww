@@ -6,7 +6,7 @@ public class BattleCardManager : MonoBehaviour
 {
     public bool active = true;
     private static BattleCardManager inst = null;
-    public GameObject GO_hex;
+    public GameObject[] cards = new GameObject[10]; 
     public GameObject GO_SUMMON;
     public GameObject GO_Fire;
     public GameObject GO_water;
@@ -32,6 +32,13 @@ public class BattleCardManager : MonoBehaviour
         inst = this;
         Initpos3 = Initpos2;
         SetCardSize();
+        inst.cards[0] = ((GameObject)Resources.Load("Prefabs/card/cardbase"));
+        inst.cards[1] = ((GameObject)Resources.Load("Prefabs/card/summon2"));
+        inst.cards[2] = ((GameObject)Resources.Load("Prefabs/card/fire"));
+        inst.cards[3] = ((GameObject)Resources.Load("Prefabs/card/water"));
+        inst.cards[4] = ((GameObject)Resources.Load("Prefabs/card/wall"));
+        inst.cards[5] = ((GameObject)Resources.Load("Prefabs/card/wind"));
+        // inst.cards[4] = ((GameObject)Resources.Load("Prefabs/card/wind"));
     }
     public void useCard(int but_num)
     {
@@ -39,8 +46,7 @@ public class BattleCardManager : MonoBehaviour
     }
     void SetCardSize()
     {
-        HexW = GO_hex.GetComponent<Renderer>().bounds.size.x;
-        HexH = GO_hex.GetComponent<Renderer>().bounds.size.z;
+   
     }
     public Vector3 GetWorldPos(int x, int y)
     {
@@ -61,24 +67,28 @@ public class BattleCardManager : MonoBehaviour
         Vector3 temp = Initpos2;
         for (int x = 0; x <= MapSizeX; x++)
         {
-            int i = Random.Range(0, 4);
+            int i = Random.Range(0,6);
             GameObject.Destroy(cardUse[x].gameObject);
             if (i == 0)
             {
 
-                cardUse[x] = ((GameObject)Instantiate(GO_SUMMON)).GetComponent<SummonCard>();
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[2]).GetComponent<MagicCard>();
             }
             else if (i == 1)
             {
-                cardUse[x] = ((GameObject)Instantiate(GO_wall)).GetComponent<MagicCard>();
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[3]).GetComponent<MagicCard>();
             }
             else if (i == 2)
             {
-                cardUse[x] = ((GameObject)Instantiate(GO_water)).GetComponent<MagicCard>();
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[4]).GetComponent<MagicCard>();
             }
-            else if (i >= 3)
+            else if (i == 3)
             {
-                cardUse[x] = ((GameObject)Instantiate(GO_Fire)).GetComponent<MagicCard>();
+                cardUse[x] = (SummonCard)GameObject.Instantiate(cards[1]).GetComponent<SummonCard>();
+            }
+            else
+            {
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[5]).GetComponent<MagicCard>();
             }
             cardUse[x].transform.position = temp;
             cardUse[x].Buttonnum = x;
@@ -93,15 +103,17 @@ public class BattleCardManager : MonoBehaviour
         Vector3 temp = Initpos2;
         for (int x = 0; x <= MapSizeX; x++)
         {
-            int i = Random.Range(0, 4);
+            int i = Random.Range(0, 6);
             if(i==0)
-                cardUse[x] = ((GameObject)Instantiate(GO_SUMMON)).GetComponent<SummonCard>();
+                cardUse[x] = (SummonCard)GameObject.Instantiate(cards[1]).GetComponent<SummonCard>();
             else if(i==1)
-                cardUse[x] = ((GameObject)Instantiate(GO_wall)).GetComponent<MagicCard>();
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[2]).GetComponent<MagicCard>();
             else if (i == 2)
-                cardUse[x] = ((GameObject)Instantiate(GO_water)).GetComponent<MagicCard>();
-            else if (i >= 3)
-                cardUse[x] = ((GameObject)Instantiate(GO_Fire)).GetComponent<MagicCard>();
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[3]).GetComponent<MagicCard>();
+            else if (i == 3)
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[4]).GetComponent<MagicCard>();
+            else
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[5]).GetComponent<MagicCard>();
             cardUse[x].transform.position = temp;
             cardUse[x].Buttonnum = x;
             card[x].On_active = true;
@@ -116,7 +128,8 @@ public class BattleCardManager : MonoBehaviour
         for (int x = 0; x <= MapSizeX; x++)
         {
 
-            card[x] = ((GameObject)Instantiate(GO_hex)).GetComponent<CardBase>();
+            card[x] = (CardBase)((GameObject)Instantiate(inst.cards[0])).GetComponent<CardBase>();
+
             card[x].transform.position = Initpos;
             
             card[x].Buttonnum = x;

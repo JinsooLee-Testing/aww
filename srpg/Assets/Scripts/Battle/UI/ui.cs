@@ -24,7 +24,7 @@ public class ui : MonoBehaviour
 
             if (CostManager.GetInst().cur_cost_num >= 1)
             {
-                MapManager.GetInst().ResetMapColor();
+                //MapManager.GetInst().ResetMapColor();
                 PlayerBase pb = pm.Players[pm.CurTurnIdx];
                 if (pb.act != ACT.MOVING)
                 {
