@@ -250,6 +250,7 @@ public class MapManager : MonoBehaviour
                      {
                          if (IsReachAble(start, Map[x][0][z], moveRange))
                          {
+
                                 Map[x][0][z].GetComponent<Renderer>().material = Map[x][0][z].mat_move;
                                 Map[x][0][z].At_Marked = true;
 

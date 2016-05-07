@@ -105,10 +105,10 @@ public class AIthink  {
                     {
                         aiplayer.MoveHexes.RemoveAt(aiplayer.MoveHexes.Count - 1);
                     }
-                    if (aiplayer.MoveHexes.Count == 1)
+                    if (aiplayer.MoveHexes.Count ==0)
                     {
+                       
                         AtkAItoUser(aiplayer);
-
                         return;
                     }
                     aiplayer.act = ACT.MOVING;
@@ -123,16 +123,26 @@ public class AIthink  {
             if (path == null)
                 PlayerManager.GetInst().TurnOver();
             Vector3 v = aiplayer.transform.position;
-            int x = Random.Range(-5, 5);
-            int z = Random.Range(-5, 5);
-            if ((int)v.x + x > MapManager.GetInst().MapSizeX)
-                v.x = MapManager.GetInst().MapSizeX;
-            if ((int)v.z + z > MapManager.GetInst().MapSizeZ)
-                v.z = MapManager.GetInst().MapSizeZ;
-            if ((int)v.x + x <= 0)
-                v.x = 0;
-            if ((int)v.z + z <= 0)
-                v.z = 0;
+            for (int j = 0; j < MapManager.GetInst().MapSizeX; ++j)
+            {
+                for (int k = 0; k < MapManager.GetInst().MapSizeZ; ++k)
+                {
+                    int x = Random.Range(-3, 3);
+                    int z = Random.Range(-3, 3);
+                    x = (int)v.x + x;
+                    z = (int)v.z + z;
+                    if ((int)v.x + x > MapManager.GetInst().MapSizeX)
+                        x = MapManager.GetInst().MapSizeX;
+                    if ((int)v.z + z > MapManager.GetInst().MapSizeZ)
+                        z = MapManager.GetInst().MapSizeZ;
+                    if ((int)v.x + x <= 0)
+                        x = 0;
+                    if ((int)v.z + z <= 0)
+                       z = 0;
+                    if (MapManager.GetInst().Map[x][0][z].Passable == true)
+                        break;
+                }
+            }
             PlayerManager.GetInst().GenAIPlayer((int)v.x, (int)v.z);
             EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6, 0f);
             CostManager.GetInst().enemy_cost_num -= 3;
@@ -154,33 +164,83 @@ public class AIthink  {
                 if (path == null)
                     PlayerManager.GetInst().TurnOver();
                 Vector3 v = aiplayer.transform.position;
-                for (int j = 0; j < MapManager.GetInst().MapSizeX; ++j)
+     
+          
+                if (path.Count < 5)
                 {
-                    for (int k = 0; k < MapManager.GetInst().MapSizeZ; ++k)
+                    if (CostManager.GetInst().enemy_cost_num > 5)
                     {
-                        int x = Random.Range(-5, 5);
-                        int z = Random.Range(-5, 5);
-                        if ((int)v.x + x > MapManager.GetInst().MapSizeX)
-                            v.x = MapManager.GetInst().MapSizeX;
-                        if ((int)v.z + z > MapManager.GetInst().MapSizeZ)
-                            v.z = MapManager.GetInst().MapSizeZ;
-                        if ((int)v.x + x <= 0)
-                            v.x = 0;
-                        if ((int)v.z + z <= 0)
-                            v.z = 0;
-                        if (MapManager.GetInst().Map[x][0][z].Passable == true)
-                            break;
+
+                        aiplayer.act = ACT.CASTING;
+                        EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 9, 0.0f);
+                        CostManager.GetInst().enemy_cost_num -= 5;
+                        PlayerManager.GetInst().TurnOver();
+                    }
+                }
+                else
+                {
+                    if (nearUserPlayer != null)
+                    {
+
+                        if (path == null)
+                            PlayerManager.GetInst().TurnOver();
+                        else
+                        {
+                            if (path.Count > aiplayer.status.MoveRange)
+                            {
+                                path.RemoveRange(aiplayer.status.MoveRange, path.Count - aiplayer.status.MoveRange);
+
+                            }
+                            aiplayer.MoveHexes = path;
+                            if (nearUserPlayer.CurHex.MapPos == aiplayer.MoveHexes[aiplayer.MoveHexes.Count - 1].MapPos)
+                            {
+                                aiplayer.MoveHexes.RemoveAt(aiplayer.MoveHexes.Count - 1);
+                            }
+
+                            if (aiplayer.MoveHexes.Count == 0)
+                            {
+                                AtkAItoUser(aiplayer);
+
+                                return;
+                            }
+                            aiplayer.act = ACT.MOVING;
+
+                        }
+                        MapManager.GetInst().ResetMapColor(aiplayer.CurHex.MapPos);
                     }
                 }
                 
-                PlayerManager.GetInst().GenAIPlayer((int)v.x, (int)v.z);
-                EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6, 0f);
-                CostManager.GetInst().enemy_cost_num -= 3;
+               for(i=0;i<2;++i)
+                {
+                    if (CostManager.GetInst().enemy_cost_num > 3)
+                    {
+                        for (int j = 0; j < MapManager.GetInst().MapSizeX; ++j)
+                        {
+                            for (int k = 0; k < MapManager.GetInst().MapSizeZ; ++k)
+                            {
+                                int x = Random.Range(-3, 3);
+                                int z = Random.Range(-3, 3);
+                                x = (int)v.x + x;
+                                z = (int)v.z + z;
+                                if ((int)v.x + x > MapManager.GetInst().MapSizeX)
+                                    x = MapManager.GetInst().MapSizeX;
+                                if ((int)v.z + z > MapManager.GetInst().MapSizeZ)
+                                    z = MapManager.GetInst().MapSizeZ;
+                                if ((int)v.x + x <= 0)
+                                    x = 0;
+                                if ((int)v.z + z <= 0)
+                                    z = 0;
+                                if (MapManager.GetInst().Map[x][0][z].Passable == true)
+                                    break;
+                            }
+                        }
+                        PlayerManager.GetInst().GenAIPlayer((int)v.x, (int)v.z);
+                        EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6, 0f);
+                        CostManager.GetInst().enemy_cost_num -= 3;
+                    }
+                }
 
-                aiplayer.act = ACT.CASTING;
-                EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 9, 0.0f);
-                CostManager.GetInst().enemy_cost_num -= 5;
-                PlayerManager.GetInst().TurnOver();
+             
             }
         }
        

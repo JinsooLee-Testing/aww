@@ -66,12 +66,12 @@ public class fireball : MonoBehaviour {
                     if (magic.GetInst().act != ACT.HIT)
                     {
                         EffectManager.GetInst().ShowEffect_Fire(targetHex.gameObject, this.gameObject);
-               
+                        magic.GetInst().targetAI.GetDamage(180);
                         CostManager.GetInst().CostDecrease(CostManager.GetInst().Curcostnum);
                     }
                     else
                         Destroy(this.gameObject);
-                    magic.GetInst().targetAI.GetDamage(180);
+                  
                     magic.GetInst().act = ACT.HIT;
                 }
                 else
@@ -82,13 +82,13 @@ public class fireball : MonoBehaviour {
                         {
                             if (pm.Players[i].m_type == Type.MONSTER)
                             {
-                                pm.Players[i].GetDamage(100);
+                                pm.Players[i].GetDamage(25);
                                 EffectManager.GetInst().ShowEffect_water(pm.Players[i].gameObject, this.gameObject,4);
                             }
                         }
                     }
                     Destroy(this.gameObject);
-                    magic.GetInst().targetAI.GetDamage(100);
+                    magic.GetInst().targetAI.GetDamage(25);
                     if (magic.GetInst().act != ACT.HIT)
                     {
                         EffectManager.GetInst().ShowEffect_water(targetHex.gameObject, this.gameObject, 4);
