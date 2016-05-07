@@ -33,6 +33,10 @@ public class MagicCard : CardUseBase {
                         magic.GetInst().type = "wall";
                         Debug.Log("fire");
                     }
+                    else if(magic_id==4)
+                    {
+                        magic.GetInst().type = "wind";
+                    }
                     else
                         magic.GetInst().type = "fire";
 

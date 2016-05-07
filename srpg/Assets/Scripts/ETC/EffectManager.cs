@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 
 public class EffectManager : MonoBehaviour {
     private static EffectManager inst = null;
     public float effect_time = 0;
-    public GameObject[] effects = new GameObject[10];
+    GameObject[] effects = new GameObject[20];
     // Use this for initialization
     GameObject curhex;
     public static EffectManager GetInst()
@@ -14,16 +15,19 @@ public class EffectManager : MonoBehaviour {
     void Awake()
     {
         inst = this;
-        inst.effects[0] = (GameObject)Resources.Load("Prefabs/Effect/attack");
-        inst.effects[1] = (GameObject)Resources.Load("Prefabs/Effect/damage");
-        inst.effects[2] = (GameObject)Resources.Load("Prefabs/Effect/Boom");
-        inst.effects[3] = (GameObject)Resources.Load("Prefabs/Effect/chant");
-        inst.effects[4] = (GameObject)Resources.Load("Prefabs/Effect/water");
-        inst.effects[5] = (GameObject)Resources.Load("Prefabs/Effect/frame");
-        inst.effects[6] = (GameObject)Resources.Load("Prefabs/Effect/chantbig");
-        inst.effects[7] = (GameObject)Resources.Load("Prefabs/Effect/earth");
-        inst.effects[8] = (GameObject)Resources.Load("Prefabs/Effect/ring");
-        inst.effects[9] = (GameObject)Resources.Load("Prefabs/Effect/chant_wait");
+
+        inst.effects[0]=((GameObject)Resources.Load("Prefabs/Effect/attack"));
+        inst.effects[1] = ((GameObject)Resources.Load("Prefabs/Effect/damage"));
+        inst.effects[2] = ((GameObject)Resources.Load("Prefabs/Effect/Boom"));
+        inst.effects[3] = ((GameObject)Resources.Load("Prefabs/Effect/chant"));
+        inst.effects[4]= ((GameObject)Resources.Load("Prefabs/Effect/water"));
+        inst.effects[5]= ((GameObject)Resources.Load("Prefabs/Effect/frame"));
+        inst.effects[6]= ((GameObject)Resources.Load("Prefabs/Effect/chantbig"));
+        inst.effects[7]= ((GameObject)Resources.Load("Prefabs/Effect/earth"));
+        inst.effects[8]= ((GameObject)Resources.Load("Prefabs/Effect/ring"));
+        inst.effects[9]=( (GameObject)Resources.Load("Prefabs/Effect/chant_wait"));
+        inst.effects[10] = ((GameObject)Resources.Load("Prefabs/Effect/cyclone"));
+     
     }
 	void Start () {
  
@@ -32,6 +36,7 @@ public class EffectManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+      
         if (effect_time != 0)
         {
             effect_time += Time.deltaTime;

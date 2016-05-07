@@ -48,8 +48,8 @@ public class PlayerBase : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-
-	}
+      
+    }
     public void GetDamage(int damage)
     {
        status.Curhp -= damage;

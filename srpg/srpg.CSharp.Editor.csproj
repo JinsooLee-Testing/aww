@@ -214,6 +214,7 @@
     <None Include="Assets\StreamingAssets\testData3.xml" />
     <None Include="Assets\StreamingAssets\testcc.xml" />
     <None Include="Assets\StreamingAssets\z.xml" />
+    <None Include="Assets\Toon Rock Golem\Read me.txt" />
     <None Include="Assets\cardtest.xml" />
     <None Include="Assets\stage1.xml" />
     <None Include="Assets\stage2.xml" />
