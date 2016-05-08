@@ -111,7 +111,7 @@ public class Hex : MonoBehaviour {
         if (obj_id != 0)
         {
 
-            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[obj_id - 1]);
+            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(obj_id-1));
             Vector3 v = transform.position;
             obj.transform.position = new Vector3(v.x, obj_y-0.2f, v.z);
             
@@ -224,16 +224,16 @@ public class Hex : MonoBehaviour {
                     {
                         if (MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable == true)
                         {
-                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
+                           obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(6));
                             Vector3 v = transform.position;
                             obj.transform.position = new Vector3(v.x, 1, v.z - i);
 
-                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
+                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(6));
                             MapManager.GetInst().Map[MapPos.GetX()][MapPos.GetY()][MapPos.GetZ() - i].Passable = false;
                         }
                     }
                     
-                    //obj.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+                    obj.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
                     MapManager.GetInst().ResetMapColor();
                     CameraManager.GetInst().ResetCameraTarget();
 
@@ -244,11 +244,11 @@ public class Hex : MonoBehaviour {
                     {
                         if (MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable == true)
                         {
-                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
+                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(6));
                             Vector3 v = transform.position;
                             obj.transform.position = new Vector3(v.x - i, 1, v.z);
                             obj.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().Structures[6]);
+                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(6));
                             MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable = false;
                         }
                     }

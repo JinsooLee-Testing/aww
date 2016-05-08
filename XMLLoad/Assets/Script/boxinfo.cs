@@ -119,7 +119,10 @@ public class boxinfo : MonoBehaviour
         else
         {
             if (obj != null)
+            {
                 Destroy(obj);
+                objId = 0;
+            }
         }
         GetComponent<Renderer>().material = GUIMgr.GetInst().Curmat;
         if (GUIMgr.GetInst().CurMatIdx == 1)

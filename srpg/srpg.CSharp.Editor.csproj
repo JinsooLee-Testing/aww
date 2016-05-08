@@ -102,6 +102,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\TextureAtlasSlicer.cs" />
+    <Compile Include="Assets\Editor\uGUITools.cs" />
     <Compile Include="Assets\어셋 다운자료\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,6 +180,27 @@
     <None Include="Assets\Resources\XML\testData2.xml" />
     <None Include="Assets\Resources\XML\testData3.xml" />
     <None Include="Assets\Resources\text\data.txt" />
+    <None Include="Assets\Scripts\Shader\BasicToon\BasicOutline 1.shader" />
+    <None Include="Assets\Scripts\Shader\BasicToon\BasicToon.shader" />
+    <None Include="Assets\Scripts\Shader\BasicToon\Rim\BasicRimNoOutline.shader" />
+    <None Include="Assets\Scripts\Shader\BasicToon\Rim\BasicRimOutline.shader" />
+    <None Include="Assets\Scripts\Shader\Cartoon.shader" />
+    <None Include="Assets\Scripts\Shader\Normals\UniNormal.shader" />
+    <None Include="Assets\Scripts\Shader\Normals\UniNormalNoOutLine.shader" />
+    <None Include="Assets\Scripts\Shader\Parallax\_Regular\UniParralax.shader" />
+    <None Include="Assets\Scripts\Shader\Parallax\_Regular\UniParralaxOutline.shader" />
+    <None Include="Assets\Scripts\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNoOutline.shader" />
+    <None Include="Assets\Scripts\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNormal.shader" />
+    <None Include="Assets\Scripts\Shader\Parallax\_Rim\_Specular\UniRimParrallaxSpecular.shader" />
+    <None Include="Assets\Scripts\Shader\Parallax\_Rim\_Specular\UniRimParrallaxSpecularNoOutline.shader" />
+    <None Include="Assets\Scripts\Shader\Parallax\_Specular\UniParrallaxNormalSpecOutline.shader" />
+    <None Include="Assets\Scripts\Shader\Parallax\_Specular\UniParrallaxSpecular.shader" />
+    <None Include="Assets\Scripts\Shader\Rims\Normals\NoOutLineRim.shader" />
+    <None Include="Assets\Scripts\Shader\Rims\Normals\NormalRim.shader" />
+    <None Include="Assets\Scripts\Shader\Rims\Specular\SpecularNoOutline.shader" />
+    <None Include="Assets\Scripts\Shader\Rims\Specular\SpecularOutline.shader" />
+    <None Include="Assets\Scripts\Shader\Specular\ToonSpecularNoOutline 1.shader" />
+    <None Include="Assets\Scripts\Shader\Specular\ToonSpecularOutline 1.shader" />
     <None Include="Assets\Shader\BasicToon\BasicOutline 1.shader" />
     <None Include="Assets\Shader\BasicToon\BasicToon.shader" />
     <None Include="Assets\Shader\BasicToon\Rim\BasicRimNoOutline.shader" />
@@ -203,6 +226,7 @@
     <None Include="Assets\StreamingAssets\a.xml" />
     <None Include="Assets\StreamingAssets\asd.xml" />
     <None Include="Assets\StreamingAssets\cardtest.xml" />
+    <None Include="Assets\StreamingAssets\st1.xml" />
     <None Include="Assets\StreamingAssets\stage1.xml" />
     <None Include="Assets\StreamingAssets\stage2-2.xml" />
     <None Include="Assets\StreamingAssets\stage2.xml" />
@@ -213,6 +237,7 @@
     <None Include="Assets\StreamingAssets\testData2.xml" />
     <None Include="Assets\StreamingAssets\testData3.xml" />
     <None Include="Assets\StreamingAssets\testcc.xml" />
+    <None Include="Assets\StreamingAssets\testz.xml" />
     <None Include="Assets\StreamingAssets\z.xml" />
     <None Include="Assets\Toon Rock Golem\Read me.txt" />
     <None Include="Assets\cardtest.xml" />
