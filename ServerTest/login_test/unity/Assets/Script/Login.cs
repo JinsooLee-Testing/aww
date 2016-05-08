@@ -30,16 +30,16 @@ public class Login : MonoBehaviour {
 
         yield return www;
 
+        
         if(null == www.error)
         {
             Debug.Log(www.text);
+            if("1"==www.text)
             Application.LoadLevel("main_scene");
         }
         else
         {
-            Debug.Log(www.error);
-            
-
+            Debug.Log(www.error);     
         }
        
     }
