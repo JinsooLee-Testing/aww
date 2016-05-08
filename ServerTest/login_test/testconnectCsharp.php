@@ -6,7 +6,7 @@ $conn = mysql_connect("localhost","root","111111") or die("접속에 실패했�
   $c1_d = $_POST['ID'];
   $c2_d = $_POST['PASSWD'];
   mysql_select_db("test_login");
-  $query = mysql_query("SELECT * FROM login_server WHERE ID LIKE '%$c1_d%' ");
+  $query = mysql_query("SELECT * FROM login_server WHERE ID, PASSWD LIKE '%$c1_d%','%c2_d' ");
   $result = mysql_fetch_array($query);
   if(($_POST['ID'] === $result[0]) && ($_POST['PASSWD'] === $result[1]))
   { 

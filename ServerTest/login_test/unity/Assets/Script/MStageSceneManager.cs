@@ -5,7 +5,7 @@ public class MStageSceneManager : MonoBehaviour {
 
     public void LoadBack()
     {
-        Application.LoadLevel("main_scene");
+        Application.LoadLevel("stage_sel_scene");
 
     }
 }
