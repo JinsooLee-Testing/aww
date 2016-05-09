@@ -3,7 +3,8 @@ using System.Collections;
 
 public class main_scene : MonoBehaviour {
 
-
+    //public int stageNum;
+    //public int id;
     public void LoadStage()
     {
         Application.LoadLevel("stage_sel_scene");
@@ -15,4 +16,5 @@ public class main_scene : MonoBehaviour {
         Application.LoadLevel("card_sel_scene");
         
     }
+
 }
