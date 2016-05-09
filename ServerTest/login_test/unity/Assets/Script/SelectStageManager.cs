@@ -7,7 +7,7 @@ public class SelectStageManager : MonoBehaviour {
     //PublicData data = new PublicData();
     void Awake()
     {
-        Debug.Log(StaticData.userStage);
+        //Debug.Log(StaticData.userStage);
        //Debug.Log(ldata.data.getStage());
     }
     //Debug.Log("111");
