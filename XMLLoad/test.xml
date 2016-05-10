@@ -1,108 +1,129 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <MapInfo>
-  <MapSize>12 0 12</MapSize>
+  <MapSize>30 0 15</MapSize>
   <box>
     <MapPos>0 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 1</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 2</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 3</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 4</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 5</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 6</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 7</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 8</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 9</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 10</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 11</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>0 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>0 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>0 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>0 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>1 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>1 0 1</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -172,21 +193,42 @@
   <box>
     <MapPos>1 0 11</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>1 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>1 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>1 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>1 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>2 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -199,14 +241,14 @@
   </box>
   <box>
     <MapPos>2 0 2</MapPos>
-    <Passable>True</Passable>
-    <Material>grass</Material>
+    <Passable>False</Passable>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
-    <Object>0 1</Object>
+    <Object>5 1</Object>
   </box>
   <box>
     <MapPos>2 0 3</MapPos>
-    <Passable>False</Passable>
+    <Passable>True</Passable>
     <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
@@ -256,7 +298,7 @@
   <box>
     <MapPos>2 0 10</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -269,15 +311,36 @@
   </box>
   <box>
     <MapPos>2 0 12</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>6 1</Object>
+  </box>
+  <box>
+    <MapPos>2 0 13</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>2 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>2 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>3 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -298,7 +361,7 @@
   <box>
     <MapPos>3 0 3</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -340,7 +403,7 @@
   <box>
     <MapPos>3 0 9</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -361,14 +424,35 @@
   <box>
     <MapPos>3 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>3 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>3 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>3 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>4 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -396,7 +480,7 @@
   <box>
     <MapPos>4 0 4</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -424,7 +508,7 @@
   <box>
     <MapPos>4 0 8</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -452,63 +536,84 @@
   <box>
     <MapPos>4 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>4 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>4 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>4 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>5 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>5 0 1</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>5 0 2</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>5 0 3</MapPos>
-    <Passable>False</Passable>
+    <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
-    <Object>2 1</Object>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
   </box>
   <box>
     <MapPos>5 0 4</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>5 0 5</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>5 0 6</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>5 0 7</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
@@ -521,10 +626,10 @@
   </box>
   <box>
     <MapPos>5 0 9</MapPos>
-    <Passable>False</Passable>
+    <Passable>True</Passable>
     <Material>soil</Material>
     <Mesh>True</Mesh>
-    <Object>2 1</Object>
+    <Object>0 1</Object>
   </box>
   <box>
     <MapPos>5 0 10</MapPos>
@@ -543,49 +648,70 @@
   <box>
     <MapPos>5 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>5 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>5 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>5 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>6 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>6 0 1</MapPos>
-    <Passable>False</Passable>
+    <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
-    <Object>1 1</Object>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
   </box>
   <box>
     <MapPos>6 0 2</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>6 0 3</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>6 0 4</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>6 0 5</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
@@ -593,14 +719,14 @@
     <MapPos>6 0 6</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>6 0 7</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>False</Mesh>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
@@ -634,64 +760,85 @@
   <box>
     <MapPos>6 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>6 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>6 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>6 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>7 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>7 0 1</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>7 0 2</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>7 0 3</MapPos>
-    <Passable>False</Passable>
+    <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
-    <Object>2 1</Object>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
   </box>
   <box>
     <MapPos>7 0 4</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>7 0 5</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>7 0 6</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>False</Mesh>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>7 0 7</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>False</Mesh>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
@@ -703,10 +850,10 @@
   </box>
   <box>
     <MapPos>7 0 9</MapPos>
-    <Passable>False</Passable>
+    <Passable>True</Passable>
     <Material>soil</Material>
     <Mesh>True</Mesh>
-    <Object>2 1</Object>
+    <Object>0 1</Object>
   </box>
   <box>
     <MapPos>7 0 10</MapPos>
@@ -725,43 +872,64 @@
   <box>
     <MapPos>7 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>7 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>7 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>7 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>8 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>8 0 1</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>8 0 2</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>8 0 3</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>8 0 4</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
@@ -788,7 +956,7 @@
   <box>
     <MapPos>8 0 8</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -816,36 +984,57 @@
   <box>
     <MapPos>8 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>8 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>8 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>8 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>9 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>9 0 1</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>9 0 2</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>9 0 3</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
@@ -886,7 +1075,7 @@
   <box>
     <MapPos>9 0 9</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -907,29 +1096,50 @@
   <box>
     <MapPos>9 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>9 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>9 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>9 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>10 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>10 0 1</MapPos>
     <Passable>True</Passable>
     <Material>soil</Material>
-    <Mesh>True</Mesh>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>10 0 2</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
@@ -976,15 +1186,15 @@
   </box>
   <box>
     <MapPos>10 0 9</MapPos>
-    <Passable>True</Passable>
+    <Passable>False</Passable>
     <Material>soil</Material>
     <Mesh>True</Mesh>
-    <Object>0 1</Object>
+    <Object>5 1</Object>
   </box>
   <box>
     <MapPos>10 0 10</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
@@ -998,22 +1208,43 @@
   <box>
     <MapPos>10 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>10 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>10 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>10 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>11 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>11 0 1</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
@@ -1053,10 +1284,10 @@
   </box>
   <box>
     <MapPos>11 0 7</MapPos>
-    <Passable>True</Passable>
+    <Passable>False</Passable>
     <Material>soil</Material>
     <Mesh>True</Mesh>
-    <Object>0 1</Object>
+    <Object>6 1</Object>
   </box>
   <box>
     <MapPos>11 0 8</MapPos>
@@ -1082,105 +1313,2163 @@
   <box>
     <MapPos>11 0 11</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>11 0 12</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>11 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>11 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>11 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 0</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
-    <Mesh>True</Mesh>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 1</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 2</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 3</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 4</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 5</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 6</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 7</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 8</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 9</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 10</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 11</MapPos>
     <Passable>True</Passable>
-    <Material>grass</Material>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
   <box>
     <MapPos>12 0 12</MapPos>
     <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>12 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>12 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>12 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 3</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>5 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 6</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 7</MapPos>
+    <Passable>True</Passable>
     <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 11</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>13 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 11</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>11 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>14 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 11</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>11 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>15 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 11</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>11 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 14</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>16 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 3</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>5 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>grass</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 11</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>11 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>17 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>18 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 5</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 9</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>5 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>19 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 7</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>6 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>20 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>21 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>22 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>23 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>24 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>False</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>25 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>26 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>27 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 12</MapPos>
+    <Passable>False</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>6 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>28 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>29 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 0</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 1</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 2</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 3</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 4</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 5</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 6</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 7</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 8</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 9</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 10</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 11</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 12</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 13</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 14</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
+    <Mesh>True</Mesh>
+    <Object>0 1</Object>
+  </box>
+  <box>
+    <MapPos>30 0 15</MapPos>
+    <Passable>True</Passable>
+    <Material>soil</Material>
     <Mesh>True</Mesh>
     <Object>0 1</Object>
   </box>
