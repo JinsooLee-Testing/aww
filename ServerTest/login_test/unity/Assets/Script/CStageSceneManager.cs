@@ -3,11 +3,11 @@ using System.Collections;
 
 public class CStageSceneManager : MonoBehaviour {
 
-    void Start()
-    {
-        //if (0==StaticData.userStage) 
-
-    }
+    //void Start()
+    //{
+    //    //if (0==StaticData.userStage)
+            
+    //}
     // Use this for initialization
     public void ClearStage()
     {
@@ -31,9 +31,9 @@ public class CStageSceneManager : MonoBehaviour {
 
     }
     IEnumerator Printphp()
-    {
-        Debug.Log("Printphp" + StaticData.userStage);
-        string url = "http://localhost/change_stage.php";
+    { 
+        Debug.Log("Printphp : " +StaticData.userId+","+StaticData.userPasswd+"," +StaticData.userStage);
+        string url = "http://localhost/changeStage.php";
         WWWForm form = new WWWForm();
         form.AddField("ID", StaticData.userId);
         form.AddField("PASSWD", StaticData.userPasswd);
