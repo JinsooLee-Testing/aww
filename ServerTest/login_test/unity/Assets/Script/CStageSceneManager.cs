@@ -19,7 +19,7 @@ public class CStageSceneManager : MonoBehaviour {
     }
     public void LoadNextStage()
     {
-        if (1 == StaticData.userStage)
+        if (1 >= StaticData.userStage)
         {
             Application.LoadLevel("Y_Stage");
         }      

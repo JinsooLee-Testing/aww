@@ -3,13 +3,7 @@ using System.Collections;
 
 public class MStageSceneManager : MonoBehaviour {
 
-    //void Start()
-    //{
-    //    if (2 == StaticData.userStage)
-    //    {
-    //        StaticData.userStage += 1;
-    //    }
-    //}
+
     public void ClearStage()
     {
         if (2 == StaticData.userStage)

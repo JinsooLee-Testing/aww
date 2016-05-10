@@ -22,7 +22,10 @@ public class YStageSceneManager : MonoBehaviour {
     // Use this for initialization
     public void LoadNextStage()
     {
-        Application.LoadLevel("M_Stage");
+        if (2 >= StaticData.userStage)
+        {
+            Application.LoadLevel("M_Stage");
+        }
 
     }
 

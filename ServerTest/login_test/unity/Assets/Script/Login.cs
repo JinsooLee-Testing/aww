@@ -11,7 +11,9 @@ public class Login : MonoBehaviour {
     }
     public void setPass(InputField pass)
     {
+       
         this.pass = pass;
+        
     }
 	public void loginphp()
     {
