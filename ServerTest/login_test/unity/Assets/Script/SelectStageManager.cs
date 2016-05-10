@@ -3,18 +3,12 @@ using System.Collections;
 
 public class SelectStageManager : MonoBehaviour {
 
-    public int stageNum=0;
-    public int getStageNum()
-    {
-        return 0;
-    }
-    public void setStageNum(int inputNum)
-    {
-        stageNum = inputNum;
-    }
+    //Login ldata = new Login();
+    //PublicData data = new PublicData();
     void Awake()
     {
-       Debug.Log(stageNum);
+        //Debug.Log(StaticData.userStage);
+       //Debug.Log(ldata.data.getStage());
     }
     //Debug.Log("111");
     // 현재 스테이지 정보를 로드한다. 

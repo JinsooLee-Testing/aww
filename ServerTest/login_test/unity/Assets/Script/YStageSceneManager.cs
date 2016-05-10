@@ -3,6 +3,13 @@ using System.Collections;
 
 public class YStageSceneManager : MonoBehaviour {
 
+    void Start()
+    {
+        if(1 == StaticData.userStage )
+        {
+            StaticData.userStage += 1;
+        }
+    }
     // Use this for initialization
     public void LoadNextStage()
     {

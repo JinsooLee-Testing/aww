@@ -4,9 +4,7 @@ using UnityEngine.UI;
 public class Login : MonoBehaviour {
     InputField id;
     InputField pass;
-    SelectStageManager SSM;
-    //public int stageNum;
-    // Use this for initialization
+    
     public void setId(InputField id)
     {
         this.id = id;
@@ -23,8 +21,9 @@ public class Login : MonoBehaviour {
 	// Update is called once per frame
     IEnumerator Printphp()
     {
+
         string url = "http://localhost/testconnectCsharp.php";
-       // string url = "http://localhost/Aww/login.php";
+     // string url = "http://localhost/Aww/login.php";
         WWWForm form = new WWWForm();
         form.AddField("ID", id.text);
         form.AddField("PASSWD", pass.text);
@@ -36,25 +35,29 @@ public class Login : MonoBehaviour {
         
         if(null == www.error)
         {
-            Debug.Log(www.text);
+            StaticData.userId = id.text;
+            StaticData.userPasswd = pass.text;
+            //setUserId(id.text);
+            //setUserPasswd(pass.text);
+            Application.LoadLevel("main_scene");
             if ("0" == www.text)
             {
-                SSM.setStageNum(0);
+                StaticData.userStage = 0;
                 Application.LoadLevel("main_scene");
             }
             else if ("1" == www.text)
             {
-                SSM.setStageNum(1);
+                StaticData.userStage = 1;
                 Application.LoadLevel("main_scene");
             }
             else if ("2" == www.text)
             {
-                SSM.setStageNum(2);
+                StaticData.userStage = 2;
                 Application.LoadLevel("main_scene");
             }
             if ("3" == www.text)
             {
-                SSM.setStageNum(3);
+                StaticData.userStage = 3;
                 Application.LoadLevel("main_scene");
             }
         }
