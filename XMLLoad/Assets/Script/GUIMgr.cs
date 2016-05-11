@@ -35,6 +35,7 @@ public class GUIMgr {
     public int CurMatIdx;
     public string curSel = "passable";
     public bool passble = true;
+    public int CurMat_Max;
     public int CurStructIdx = 0;
     public static GUIMgr GetInst()
     {
@@ -44,12 +45,12 @@ public class GUIMgr {
             inst.Texures[0] = (Texture)Resources.Load("texture/soil");
             inst.Texures[1] = (Texture)Resources.Load("texture/grass");
             inst.Texures[2] = (Texture)Resources.Load("texture/fire");
-            //inst.Texures[3] = (Texture)Resources.Load("texture/underground");
+            inst.Texures[3] = (Texture)Resources.Load("texture/underground");
      
             inst.mat[0] = (Material)Resources.Load("material/Soil_TILE");
             inst.mat[1] = (Material)Resources.Load("material/grass_TILE");
             inst.mat[2] = (Material)Resources.Load("material/Fire_TILE");
-            //inst.mat[3] = (Material)Resources.Load("material/underground_TILE");
+            inst.mat[3] = (Material)Resources.Load("material/underground_TILE");
 
             inst.Structures[0] =(GameObject)Resources.Load("object/chapter2_wall");
             inst.Structures[1] = (GameObject)Resources.Load("object/chapter2_carrotbox");
@@ -64,6 +65,7 @@ public class GUIMgr {
             inst.Structures[10] = (GameObject)Resources.Load("object/chapter2_wall");
             inst.Structures[11] = (GameObject)Resources.Load("object/chapter2_watchtower");
             inst.MaxCurStructIdx = 11;
+            inst.CurMat_Max = 4;
             inst.CurStruct = inst.Structures[0];
             inst.CurTexture = inst.Texures[0];
             inst.CurTextureIdx = 0;
@@ -148,7 +150,7 @@ public class GUIMgr {
         {
             CurTextureIdx++;
             CurMatIdx = CurTextureIdx;
-            if (CurTextureIdx>3)
+            if (CurTextureIdx> CurMat_Max)
             {
                 CurTextureIdx = 0;
                 CurMatIdx = 0;
