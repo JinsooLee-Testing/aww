@@ -19,10 +19,10 @@ public class YStageSceneManager : MonoBehaviour {
             StartCoroutine(Printphp());
         }
     }
-    // Use this for initialization
+    // Use this for initiaization
     public void LoadNextStage()
     {
-        if (2 >= StaticData.userStage)
+        if (2 <= StaticData.userStage)
         {
             Application.LoadLevel("M_Stage");
         }
