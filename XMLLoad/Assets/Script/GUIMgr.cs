@@ -1,26 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
- public enum SELECTION
+public enum SELECTION
 {
     TEXTURE,
     STRUCTURE,
     PASSBLE,
     NOTPASSBLE
 };
-public class GUIMgr {
+public class GUIMgr
+{
     private static GUIMgr inst = null;
     // private static MapMgr mm;
     private string MapSizeX = "0";
     private string MapSizeY = "0";
     private string MapSizeZ = "0";
-    public int MaxCurStructIdx=0;
+    public int MaxCurStructIdx = 0;
     public string x = "0";
     public string y = "1";
     public string z = "0";
     private string m_y = "1";
-    public bool y_draw =true;
-    public Texture[] Texures= new Texture[10];
+    public bool y_draw = true;
+    public Texture[] Texures = new Texture[10];
     public Material[] mat = new Material[10];
     public bool structable = false;
     public bool Load = false;
@@ -31,7 +32,7 @@ public class GUIMgr {
     public Material Curmat;
     public int CurTextureIdx;
     public GameObject CurStruct;
-    public int CurHeight =0;
+    public int CurHeight = 0;
     public int CurMatIdx;
     public string curSel = "passable";
     public bool passble = true;
@@ -39,20 +40,21 @@ public class GUIMgr {
     public int CurStructIdx = 0;
     public static GUIMgr GetInst()
     {
-        if(inst==null)
+        if (inst == null)
         {
             inst = new GUIMgr();
             inst.Texures[0] = (Texture)Resources.Load("texture/soil");
             inst.Texures[1] = (Texture)Resources.Load("texture/grass");
             inst.Texures[2] = (Texture)Resources.Load("texture/fire");
-            inst.Texures[3] = (Texture)Resources.Load("texture/underground");
-     
+            inst.Texures[3] = (Texture)Resources.Load("texture/wood_TILE");
+            inst.Texures[4] = (Texture)Resources.Load("texture/underground");
+
             inst.mat[0] = (Material)Resources.Load("material/Soil_TILE");
             inst.mat[1] = (Material)Resources.Load("material/grass_TILE");
             inst.mat[2] = (Material)Resources.Load("material/Fire_TILE");
-            inst.mat[3] = (Material)Resources.Load("material/underground_TILE");
-
-            inst.Structures[0] =(GameObject)Resources.Load("object/chapter2_wall");
+            inst.mat[3] = (Material)Resources.Load("material/wood");
+            inst.mat[4] = (Material)Resources.Load("material/underground_TILE");
+            inst.Structures[0] = (GameObject)Resources.Load("object/chapter2_wall");
             inst.Structures[1] = (GameObject)Resources.Load("object/chapter2_carrotbox");
             inst.Structures[2] = (GameObject)Resources.Load("object/chapter2_carrotfield");
             inst.Structures[3] = (GameObject)Resources.Load("object/chapter2_carrotshelf");
@@ -84,7 +86,7 @@ public class GUIMgr {
     }
     public void SetStructures(GameObject[] stru)
     {
-        Structures =stru;
+        Structures = stru;
     }
     public void DrawLeftLayout()
     {
@@ -104,15 +106,15 @@ public class GUIMgr {
         GUILayout.EndHorizontal();
         GUILayout.EndVertical();
 
-        if(GUILayout.Button("Create"))
+        if (GUILayout.Button("Create"))
         {
-    
-                MapMgr.GetInst().CreateMap(int.Parse(MapSizeX), int.Parse(MapSizeY), int.Parse(MapSizeZ));
-  
+
+            MapMgr.GetInst().CreateMap(int.Parse(MapSizeX), int.Parse(MapSizeY), int.Parse(MapSizeZ));
+
         }
         if (GUILayout.Button("Reset"))
         {
-          
+
             MapMgr.GetInst().Destroymap();
         }
         if (GUILayout.Button("Save"))
@@ -123,7 +125,7 @@ public class GUIMgr {
         {
             MapInfo info = fileMagr.GetInst().LoadMap();
             MapMgr.GetInst().CreateXMLmap(info);
-                
+
         }
         GUILayout.Label("curcel");
         if (GUILayout.Button("passable"))
@@ -140,7 +142,7 @@ public class GUIMgr {
         }
         GUILayout.Label("Current Selected");
         GUILayout.BeginHorizontal();
-       
+
         GUILayout.Box(CurTexture, GUILayout.Width(80f), GUILayout.Height(80f));
         //GUILayout.Box(CurStruct, GUILayout.Width(80f), GUILayout.Height(80f));
         GUILayout.EndHorizontal();
@@ -150,7 +152,7 @@ public class GUIMgr {
         {
             CurTextureIdx++;
             CurMatIdx = CurTextureIdx;
-            if (CurTextureIdx> CurMat_Max)
+            if (CurTextureIdx > CurMat_Max)
             {
                 CurTextureIdx = 0;
                 CurMatIdx = 0;
@@ -159,17 +161,17 @@ public class GUIMgr {
             Curmat = mat[CurMatIdx];
 
         }
-            GUILayout.EndHorizontal();
+        GUILayout.EndHorizontal();
 
 
 
         GUILayout.EndArea();
-       
+
     }
     public void DrawRightLayout()
     {
 
-        GUILayout.BeginArea(new Rect(Screen.width-200f, 0, 200f, Screen.height), "MapInfo", GUI.skin.window);
+        GUILayout.BeginArea(new Rect(Screen.width - 200f, 0, 200f, Screen.height), "MapInfo", GUI.skin.window);
         GUILayout.BeginVertical();
         GUILayout.BeginHorizontal();
         GUILayout.Label("x:");
@@ -236,9 +238,9 @@ public class GUIMgr {
             if (CurStructIdx > MaxCurStructIdx)
             {
                 CurStructIdx = 0;
-             }
+            }
             CurStruct = Structures[CurStructIdx];
-           
+
 
         }
         GUILayout.EndHorizontal();
@@ -255,4 +257,3 @@ public class GUIMgr {
         DrawLeftLayout();
 
     }
-}
