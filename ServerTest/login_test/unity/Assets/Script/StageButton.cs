@@ -11,6 +11,10 @@ public class StageButton : MonoBehaviour {
         {
             GameObject.Find("Stage1Lock").SetActive(false);
             GameObject.Find("Stage1UnLock").SetActive(true);
+            GameObject.Find("Stage2Lock").SetActive(true);
+            GameObject.Find("Stage2UnLock").SetActive(false);
+            GameObject.Find("Stage3Lock").SetActive(true);
+            GameObject.Find("Stage3UnLock").SetActive(false);
         }
         else if (StaticData.userStage == 1)
         {
@@ -18,6 +22,8 @@ public class StageButton : MonoBehaviour {
             GameObject.Find("Stage1UnLock").SetActive(true);
             GameObject.Find("Stage2Lock").SetActive(false);
             GameObject.Find("Stage2UnLock").SetActive(true);
+            GameObject.Find("Stage3Lock").SetActive(true);
+            GameObject.Find("Stage3UnLock").SetActive(false);
 
         }
         else if (StaticData.userStage >= 2)
