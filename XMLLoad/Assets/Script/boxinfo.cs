@@ -49,6 +49,8 @@ public class boxinfo : MonoBehaviour
         if (mat_name == "soil")
             GetComponent<Renderer>().material = GUIMgr.GetInst().mat[0];
         if (mat_name == "wood")
+            GetComponent<Renderer>().material = GUIMgr.GetInst().mat[3];
+        if (mat_name == "under")
             GetComponent<Renderer>().material = GUIMgr.GetInst().mat[4];
     }
     void OnMouseOver()
@@ -133,6 +135,8 @@ public class boxinfo : MonoBehaviour
             mat_name = "fire";
         else if (GUIMgr.GetInst().CurMatIdx == 3)
             mat_name = "wood";
+        else if (GUIMgr.GetInst().CurMatIdx == 4)
+            mat_name = "under";
         else
             mat_name = "soil";
         if (GUIMgr.GetInst().passble == false)
