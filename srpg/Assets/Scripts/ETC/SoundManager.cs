@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour {
 
     public void PlayVictory()
     {
-        AudioClip.DestroyImmediate(bgm);
+      //  AudioClip.DestroyImmediate(bgm);
         AudioSource.PlayClipAtPoint(victory, this.transform.position);
         
     }

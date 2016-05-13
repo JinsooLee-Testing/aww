@@ -58,6 +58,7 @@ public class GUIManager : MonoBehaviour {
         Destroy(talk_box.gameObject);
 
     }
+ 
     public void CreateUI()
     {
         if (create == true)

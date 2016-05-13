@@ -435,7 +435,7 @@ public class MapManager : MonoBehaviour
         Path result = Recursive_FindPath(startPath, dest);
         if (result == null)
             return null;
-
+        timeout = 0f;
         while (result.Parent != null)
         {
             rtnVal.Insert(0, result.GetHex());

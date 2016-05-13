@@ -60,12 +60,16 @@ public class font : MonoBehaviour {
                 {
                     PlayerManager.GetInst().GenAIPlayer(5, 5);
                     currentTextNumber++;
+
                 }
+                   
+                
 
             }
+            
             else if (font_list.bonInfos[currentTextNumber].tesx_idx >= 3 && font_list.bonInfos[currentTextNumber].tesx_idx==100)
             {
-
+                
             }
             else if (font_list.bonInfos[currentTextNumber].tesx_idx >= 3 && font_list.bonInfos[currentTextNumber].tesx_idx == 101)
             {
@@ -119,6 +123,6 @@ public class font : MonoBehaviour {
             currentTextNumber++;
         }
         
-        Debug.Log(currentTextNumber);
+
     }
 }
