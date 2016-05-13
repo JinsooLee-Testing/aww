@@ -16,8 +16,8 @@ public class fireball : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         ef_time += Time.deltaTime;
-        if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act ==ACT.MAGIC)
-           {
+       // if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act ==ACT.MAGIC)
+           //{
           
             MapManager.GetInst().ResetMapColor();
             
@@ -93,16 +93,18 @@ public class fireball : MonoBehaviour {
                     {
                         EffectManager.GetInst().ShowEffect_water(targetHex.gameObject, this.gameObject, 4);
                         CostManager.GetInst().CostDecrease(CostManager.GetInst().Curcostnum);
+                        
                     }
                     if (magic.GetInst().act != ACT.HIT)
                         magic.GetInst().act = ACT.HIT;
+                    
 
                 }
                 //PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.IDLE;
                 MapManager.GetInst().ResetMapColor();              
                 }
                 // fire = false;
-          }
+       //   }
         
     }
     void OnMouseDown()

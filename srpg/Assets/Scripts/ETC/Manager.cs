@@ -124,16 +124,16 @@ using System.Collections;
     {
         float destX = hex.transform.position.x;
         float destZ = hex.transform.position.z;
-        Vector3 pos = new Vector3(destX, 0, destZ);
+        Vector3 pos = new Vector3(destX, -2.5f, destZ);
         CameraManager.GetInst().SetPosition(pos);
     }
     public void MoveCamPosToTile(Hex hex)
     {
         float destX = hex.transform.position.x;
         float destZ = hex.transform.position.z;
-        Vector3 pos =new Vector3(destX, 0, destZ);
+        Vector3 pos =new Vector3(destX, -2.5f, destZ);
         Vector3 rot = new Vector3(70,45,0);
-        
+
         CameraManager.GetInst().SetPosition(pos);
         CameraManager.GetInst().SetAngle(rot);
     }

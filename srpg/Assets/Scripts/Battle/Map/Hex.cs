@@ -86,6 +86,8 @@ public class Hex : MonoBehaviour {
     public Material mat1;
     public Material mat2;
     public Material mat3;
+    public Material mat4;
+    public Material mat5;
     public Material mat_move;
     public Material mat_attack;
     public Color mat_color = Color.white;
@@ -107,15 +109,18 @@ public class Hex : MonoBehaviour {
                 if (MapPos.GetY() == 0)
                     SetCol();
             }
-        
+ 
         if (obj_id != 0)
         {
 
             obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(obj_id-1));
             Vector3 v = transform.position;
-            obj.transform.position = new Vector3(v.x, obj_y-0.2f, v.z);
-            
-        }
+            obj.transform.position = new Vector3(v.x, obj_y, v.z);
+            if(obj_id - 1==4)
+                Passable = true;
+            else
+                Passable = false;
+            }
         if (mat_name == "soil")
         {
             
@@ -136,7 +141,19 @@ public class Hex : MonoBehaviour {
             default_matid = 3;
 
         }
+        if (mat_name == "wood")
+        {
+            GetComponent<Renderer>().material = mat4;
+            default_matid = 4;
+            Passable = true;
 
+        }
+        if (mat_name == "under")
+        {
+            GetComponent<Renderer>().material = mat5;
+            default_matid = 5;
+
+        }
     }
     
 	// Update is called once per frame

@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
     public Transform map;
     public Point wallpos;
     public bool wall = false;
-
+    public float timeout = 0f;
     public int num = 0;
     List<Path> OpenList;
     List<Path> ClosedList;
@@ -74,7 +74,10 @@ public class MapManager : MonoBehaviour
 
     void Update()
     {
-
+       if(timeout!=0f)
+        {
+            timeout += Time.deltaTime;
+        }
     }
     void SetHexSize()
     {
@@ -239,9 +242,14 @@ public class MapManager : MonoBehaviour
          for (int x = 0; x <= MapSizeX; x++)
          {
              for(int z= 0; z<= MapSizeZ; z++)
-             {
-
-                 if (Map[x][0][z].Passable == true)
+                { 
+                        if (Map[x][0][z].obj_id == 1)
+                        {
+                            Map[x][0][z].Passable = true;
+                            Destroy(Map[x][0][z].obj);
+                        }
+                    
+                    if (Map[x][0][z].Passable == true)
                  {
                      int distance = (GetDistance(start, Map[x][0][z]));
                      //헥사곤 상의 셀과 셀간의 공식
@@ -253,9 +261,9 @@ public class MapManager : MonoBehaviour
 
                                 Map[x][0][z].GetComponent<Renderer>().material = Map[x][0][z].mat_move;
                                 Map[x][0][z].At_Marked = true;
+                                
 
-
-                             highLighedCount++;
+                            highLighedCount++;
                              if (1 <= MapSizeY)
                              {
                                  if (Map[x][1][z].mesh_draw == true)
@@ -377,8 +385,12 @@ public class MapManager : MonoBehaviour
                         Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat1;
                     else if(Map[x][y][z].default_matid == 2)
                         Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat2;
-                    else
+                    else if (Map[x][y][z].default_matid == 3)
                         Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat3;
+                    else if (Map[x][y][z].default_matid == 4)
+                        Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat4;
+                    else
+                        Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat5;
                     Map[x][y][z].Marked = false;
                     Map[x][y][z].At_Marked = false;
                    
@@ -417,8 +429,8 @@ public class MapManager : MonoBehaviour
         ClosedList = new List<Path>();
         List<Hex> rtnVal = new List<Hex>();
         int H = (int)(MapManager.GetInst().GetDistance(start, dest));
-
-        Path startPath = new Path(null, start, 0, H);
+        timeout += Time.deltaTime;
+         Path startPath = new Path(null, start, 0, H);
         ClosedList.Add(startPath);
         Path result = Recursive_FindPath(startPath, dest);
         if (result == null)
@@ -437,6 +449,11 @@ public class MapManager : MonoBehaviour
         if (parent.GetHex().MapPos == dest.MapPos)
         {
             return parent;
+        }
+        if(timeout>3.0f)
+        {
+            timeout=0f;
+            return null;
         }
         List<Hex> neibhors = GetNeibhors(parent.GetHex());
         foreach (Hex h in neibhors)

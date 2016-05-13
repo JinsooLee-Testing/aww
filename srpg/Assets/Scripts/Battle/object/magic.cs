@@ -57,8 +57,8 @@ public class magic : MonoBehaviour
         if (type == "fire")
         {
             act = ACT.IDLE;
-            fireball[] fireb = new fireball[6];
-            for (int i = 0; i < 6; ++i)
+            fireball[] fireb = new fireball[8];
+            for (int i = 0; i < 8; ++i)
             {
                 
                 fireb[i] = ((GameObject)Instantiate(magics[0])).GetComponent<fireball>();
@@ -66,8 +66,22 @@ public class magic : MonoBehaviour
                 Vector3 v2 = v.transform.position;
                 v2 = new Vector3(v2.x, 2, v2.z);
                 Vector3 Start = start.transform.position;
-                Start.x = Random.Range(0, 8);
-                Start.z = Random.Range(0, 8);
+                if (i == 2)
+                    Start.z -= 6;
+                if (i == 3)
+                    Start.z += 6;
+                if (i == 4)
+                    Start.z += 3;
+                if (i == 5)
+                    Start.z -= 3;
+                if (i == 6)
+                    Start.x += 3;
+                if (i == 7)
+                    Start.x += 3;
+                if (i == 1)
+                    Start.x -= 6;
+                if (i == 0)
+                    Start.x += 6;
                 Start.y = 10;
                 fireb[i].target = v2;
                 fireb[i].transform.position = Start;

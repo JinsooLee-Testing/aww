@@ -43,6 +43,9 @@ public class UserPlayer : PlayerBase
     {
         equip = ((GameObject)Instantiate(eqip)).GetComponent<Equipment>();
         Equip = true;
+        Vector3 v2 = transform.position;
+        v2.y += 1.5f;
+        equip.transform.position = v2;
     }
     void Update()
     {
@@ -80,7 +83,7 @@ public class UserPlayer : PlayerBase
         {
             Vector3 v2 = transform.position;
             v2.y += 1.5f;
-           // equip.transform.position = v2;
+            equip.transform.position = v2;
         }
         if (act==ACT.IDLE)
        {
@@ -155,7 +158,8 @@ public class UserPlayer : PlayerBase
                     CurHex = MapManager.GetInst().Map[temppos.GetX()][temppos.GetY()][temppos.GetZ()];
                     CurHex.Passable = false;
                     act = ACT.IDLE;
-                   
+                    if (CurHex.obj_id == 5)
+                        EquipHelmet();
                     //PlayerManager.GetInst().TurnOver();
                 }
 

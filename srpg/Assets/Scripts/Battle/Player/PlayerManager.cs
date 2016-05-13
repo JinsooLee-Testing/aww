@@ -26,7 +26,8 @@ public class PlayerManager : MonoBehaviour {
     public int CurTurnIdx = 0;
     public float m_y;
     public Transform PlayersParent;
-
+    public int S_x = 0;
+    public int S_z =0;
     public int EnemyCount = 0;
     public int EnemyTurnCount = 0;
     public PlayerBase select_object;
@@ -71,6 +72,7 @@ public class PlayerManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         CheckTurnOver();
+       
         if (select_object.act != ACT.DIYING)
         {
             if (select_object != null)
@@ -139,7 +141,7 @@ public class PlayerManager : MonoBehaviour {
     {
         pick_ob = ((GameObject)Instantiate(GO_pick)).GetComponent<pick>();
         UserPlayer userplayer = ((GameObject)Instantiate(GO_player)).GetComponent<UserPlayer>();
-        Hex hex = MapManager.GetInst().GetPlayerHex(userplayer.x, 0, userplayer.z);
+        Hex hex = MapManager.GetInst().GetPlayerHex(S_x, 0, S_z);
         userplayer.CurHex = hex;
         Vector3 v = userplayer.CurHex.transform.position;
         v.y = 1.0f;
@@ -147,7 +149,7 @@ public class PlayerManager : MonoBehaviour {
         userplayer.m_type = Type.MAINCHARACTER;
         Players.Add(userplayer);
         select_object = userplayer;
-        v.y = 3.0f;
+        v.y = 4.0f;
         pick_ob.transform.position = v;
 
         for (int i = 0; i < PlayersParent.childCount; i++)
@@ -202,6 +204,7 @@ public class PlayerManager : MonoBehaviour {
         MapManager.GetInst().ResetMapColor();
         PlayerBase pb = Players[CurTurnIdx];
         pb.CurHex.Passable = false;
+
         if (pb.act != ACT.CASTING)
             pb.act = ACT.IDLE;
 

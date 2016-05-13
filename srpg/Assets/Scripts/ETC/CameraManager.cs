@@ -38,9 +38,11 @@ public class CameraManager : MonoBehaviour {
         if (event_mode == false)
         {
             if (MapManager.GetInst().MapSizeX > 10)
-                m_pos.y = 4.0f;
+                m_pos.y = 1.5f;
         }
+     
         transform.position = m_pos;
+      
     }
     public void SetAngle(Vector3 m_rot)
     {
@@ -48,7 +50,7 @@ public class CameraManager : MonoBehaviour {
     }
     public void ResetCameraTarget()
     {
-
+  
         transform.rotation = Quaternion.Euler(InitRot);
     }
     void Start () {

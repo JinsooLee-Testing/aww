@@ -54,11 +54,8 @@ public class GUIMgr
             inst.mat[2] = (Material)Resources.Load("material/Fire_TILE");
             inst.mat[3] = (Material)Resources.Load("material/wood");
             inst.mat[4] = (Material)Resources.Load("material/underground_TILE");
-<<<<<<< HEAD
+
             inst.Structures[0] = (GameObject)Resources.Load("object/chapter2_wall");
-=======
-            inst.Structures[0] =(GameObject)Resources.Load("object/chapter2_wall");
->>>>>>> 05f29b049ebfff9b4ca352cb9b8754414df82332
             inst.Structures[1] = (GameObject)Resources.Load("object/chapter2_carrotbox");
             inst.Structures[2] = (GameObject)Resources.Load("object/chapter2_carrotfield");
             inst.Structures[3] = (GameObject)Resources.Load("object/chapter2_carrotshelf");
@@ -261,3 +258,4 @@ public class GUIMgr
         DrawLeftLayout();
 
     }
+}

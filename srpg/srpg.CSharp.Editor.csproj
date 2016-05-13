@@ -171,6 +171,9 @@
     <None Include="Assets\Materials\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\Materials\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Resources\XML\cardtest.xml" />
+    <None Include="Assets\Resources\XML\map_C.xml" />
+    <None Include="Assets\Resources\XML\map_M.xml" />
+    <None Include="Assets\Resources\XML\map_Y.xml" />
     <None Include="Assets\Resources\XML\stage1.xml" />
     <None Include="Assets\Resources\XML\stage2-2.xml" />
     <None Include="Assets\Resources\XML\stage2.xml" />
@@ -226,6 +229,9 @@
     <None Include="Assets\StreamingAssets\a.xml" />
     <None Include="Assets\StreamingAssets\asd.xml" />
     <None Include="Assets\StreamingAssets\cardtest.xml" />
+    <None Include="Assets\StreamingAssets\map_C.xml" />
+    <None Include="Assets\StreamingAssets\map_M.xml" />
+    <None Include="Assets\StreamingAssets\map_Y.xml" />
     <None Include="Assets\StreamingAssets\st1.xml" />
     <None Include="Assets\StreamingAssets\stage1.xml" />
     <None Include="Assets\StreamingAssets\stage2-2.xml" />

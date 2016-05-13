@@ -193,7 +193,7 @@ public class AIPlayer : PlayerBase
                             pm.RemoveAfter();
                             pm.select_object = pm.Players[pm.CurTurnIdx];
                             //pm.TurnOver();
-                            ;
+                            
                         }
                         else
                         {
@@ -228,6 +228,7 @@ public class AIPlayer : PlayerBase
             }
 
         }
+
         if (ef_time > 1.0f)
             ef_time = 0f;
     }
@@ -267,7 +268,7 @@ public class AIPlayer : PlayerBase
                 if (magic.GetInst().type=="fire")
                     magic.GetInst().SetTarget(this.CurHex, this.CurHex, 9);
                 else
-                    magic.GetInst().SetTarget(this.CurHex, pb.CurHex, 1);
+                    magic.GetInst().SetTarget(this.CurHex, this.CurHex, 1);
                 magic.GetInst().targetAI = this;
             }
         }

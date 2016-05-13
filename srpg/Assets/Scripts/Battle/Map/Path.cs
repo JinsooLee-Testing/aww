@@ -5,6 +5,7 @@ public class Path
 {
     public Path Parent;
     Hex curHex;
+    public float timeout = 0f;
     int F;
     int H;//현재부터 도착점
     int G; //시작점부터 현재까지

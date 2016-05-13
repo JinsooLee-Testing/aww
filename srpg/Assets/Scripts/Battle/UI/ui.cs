@@ -21,25 +21,30 @@ public class ui : MonoBehaviour
     {
         if (act == "move")
         {
-
-            if (CostManager.GetInst().cur_cost_num >= 1)
+            PlayerBase pb = pm.Players[pm.CurTurnIdx];
+            Debug.Log(pb.m_type);
+            if (pb.m_type==Type.USER || pb.m_type == Type.MAINCHARACTER)
             {
-                //MapManager.GetInst().ResetMapColor();
-                PlayerBase pb = pm.Players[pm.CurTurnIdx];
-                if (pb.act != ACT.MOVING)
+                
+                if (CostManager.GetInst().cur_cost_num >= 1)
                 {
-                    Manager.GetInst().MoveCamPosToTile(pb.CurHex);
-                    PlayerManager.GetInst().select_object = pb;
-                    pb.CurHex.Passable = true;
-                    SoundManager.GetInst().PlayClickSound();
-                    if (pb.m_type != Type.MONSTER)
+                    //MapManager.GetInst().ResetMapColor();
+
+                    if (pb.act != ACT.MOVING)
                     {
-
-                        if (MapManager.GetInst().HilightMoveRange(pb.CurHex, pb.status.MoveRange))
+                        Manager.GetInst().MoveCamPosToTile(pb.CurHex);
+                        PlayerManager.GetInst().select_object = pb;
+                        pb.CurHex.Passable = true;
+                        SoundManager.GetInst().PlayClickSound();
+                        if (pb.m_type != Type.MONSTER)
                         {
-                            pm.Players[pm.CurTurnIdx].act = ACT.MOVEHILIGHT;
-                        }
 
+                            if (MapManager.GetInst().HilightMoveRange(pb.CurHex, pb.status.MoveRange))
+                            {
+                                pm.Players[pm.CurTurnIdx].act = ACT.MOVEHILIGHT;
+                            }
+
+                        }
                     }
                 }
             }
@@ -53,11 +58,12 @@ public class ui : MonoBehaviour
             SoundManager.GetInst().PlayClickSound();
             Debug.Log("Attack");
             PlayerBase pb = pm.Players[pm.CurTurnIdx];
-
+            if (pb.m_type == Type.USER || pb.m_type == Type.MAINCHARACTER)
+            {
                 if (pb.act != ACT.MOVING)
                 {
                     Manager.GetInst().MoveCamPosToTile(pb.CurHex);
-                    PlayerManager.GetInst().select_object = pb;
+                
                     pb.CurHex.Passable = true;
                     if (pb.m_type != Type.MONSTER)
                     {
@@ -67,12 +73,20 @@ public class ui : MonoBehaviour
                         }
                     }
                 }
+            }
             
         }
         if (act == "turnover")
         {
-            SoundManager.GetInst().PlayClickSound();
-            PlayerManager.GetInst().TurnOver();
+            PlayerBase pb = pm.Players[pm.CurTurnIdx];
+            if (pb.m_type == Type.USER || pb.m_type == Type.MAINCHARACTER)
+            {
+                if (pb.act != ACT.MOVING)
+                {
+                    SoundManager.GetInst().PlayClickSound();
+                    PlayerManager.GetInst().TurnOver();
+                }
+            }
         }
         if (act == "exit")
         {
