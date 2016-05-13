@@ -112,7 +112,6 @@ public class Hex : MonoBehaviour {
  
         if (obj_id != 0)
         {
-
             obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(obj_id-1));
             Vector3 v = transform.position;
             obj.transform.position = new Vector3(v.x, obj_y, v.z);

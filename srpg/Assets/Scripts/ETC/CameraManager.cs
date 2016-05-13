@@ -38,9 +38,18 @@ public class CameraManager : MonoBehaviour {
         if (event_mode == false)
         {
             if (MapManager.GetInst().MapSizeX > 10)
+            {
                 m_pos.y = 1.5f;
+                transform.position = m_pos;
+            }
+            else
+            {
+                if(GUIManager.GetInst().tutorial==false)
+                  m_pos.y = 2f;
+                transform.position = m_pos;
+            }
         }
-     
+       else
         transform.position = m_pos;
       
     }

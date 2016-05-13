@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GUIManager : MonoBehaviour {
     private static GUIManager inst = null;
     private PlayerManager pm = null;
-
+    public string fontPath;
     public int next_scene;
     public int cur_scene;
     public GameObject ui;
@@ -20,6 +20,8 @@ public class GUIManager : MonoBehaviour {
     public bool small = false;
     public bool create = true;
     public bool tutorial=false;
+    public bool talkmode = false;
+    public string named = "denti";
     public int tidx = 2;
     Vector3 InitPos1;
     Vector3 InitPos2;
@@ -44,8 +46,11 @@ public class GUIManager : MonoBehaviour {
     }
 	public void CreateTalkBox()
     {
-        talk_box = ((GameObject)Instantiate(talk)).GetComponent<talkbox>();
-       
+        
+        talk_box = Instantiate(talk).GetComponent<talkbox>();
+        talk_box.transform.position=(new Vector3(50, 50, 50));
+        talkmode = true;
+
 
     }
     public void CreateResult()
@@ -56,7 +61,7 @@ public class GUIManager : MonoBehaviour {
     public void DestoryTalkBox()
     {
         Destroy(talk_box.gameObject);
-
+        talkmode = false;
     }
  
     public void CreateUI()

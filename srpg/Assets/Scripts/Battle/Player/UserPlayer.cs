@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UserPlayer : PlayerBase
 {
-    public int hp;
+
     public string[] na;
     bool hited = false;
     public bool Equip = false;
@@ -11,15 +11,28 @@ public class UserPlayer : PlayerBase
     public int y=0;
   
     public int z=0;
+  
     public GameObject eqip;
     Equipment equip;
     float brokentime = 0f;
+    public int Attack;
+    public int hp;
+    public string line = "\n";
+    public string info;
+    public string info2;
+    public string named;
     void Awake()
     {
         anim = GetComponent<Animator>();
         act = ACT.IDLE;
+
         status = new PlayerStatus();
-        status.Curhp = 150;
+        status.Name = named;
+        status.Curhp = hp;
+        status.Attack=Attack;
+        status.info = info;
+        line = line.Replace(line, "\n");
+        status.info = info + line + info2;
         main_char = true;
         live = true;
         m_type = Type.USER;

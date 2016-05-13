@@ -24,11 +24,13 @@ public class font : MonoBehaviour {
     public bool maintext = true;
     string[] values;
     string t = "";
-    Fontlist font_list;
+    public Fontlist font_list;
     void Start()
     {
         if(GUIManager.GetInst().tutorial==true)
         font_list= FIleManager.Getinst().LoadTextData(path);
+        if(GUIManager.GetInst().talkmode)
+            font_list = FIleManager.Getinst().LoadTextData(GUIManager.GetInst().fontPath);
         //LoadTextFile("text/data.txt");
         text = GetComponent<TextMesh>();
         if (GUIManager.GetInst().tutorial == true)
@@ -74,7 +76,7 @@ public class font : MonoBehaviour {
             else if (font_list.bonInfos[currentTextNumber].tesx_idx >= 3 && font_list.bonInfos[currentTextNumber].tesx_idx == 101)
             {
                 GUIManager.GetInst().DestoryTalkBox();
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(4);
             }
             else
                 CameraManager.GetInst().SetPosition(new Vector3(0, 5, 0));
@@ -82,6 +84,16 @@ public class font : MonoBehaviour {
             text.text = font_list.bonInfos[currentTextNumber].text;
             //     else
             //   text.text = font_list.bonInfos[currentTextNumber].Who_say;
+        }
+        if (GUIManager.GetInst().talkmode)
+        {
+            text.text = font_list.bonInfos[currentTextNumber].text;
+            GUIManager.GetInst().named = font_list.bonInfos[currentTextNumber].Who_say;
+            if (font_list.bonInfos[currentTextNumber].tesx_idx == 1)
+            {
+                GUIManager.GetInst().DestoryTalkBox();
+                MapManager.GetInst().openDoor();
+            }
         }
     }
    void LoadTextFile(string fileName)

@@ -171,6 +171,7 @@
     <None Include="Assets\Materials\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\Materials\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
     <None Include="Assets\Resources\XML\cardtest.xml" />
+    <None Include="Assets\Resources\XML\golem.xml" />
     <None Include="Assets\Resources\XML\map_C.xml" />
     <None Include="Assets\Resources\XML\map_M.xml" />
     <None Include="Assets\Resources\XML\map_Y.xml" />
@@ -179,6 +180,7 @@
     <None Include="Assets\Resources\XML\stage2.xml" />
     <None Include="Assets\Resources\XML\stage3.xml" />
     <None Include="Assets\Resources\XML\stage4.xml" />
+    <None Include="Assets\Resources\XML\story1.xml" />
     <None Include="Assets\Resources\XML\testData.xml" />
     <None Include="Assets\Resources\XML\testData2.xml" />
     <None Include="Assets\Resources\XML\testData3.xml" />
@@ -229,6 +231,7 @@
     <None Include="Assets\StreamingAssets\a.xml" />
     <None Include="Assets\StreamingAssets\asd.xml" />
     <None Include="Assets\StreamingAssets\cardtest.xml" />
+    <None Include="Assets\StreamingAssets\golem.xml" />
     <None Include="Assets\StreamingAssets\map_C.xml" />
     <None Include="Assets\StreamingAssets\map_M.xml" />
     <None Include="Assets\StreamingAssets\map_Y.xml" />
@@ -238,6 +241,7 @@
     <None Include="Assets\StreamingAssets\stage2.xml" />
     <None Include="Assets\StreamingAssets\stage3.xml" />
     <None Include="Assets\StreamingAssets\stage4.xml" />
+    <None Include="Assets\StreamingAssets\story1.xml" />
     <None Include="Assets\StreamingAssets\test.xml" />
     <None Include="Assets\StreamingAssets\testData.xml" />
     <None Include="Assets\StreamingAssets\testData2.xml" />

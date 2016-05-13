@@ -7,6 +7,8 @@ public class SelectObject : MonoBehaviour {
     public Sprite chick;
     public Sprite bunny;
     public Sprite gorilra;
+
+   
     // Use this for initialization
     void Start () {
 	
@@ -15,8 +17,17 @@ public class SelectObject : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (CameraManager.GetInst().event_mode == false)
+        if(GUIManager.GetInst().talkmode)
         {
+           
+           if (GUIManager.GetInst().named=="bunny")
+              GetComponent<SpriteRenderer>().sprite = bunny;
+           else
+                GetComponent<SpriteRenderer>().sprite = DENTI;
+        }
+        if (CameraManager.GetInst().event_mode == false&& GUIManager.GetInst().talkmode==false)
+        {
+            
             PlayerBase pb = PlayerManager.GetInst().select_object;
             if (pb.m_type == Type.MAINCHARACTER)
             {

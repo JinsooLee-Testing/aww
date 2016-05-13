@@ -8,7 +8,12 @@ public enum MARKTYPE
 };
 public class Mark {
 
-    public float xrange;
-    public float yrange;
-    public MARKTYPE type;
+    public int x;
+    public int z;
+
+    public void ShockMark(Hex start,Hex[][][] map)
+    {
+         
+    }
+
 }

@@ -10,6 +10,7 @@ public class PlayerStatus
     public float Maxhp = 150;
     public float Curhp = 150;
     public int Attack = 30;
+    public string info;
 
 
     public PlayerStatus()

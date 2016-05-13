@@ -10,6 +10,9 @@ public class AIPlayer : PlayerBase
     public int hp;
     public int Attack;
     public string m_name;
+    public string info;
+    public string line = "\n";
+    public string info2="hi";
     public int id = 1;
     public float ef_time = 0f;
   
@@ -21,6 +24,8 @@ public class AIPlayer : PlayerBase
         status.Curhp = hp;
         status.Maxhp = hp;
         status.Attack = Attack;
+        line = line.Replace(line, "\n");
+        status.info = info+ line+info2;
         anim = GetComponent<Animator>();
         main_char = false;
         //m_type = Type.MONSTER;
@@ -59,15 +64,16 @@ public class AIPlayer : PlayerBase
                 }
             }
             casting = false;
-
         }
         if (act == ACT.IDLE)
         {
-
+            /*
             if (pm.Players[pm.CurTurnIdx] == this)
             {
-                MapManager.GetInst().SetHexColor(CurHex, Color.black);
+               // MapManager.GetInst().SetHexColor(CurHex, Color.black);
             }
+            */
+            anim.SetBool("attack", false);
             if (pm.Players[pm.CurTurnIdx] == this)
             {
                 AiProc();
@@ -109,19 +115,22 @@ public class AIPlayer : PlayerBase
                 act = ACT.IDLE;
        
                 EffectManager.GetInst().ShowEffect_Summon(CurHex.gameObject, 8, 1f);
+                anim.SetBool("attack", false);
                 PlayerManager.GetInst().TurnOver();
             }
         }
-
+        if (ACT.ATTACKING == act)
+        {
+           // anim.SetBool("attack", true);
+        }
         if (act == ACT.MOVING)
         {//이동처리
-
             if (MoveHexes.Count == 0)
             {
                 act = ACT.IDLE;
+                anim.SetBool("attack", false);
                 PlayerManager.GetInst().TurnOver();
                 return;
-
             }
             Hex nextHex = MoveHexes[0];
             if (MapManager.GetInst().MapSizeY > 0)
@@ -138,7 +147,7 @@ public class AIPlayer : PlayerBase
             Vector3 v = nextHex.transform.position;
             v.y += m_y;
             float distance = Vector3.Distance(transform.position, v);
-
+           
             if (distance >= 1.0f) //이동중
             {
                 anim.SetBool("attack", false);
@@ -174,6 +183,7 @@ public class AIPlayer : PlayerBase
 
                     CurHex = MapManager.GetInst().Map[temppos.GetX()][temppos.GetY()][temppos.GetZ()];
                     CurHex.Passable = false;
+                    anim.SetBool("attack", false);
                     PlayerManager.GetInst().TurnOver();
 
                 }

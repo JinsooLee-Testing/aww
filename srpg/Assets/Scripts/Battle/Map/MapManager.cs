@@ -74,7 +74,7 @@ public class MapManager : MonoBehaviour
 
     void Update()
     {
-       if(timeout!=0f)
+        if (timeout != 0f)
         {
             timeout += Time.deltaTime;
         }
@@ -222,7 +222,7 @@ public class MapManager : MonoBehaviour
             else
             {
                 ResetMapColor();
-                Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material = Map[pos.GetX() + 1][pos.GetY()][pos.GetZ()].mat_move;;
+                Map[pos.GetX()][pos.GetY()][pos.GetZ()].GetComponent<Renderer>().material = Map[pos.GetX() + 1][pos.GetY()][pos.GetZ()].mat_move; ;
             }
 
         }
@@ -231,58 +231,54 @@ public class MapManager : MonoBehaviour
     public bool HilightMoveRange(Hex start, int moveRange)
     {
         int highLighedCount = 0;
-        
-     if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].m_type != Type.MONSTER)
-     {
-         int tempx = start.x - moveRange+3;
-         int maxx = start.x + moveRange + 3;
-         int tempz = start.z - moveRange + 3;
-         int maxz = start.z + moveRange + 3;
 
-         for (int x = 0; x <= MapSizeX; x++)
-         {
-             for(int z= 0; z<= MapSizeZ; z++)
-                { 
-                        if (Map[x][0][z].obj_id == 1)
-                        {
-                            Map[x][0][z].Passable = true;
-                            Destroy(Map[x][0][z].obj);
-                        }
-                    
+        if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].m_type != Type.MONSTER)
+        {
+            int tempx = start.x - moveRange + 3;
+            int maxx = start.x + moveRange + 3;
+            int tempz = start.z - moveRange + 3;
+            int maxz = start.z + moveRange + 3;
+
+            for (int x = 0; x <= MapSizeX; x++)
+            {
+                for (int z = 0; z <= MapSizeZ; z++)
+                {
+           
+
                     if (Map[x][0][z].Passable == true)
-                 {
-                     int distance = (GetDistance(start, Map[x][0][z]));
-                     //헥사곤 상의 셀과 셀간의 공식
+                    {
+                        int distance = (GetDistance(start, Map[x][0][z]));
+                        //헥사곤 상의 셀과 셀간의 공식
 
-                     if (distance <= moveRange && distance != 0)
-                     {
-                         if (IsReachAble(start, Map[x][0][z], moveRange))
-                         {
+                        if (distance <= moveRange && distance != 0)
+                        {
+                            if (IsReachAble(start, Map[x][0][z], moveRange))
+                            {
 
                                 Map[x][0][z].GetComponent<Renderer>().material = Map[x][0][z].mat_move;
                                 Map[x][0][z].At_Marked = true;
-                                
 
-                            highLighedCount++;
-                             if (1 <= MapSizeY)
-                             {
-                                 if (Map[x][1][z].mesh_draw == true)
-                                 {
+
+                                highLighedCount++;
+                                if (1 <= MapSizeY)
+                                {
+                                    if (Map[x][1][z].mesh_draw == true)
+                                    {
 
                                         Map[x][1][z].GetComponent<Renderer>().material = Map[x][1][z].mat_move;
-                                        Map[x][0][z].At_Marked = true; 
-                                     highLighedCount++;
-                                 }
-                             }
-                         }
-                     }
+                                        Map[x][0][z].At_Marked = true;
+                                        highLighedCount++;
+                                    }
+                                }
+                            }
+                        }
 
 
-                 }
-                  
-    }
+                    }
 
-}
+                }
+
+            }
         }
         if (highLighedCount == 0)
         {
@@ -292,7 +288,7 @@ public class MapManager : MonoBehaviour
         {
             return true;
         }
-        
+
 
     }
     public bool HilightAttackRange(Hex start, int AtkRange)
@@ -311,7 +307,7 @@ public class MapManager : MonoBehaviour
 
                     if (distance <= AtkRange && distance != 0)
                     {
-                        Map[x][y][z].GetComponent<Renderer>().material=Map[x][y][z].mat_attack;
+                        Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat_attack;
                         Map[x][y][z].Marked = true;
                         bool isExit = false;
                         foreach (PlayerBase pb in pm.Players)
@@ -383,7 +379,7 @@ public class MapManager : MonoBehaviour
 
                     if (Map[x][y][z].default_matid == 1)
                         Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat1;
-                    else if(Map[x][y][z].default_matid == 2)
+                    else if (Map[x][y][z].default_matid == 2)
                         Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat2;
                     else if (Map[x][y][z].default_matid == 3)
                         Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat3;
@@ -393,7 +389,7 @@ public class MapManager : MonoBehaviour
                         Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat5;
                     Map[x][y][z].Marked = false;
                     Map[x][y][z].At_Marked = false;
-                   
+
                 }
             }
         }
@@ -430,7 +426,7 @@ public class MapManager : MonoBehaviour
         List<Hex> rtnVal = new List<Hex>();
         int H = (int)(MapManager.GetInst().GetDistance(start, dest));
         timeout += Time.deltaTime;
-         Path startPath = new Path(null, start, 0, H);
+        Path startPath = new Path(null, start, 0, H);
         ClosedList.Add(startPath);
         Path result = Recursive_FindPath(startPath, dest);
         if (result == null)
@@ -450,9 +446,9 @@ public class MapManager : MonoBehaviour
         {
             return parent;
         }
-        if(timeout>3.0f)
+        if (timeout > 3.0f)
         {
-            timeout=0f;
+            timeout = 0f;
             return null;
         }
         List<Hex> neibhors = GetNeibhors(parent.GetHex());
@@ -524,7 +520,7 @@ public class MapManager : MonoBehaviour
         List<Hex> path = GetPath(start, dest);
         if (path == null)
         {
-            return false; 
+            return false;
         }
         if (path.Count == 0 || path.Count >= Range)
         {
@@ -560,5 +556,20 @@ public class MapManager : MonoBehaviour
     public void SetHexColor(Hex hex, Color color)
     {
         hex.GetComponent<Renderer>().material.color = color;
+    }
+    public void openDoor()
+    {
+        for (int x = 0; x <= MapSizeX; x++)
+        {
+            for (int z = 0; z <= MapSizeZ; z++)
+            {
+                if (Map[x][0][z].obj_id == 1)
+                {
+                    Map[x][0][z].Passable = true;
+                    Destroy(Map[x][0][z].obj);
+                }
+
+            }
+        }
     }
 }

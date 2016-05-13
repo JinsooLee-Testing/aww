@@ -27,7 +27,7 @@ public class EffectManager : MonoBehaviour {
         inst.effects[8]= ((GameObject)Resources.Load("Prefabs/Effect/ring"));
         inst.effects[9]=( (GameObject)Resources.Load("Prefabs/Effect/chant_wait"));
         inst.effects[10] = ((GameObject)Resources.Load("Prefabs/Effect/cyclone"));
-     
+        inst.effects[11] = ((GameObject)Resources.Load("Prefabs/Effect/shock"));
     }
 	void Start () {
  
