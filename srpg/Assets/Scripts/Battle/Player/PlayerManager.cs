@@ -256,7 +256,7 @@ public class PlayerManager : MonoBehaviour {
             {
                 Players.Remove(pb);
                 GameObject.Destroy(pb.gameObject);
-                SceneManager.LoadScene(nextScene_Num);
+                GUIManager.GetInst().CreateResult();
             }
             else
             {

@@ -13,6 +13,7 @@ public class UserPlayer : PlayerBase
     public int z=0;
     public GameObject eqip;
     Equipment equip;
+    float brokentime = 0f;
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -26,6 +27,7 @@ public class UserPlayer : PlayerBase
 
 
     }
+   
     void Start()
     {
     }
@@ -39,6 +41,11 @@ public class UserPlayer : PlayerBase
     {
       
     }
+    public void DestroyEquip()
+    {
+        brokentime += Time.deltaTime;
+        Equip = false;
+    }
     void EquipHelmet()
     {
         equip = ((GameObject)Instantiate(eqip)).GetComponent<Equipment>();
@@ -49,10 +56,17 @@ public class UserPlayer : PlayerBase
     }
     void Update()
     {
-
-    
-
-        PlayerManager pm = PlayerManager.GetInst();
+        if (brokentime != 0)
+        {
+            brokentime += Time.deltaTime;
+            if(brokentime>1.5)
+            {
+               
+                GameObject.Destroy(equip.gameObject);
+                brokentime = 0f;
+            }
+        }
+            PlayerManager pm = PlayerManager.GetInst();
         if (removeTime != 0)
         {
             removeTime += Time.deltaTime;

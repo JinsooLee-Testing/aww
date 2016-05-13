@@ -46,8 +46,15 @@ public class AIPlayer : PlayerBase
                 {
                     if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type != Type.BOSS)
                     {
-                        pm.Players[j].GetDamage(100);
-                        EffectManager.GetInst().Play(pm.Players[j].CurHex.gameObject);
+                        if (((UserPlayer)pm.Players[j]).Equip == false)
+                        {
+                            pm.Players[j].GetDamage(100);
+                            EffectManager.GetInst().Play(pm.Players[j].CurHex.gameObject);
+                        }
+                        else
+                        {
+                            ((UserPlayer)pm.Players[j]).DestroyEquip();
+                        }
                     }
                 }
             }

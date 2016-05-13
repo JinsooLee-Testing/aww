@@ -79,6 +79,8 @@
     <Compile Include="Assets\Scripts\Battle\UI\SelectObject.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\hpContorl.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\pickthis.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\scene.cs" />
+    <Compile Include="Assets\Scripts\Battle\UI\scene_retry.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\ui.cs" />
     <Compile Include="Assets\Scripts\Battle\cost\CostManager.cs" />
     <Compile Include="Assets\Scripts\Battle\cost\costBase.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="Assets\Scripts\ui\clickthis.cs" />
     <Compile Include="Assets\Scripts\ui\talkbox.cs" />
     <Compile Include="Assets\Scripts\ui\turn.cs" />
+    <Compile Include="Assets\Scripts\ui\ui_count.cs" />
     <Compile Include="Assets\Scripts\wall.cs" />
     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\ModelRotate.cs" />
     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\VoxelModel1Manager.cs" />
@@ -270,6 +273,10 @@
     <None Include="Assets\기획 추가FBX파일\reference\큐비클모델\ani_list.txt" />
     <None Include="Assets\기획 추가FBX파일\스테이지선택\lock-shapes-Shapes4FREE\lock-shapes-Shapes4FREE\how-to-use.txt" />
     <None Include="Assets\기획 추가FBX파일\스테이지선택\lock-shapes-Shapes4FREE\lock-shapes-Shapes4FREE\license.txt" />
+    <None Include="Assets\기획 추가FBX파일\전투결과창 1\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\how-to-use.txt" />
+    <None Include="Assets\기획 추가FBX파일\전투결과창 1\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\license.txt" />
+    <None Include="Assets\기획 추가FBX파일\전투결과창\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\how-to-use.txt" />
+    <None Include="Assets\기획 추가FBX파일\전투결과창\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\license.txt" />
     <None Include="Assets\어셋 다운자료\Elementals\Readme.txt" />
     <None Include="Assets\어셋 다운자료\Fantasy SFX for Particle Distort Texture effect library\readme_Fantasy SFX for Particle Distort Texture effect library.txt" />
     <None Include="Assets\어셋 다운자료\KY_effects\FX_pack0\ReadMe.txt" />

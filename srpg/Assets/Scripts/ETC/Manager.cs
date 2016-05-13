@@ -46,6 +46,15 @@ using System.Collections;
         //gm.DrawGUI();
         CheckMouseZoom();
         CheckMouseButtonDown();
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Application.Quit();
+                return;
+            }
+        }
+
         /*
         Touch touch = Input.GetTouch(0);
         //T//ouch touch2 = Input.GetTouch(1);

@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour {
     public AudioClip AC_ATTack;
     public AudioClip click;
     public AudioClip bgm;
-
+    public AudioClip victory;
     // Use this for initialization
     public static SoundManager GetInst()
     {
@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour {
     void Awake()
     {
         inst = this;
+        inst.victory = (AudioClip)Resources.Load("Sound/victory");
     }
     // Use this for initialization
     void Start () {
@@ -26,7 +27,12 @@ public class SoundManager : MonoBehaviour {
 
     }
 
-    
+    public void PlayVictory()
+    {
+        AudioClip.DestroyImmediate(bgm);
+        AudioSource.PlayClipAtPoint(victory, this.transform.position);
+        
+    }
     public void PlayClickSound()
     {
         AudioSource.PlayClipAtPoint(click, this.transform.position);

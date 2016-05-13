@@ -4,10 +4,14 @@ using UnityEngine.SceneManagement;
 public class GUIManager : MonoBehaviour {
     private static GUIManager inst = null;
     private PlayerManager pm = null;
+
+    public int next_scene;
+    public int cur_scene;
     public GameObject ui;
     public GameObject talk;
     public GameObject click;
     public GameObject popup;
+    GameObject result;
     public clickthis a = new clickthis();
     public clickthis popa = new clickthis();
     public talkbox talk_box=new talkbox();
@@ -22,7 +26,7 @@ public class GUIManager : MonoBehaviour {
     void Awake()
     {
         inst = this;
-     
+        inst.result = (GameObject)Resources.Load("Prefabs/ui/result");
         pm = PlayerManager.GetInst();
         //ui_box = ((GameObject)Instantiate(ui)).GetComponent<uibox>();
         if (CameraManager.GetInst().event_mode == false)
@@ -36,12 +40,18 @@ public class GUIManager : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-
+        
     }
 	public void CreateTalkBox()
     {
         talk_box = ((GameObject)Instantiate(talk)).GetComponent<talkbox>();
+       
 
+    }
+    public void CreateResult()
+    {
+        result = ((GameObject)Instantiate(result)).GetComponent<GameObject>();
+        SoundManager.GetInst().PlayVictory();
     }
     public void DestoryTalkBox()
     {

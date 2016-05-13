@@ -241,11 +241,11 @@ public class Hex : MonoBehaviour {
                     {
                         if (MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable == true)
                         {
-                           obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(6));
+                           obj = (GameObject)GameObject.Instantiate(magic.GetInst().magics[2]);
                             Vector3 v = transform.position;
                             obj.transform.position = new Vector3(v.x, 1, v.z - i);
 
-                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(6));
+                            obj = (GameObject)GameObject.Instantiate(magic.GetInst().magics[2]);
                             MapManager.GetInst().Map[MapPos.GetX()][MapPos.GetY()][MapPos.GetZ() - i].Passable = false;
                         }
                     }
@@ -261,11 +261,11 @@ public class Hex : MonoBehaviour {
                     {
                         if (MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable == true)
                         {
-                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(6));
+                            obj = (GameObject)GameObject.Instantiate(magic.GetInst().magics[2]);
                             Vector3 v = transform.position;
                             obj.transform.position = new Vector3(v.x - i, 1, v.z);
                             obj.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-                            obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(6));
+                            obj = (GameObject)GameObject.Instantiate(magic.GetInst().magics[2]);
                             MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable = false;
                         }
                     }
