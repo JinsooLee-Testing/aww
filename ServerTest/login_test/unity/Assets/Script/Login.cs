@@ -41,7 +41,7 @@ public class Login : MonoBehaviour {
             StaticData.userPasswd = pass.text;
             //setUserId(id.text);
             //setUserPasswd(pass.text);
-            Application.LoadLevel("main_scene");
+            //Application.LoadLevel("main_scene");
             if ("0" == www.text)
             {
                 StaticData.userStage = 0;
