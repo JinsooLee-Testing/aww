@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+public static  class StaticData  {
 
-public class StaticData : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public static string userID;
+    public static string userPassword;
+    public static int userStage;
+    public static List<string> userCard;
 }
