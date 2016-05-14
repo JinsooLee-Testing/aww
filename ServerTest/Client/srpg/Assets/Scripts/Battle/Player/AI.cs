@@ -48,7 +48,10 @@ public class AIthink  {
                 r.y -= 90;
                 aiplayer.transform.rotation = Quaternion.Euler(r);
             }
-            nearUserPlayer.GetDamage(aiplayer.status.Attack);
+            if (((UserPlayer)nearUserPlayer).equip_type != "shield")
+                nearUserPlayer.GetDamage(aiplayer.status.Attack);
+            else
+                ((UserPlayer)nearUserPlayer).DestroyEquip();
 
             
             EffectManager.GetInst().ShowEffect(nearUserPlayer.gameObject);
@@ -124,28 +127,37 @@ public class AIthink  {
 
             if (path == null)
                 PlayerManager.GetInst().TurnOver();
-            Vector3 v = aiplayer.transform.position;
+            Point v = aiplayer.CurHex.MapPos;
+            int su_x = 0;
+            int su_y = 0;
             for (int j = 0; j < MapManager.GetInst().MapSizeX; ++j)
             {
                 for (int k = 0; k < MapManager.GetInst().MapSizeZ; ++k)
                 {
                     int x = Random.Range(-3, 3);
                     int z = Random.Range(-3, 3);
-                    x = (int)v.x + x;
-                    z = (int)v.z + z;
-                    if ((int)v.x + x > MapManager.GetInst().MapSizeX)
-                        x = MapManager.GetInst().MapSizeX;
-                    if ((int)v.z + z > MapManager.GetInst().MapSizeZ)
-                        z = MapManager.GetInst().MapSizeZ;
-                    if ((int)v.x + x <= 0)
-                        x = 0;
-                    if ((int)v.z + z <= 0)
-                       z = 0;
+
+                    x = v.GetX() + x;
+                    z = v.GetZ() + z;
+
+                    if ((int)x > MapManager.GetInst().MapSizeX)
+                        x = MapManager.GetInst().MapSizeX-1;
+                    if ((int)z > MapManager.GetInst().MapSizeZ)
+                        z = MapManager.GetInst().MapSizeZ-1;
+                    if ((int)x <= 0)
+                        x = 1;
+                    if ((int)z <= 0)
+                       z = 1;
+                
                     if (MapManager.GetInst().Map[x][0][z].Passable == true)
+                    {
+                        su_x = x;
+                        su_y = z;
                         break;
+                    }
                 }
             }
-            PlayerManager.GetInst().GenAIPlayer((int)v.x, (int)v.z);
+            PlayerManager.GetInst().GenAIPlayer(su_x, su_y);
             EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6, 0f);
             CostManager.GetInst().enemy_cost_num -= 3;
             //PlayerManager.GetInst().TurnOver();
@@ -211,38 +223,45 @@ public class AIthink  {
                         MapManager.GetInst().ResetMapColor(aiplayer.CurHex.MapPos);
                     }
                 }
-                
-               for(i=0;i<2;++i)
+
+                Point p = aiplayer.CurHex.MapPos;
+                int su_x = 0;
+                int su_y = 0;
+                for (i = 0; i < 2; ++i)
                 {
-                    if (CostManager.GetInst().enemy_cost_num > 3)
+                    for (int j = 0; j < MapManager.GetInst().MapSizeX; ++j)
                     {
-                        for (int j = 0; j < MapManager.GetInst().MapSizeX; ++j)
+                        for (int k = 0; k < MapManager.GetInst().MapSizeZ; ++k)
                         {
-                            for (int k = 0; k < MapManager.GetInst().MapSizeZ; ++k)
+                            int x = Random.Range(-3, 3);
+                            int z = Random.Range(-3, 3);
+
+                            x = p.GetX() + x;
+                            z = p.GetZ() + z;
+
+                            if ((int)x > MapManager.GetInst().MapSizeX)
+                                x = MapManager.GetInst().MapSizeX - 1;
+                            if ((int)z > MapManager.GetInst().MapSizeZ)
+                                z = MapManager.GetInst().MapSizeZ - 1;
+                            if ((int)x <= 0)
+                                x = 1;
+                            if ((int)z <= 0)
+                                z = 1;
+
+                            if (MapManager.GetInst().Map[x][0][z].Passable == true)
                             {
-                                int x = Random.Range(-3, 3);
-                                int z = Random.Range(-3, 3);
-                                x = (int)v.x + x;
-                                z = (int)v.z + z;
-                                if ((int)v.x + x > MapManager.GetInst().MapSizeX)
-                                    x = MapManager.GetInst().MapSizeX;
-                                if ((int)v.z + z > MapManager.GetInst().MapSizeZ)
-                                    z = MapManager.GetInst().MapSizeZ;
-                                if ((int)v.x + x <= 0)
-                                    x = 0;
-                                if ((int)v.z + z <= 0)
-                                    z = 0;
-                                if (MapManager.GetInst().Map[x][0][z].Passable == true)
-                                    break;
+                                su_x = x;
+                                su_y = z;
+                                break;
                             }
                         }
-                        PlayerManager.GetInst().GenAIPlayer((int)v.x, (int)v.z);
-                        EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6, 0f);
-                        CostManager.GetInst().enemy_cost_num -= 3;
                     }
+                    PlayerManager.GetInst().GenAIPlayer(su_x, su_y);
+                    EffectManager.GetInst().ShowEffect_Summon(aiplayer.CurHex.gameObject, 6, 0f);
+                    CostManager.GetInst().enemy_cost_num -= 3;
+
                 }
 
-             
             }
         }
        

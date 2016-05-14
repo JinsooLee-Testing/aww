@@ -13,8 +13,7 @@ public class npc : PlayerBase {
     void Start () {
         
    
-    }
-	
+    }	
 	// Update is called once per frame
 	void Update () {
 	

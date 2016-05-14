@@ -56,6 +56,7 @@ public class GUIManager : MonoBehaviour {
     public void CreateResult()
     {
         result = ((GameObject)Instantiate(result)).GetComponent<GameObject>();
+        FIleManager.Getinst().SaveStageData(next_scene);
         SoundManager.GetInst().PlayVictory();
     }
     public void DestoryTalkBox()
