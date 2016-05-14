@@ -15,6 +15,7 @@ public class magic : MonoBehaviour
     public ACT act;
     public GameObject[] magics = new GameObject[10];
     public float ef_time = 0f;
+    public int curmagic_id;
     public static magic GetInst()
     {
         return inst;
@@ -28,6 +29,7 @@ public class magic : MonoBehaviour
         inst.magics[0] = (GameObject)Resources.Load("magic/fireball");
         inst.magics[1] = (GameObject)Resources.Load("magic/water");
         inst.magics[2] = (GameObject)Resources.Load("magic/wall");
+        inst.magics[3] = (GameObject)Resources.Load("magic/waterfall");
         act = ACT.IDLE;
     }
     void Start()
@@ -57,36 +59,53 @@ public class magic : MonoBehaviour
         if (type == "fire")
         {
             act = ACT.IDLE;
-            fireball[] fireb = new fireball[8];
-            for (int i = 0; i < 8; ++i)
+            if (curmagic_id == 1)
             {
-                
-                fireb[i] = ((GameObject)Instantiate(magics[0])).GetComponent<fireball>();
-                fireb[i].targetHex = v;
+                fireball[] fireb = new fireball[8];
+                for (int i = 0; i < 8; ++i)
+                {
+
+                    fireb[i] = ((GameObject)Instantiate(magics[0])).GetComponent<fireball>();
+                    fireb[i].targetHex = v;
+                    Vector3 v2 = v.transform.position;
+                    v2 = new Vector3(v2.x, 2, v2.z);
+                    Vector3 Start = start.transform.position;
+                    if (i == 2)
+                        Start.z -= 6;
+                    if (i == 3)
+                        Start.z += 6;
+                    if (i == 4)
+                        Start.z += 3;
+                    if (i == 5)
+                        Start.z -= 3;
+                    if (i == 6)
+                        Start.x += 3;
+                    if (i == 7)
+                        Start.x += 3;
+                    if (i == 1)
+                        Start.x -= 6;
+                    if (i == 0)
+                        Start.x += 6;
+                    Start.y = 10;
+                    fireb[i].target = v2;
+                    fireb[i].transform.position = Start;
+
+                    fireb[i].fire = true;
+                }
+            }
+            else
+            {
+                fireball fireb = new fireball();
+                fireb = ((GameObject)Instantiate(magics[0])).GetComponent<fireball>();
+                fireb.targetHex = v;
                 Vector3 v2 = v.transform.position;
                 v2 = new Vector3(v2.x, 2, v2.z);
                 Vector3 Start = start.transform.position;
-                if (i == 2)
-                    Start.z -= 6;
-                if (i == 3)
-                    Start.z += 6;
-                if (i == 4)
-                    Start.z += 3;
-                if (i == 5)
-                    Start.z -= 3;
-                if (i == 6)
-                    Start.x += 3;
-                if (i == 7)
-                    Start.x += 3;
-                if (i == 1)
-                    Start.x -= 6;
-                if (i == 0)
-                    Start.x += 6;
-                Start.y = 10;
-                fireb[i].target = v2;
-                fireb[i].transform.position = Start;
-               
-                fireb[i].fire = true;
+                Start.y = 9;
+                fireb.target = v2;
+                fireb.transform.position = Start;
+
+                fireb.fire = true;
             }
         }
         else if (type == "wall")
@@ -106,33 +125,50 @@ public class magic : MonoBehaviour
             CameraManager.GetInst().ResetCameraTarget();
             CostManager.GetInst().CostDecrease(CostManager.GetInst().Curcostnum);
         }
-        else
+        else if (type == "water")
         {
-           
-            fireball[] fireb = new fireball[4];
-            for (int i = 0; i < 4; ++i)
+            if (curmagic_id == 2)
             {
-                fireb[i] = ((GameObject)Instantiate(magics[1])).GetComponent<fireball>();
-                fireb[i].targetHex = v;
-                Vector3 v2 = v.transform.position;
-                v2 = new Vector3(v2.x, 0, v2.z);
-                Vector3 Start = start.transform.position;
-                if (i == 2)
-                    Start.z -= 8;
-                if (i == 3)
-                    Start.z += 8;
-                if (i == 1)
-                    Start.x -= 8;
-                if (i == 0)
-                    Start.x += 8;
-                Start.y = y;
+                fireball[] fireb = new fireball[4];
+                for (int i = 0; i < 4; ++i)
+                {
+                    fireb[i] = ((GameObject)Instantiate(magics[1])).GetComponent<fireball>();
+                    fireb[i].targetHex = v;
+                    Vector3 v2 = v.transform.position;
+                    v2 = new Vector3(v2.x, 0, v2.z);
+                    Vector3 Start = start.transform.position;
+                    if (i == 2)
+                        Start.z -= 8;
+                    if (i == 3)
+                        Start.z += 8;
+                    if (i == 1)
+                        Start.x -= 8;
+                    if (i == 0)
+                        Start.x += 8;
+                    Start.y = y;
 
-                fireb[i].target = v2;
-                fireb[i].transform.position = Start;
-                fireb[i].fire = true;
+                    fireb[i].target = v2;
+                    fireb[i].transform.position = Start;
+                    fireb[i].fire = true;
 
+                }
+            }
+            else
+            {
+                fireball fireb = new fireball();
+    
+                    fireb = ((GameObject)Instantiate(magics[3])).GetComponent<fireball>();
+                    fireb.targetHex = v;
+                    Vector3 v2 = v.transform.position;
+                    v2 = new Vector3(v2.x, 0, v2.z);
+                    Vector3 Start = start.transform.position;
+                    Start.y = 10f;
+                    fireb.target = v2;
+                    fireb.transform.position = Start;
+                    fireb.fire = true;          
             }
         }
+        
     }
 
     // Update is called once per frame

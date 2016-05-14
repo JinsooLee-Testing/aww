@@ -29,6 +29,7 @@ public class UserPlayer : PlayerBase
         status = new PlayerStatus();
         status.Name = named;
         status.Curhp = hp;
+        status.Maxhp = hp;
         status.Attack=Attack;
         status.info = info;
         line = line.Replace(line, "\n");
@@ -47,8 +48,22 @@ public class UserPlayer : PlayerBase
     // Update is called once per frame
     void OnMouseDown()
     {
-        PlayerManager.GetInst().select_object = this;
-              PlayerManager.GetInst().SetPickPos(this); 
+      
+        if(magic.GetInst().curmagic_id==5)
+        {
+
+            status.Heal(80);
+            EffectManager.GetInst().ShowEffect_Summon(this.CurHex.gameObject, 12, 1);
+            CostManager.GetInst().CostDecrease(CostManager.GetInst().Curcostnum);
+            MapManager.GetInst().ResetMapColor();
+            CameraManager.GetInst().ResetCameraTarget();
+            magic.GetInst().curmagic_id = 0;
+        }
+        else
+        {
+            PlayerManager.GetInst().select_object = this;
+            PlayerManager.GetInst().SetPickPos(this);
+        }
     }
     public void DrawStatus()
     {

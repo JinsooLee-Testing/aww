@@ -12,7 +12,13 @@ public class PlayerStatus
     public int Attack = 30;
     public string info;
 
-
+    public void Heal(int hp)
+    {
+        if (Maxhp > Curhp + hp)
+            Curhp += hp;
+        else
+            Curhp = Maxhp;
+    }
     public PlayerStatus()
     {
         Name = "wolf";

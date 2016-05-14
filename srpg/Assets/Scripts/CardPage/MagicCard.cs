@@ -26,20 +26,24 @@ public class MagicCard : CardUseBase {
             {
                 if (On_active == true)
                 {
-                    if (magic_id == 2)
+                    if (magic_id == 2|| magic_id==6)
+                    {
                         magic.GetInst().type = "water";
+                        
+                    }
                     else if (magic_id == 3)
                     {
                         magic.GetInst().type = "wall";
                         Debug.Log("fire");
                     }
-                    else if(magic_id==4)
+                    else if (magic_id == 4)
                     {
                         magic.GetInst().type = "wind";
                     }
-                    else
+                    else if (magic_id == 1 ||magic_id == 7)
                         magic.GetInst().type = "fire";
 
+                    magic.GetInst().curmagic_id = magic_id;
                     PlayerBase pb = PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx];
                     Manager.GetInst().MoveCamPosToTile(pb.CurHex);
                     PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act = ACT.MAGIC;

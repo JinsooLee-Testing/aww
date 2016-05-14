@@ -50,6 +50,7 @@ public class PlayerBase : MonoBehaviour {
 	void Update () {
       
     }
+ 
     public void GetDamage(int damage)
     {
        status.Curhp -= damage;
