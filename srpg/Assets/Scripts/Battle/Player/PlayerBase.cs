@@ -57,10 +57,18 @@ public class PlayerBase : MonoBehaviour {
        status.Curhp -= damage;
        if (status.Curhp <= 0)
         {
-           // hpContorl.GetInst().SetPos(this);
+            if (m_type == Type.GOLEM)
+            {
+                anim.SetTrigger("Die");
+            }
+            // hpContorl.GetInst().SetPos(this);
             act = ACT.DIYING;
             removeTime += Time.deltaTime;
             //PlayerManager.GetInst().RemovePlayer(this);
+        }
+       if(m_type==Type.GOLEM)
+        {
+            anim.SetTrigger("Take Damage");
         }
 
     }

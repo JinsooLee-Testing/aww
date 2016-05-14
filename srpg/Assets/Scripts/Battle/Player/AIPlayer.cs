@@ -215,28 +215,60 @@ public class AIPlayer : PlayerBase
         if (removeTime != 0)
         {
             removeTime += Time.deltaTime;
-            if (removeTime >= 1.5f)
+            if (removeTime >= 1.8f)
             {
-                for (int i = 0; i < pm.Players.Count; ++i)
+                if(Type.GOLEM==m_type)
                 {
-                    if (pm.Players[i].act == ACT.DIYING)
+                    if (removeTime >= 2.6f)
                     {
-                        if (pm.CurTurnIdx == i)
+                        for (int i = 0; i < pm.Players.Count; ++i)
                         {
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
-                            //pm.TurnOver();
-                            
-                        }
-                        else
-                        {
+                            if (pm.Players[i].act == ACT.DIYING)
+                            {
+                                if (pm.CurTurnIdx == i)
+                                {
+                                    pm.RemoveAfter();
+                                    pm.RemovePlayer(pm.Players[i]);
+                                    pm.RemoveAfter();
+                                    pm.select_object = pm.Players[pm.CurTurnIdx];
+                                    //pm.TurnOver();
 
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
+                                }
+                                else
+                                {
+
+                                    pm.RemoveAfter();
+                                    pm.RemovePlayer(pm.Players[i]);
+                                    pm.RemoveAfter();
+                                    pm.select_object = pm.Players[pm.CurTurnIdx];
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < pm.Players.Count; ++i)
+                    {
+                        if (pm.Players[i].act == ACT.DIYING)
+                        {
+                            if (pm.CurTurnIdx == i)
+                            {
+                                pm.RemoveAfter();
+                                pm.RemovePlayer(pm.Players[i]);
+                                pm.RemoveAfter();
+                                pm.select_object = pm.Players[pm.CurTurnIdx];
+                                //pm.TurnOver();
+
+                            }
+                            else
+                            {
+
+                                pm.RemoveAfter();
+                                pm.RemovePlayer(pm.Players[i]);
+                                pm.RemoveAfter();
+                                pm.select_object = pm.Players[pm.CurTurnIdx];
+                            }
                         }
                     }
                 }
