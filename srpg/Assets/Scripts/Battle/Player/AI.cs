@@ -48,7 +48,10 @@ public class AIthink  {
                 r.y -= 90;
                 aiplayer.transform.rotation = Quaternion.Euler(r);
             }
-            nearUserPlayer.GetDamage(aiplayer.status.Attack);
+            if (((UserPlayer)nearUserPlayer).equip_type != "shield")
+                nearUserPlayer.GetDamage(aiplayer.status.Attack);
+            else
+                ((UserPlayer)nearUserPlayer).DestroyEquip();
 
             
             EffectManager.GetInst().ShowEffect(nearUserPlayer.gameObject);

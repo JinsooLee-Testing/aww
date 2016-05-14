@@ -21,6 +21,7 @@ public class UserPlayer : PlayerBase
     public string info;
     public string info2;
     public string named;
+    public string equip_type;
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -38,6 +39,7 @@ public class UserPlayer : PlayerBase
         live = true;
         m_type = Type.USER;
         Equip = false;
+        
 
 
     }
@@ -59,6 +61,24 @@ public class UserPlayer : PlayerBase
             CameraManager.GetInst().ResetCameraTarget();
             magic.GetInst().curmagic_id = 0;
         }
+        if (magic.GetInst().curmagic_id == 8)
+        {
+            if (Equip == false)
+            {
+                EquipShield();
+
+                EffectManager.GetInst().ShowEffect_Summon(this.CurHex.gameObject, 12, 1);
+                CostManager.GetInst().CostDecrease(CostManager.GetInst().Curcostnum);
+                MapManager.GetInst().ResetMapColor();
+                CameraManager.GetInst().ResetCameraTarget();
+                magic.GetInst().curmagic_id = 0;
+            }
+            else
+            {
+                MapManager.GetInst().ResetMapColor();
+                CameraManager.GetInst().ResetCameraTarget();
+            }
+        }
         else
         {
             PlayerManager.GetInst().select_object = this;
@@ -73,6 +93,7 @@ public class UserPlayer : PlayerBase
     {
         brokentime += Time.deltaTime;
         Equip = false;
+        equip_type = "null";
     }
     void EquipHelmet()
     {
@@ -83,6 +104,19 @@ public class UserPlayer : PlayerBase
             Vector3 v2 = transform.position;
             v2.y += 1.5f;
             equip.transform.position = v2;
+            equip_type = "helmet";
+        }
+    }
+    void EquipShield()
+    {
+        if (Equip == false)
+        {
+            equip = ((GameObject)Instantiate(magic.GetInst().magics[4])).GetComponent<Equipment>();
+            Equip = true;
+            Vector3 v2 = transform.position;
+            v2.y += 4.5f;
+            equip.transform.position = v2;
+            equip_type = "shield";
         }
     }
     void Update()
@@ -127,7 +161,10 @@ public class UserPlayer : PlayerBase
         if (Equip == true)
         {
             Vector3 v2 = transform.position;
-            v2.y += 1.5f;
+            if(equip_type=="helmet")
+                v2.y += 1.5f;
+            else
+                v2.y += 3.5f;
             equip.transform.position = v2;
         }
         if (act==ACT.IDLE)

@@ -26,10 +26,10 @@ public class MagicCard : CardUseBase {
             {
                 if (On_active == true)
                 {
-                    if (magic_id == 2|| magic_id==6)
+                    if (magic_id == 2 || magic_id == 6)
                     {
                         magic.GetInst().type = "water";
-                        
+
                     }
                     else if (magic_id == 3)
                     {
@@ -40,8 +40,10 @@ public class MagicCard : CardUseBase {
                     {
                         magic.GetInst().type = "wind";
                     }
-                    else if (magic_id == 1 ||magic_id == 7)
+                    else if (magic_id == 1 || magic_id == 7)
                         magic.GetInst().type = "fire";
+                    else
+                        magic.GetInst().type = "buff";
 
                     magic.GetInst().curmagic_id = magic_id;
                     PlayerBase pb = PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx];

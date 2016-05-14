@@ -30,6 +30,7 @@ public class magic : MonoBehaviour
         inst.magics[1] = (GameObject)Resources.Load("magic/water");
         inst.magics[2] = (GameObject)Resources.Load("magic/wall");
         inst.magics[3] = (GameObject)Resources.Load("magic/waterfall");
+        inst.magics[4] = (GameObject)Resources.Load("magic/shield");
         act = ACT.IDLE;
     }
     void Start()

@@ -41,6 +41,7 @@ public class BattleCardManager : MonoBehaviour
         inst.cards[6] = ((GameObject)Resources.Load("Prefabs/card/fireball"));
         inst.cards[7] = ((GameObject)Resources.Load("Prefabs/card/heal"));
         inst.cards[8] = ((GameObject)Resources.Load("Prefabs/card/waterfall"));
+        inst.cards[9] = ((GameObject)Resources.Load("Prefabs/card/shield"));
         // inst.cards[4] = ((GameObject)Resources.Load("Prefabs/card/wind"));
     }
     public void useCard(int but_num)
@@ -70,7 +71,7 @@ public class BattleCardManager : MonoBehaviour
         Vector3 temp = Initpos2;
         for (int x = 0; x <= MapSizeX; x++)
         {
-            int i = Random.Range(0,8);
+            int i = Random.Range(0,9);
             GameObject.Destroy(cardUse[x].gameObject);
             if (i == 0)
             {
@@ -101,9 +102,13 @@ public class BattleCardManager : MonoBehaviour
             {
                 cardUse[x] = (MagicCard)GameObject.Instantiate(cards[7]).GetComponent<MagicCard>();
             }
-            else
+            else if (i==7)
             {
                 cardUse[x] = (MagicCard)GameObject.Instantiate(cards[8]).GetComponent<MagicCard>();
+            }
+             else
+            {
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[9]).GetComponent<MagicCard>();
             }
             cardUse[x].transform.position = temp;
             cardUse[x].Buttonnum = x;
@@ -118,7 +123,7 @@ public class BattleCardManager : MonoBehaviour
         Vector3 temp = Initpos2;
         for (int x = 0; x <= MapSizeX; x++)
         {
-            int i = Random.Range(0, 8);
+            int i = Random.Range(0, 9);
             if (i == 0)
             {
 
@@ -148,9 +153,13 @@ public class BattleCardManager : MonoBehaviour
             {
                 cardUse[x] = (MagicCard)GameObject.Instantiate(cards[7]).GetComponent<MagicCard>();
             }
-            else
+            else if (i == 7)
             {
                 cardUse[x] = (MagicCard)GameObject.Instantiate(cards[8]).GetComponent<MagicCard>();
+            }
+            else
+            {
+                cardUse[x] = (MagicCard)GameObject.Instantiate(cards[9]).GetComponent<MagicCard>();
             }
             cardUse[x].transform.position = temp;
             cardUse[x].Buttonnum = x;
