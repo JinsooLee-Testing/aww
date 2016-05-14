@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Battle\Map\pick.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\AI.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\AIPlayer.cs" />
+    <Compile Include="Assets\Scripts\Battle\Player\AI_Golem.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\PlayerBase.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\PlayerManager.cs" />
@@ -200,6 +201,7 @@
     <None Include="Assets\Resources\XML\map_C.xml" />
     <None Include="Assets\Resources\XML\map_M.xml" />
     <None Include="Assets\Resources\XML\map_Y.xml" />
+    <None Include="Assets\Resources\XML\stage.xml" />
     <None Include="Assets\Resources\XML\stage1.xml" />
     <None Include="Assets\Resources\XML\stage2-2.xml" />
     <None Include="Assets\Resources\XML\stage2.xml" />

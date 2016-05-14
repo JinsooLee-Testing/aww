@@ -22,7 +22,8 @@ public enum Type
     MONSTER,
     OBJECT,
     MAINCHARACTER,
-    BOSS
+    BOSS,
+    GOLEM
 }
 public class PlayerBase : MonoBehaviour {
     public PlayerStatus status;

@@ -64,7 +64,7 @@ public class fireball : MonoBehaviour
             transform.position = target;
             magic.GetInst().fired = false;
 
-            MapManager.GetInst().MarkAttackRange(magic.GetInst().targetAI.CurHex, 2);
+            MapManager.GetInst().MarkAttackRange(magic.GetInst().targetAI.CurHex, 2,false);
             PlayerManager pm = PlayerManager.GetInst();
 
 

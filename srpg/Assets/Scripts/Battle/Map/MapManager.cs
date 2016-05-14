@@ -344,7 +344,85 @@ public class MapManager : MonoBehaviour
             return true;
         }
     }
-    public void MarkAttackRange(Hex start, int AtkRange)
+    public void MarkShockRange()
+    {
+        for (int i = 5; i > 3; --i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[3][0][i].gameObject, 14, 1);
+            Map[3][0][i].At_Marked = true;
+            Map[3][0][i].GetComponent<Renderer>().material = Map[3][0][i].mat_attack;
+        }
+        for (int i = 6; i > 2; --i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[2][0][i].gameObject, 13, 1);
+            Map[2][0][i].At_Marked = true;
+            Map[2][0][i].GetComponent<Renderer>().material = Map[2][0][i].mat_attack;
+        }
+        for (int i = 7; i > 1; --i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[1][0][i].gameObject, 11, 1);
+            Map[1][0][i].At_Marked = true;
+            Map[1][0][i].GetComponent<Renderer>().material = Map[1][0][i].mat_attack;
+        }
+
+        for (int i = 5; i > 3; --i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[6][0][i].gameObject, 14, 1);
+            Map[6][0][i].At_Marked = true;
+            Map[6][0][i].GetComponent<Renderer>().material = Map[6][0][i].mat_attack;
+        }
+        for (int i = 6; i > 2; --i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[7][0][i].gameObject, 13, 1);
+            Map[7][0][i].At_Marked = true;
+            Map[7][0][i].GetComponent<Renderer>().material = Map[7][0][i].mat_attack;
+        }
+        for (int i = 7; i > 1; --i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[8][0][i].gameObject, 11, 1);
+            Map[8][0][i].At_Marked = true;
+            Map[8][0][i].GetComponent<Renderer>().material = Map[8][0][i].mat_attack;
+        }
+
+        for (int i = 4; i < 7; ++i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[i][0][6].gameObject, 14, 1);
+            Map[i][0][6].At_Marked = true;
+            Map[i][0][6].GetComponent<Renderer>().material = Map[i][0][6].mat_attack;
+        }
+        for (int i = 4; i < 6; ++i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[i][0][7].gameObject, 13, 1);
+            Map[i][0][7].At_Marked = true;
+            Map[i][0][7].GetComponent<Renderer>().material = Map[i][0][7].mat_attack;
+        }
+        for (int i = 4; i < 6; ++i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[i][0][8].gameObject, 11, 1);
+            Map[i][0][8].At_Marked = true;
+            Map[i][0][8].GetComponent<Renderer>().material = Map[i][0][8].mat_attack;
+        }
+
+        for (int i = 4; i < 7; ++i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[i][0][3].gameObject, 14, 1);
+            Map[i][0][3].At_Marked = true;
+            Map[i][0][3].GetComponent<Renderer>().material = Map[i][0][3].mat_attack;
+        }
+        for (int i = 4; i < 6; ++i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[i][0][2].gameObject, 13, 1);
+            Map[i][0][2].At_Marked = true;
+            Map[i][0][2].GetComponent<Renderer>().material = Map[i][0][2].mat_attack;
+        }
+        for (int i = 4; i < 6; ++i)
+        {
+            EffectManager.GetInst().ShowEffect_Summon(Map[i][0][1].gameObject, 11, 1);
+            Map[i][0][1].At_Marked = true;
+            Map[i][0][1].GetComponent<Renderer>().material = Map[i][0][1].mat_attack;
+        }
+    }
+    public void MarkAttackRange(Hex start, int AtkRange,bool show)
     {
 
         PlayerManager pm = PlayerManager.GetInst();
@@ -360,7 +438,12 @@ public class MapManager : MonoBehaviour
 
                     if (distance <= AtkRange && distance != 0)
                     {
+                        if(show==true)
+                        {
+                              //EffectManager.GetInst().ShowEffect_Summon(Map[x][y][z].gameObject, 12, 1);
+                        }
                         Map[x][y][z].At_Marked = true;
+                        
                         Map[x][y][z].GetComponent<Renderer>().material = Map[x][y][z].mat_attack;
                     }
                 }

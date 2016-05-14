@@ -42,14 +42,26 @@ public class AIPlayer : PlayerBase
         if (act == ACT.CASTING && casting==true)
         {
             Debug.Log("hh");
-            act = ACT.JUMP;
-            MapManager.GetInst().MarkAttackRange(CurHex, 4);
+            if (m_type == Type.GOLEM)
+            {
+                anim.SetTrigger("Shockwave Attack");
+                MapManager.GetInst().MarkShockRange();
+                
+            }
+
+            else
+            {
+                act = ACT.JUMP;
+                MapManager.GetInst().MarkAttackRange(CurHex, 4, false);
+            }
+        
 
             for (int j = 0; j < pm.Players.Count; ++j)
             {
                 if (pm.Players[j].CurHex.At_Marked == true)
                 {
-                    if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type != Type.BOSS)
+                  
+                        if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type != Type.BOSS && pm.Players[j].m_type != Type.GOLEM)
                     {
                         if (((UserPlayer)pm.Players[j]).Equip == false)
                         {
@@ -63,16 +75,21 @@ public class AIPlayer : PlayerBase
                     }
                 }
             }
+            if (m_type == Type.GOLEM)
+            {
+                if (act == ACT.CASTING)
+                {
+                    MapManager.GetInst().ResetMapColor();
+                    act = ACT.IDLE;
+                    PlayerManager.GetInst().TurnOver();
+                }
+
+            }
+           
             casting = false;
         }
         if (act == ACT.IDLE)
         {
-            /*
-            if (pm.Players[pm.CurTurnIdx] == this)
-            {
-               // MapManager.GetInst().SetHexColor(CurHex, Color.black);
-            }
-            */
             anim.SetBool("attack", false);
             if (pm.Players[pm.CurTurnIdx] == this)
             {
@@ -99,6 +116,7 @@ public class AIPlayer : PlayerBase
             Vector3 gravity = new Vector3(0, -9.8f, 0);
             Vector3 v = transform.position;
             float speed = 12;
+
             if (v.y >= 1)
             {
                 v.y -= Time.deltaTime * speed;
@@ -253,18 +271,24 @@ public class AIPlayer : PlayerBase
     {
         if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx] == this)
         {
-            AIthink ai = AIthink.GetInst();
+            if (Type.GOLEM == m_type)
+            {
+                AI_Golem ai = AI_Golem.GetInst();
+                CurHex.Passable = true;
+                if (act != ACT.CASTING)
+                    ai.MoveToNearUserPlayer(this);
+            }
+            else
+            {
+                AIthink ai = AIthink.GetInst();
+                CurHex.Passable = true;
+                if (act != ACT.CASTING)
+                    ai.MoveToNearUserPlayer(this);
+            }
             //근점 플레이어찾는과정 추가내용 
             //이미 근접상태면 act는 IDLE 유지 이동 필요하면 act는 MOVING으로
-
-
-            CurHex.Passable = true;
-            if(act != ACT.CASTING)
-            ai.MoveToNearUserPlayer(this);
-            //if (act == ACT.IDLE)
-               
-
-
+          
+            //if (act == ACT.IDLE)          
         }
     }
     void OnMouseDown()

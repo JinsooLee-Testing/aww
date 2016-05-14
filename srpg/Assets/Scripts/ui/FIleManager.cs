@@ -56,7 +56,8 @@ public class FIleManager : MonoBehaviour
             if (Application.platform == RuntimePlatform.Android)
             {
                 TextAsset textAsset = Resources.Load("XML/" + "stage") as TextAsset;
-                xmlFile.Save(textAsset.text);
+                string strFilePath = Application.persistentDataPath + "/" + "Assets/Resources/XML/stage.xml";
+                xmlFile.Save(strFilePath);
             }
             else
                 xmlFile.Save("Assets/StreamingAssets/stage.xml");
@@ -74,6 +75,7 @@ public class FIleManager : MonoBehaviour
         {
             TextAsset textAsset = Resources.Load("XML/" + strFile) as TextAsset;
             xmlFile.LoadXml(textAsset.text);
+
         }
         else
         {
