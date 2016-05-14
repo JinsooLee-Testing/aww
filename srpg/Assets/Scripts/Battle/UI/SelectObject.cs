@@ -46,6 +46,8 @@ public class SelectObject : MonoBehaviour {
                     GetComponent<SpriteRenderer>().sprite = bunny;
                 if (pb.Monster_id == 3)
                     GetComponent<SpriteRenderer>().sprite = gorilra;
+                if (pb.Monster_id == 4)
+                    GetComponent<SpriteRenderer>().sprite = Obj;
 
             }
         }
