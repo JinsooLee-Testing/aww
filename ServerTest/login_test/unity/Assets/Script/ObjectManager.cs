@@ -1,18 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 public class ObjectManager : MonoBehaviour
 {
 
+    string[] cardName;
+    //string[] objectName;
     void Start()
     {
-       
-        StartCoroutine(ConnPhpLogin());
+        StaticData.userId = "leejinsoo";
+        StartCoroutine(ConnectCardPHP());
 
     }
 
+    void InsertCardList(string name)
+    {
+       cardName = name.Split(':');
+        foreach (string element in cardName)
+        {
+            Debug.Log(element);
+        }
+    }
 
-    IEnumerator ConnPhpLogin()
+    IEnumerator ConnectCardPHP()
     {
 
         string url = "http://localhost/SelectCard.php";
@@ -27,7 +37,9 @@ public class ObjectManager : MonoBehaviour
         if (null == www.error)
         {
             Debug.Log(www.text);
+            InsertCardList(www.text);
         }
         else Debug.Log(www.error);
     }
+
 }
