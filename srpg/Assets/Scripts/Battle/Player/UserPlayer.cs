@@ -61,11 +61,14 @@ public class UserPlayer : PlayerBase
     }
     void EquipHelmet()
     {
-        equip = ((GameObject)Instantiate(eqip)).GetComponent<Equipment>();
-        Equip = true;
-        Vector3 v2 = transform.position;
-        v2.y += 1.5f;
-        equip.transform.position = v2;
+        if (Equip == false)
+        {
+            equip = ((GameObject)Instantiate(eqip)).GetComponent<Equipment>();
+            Equip = true;
+            Vector3 v2 = transform.position;
+            v2.y += 1.5f;
+            equip.transform.position = v2;
+        }
     }
     void Update()
     {

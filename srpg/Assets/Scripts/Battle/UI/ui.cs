@@ -79,14 +79,11 @@ public class ui : MonoBehaviour
         if (act == "turnover")
         {
             PlayerBase pb = pm.Players[pm.CurTurnIdx];
-            if (pb.m_type == Type.USER || pb.m_type == Type.MAINCHARACTER)
-            {
                 if (pb.act != ACT.MOVING)
                 {
                     SoundManager.GetInst().PlayClickSound();
                     PlayerManager.GetInst().TurnOver();
                 }
-            }
         }
         if (act == "exit")
         {
