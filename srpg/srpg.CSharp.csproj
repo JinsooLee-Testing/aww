@@ -111,6 +111,7 @@
     <Compile Include="Assets\Scripts\MainTitle\BattleStart.cs" />
     <Compile Include="Assets\Scripts\MainTitle\MainTilteStart.cs" />
     <Compile Include="Assets\Scripts\MainTitle\MainTitle.cs" />
+    <Compile Include="Assets\Scripts\MainTitle\StageManager.cs" />
     <Compile Include="Assets\Scripts\MainTitle\ToStageSelect.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
     <Compile Include="Assets\Scripts\ui\FIleManager.cs" />
@@ -260,6 +261,7 @@
     <None Include="Assets\StreamingAssets\map_M.xml" />
     <None Include="Assets\StreamingAssets\map_Y.xml" />
     <None Include="Assets\StreamingAssets\st1.xml" />
+    <None Include="Assets\StreamingAssets\stage.xml" />
     <None Include="Assets\StreamingAssets\stage1.xml" />
     <None Include="Assets\StreamingAssets\stage2-2.xml" />
     <None Include="Assets\StreamingAssets\stage2.xml" />
