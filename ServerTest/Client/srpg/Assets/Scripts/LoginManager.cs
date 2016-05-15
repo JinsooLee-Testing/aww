@@ -61,6 +61,16 @@ public class LoginManager : MonoBehaviour
                 StaticData.userStage = 3;
                 Application.LoadLevel("MainTitle");
             }
+            if ("4" == www.text)
+            {
+                StaticData.userStage = 4;
+                Application.LoadLevel("MainTitle");
+            }
+            if ("5" == www.text)
+            {
+                StaticData.userStage = 5;
+                Application.LoadLevel("MainTitle");
+            }
         }
         else
         {

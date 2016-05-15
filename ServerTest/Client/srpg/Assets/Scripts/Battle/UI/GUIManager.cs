@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GUIManager : MonoBehaviour {
     private static GUIManager inst = null;
     private PlayerManager pm = null;
+    //StageServerManager ssm;
     public string fontPath;
     public int next_scene;
     public int cur_scene;
@@ -56,8 +57,15 @@ public class GUIManager : MonoBehaviour {
     public void CreateResult()
     {
         result = ((GameObject)Instantiate(result)).GetComponent<GameObject>();
-        FIleManager.Getinst().SaveStageData(next_scene);
+        //StartCoroutine(ssm.ConnectUpdateStagePHP(next_scene));
+        //StartCoroutine(StageServerManager.GetInst().ConnectUpdateStagePHP(next_scene));
+        //Debug.Log("result : " + (next_scene-5));
+
+        //FIleManager.Getinst().SaveStageData(next_scene);
         SoundManager.GetInst().PlayVictory();
+        
+        
+        
     }
     public void DestoryTalkBox()
     {
