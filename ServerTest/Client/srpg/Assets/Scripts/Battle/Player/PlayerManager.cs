@@ -261,7 +261,7 @@ public class PlayerManager : MonoBehaviour {
     public void RemovePlayer(PlayerBase pb)
     {
         pb.CurHex.Passable = true;
-        if (pb.m_type == Type.MONSTER || pb.m_type==Type.BOSS)
+        if (pb.m_type == Type.MONSTER || pb.m_type==Type.BOSS|| pb.m_type == Type.GOLEM)
         {
            
             EnemyCount--;

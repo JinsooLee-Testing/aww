@@ -65,7 +65,6 @@
   <ItemGroup>
     <Compile Include="Assets\52SpecialEffectPack\Legacy Effect Editor\csLegacyEffectChanger.cs" />
     <Compile Include="Assets\52SpecialEffectPack\Legacy Effect Editor\csLegacyEffectEditor.cs" />
-    <Compile Include="Assets\Resources\Login\LoginManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\Hex.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\MapManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\Mark.cs" />
@@ -73,6 +72,7 @@
     <Compile Include="Assets\Scripts\Battle\Map\pick.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\AI.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\AIPlayer.cs" />
+    <Compile Include="Assets\Scripts\Battle\Player\AI_Golem.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\PlayerBase.cs" />
     <Compile Include="Assets\Scripts\Battle\Player\PlayerManager.cs" />
@@ -86,8 +86,8 @@
     <Compile Include="Assets\Scripts\Battle\UI\scene.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\scene_retry.cs" />
     <Compile Include="Assets\Scripts\Battle\UI\ui.cs" />
+    <Compile Include="Assets\Scripts\Battle\cost\CostManager.cs" />
     <Compile Include="Assets\Scripts\Battle\cost\costBase.cs" />
-    <Compile Include="Assets\Scripts\Battle\cost\costManager.cs" />
     <Compile Include="Assets\Scripts\Battle\object\Equipment.cs" />
     <Compile Include="Assets\Scripts\Battle\object\Object_Manager.cs" />
     <Compile Include="Assets\Scripts\Battle\object\fireball.cs" />
@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\CardPage\CardUseBase.cs" />
     <Compile Include="Assets\Scripts\CardPage\MagicCard.cs" />
     <Compile Include="Assets\Scripts\CardPage\SummonCard.cs" />
+    <Compile Include="Assets\Scripts\Condition.cs" />
     <Compile Include="Assets\Scripts\ETC\CameraManager.cs" />
     <Compile Include="Assets\Scripts\ETC\EffectManager.cs" />
     <Compile Include="Assets\Scripts\ETC\Manager.cs" />
@@ -115,7 +116,6 @@
     <Compile Include="Assets\Scripts\MainTitle\StageManager.cs" />
     <Compile Include="Assets\Scripts\MainTitle\ToStageSelect.cs" />
     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
-    <Compile Include="Assets\Scripts\StaticData.cs" />
     <Compile Include="Assets\Scripts\ui\FIleManager.cs" />
     <Compile Include="Assets\Scripts\ui\clickthis.cs" />
     <Compile Include="Assets\Scripts\ui\talkbox.cs" />
@@ -202,6 +202,7 @@
     <None Include="Assets\Resources\XML\map_C.xml" />
     <None Include="Assets\Resources\XML\map_M.xml" />
     <None Include="Assets\Resources\XML\map_Y.xml" />
+    <None Include="Assets\Resources\XML\stage.xml" />
     <None Include="Assets\Resources\XML\stage1.xml" />
     <None Include="Assets\Resources\XML\stage2-2.xml" />
     <None Include="Assets\Resources\XML\stage2.xml" />

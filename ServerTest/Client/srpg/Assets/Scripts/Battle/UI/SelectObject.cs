@@ -7,12 +7,15 @@ public class SelectObject : MonoBehaviour {
     public Sprite chick;
     public Sprite bunny;
     public Sprite gorilra;
-
+    public Sprite golem;
    
+    void Awake()
+    {
+    }
     // Use this for initialization
     void Start () {
-	
-	}
+  
+    }
 
     // Update is called once per frame
     void Update()
@@ -48,6 +51,8 @@ public class SelectObject : MonoBehaviour {
                     GetComponent<SpriteRenderer>().sprite = gorilra;
                 if (pb.Monster_id == 4)
                     GetComponent<SpriteRenderer>().sprite = Obj;
+                if (pb.Monster_id == 5)
+                    GetComponent<SpriteRenderer>().sprite = golem;
 
             }
         }

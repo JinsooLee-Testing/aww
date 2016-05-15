@@ -42,7 +42,7 @@ public class AIthink  {
             Vector3 v2 = nearUserPlayer.CurHex.transform.position;
             v2.y = PlayerManager.GetInst().m_y;
             aiplayer.transform.rotation = Quaternion.LookRotation((v2 - v).normalized);
-            if (aiplayer.Monster_id != 1)
+            if (aiplayer.Monster_id != 1 || aiplayer.Monster_id != 5)
             {
                 Vector3 r = aiplayer.transform.rotation.eulerAngles;
                 r.y -= 90;

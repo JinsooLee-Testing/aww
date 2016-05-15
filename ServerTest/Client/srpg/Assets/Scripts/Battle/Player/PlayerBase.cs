@@ -14,7 +14,8 @@ public enum ACT
     JUMP,
     JUMPDOWN,
     DIYING,
-        HIT
+    HIT,
+    STUN
 }
 public enum Type
 {
@@ -22,9 +23,11 @@ public enum Type
     MONSTER,
     OBJECT,
     MAINCHARACTER,
-    BOSS
+    BOSS,
+    GOLEM
 }
-public class PlayerBase : MonoBehaviour {
+public class PlayerBase : MonoBehaviour
+{
     public PlayerStatus status;
     public Animator anim;
     public Hex CurHex;
@@ -41,25 +44,35 @@ public class PlayerBase : MonoBehaviour {
     {
         act = ACT.IDLE;
         status = new PlayerStatus();
-  
-        
+
+
     }
-	void Start () {
-	}
-	// Update is called once per frame
-	void Update () {
-      
+    void Start()
+    {
     }
- 
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     public void GetDamage(int damage)
     {
-       status.Curhp -= damage;
-       if (status.Curhp <= 0)
+        status.Curhp -= damage;
+        if (status.Curhp <= 0)
         {
-           // hpContorl.GetInst().SetPos(this);
+            if (m_type == Type.GOLEM)
+            {
+                anim.SetTrigger("Die");
+            }
+            // hpContorl.GetInst().SetPos(this);
             act = ACT.DIYING;
             removeTime += Time.deltaTime;
             //PlayerManager.GetInst().RemovePlayer(this);
+        }
+        if (m_type == Type.GOLEM)
+        {
+            anim.SetTrigger("Take Damage");
         }
 
     }

@@ -119,7 +119,7 @@ public class magic : MonoBehaviour
           
             EffectManager.GetInst().ShowEffect_Summon(v.gameObject, 10, 2);
             MapManager.GetInst().ResetMapColor();
-            MapManager.GetInst().MarkAttackRange(v, 3);
+            MapManager.GetInst().MarkAttackRange(v, 3,false);
             v.At_Marked = true;
          
       

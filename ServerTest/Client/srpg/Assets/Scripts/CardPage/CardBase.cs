@@ -29,7 +29,7 @@ public class CardBase : CardUseBase {
     }
 	// Update is called once per frame
 	void Update () {
-        if (InGame == true)
+        if (InGame == true&& PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act!=ACT.STUN)
         {
             if (BattleCardManager.GetInst().cardUse[Buttonnum].On_active == false)
                 On_active = false;

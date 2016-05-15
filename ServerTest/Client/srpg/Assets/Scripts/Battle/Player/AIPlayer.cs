@@ -42,37 +42,61 @@ public class AIPlayer : PlayerBase
         if (act == ACT.CASTING && casting==true)
         {
             Debug.Log("hh");
-            act = ACT.JUMP;
-            MapManager.GetInst().MarkAttackRange(CurHex, 4);
+            if (m_type == Type.GOLEM)
+            {
+                anim.SetTrigger("Shockwave Attack");
+                MapManager.GetInst().MarkShockRange();
+                
+            }
+
+            else
+            {
+                act = ACT.JUMP;
+                MapManager.GetInst().MarkAttackRange(CurHex, 4, false);
+            }
+        
 
             for (int j = 0; j < pm.Players.Count; ++j)
             {
                 if (pm.Players[j].CurHex.At_Marked == true)
                 {
-                    if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type != Type.BOSS)
+                  
+                        if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type != Type.BOSS && pm.Players[j].m_type != Type.GOLEM)
                     {
                         if (((UserPlayer)pm.Players[j]).Equip == false)
                         {
-                            pm.Players[j].GetDamage(100);
+                            Vector3 height = pm.Players[j].transform.position;
+                            if (height.y < 2)
+                            {
+                                pm.Players[j].GetDamage(100);
+                                pm.Players[j].act = ACT.STUN;
+                            }
                             EffectManager.GetInst().Play(pm.Players[j].CurHex.gameObject);
                         }
                         else
                         {
-                            ((UserPlayer)pm.Players[j]).DestroyEquip();
+                            Vector3 height = pm.Players[j].transform.position;
+                            if (height.y < 2)
+                                ((UserPlayer)pm.Players[j]).DestroyEquip();
                         }
                     }
                 }
             }
+            if (m_type == Type.GOLEM)
+            {
+                if (act == ACT.CASTING)
+                {
+                    MapManager.GetInst().ResetMapColor();
+                    act = ACT.IDLE;
+                    PlayerManager.GetInst().TurnOver();
+                }
+
+            }
+           
             casting = false;
         }
         if (act == ACT.IDLE)
         {
-            /*
-            if (pm.Players[pm.CurTurnIdx] == this)
-            {
-               // MapManager.GetInst().SetHexColor(CurHex, Color.black);
-            }
-            */
             anim.SetBool("attack", false);
             if (pm.Players[pm.CurTurnIdx] == this)
             {
@@ -99,6 +123,7 @@ public class AIPlayer : PlayerBase
             Vector3 gravity = new Vector3(0, -9.8f, 0);
             Vector3 v = transform.position;
             float speed = 12;
+
             if (v.y >= 1)
             {
                 v.y -= Time.deltaTime * speed;
@@ -147,7 +172,7 @@ public class AIPlayer : PlayerBase
             Vector3 v = nextHex.transform.position;
             v.y += m_y;
             float distance = Vector3.Distance(transform.position, v);
-           
+
             if (distance >= 1.0f) //이동중
             {
                 anim.SetBool("attack", false);
@@ -158,11 +183,11 @@ public class AIPlayer : PlayerBase
                 if (jump == false)
                 {
                     transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
-                    if (id != 1)
+                    if (id != 1 && id!=5)
                     {
                         Vector3 r = transform.rotation.eulerAngles;
                         r.y -= 90;
-                        transform.rotation = Quaternion.Euler(r);
+                       transform.rotation = Quaternion.Euler(r);
                     }
                 }
 
@@ -197,28 +222,60 @@ public class AIPlayer : PlayerBase
         if (removeTime != 0)
         {
             removeTime += Time.deltaTime;
-            if (removeTime >= 1.5f)
+            if (removeTime >= 1.8f)
             {
-                for (int i = 0; i < pm.Players.Count; ++i)
+                if(Type.GOLEM==m_type)
                 {
-                    if (pm.Players[i].act == ACT.DIYING)
+                    if (removeTime >= 2.6f)
                     {
-                        if (pm.CurTurnIdx == i)
+                        for (int i = 0; i < pm.Players.Count; ++i)
                         {
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
-                            //pm.TurnOver();
-                            
-                        }
-                        else
-                        {
+                            if (pm.Players[i].act == ACT.DIYING)
+                            {
+                                if (pm.CurTurnIdx == i)
+                                {
+                                    pm.RemoveAfter();
+                                    pm.RemovePlayer(pm.Players[i]);
+                                    pm.RemoveAfter();
+                                    pm.select_object = pm.Players[pm.CurTurnIdx];
+                                    //pm.TurnOver();
 
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
+                                }
+                                else
+                                {
+
+                                    pm.RemoveAfter();
+                                    pm.RemovePlayer(pm.Players[i]);
+                                    pm.RemoveAfter();
+                                    pm.select_object = pm.Players[pm.CurTurnIdx];
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < pm.Players.Count; ++i)
+                    {
+                        if (pm.Players[i].act == ACT.DIYING)
+                        {
+                            if (pm.CurTurnIdx == i)
+                            {
+                                pm.RemoveAfter();
+                                pm.RemovePlayer(pm.Players[i]);
+                                pm.RemoveAfter();
+                                pm.select_object = pm.Players[pm.CurTurnIdx];
+                                //pm.TurnOver();
+
+                            }
+                            else
+                            {
+
+                                pm.RemoveAfter();
+                                pm.RemovePlayer(pm.Players[i]);
+                                pm.RemoveAfter();
+                                pm.select_object = pm.Players[pm.CurTurnIdx];
+                            }
                         }
                     }
                 }
@@ -253,18 +310,24 @@ public class AIPlayer : PlayerBase
     {
         if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx] == this)
         {
-            AIthink ai = AIthink.GetInst();
+            if (Type.GOLEM == m_type)
+            {
+                AI_Golem ai = AI_Golem.GetInst();
+                CurHex.Passable = true;
+                if (act != ACT.CASTING)
+                    ai.MoveToNearUserPlayer(this);
+            }
+            else
+            {
+                AIthink ai = AIthink.GetInst();
+                CurHex.Passable = true;
+                if (act != ACT.CASTING)
+                    ai.MoveToNearUserPlayer(this);
+            }
             //근점 플레이어찾는과정 추가내용 
             //이미 근접상태면 act는 IDLE 유지 이동 필요하면 act는 MOVING으로
-
-
-            CurHex.Passable = true;
-            if(act != ACT.CASTING)
-            ai.MoveToNearUserPlayer(this);
-            //if (act == ACT.IDLE)
-               
-
-
+          
+            //if (act == ACT.IDLE)          
         }
     }
     void OnMouseDown()
