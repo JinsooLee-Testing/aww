@@ -142,10 +142,12 @@ public class UserPlayer : PlayerBase
     }
     void Update()
     {
-
-        ShowCondition();
-        if (status.Curhp < 0)
+        if (status.Curhp <= 0)
+        {
             act = ACT.DIYING;
+        }
+        ShowCondition();
+
         if (brokentime != 0)
         {
             brokentime += Time.deltaTime;
