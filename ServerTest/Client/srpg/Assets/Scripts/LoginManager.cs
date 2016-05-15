@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 public class LoginManager : MonoBehaviour
 {
@@ -41,36 +42,35 @@ public class LoginManager : MonoBehaviour
             //setUserId(id.text);
             //setUserPasswd(pass.text);
             //Application.LoadLevel("MainTitle");
-            if ("0" == www.text)
-            {
-                StaticData.userStage = 0;
+              //int.Parse()
+                StaticData.userStage = int.Parse( www.text);
                 Application.LoadLevel("MainTitle");
-            }
-            else if ("1" == www.text)
-            {
-                StaticData.userStage = 1;
-                Application.LoadLevel("MainTitle");
-            }
-            else if ("2" == www.text)
-            {
-                StaticData.userStage = 2;
-                Application.LoadLevel("MainTitle");
-            }
-            if ("3" == www.text)
-            {
-                StaticData.userStage = 3;
-                Application.LoadLevel("MainTitle");
-            }
-            if ("4" == www.text)
-            {
-                StaticData.userStage = 4;
-                Application.LoadLevel("MainTitle");
-            }
-            if ("5" == www.text)
-            {
-                StaticData.userStage = 5;
-                Application.LoadLevel("MainTitle");
-            }
+
+            //else if ("1" == www.text)
+            //{
+            //    StaticData.userStage = 1;
+            //    Application.LoadLevel("MainTitle");
+            //}
+            //else if ("2" == www.text)
+            //{
+            //    StaticData.userStage = 2;
+            //    Application.LoadLevel("MainTitle");
+            //}
+            //if ("3" == www.text)
+            //{
+            //    StaticData.userStage = 3;
+            //    Application.LoadLevel("MainTitle");
+            //}
+            //if ("4" == www.text)
+            //{
+            //    StaticData.userStage = 4;
+            //    Application.LoadLevel("MainTitle");
+            //}
+            //if ("5" == www.text)
+            //{
+            //    StaticData.userStage = 5;
+            //    Application.LoadLevel("MainTitle");
+            //}
         }
         else
         {

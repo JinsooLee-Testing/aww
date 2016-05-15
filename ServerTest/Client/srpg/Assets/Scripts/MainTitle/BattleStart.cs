@@ -18,7 +18,9 @@ public class BattleStart : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (StageManager.Getinst().cur_stage >= stagenum)
+
+        //if (StageManager.Getinst().cur_stage >= stagenum)
+        if (StaticData.userStage >= (stagenum-5))
             stage_lock = true;
         if (stage_lock == false)
             GetComponent<SpriteRenderer>().sprite = rock;

@@ -14,6 +14,7 @@ public class scene : MonoBehaviour {
     }
     void OnMouseDown()
     {
+        
         SceneManager.LoadScene(GUIManager.GetInst().next_scene);
     }
 }

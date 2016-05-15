@@ -63,9 +63,11 @@ public class GUIManager : MonoBehaviour {
 
         //FIleManager.Getinst().SaveStageData(next_scene);
         SoundManager.GetInst().PlayVictory();
-        
-        
-        
+        Debug.Log("CreateResult : " +next_scene);
+        if ((StaticData.userStage + 5 <= next_scene) || (4 == StaticData.userStage))
+        { StartCoroutine(StageServerManager.ConnectUpdateStagePHP(next_scene)); }
+
+
     }
     public void DestoryTalkBox()
     {
