@@ -9,7 +9,7 @@ public class ObjectManager : MonoBehaviour
     //string[] objectName;
     void Start()
     {
-        StaticData.userId = "leejinsoo";
+        //StaticData.userId = "leejinsoo";
         StartCoroutine(ConnectObjectCardPHP());
         StartCoroutine(ConnectSkillCardPHP());
     }
