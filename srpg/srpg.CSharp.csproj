@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\CardPage\CardUseBase.cs" />
     <Compile Include="Assets\Scripts\CardPage\MagicCard.cs" />
     <Compile Include="Assets\Scripts\CardPage\SummonCard.cs" />
+    <Compile Include="Assets\Scripts\Condition.cs" />
     <Compile Include="Assets\Scripts\ETC\CameraManager.cs" />
     <Compile Include="Assets\Scripts\ETC\EffectManager.cs" />
     <Compile Include="Assets\Scripts\ETC\Manager.cs" />

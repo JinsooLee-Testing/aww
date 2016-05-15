@@ -23,7 +23,7 @@ public class ui : MonoBehaviour
         {
             PlayerBase pb = pm.Players[pm.CurTurnIdx];
             Debug.Log(pb.m_type);
-            if (pb.m_type==Type.USER || pb.m_type == Type.MAINCHARACTER)
+            if (pb.m_type==Type.USER || pb.m_type == Type.MAINCHARACTER&& pb.act!=ACT.STUN)
             {
                 
                 if (CostManager.GetInst().cur_cost_num >= 1)
@@ -58,7 +58,7 @@ public class ui : MonoBehaviour
             SoundManager.GetInst().PlayClickSound();
             Debug.Log("Attack");
             PlayerBase pb = pm.Players[pm.CurTurnIdx];
-            if (pb.m_type == Type.USER || pb.m_type == Type.MAINCHARACTER)
+            if (pb.m_type == Type.USER || pb.m_type == Type.MAINCHARACTER && pb.act != ACT.STUN)
             {
                 if (pb.act != ACT.MOVING)
                 {

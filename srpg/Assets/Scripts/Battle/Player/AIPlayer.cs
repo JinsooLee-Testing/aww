@@ -65,12 +65,19 @@ public class AIPlayer : PlayerBase
                     {
                         if (((UserPlayer)pm.Players[j]).Equip == false)
                         {
-                            pm.Players[j].GetDamage(100);
+                            Vector3 height = pm.Players[j].transform.position;
+                            if (height.y < 2)
+                            {
+                                pm.Players[j].GetDamage(100);
+                                pm.Players[j].act = ACT.STUN;
+                            }
                             EffectManager.GetInst().Play(pm.Players[j].CurHex.gameObject);
                         }
                         else
                         {
-                            ((UserPlayer)pm.Players[j]).DestroyEquip();
+                            Vector3 height = pm.Players[j].transform.position;
+                            if (height.y < 2)
+                                ((UserPlayer)pm.Players[j]).DestroyEquip();
                         }
                     }
                 }
@@ -165,7 +172,7 @@ public class AIPlayer : PlayerBase
             Vector3 v = nextHex.transform.position;
             v.y += m_y;
             float distance = Vector3.Distance(transform.position, v);
-           
+
             if (distance >= 1.0f) //이동중
             {
                 anim.SetBool("attack", false);
@@ -176,11 +183,11 @@ public class AIPlayer : PlayerBase
                 if (jump == false)
                 {
                     transform.rotation = Quaternion.LookRotation((v - transform.position).normalized);
-                    if (id != 1)
+                    if (id != 1 && id!=5)
                     {
                         Vector3 r = transform.rotation.eulerAngles;
                         r.y -= 90;
-                        transform.rotation = Quaternion.Euler(r);
+                       transform.rotation = Quaternion.Euler(r);
                     }
                 }
 

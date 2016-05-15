@@ -358,7 +358,7 @@ public class MapManager : MonoBehaviour
             Map[2][0][i].At_Marked = true;
             Map[2][0][i].GetComponent<Renderer>().material = Map[2][0][i].mat_attack;
         }
-        for (int i = 7; i > 1; --i)
+        for (int i = 8; i > 0; --i)
         {
             EffectManager.GetInst().ShowEffect_Summon(Map[1][0][i].gameObject, 11, 1);
             Map[1][0][i].At_Marked = true;
@@ -377,7 +377,7 @@ public class MapManager : MonoBehaviour
             Map[7][0][i].At_Marked = true;
             Map[7][0][i].GetComponent<Renderer>().material = Map[7][0][i].mat_attack;
         }
-        for (int i = 7; i > 1; --i)
+        for (int i = 8; i > 0; --i)
         {
             EffectManager.GetInst().ShowEffect_Summon(Map[8][0][i].gameObject, 11, 1);
             Map[8][0][i].At_Marked = true;

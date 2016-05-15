@@ -43,12 +43,7 @@ public class AI_Golem
             Vector3 v2 = nearUserPlayer.CurHex.transform.position;
             v2.y = PlayerManager.GetInst().m_y;
             aiplayer.transform.rotation = Quaternion.LookRotation((v2 - v).normalized);
-            if (aiplayer.Monster_id != 1)
-            {
-                Vector3 r = aiplayer.transform.rotation.eulerAngles;
-                r.y -= 90;
-                aiplayer.transform.rotation = Quaternion.Euler(r);
-            }
+
             if (((UserPlayer)nearUserPlayer).equip_type != "shield")
                 nearUserPlayer.GetDamage(aiplayer.status.Attack);
             else
@@ -75,7 +70,7 @@ public class AI_Golem
         PlayerBase nearUserPlayer = null;
         int nearDistance = 50;
         //근접 플레이어 서치
-        int i = Random.Range(0, 5);
+        int i = Random.Range(0, 6);
 
         foreach (PlayerBase up in pm.Players)
         {
@@ -120,12 +115,6 @@ public class AI_Golem
                 }
                 MapManager.GetInst().ResetMapColor(aiplayer.CurHex.MapPos);
             }
-        }
-        if (i==3)
-        {
-
-            AtkAItoUser(aiplayer);
-            PlayerManager.GetInst().TurnOver();
         }
         else
         {

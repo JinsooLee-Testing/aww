@@ -14,6 +14,8 @@ public class UserPlayer : PlayerBase
   
     public GameObject eqip;
     Equipment equip;
+    GameObject q;
+    Condition condi;
     float brokentime = 0f;
     public int Attack;
     public int hp;
@@ -22,6 +24,8 @@ public class UserPlayer : PlayerBase
     public string info2;
     public string named;
     public string equip_type;
+    public string condition = "none";
+     
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -39,8 +43,8 @@ public class UserPlayer : PlayerBase
         live = true;
         m_type = Type.USER;
         Equip = false;
-        
 
+        q = (GameObject)Resources.Load("Prefabs/ui/stun");
 
     }
    
@@ -114,13 +118,34 @@ public class UserPlayer : PlayerBase
             equip = ((GameObject)Instantiate(magic.GetInst().magics[4])).GetComponent<Equipment>();
             Equip = true;
             Vector3 v2 = transform.position;
-            v2.y += 4.5f;
+            v2.y += 2.5f;
             equip.transform.position = v2;
             equip_type = "shield";
         }
     }
+    void ShowCondition()
+    {
+        if (act == ACT.STUN&& condition == "none")
+        {
+            condi = ((GameObject)Instantiate(q)).GetComponent<Condition>();
+            Vector3 v2 = transform.position;
+            v2.y += 2.5f;
+            condi.transform.position = v2;
+            condition = "stun";
+        }
+        else if (condition == "stun"&& act != ACT.STUN)
+        {
+            Destroy(condi.gameObject);
+            condition = "none";
+        }
+
+    }
     void Update()
     {
+
+        ShowCondition();
+        if (status.Curhp < 0)
+            act = ACT.DIYING;
         if (brokentime != 0)
         {
             brokentime += Time.deltaTime;
@@ -145,13 +170,13 @@ public class UserPlayer : PlayerBase
                         {
                             pm.RemoveAfter();
                             pm.RemovePlayer(pm.Players[i]);
-
+                            pm.RemoveAfter();
                         }
                         else
                         {
                             pm.RemoveAfter();
                             pm.RemovePlayer(pm.Players[i]);
-           
+                            pm.RemoveAfter();
                         }
                     }
                 }
