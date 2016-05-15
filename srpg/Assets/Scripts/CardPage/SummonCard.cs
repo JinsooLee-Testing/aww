@@ -15,7 +15,7 @@ public class SummonCard : CardUseBase {
 	}
     void OnMouseDown()
     {
-        if (InGame == true)
+        if (InGame == true && PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act != ACT.STUN)
         {
             if (CostManager.GetInst().cur_cost_num >= cost)
             {
@@ -33,6 +33,7 @@ public class SummonCard : CardUseBase {
         }
         else
         {
+            if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act != ACT.STUN)
             CardLoadManager.GetInst().OnCard(summon_id);
         }
     }

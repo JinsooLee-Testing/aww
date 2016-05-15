@@ -202,7 +202,7 @@ public class UserPlayer : PlayerBase
          //  }
             //CurHex.Passable = true;
         }
-     
+
         if (act == ACT.MOVING)
         {//이동처리
             CameraManager.GetInst().ResetCameraTarget();

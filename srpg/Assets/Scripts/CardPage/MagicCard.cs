@@ -20,7 +20,7 @@ public class MagicCard : CardUseBase {
     }
     void OnMouseDown()
     {
-        if (InGame == true)
+        if (InGame == true && PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act!=ACT.STUN)
         {
             if (CostManager.GetInst().cur_cost_num >= cost )
             {
@@ -63,7 +63,7 @@ public class MagicCard : CardUseBase {
         else
         {
             Debug.Log("Dww");
-
+            if(PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx].act != ACT.STUN)
             CardLoadManager.GetInst().OnCard(magic_id);
             
             
