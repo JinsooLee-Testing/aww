@@ -112,7 +112,6 @@ public class Hex : MonoBehaviour {
  
         if (obj_id != 0)
         {
-
             obj = (GameObject)GameObject.Instantiate(Object_Manager.GetInst().FindObj(obj_id-1));
             Vector3 v = transform.position;
             obj.transform.position = new Vector3(v.x, obj_y, v.z);
@@ -233,8 +232,7 @@ public class Hex : MonoBehaviour {
             }
             if(At_Marked==true&& magic.GetInst().type == "wall")
             {
-                
-               
+                          
                 if (MapManager.GetInst().wallpos.GetX()>=MapPos.GetX())
                 {
                     for (int i = 0; i < 3; ++i)
@@ -253,7 +251,7 @@ public class Hex : MonoBehaviour {
                     obj.transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
                     MapManager.GetInst().ResetMapColor();
                     CameraManager.GetInst().ResetCameraTarget();
-
+                    MapManager.GetInst().wall = false;
                 }
                 else
                 {
@@ -269,7 +267,8 @@ public class Hex : MonoBehaviour {
                             MapManager.GetInst().Map[MapPos.GetX() - i][MapPos.GetY()][MapPos.GetZ()].Passable = false;
                         }
                     }
-                    MapManager.GetInst().ResetMapColor();
+                    MapManager.GetInst().wall = false;
+                   MapManager.GetInst().ResetMapColor();
                     CameraManager.GetInst().ResetCameraTarget();
                     
                 }

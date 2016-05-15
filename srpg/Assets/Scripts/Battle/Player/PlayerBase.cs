@@ -22,7 +22,8 @@ public enum Type
     MONSTER,
     OBJECT,
     MAINCHARACTER,
-    BOSS
+    BOSS,
+    GOLEM
 }
 public class PlayerBase : MonoBehaviour {
     public PlayerStatus status;
@@ -50,15 +51,24 @@ public class PlayerBase : MonoBehaviour {
 	void Update () {
       
     }
+ 
     public void GetDamage(int damage)
     {
        status.Curhp -= damage;
        if (status.Curhp <= 0)
         {
-           // hpContorl.GetInst().SetPos(this);
+            if (m_type == Type.GOLEM)
+            {
+                anim.SetTrigger("Die");
+            }
+            // hpContorl.GetInst().SetPos(this);
             act = ACT.DIYING;
             removeTime += Time.deltaTime;
             //PlayerManager.GetInst().RemovePlayer(this);
+        }
+       if(m_type==Type.GOLEM)
+        {
+            anim.SetTrigger("Take Damage");
         }
 
     }

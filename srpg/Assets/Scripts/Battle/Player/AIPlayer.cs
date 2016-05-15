@@ -10,6 +10,9 @@ public class AIPlayer : PlayerBase
     public int hp;
     public int Attack;
     public string m_name;
+    public string info;
+    public string line = "\n";
+    public string info2="hi";
     public int id = 1;
     public float ef_time = 0f;
   
@@ -21,6 +24,8 @@ public class AIPlayer : PlayerBase
         status.Curhp = hp;
         status.Maxhp = hp;
         status.Attack = Attack;
+        line = line.Replace(line, "\n");
+        status.info = info+ line+info2;
         anim = GetComponent<Animator>();
         main_char = false;
         //m_type = Type.MONSTER;
@@ -37,14 +42,26 @@ public class AIPlayer : PlayerBase
         if (act == ACT.CASTING && casting==true)
         {
             Debug.Log("hh");
-            act = ACT.JUMP;
-            MapManager.GetInst().MarkAttackRange(CurHex, 4);
+            if (m_type == Type.GOLEM)
+            {
+                anim.SetTrigger("Shockwave Attack");
+                MapManager.GetInst().MarkShockRange();
+                
+            }
+
+            else
+            {
+                act = ACT.JUMP;
+                MapManager.GetInst().MarkAttackRange(CurHex, 4, false);
+            }
+        
 
             for (int j = 0; j < pm.Players.Count; ++j)
             {
                 if (pm.Players[j].CurHex.At_Marked == true)
                 {
-                    if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type != Type.BOSS)
+                  
+                        if (pm.Players[j].m_type != Type.MONSTER && pm.Players[j].m_type != Type.BOSS && pm.Players[j].m_type != Type.GOLEM)
                     {
                         if (((UserPlayer)pm.Players[j]).Equip == false)
                         {
@@ -58,16 +75,22 @@ public class AIPlayer : PlayerBase
                     }
                 }
             }
-            casting = false;
+            if (m_type == Type.GOLEM)
+            {
+                if (act == ACT.CASTING)
+                {
+                    MapManager.GetInst().ResetMapColor();
+                    act = ACT.IDLE;
+                    PlayerManager.GetInst().TurnOver();
+                }
 
+            }
+           
+            casting = false;
         }
         if (act == ACT.IDLE)
         {
-
-            if (pm.Players[pm.CurTurnIdx] == this)
-            {
-                MapManager.GetInst().SetHexColor(CurHex, Color.black);
-            }
+            anim.SetBool("attack", false);
             if (pm.Players[pm.CurTurnIdx] == this)
             {
                 AiProc();
@@ -93,6 +116,7 @@ public class AIPlayer : PlayerBase
             Vector3 gravity = new Vector3(0, -9.8f, 0);
             Vector3 v = transform.position;
             float speed = 12;
+
             if (v.y >= 1)
             {
                 v.y -= Time.deltaTime * speed;
@@ -109,19 +133,22 @@ public class AIPlayer : PlayerBase
                 act = ACT.IDLE;
        
                 EffectManager.GetInst().ShowEffect_Summon(CurHex.gameObject, 8, 1f);
+                anim.SetBool("attack", false);
                 PlayerManager.GetInst().TurnOver();
             }
         }
-
+        if (ACT.ATTACKING == act)
+        {
+           // anim.SetBool("attack", true);
+        }
         if (act == ACT.MOVING)
         {//이동처리
-
             if (MoveHexes.Count == 0)
             {
                 act = ACT.IDLE;
+                anim.SetBool("attack", false);
                 PlayerManager.GetInst().TurnOver();
                 return;
-
             }
             Hex nextHex = MoveHexes[0];
             if (MapManager.GetInst().MapSizeY > 0)
@@ -138,7 +165,7 @@ public class AIPlayer : PlayerBase
             Vector3 v = nextHex.transform.position;
             v.y += m_y;
             float distance = Vector3.Distance(transform.position, v);
-
+           
             if (distance >= 1.0f) //이동중
             {
                 anim.SetBool("attack", false);
@@ -174,6 +201,7 @@ public class AIPlayer : PlayerBase
 
                     CurHex = MapManager.GetInst().Map[temppos.GetX()][temppos.GetY()][temppos.GetZ()];
                     CurHex.Passable = false;
+                    anim.SetBool("attack", false);
                     PlayerManager.GetInst().TurnOver();
 
                 }
@@ -187,28 +215,60 @@ public class AIPlayer : PlayerBase
         if (removeTime != 0)
         {
             removeTime += Time.deltaTime;
-            if (removeTime >= 1.5f)
+            if (removeTime >= 1.8f)
             {
-                for (int i = 0; i < pm.Players.Count; ++i)
+                if(Type.GOLEM==m_type)
                 {
-                    if (pm.Players[i].act == ACT.DIYING)
+                    if (removeTime >= 2.6f)
                     {
-                        if (pm.CurTurnIdx == i)
+                        for (int i = 0; i < pm.Players.Count; ++i)
                         {
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
-                            //pm.TurnOver();
-                            
-                        }
-                        else
-                        {
+                            if (pm.Players[i].act == ACT.DIYING)
+                            {
+                                if (pm.CurTurnIdx == i)
+                                {
+                                    pm.RemoveAfter();
+                                    pm.RemovePlayer(pm.Players[i]);
+                                    pm.RemoveAfter();
+                                    pm.select_object = pm.Players[pm.CurTurnIdx];
+                                    //pm.TurnOver();
 
-                            pm.RemoveAfter();
-                            pm.RemovePlayer(pm.Players[i]);
-                            pm.RemoveAfter();
-                            pm.select_object = pm.Players[pm.CurTurnIdx];
+                                }
+                                else
+                                {
+
+                                    pm.RemoveAfter();
+                                    pm.RemovePlayer(pm.Players[i]);
+                                    pm.RemoveAfter();
+                                    pm.select_object = pm.Players[pm.CurTurnIdx];
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < pm.Players.Count; ++i)
+                    {
+                        if (pm.Players[i].act == ACT.DIYING)
+                        {
+                            if (pm.CurTurnIdx == i)
+                            {
+                                pm.RemoveAfter();
+                                pm.RemovePlayer(pm.Players[i]);
+                                pm.RemoveAfter();
+                                pm.select_object = pm.Players[pm.CurTurnIdx];
+                                //pm.TurnOver();
+
+                            }
+                            else
+                            {
+
+                                pm.RemoveAfter();
+                                pm.RemovePlayer(pm.Players[i]);
+                                pm.RemoveAfter();
+                                pm.select_object = pm.Players[pm.CurTurnIdx];
+                            }
                         }
                     }
                 }
@@ -243,18 +303,24 @@ public class AIPlayer : PlayerBase
     {
         if (PlayerManager.GetInst().Players[PlayerManager.GetInst().CurTurnIdx] == this)
         {
-            AIthink ai = AIthink.GetInst();
+            if (Type.GOLEM == m_type)
+            {
+                AI_Golem ai = AI_Golem.GetInst();
+                CurHex.Passable = true;
+                if (act != ACT.CASTING)
+                    ai.MoveToNearUserPlayer(this);
+            }
+            else
+            {
+                AIthink ai = AIthink.GetInst();
+                CurHex.Passable = true;
+                if (act != ACT.CASTING)
+                    ai.MoveToNearUserPlayer(this);
+            }
             //근점 플레이어찾는과정 추가내용 
             //이미 근접상태면 act는 IDLE 유지 이동 필요하면 act는 MOVING으로
-
-
-            CurHex.Passable = true;
-            if(act != ACT.CASTING)
-            ai.MoveToNearUserPlayer(this);
-            //if (act == ACT.IDLE)
-               
-
-
+          
+            //if (act == ACT.IDLE)          
         }
     }
     void OnMouseDown()

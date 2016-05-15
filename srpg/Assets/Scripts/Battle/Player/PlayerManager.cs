@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour {
     public GameObject GO_tree;
     public GameObject GO_tree2;
     public GameObject GO_pick;
+    public GameObject npc;
     public int Monster_num = 0;
     public List<PlayerBase> Players = new List<PlayerBase>();
     public int CurTurnIdx = 0;
@@ -34,6 +35,7 @@ public class PlayerManager : MonoBehaviour {
     public TURN turn = TURN.PLAYERTURN;
     public int nextScene_Num = 3;
     public pick pick_ob = new pick();
+    public bool isnpc = false;
 
     public void SetTurnOverTime(float time)
     {
@@ -49,6 +51,7 @@ public class PlayerManager : MonoBehaviour {
         turnOverTiem = 0f;
         curTurnOverTiem = 0f;
         inst = this;
+        inst.npc = (GameObject)Resources.Load("Prefabs/Player/npc");
 
     }
     // Use this for initialization
@@ -115,7 +118,17 @@ public class PlayerManager : MonoBehaviour {
 
         MapManager.GetInst().ResetMapColor();
     }
+    public void GenNpc(int x, int z)
+    {
+        npc player = ((GameObject)Instantiate(inst.npc)).GetComponent<npc>();
+        Hex hex = MapManager.GetInst().GetPlayerHex(x, 0, z);
+        player.CurHex = hex;
+        player.CurHex.Passable = false;
+        Vector3 v = player.CurHex.transform.position;
+        v.y = 1.0f;
+        player.transform.position = v;
 
+    }
     public void GenAIPlayer(int x, int z)
     {
         AIPlayer player = ((GameObject)Instantiate(GO_tree2)).GetComponent<AIPlayer>();
@@ -172,7 +185,8 @@ public class PlayerManager : MonoBehaviour {
             else
                 Debug.LogError("Invalid object in cells paretn game object");
         }
-
+        if (isnpc == true)
+            GenNpc(7,3);
 
     }
     public void MovePlayer(Hex start, Hex dest)
@@ -247,7 +261,7 @@ public class PlayerManager : MonoBehaviour {
     public void RemovePlayer(PlayerBase pb)
     {
         pb.CurHex.Passable = true;
-        if (pb.m_type == Type.MONSTER || pb.m_type==Type.BOSS)
+        if (pb.m_type == Type.MONSTER || pb.m_type==Type.BOSS|| pb.m_type == Type.GOLEM)
         {
            
             EnemyCount--;

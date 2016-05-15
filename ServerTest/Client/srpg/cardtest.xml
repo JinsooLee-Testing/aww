@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<MapInfo>
+  <MapSize>3 2</MapSize>
+  <card>
+    <CardPos>0 0 0</CardPos>
+  </card>
+  <card>
+    <CardPos>0 1 0</CardPos>
+  </card>
+  <card>
+    <CardPos>0 2 0</CardPos>
+  </card>
+  <card>
+    <CardPos>1 0 0</CardPos>
+  </card>
+  <card>
+    <CardPos>1 1 0</CardPos>
+  </card>
+  <card>
+    <CardPos>1 2 0</CardPos>
+  </card>
+  <card>
+    <CardPos>2 0 0</CardPos>
+  </card>
+  <card>
+    <CardPos>2 1 0</CardPos>
+  </card>
+  <card>
+    <CardPos>2 2 0</CardPos>
+  </card>
+  <card>
+    <CardPos>3 0 0</CardPos>
+  </card>
+  <card>
+    <CardPos>3 1 0</CardPos>
+  </card>
+  <card>
+    <CardPos>3 2 0</CardPos>
+  </card>
+</MapInfo>

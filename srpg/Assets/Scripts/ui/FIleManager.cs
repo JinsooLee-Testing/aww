@@ -28,16 +28,73 @@ public class CardsInfo
     public int MapSizeY;
     public List<CardUseBase> cardInfos = new List<CardUseBase>();
 }
-public class FIleManager : MonoBehaviour {
+public class FIleManager : MonoBehaviour
+{
 
     private static FIleManager inst = null;
     public static FIleManager Getinst()
     {
         return inst;
     }
+    public void SaveStageData(int curnum)
+    {
+
+        if (curnum >= StageManager.Getinst().cur_stage)
+        {
+            XmlDocument xmlFile = new XmlDocument();
+            xmlFile.AppendChild(xmlFile.CreateXmlDeclaration("1.0", "utf-8", "yes"));
+            XmlNode rootNode = xmlFile.CreateNode(XmlNodeType.Element, "StageInfo", string.Empty);
+            xmlFile.AppendChild(rootNode);
+
+            XmlNode hexNode = xmlFile.CreateNode(XmlNodeType.Element, "stage", string.Empty);
+            rootNode.AppendChild(hexNode);
+
+            XmlElement mapPos = xmlFile.CreateElement("curstage");
+            mapPos.InnerText = curnum.ToString();
+            hexNode.AppendChild(mapPos);
+            Debug.Log("saveed");
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                TextAsset textAsset = Resources.Load("XML/" + "stage") as TextAsset;
+                string strFilePath = Application.persistentDataPath + "/" + "Assets/Resources/XML/stage.xml";
+                xmlFile.Save(strFilePath);
+            }
+            else
+                xmlFile.Save("Assets/StreamingAssets/stage.xml");
+        }
+
+    }
+    public void LoadStageData(string path)
+    {
+        // xmlFile.Load(MapPath);
+        string strFile = path;
+        string strPath = string.Empty;
+        string strFilePath = Application.persistentDataPath + "/" + strFile;
+        XmlDocument xmlFile = new XmlDocument();
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            TextAsset textAsset = Resources.Load("XML/" + strFile) as TextAsset;
+            xmlFile.LoadXml(textAsset.text);
+
+        }
+        else
+        {
+            string Path = Application.streamingAssetsPath + "/" + strFile + ".xml";
+            xmlFile.Load(Path);
+            //xmlFile.Load(MapPath);
+        }
+        XmlNodeList hexes = xmlFile.SelectNodes("StageInfo/stage");
+        foreach (XmlNode hex in hexes)
+        {
+            string mapposStr = hex["curstage"].InnerText;
+            string[] maposes = mapposStr.Split(' ');
+            StageManager.Getinst().cur_stage = int.Parse(maposes[0]);
+        }
+
+    }
     public void SaveCardData()
     {
-        
+
         XmlDocument xmlFile = new XmlDocument();
         xmlFile.AppendChild(xmlFile.CreateXmlDeclaration("1.0", "utf-8", "yes"));
         XmlNode rootNode = xmlFile.CreateNode(XmlNodeType.Element, "MapInfo", string.Empty);
@@ -72,7 +129,7 @@ public class FIleManager : MonoBehaviour {
         }
         else
             xmlFile.Save("Assets/StreamingAssets/cardtest.xml");
-        
+
     }
     public CardsInfo LoadCardData(string path)
     {
@@ -153,13 +210,13 @@ public class FIleManager : MonoBehaviour {
 
         }
 
-      
+
         XmlNodeList hexes = xmlFile.SelectNodes("Text/text");
         foreach (XmlNode hex in hexes)
         {
             string mapposStr = hex["textData"].InnerText;
             string[] sizes = mapposStr.Split(',');
-  
+
             fontinfo font = new fontinfo();
             font.text = sizes[0];
             font.Who_say = sizes[1];
@@ -170,7 +227,7 @@ public class FIleManager : MonoBehaviour {
     }
     public MapInfo LoadMap(string MapPath)
     {
-      
+
         MapInfo info = new MapInfo();
 
 
@@ -186,16 +243,16 @@ public class FIleManager : MonoBehaviour {
 
 
             //  xmlFile.Load(wwwUrl.text.Trim());
-            TextAsset textAsset = Resources.Load("XML/"+strFile) as TextAsset;
+            TextAsset textAsset = Resources.Load("XML/" + strFile) as TextAsset;
             xmlFile.LoadXml(textAsset.text);
         }
         else
         {
 
-            string Path = Application.streamingAssetsPath + "/" + strFile+".xml";
+            string Path = Application.streamingAssetsPath + "/" + strFile + ".xml";
             xmlFile.Load(Path);
             //xmlFile.Load(MapPath);
-          
+
 
         }
 
@@ -254,14 +311,16 @@ public class FIleManager : MonoBehaviour {
     {
         inst = this;
     }
- 
+
     // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
