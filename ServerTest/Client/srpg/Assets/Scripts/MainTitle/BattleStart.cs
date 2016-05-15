@@ -13,7 +13,8 @@ public class BattleStart : MonoBehaviour {
       
     }
 	void Start () {
-	
+        StartCoroutine(StageServerManager.ConnectSearchStagePHP(StaticData.userStage));
+        Debug.Log(StaticData.userStage);
 	}
 	
 	// Update is called once per frame
