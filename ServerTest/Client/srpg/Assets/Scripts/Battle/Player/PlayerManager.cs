@@ -281,8 +281,9 @@ public class PlayerManager : MonoBehaviour {
         else if (pb.m_type == Type.MAINCHARACTER)
         {
             Players.Remove(pb);
+           
             GameObject.Destroy(pb.gameObject);
-         SceneManager.LoadScene(0);
+         SceneManager.LoadScene(1);
         }
         else
         {
