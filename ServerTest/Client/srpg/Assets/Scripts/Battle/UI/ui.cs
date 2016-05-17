@@ -90,7 +90,7 @@ public class ui : MonoBehaviour
             SoundManager.GetInst().PlayClickSound();
             Debug.Log("Attack");
             MapManager.GetInst().num = 0;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }
