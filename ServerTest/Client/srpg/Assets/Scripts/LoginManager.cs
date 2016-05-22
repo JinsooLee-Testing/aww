@@ -24,7 +24,7 @@ public class LoginManager : MonoBehaviour
 
     IEnumerator Printphp()
     {
-		string url = "http://119.207.205.67/Aww/AwwLogin.php";
+		string url = "http://localhost/Aww/AwwLogin.php";
         WWWForm form = new WWWForm();
         form.AddField("ID", id.text);
         form.AddField("PASSWD", password.text);
