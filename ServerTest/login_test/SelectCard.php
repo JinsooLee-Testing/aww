@@ -24,7 +24,7 @@
       echo "DAMAGE='$row[DAMAGE]' ";
       echo "RANGEVIEW='$row[RANGEVIEW]' ";
       echo "RANGEOFACT='$row[RANGEOFACT]' ";
-      echo ."</item>";
+      echo "</item>";
     }
     echo"</record>";
     mysql_close($conn);
