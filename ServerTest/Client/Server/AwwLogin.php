@@ -6,15 +6,17 @@
   $c2_d = $_POST['PASSWD'];
   mysql_select_db("test_login");
   $query = mysql_query("SELECT * FROM login_server WHERE ID LIKE '%$c1_d%'");
-
-  $query = mysql_query("SELECT ID,PASSWD,STAGE FROM login_server");
+  $result = mysql_fetch_array($query);
+  if(($_POST['ID'] === $result[0]))  echo "Success";
+  else echo "login_fail";
+  //$query = mysql_query("SELECT ID,PASSWD,STAGE FROM login_server");
   
-  $rows = array();
-  while($r = mysql_fetch_assoc($query))
-  {
-    $rows[] = $r;
-  }
-  print json_encode($rows);
+  //$rows = array();
+  //while($r = mysql_fetch_assoc($query))
+  //{
+   // $rows[] = $r;
+  //}
+  //print json_encode($rows);
   /*$result = mysql_fetch_array($query);
   if(($_POST['ID'] === $result[0]) && ($_POST['PASSWD'] === $result[1]) )
   { 
