@@ -24,8 +24,8 @@ public class Login : MonoBehaviour {
     IEnumerator Printphp()
     {
 
-        string url = "http://localhost/testconnectCsharp.php";
-     // string url = "http://localhost/Aww/login.php";
+        //string url = "http://localhost/Aww/xmlLogin.php";
+        string url = "http://localhost/Aww/Awwlogin.php";
         WWWForm form = new WWWForm();
         form.AddField("ID", id.text);
         form.AddField("PASSWD", pass.text);
@@ -39,28 +39,15 @@ public class Login : MonoBehaviour {
         {
             StaticData.userId = id.text;
             StaticData.userPasswd = pass.text;
-            //setUserId(id.text);
-            //setUserPasswd(pass.text);
-            //Application.LoadLevel("main_scene");
-            if ("0" == www.text)
+
+            Debug.Log(www.text);
+            if("Success" == www.text)
             {
-                StaticData.userStage = 0;
                 Application.LoadLevel("main_scene");
             }
-            else if ("1" == www.text)
+            else
             {
-                StaticData.userStage = 1;
-                Application.LoadLevel("main_scene");
-            }
-            else if ("2" == www.text)
-            {
-                StaticData.userStage = 2;
-                Application.LoadLevel("main_scene");
-            }
-            if ("3" == www.text)
-            {
-                StaticData.userStage = 3;
-                Application.LoadLevel("main_scene");
+                Debug.Log("Login fail");
             }
         }
         else
