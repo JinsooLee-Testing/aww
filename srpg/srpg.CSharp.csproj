@@ -63,6 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="srpg.CSharp.Plugins.csproj">
+      <Project>{340BA9FB-7979-DE6E-77FE-797FBAE840F8}</Project>
+      <Name>srpg.CSharp.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\52SpecialEffectPack\Legacy Effect Editor\csLegacyEffectChanger.cs" />
     <Compile Include="Assets\52SpecialEffectPack\Legacy Effect Editor\csLegacyEffectEditor.cs" />
     <Compile Include="Assets\Scripts\Battle\Map\Hex.cs" />
@@ -123,6 +129,7 @@
     <Compile Include="Assets\Scripts\ui\ui_count.cs" />
     <Compile Include="Assets\Scripts\ui_setting.cs" />
     <Compile Include="Assets\Scripts\wall.cs" />
+    <Compile Include="Assets\Toon Environment Pack\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\ModelRotate.cs" />
     <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\VoxelModel1Manager.cs" />
     <Compile Include="Assets\어셋 다운자료\Elementals\Demo\Scripts\GE_Elementals_Demo.cs" />
@@ -278,6 +285,8 @@
     <None Include="Assets\StreamingAssets\testcc.xml" />
     <None Include="Assets\StreamingAssets\testz.xml" />
     <None Include="Assets\StreamingAssets\z.xml" />
+    <None Include="Assets\Toon Environment Pack\Read me.txt" />
+    <None Include="Assets\Toon Environment Pack\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Toon Rock Golem\Read me.txt" />
     <None Include="Assets\cardtest.xml" />
     <None Include="Assets\stage1.xml" />

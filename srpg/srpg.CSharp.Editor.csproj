@@ -96,6 +96,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="srpg.CSharp.Plugins.csproj">
+      <Project>{340BA9FB-7979-DE6E-77FE-797FBAE840F8}</Project>
+      <Name>srpg.CSharp.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="srpg.CSharp.csproj">
       <Project>{0A4EC1A5-1415-D390-A413-E264F9394438}</Project>
       <Name>srpg.CSharp</Name>
@@ -251,6 +255,8 @@
     <None Include="Assets\StreamingAssets\testcc.xml" />
     <None Include="Assets\StreamingAssets\testz.xml" />
     <None Include="Assets\StreamingAssets\z.xml" />
+    <None Include="Assets\Toon Environment Pack\Read me.txt" />
+    <None Include="Assets\Toon Environment Pack\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\Toon Rock Golem\Read me.txt" />
     <None Include="Assets\cardtest.xml" />
     <None Include="Assets\stage1.xml" />
