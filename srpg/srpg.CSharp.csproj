@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Assets\52SpecialEffectPack\Legacy Effect Editor\csLegacyEffectChanger.cs" />
     <Compile Include="Assets\52SpecialEffectPack\Legacy Effect Editor\csLegacyEffectEditor.cs" />
+    <Compile Include="Assets\Adobe\DemoController.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />

@@ -85,7 +85,7 @@ public class CameraManager : MonoBehaviour {
         }
         if(act==ACT.MOVING)
         {
-            SetPosition(new Vector3(-0.61f, 4.35f, 7.72f));
+            SetPosition(new Vector3(pos.x, 4.35f, pos.z));
             Vector3 r = transform.rotation.eulerAngles;
             r.x = 20;
             r.y = 165.2f;
