@@ -13,7 +13,7 @@ Shader "UniToonUltra/Normals/NormalOutline" {
     }
  
     SubShader {
-		Tags { "RenderType" = "Opaque" }
+		Tags { "RenderType" = "Opaque"  }
 		CGPROGRAM
 		#pragma surface surf Ramp
  
