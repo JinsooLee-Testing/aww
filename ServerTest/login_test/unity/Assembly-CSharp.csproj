@@ -45,17 +45,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ButtonManager.cs" />
-     <Compile Include="Assets\Script\CStageSceneManager.cs" />
-     <Compile Include="Assets\Script\Login.cs" />
-     <Compile Include="Assets\Script\MStageSceneManager.cs" />
-     <Compile Include="Assets\Script\ObjectManager.cs" />
-     <Compile Include="Assets\Script\SelectStageManager.cs" />
-     <Compile Include="Assets\Script\StageButton.cs" />
-     <Compile Include="Assets\Script\StaticData.cs" />
-     <Compile Include="Assets\Script\TestLogin.cs" />
-     <Compile Include="Assets\Script\YStageSceneManager.cs" />
-     <Compile Include="Assets\Script\main_scene.cs" />
+     <Compile Include="Assets\Resources\BackScene.cs" />
+     <Compile Include="Assets\Resources\ButtonManager.cs" />
+     <Compile Include="Assets\Resources\Script\ButtonCreator.cs" />
+     <Compile Include="Assets\Resources\Script\CStageSceneManager.cs" />
+     <Compile Include="Assets\Resources\Script\CardBase.cs" />
+     <Compile Include="Assets\Resources\Script\CardData.cs" />
+     <Compile Include="Assets\Resources\Script\FileLoadManager.cs" />
+     <Compile Include="Assets\Resources\Script\Login.cs" />
+     <Compile Include="Assets\Resources\Script\MStageSceneManager.cs" />
+     <Compile Include="Assets\Resources\Script\ObjectManager.cs" />
+     <Compile Include="Assets\Resources\Script\SelectStageManager.cs" />
+     <Compile Include="Assets\Resources\Script\StageButton.cs" />
+     <Compile Include="Assets\Resources\Script\StaticData.cs" />
+     <Compile Include="Assets\Resources\Script\TestLogin.cs" />
+     <Compile Include="Assets\Resources\Script\YStageSceneManager.cs" />
+     <Compile Include="Assets\Resources\Script\main_scene.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
