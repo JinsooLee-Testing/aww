@@ -1,8 +1,7 @@
 <?php
-    //$ID = $_REQUEST["ID"];
     $conn = mysql_connect("localhost","root","111111") or die("접속에 실패했습니다.");
     mysql_select_db("test_login") or die("no database");
-    $query = mysql_query("SELECT * FROM skill_card");
+    $query = mysql_query("SELECT * FROM skill_card WHERE COST =2");
     header ("Content-type: text/xml");
     $xmlBody = "<?xml version='1.0' encoding='utf-8' ?>";
     $xmlBody .= "<XML>";
@@ -18,14 +17,14 @@
      	$RANGEVIEW= $row["RANGEVIEW"];
      	$RANGEOFACT= $row["RANGEOFACT"];
      	$xmlBody .='
-     	<Data>
+     	<DATA>
      	    <SKILLNAME>' .$SKILLNAME .'</SKILLNAME>
      	    <COST>' .$COST .'</COST>
      	    <TYPE>' .$TYPE .'</TYPE>
      	    <DAMAGE>' .$DAMAGE .'</DAMAGE>
      	    <RANGEVIEW>' .$RANGEVIEW .'</RANGEVIEW>
      	    <RANGEOFACT>' .$RANGEOFACT .'</RANGEOFACT>
-     	</Data>';
+     	</DATA>';
      }
      mysql_close($conn);
      $xmlBody .="</XML>";
