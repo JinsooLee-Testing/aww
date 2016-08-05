@@ -31,23 +31,6 @@ Shader "NPR Cartoon Effect/Cartoon" {
 			#pragma glsl
 			#pragma target 3.0
 			#pragma vertex vert
-			#pragma fragment frag
-
-			uniform sampler2D _MainTex;
-			uniform float4 _MainTex_ST;
-			uniform sampler2D _RampTex;
-			uniform float4 _DiffuseColor;
-			uniform float4 _SpecularColor;
-			uniform float _SpecularScale;
-			uniform float _SpecularTranslationX;
-			uniform float _SpecularTranslationY;
-			uniform float _SpecularRotationX;
-			uniform float _SpecularRotationY;
-			uniform float _SpecularRotationZ;
-			uniform float _SpecularScaleX;
-			uniform float _SpecularScaleY;
-			uniform float _SpecularSplitX;
-			uniform float _SpecularSplitY;
 
 			struct VSOutput
 			{
@@ -171,6 +154,8 @@ Shader "NPR Cartoon Effect/Cartoon" {
             }
 			ENDCG
 		}
+			CGPROGRAM
+
 	} 
 	FallBack "Diffuse"
 }

@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: b9fa283d358618d4cae1282e2add2f62
+timeCreated: 1450235488
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Monster_Adobe
+    100004: Monster_Adobe_Bone01
+    100006: Monster_Adobe_Bone02
+    100008: Monster_Adobe_Bone03
+    100010: Monster_Adobe_Bone04
+    100012: Monster_Adobe_Bone05
+    100014: Monster_Adobe_Bone07
+    100016: Monster_Adobe_Bone08
+    100018: Monster_Adobe_Bone10
+    100020: Monster_Adobe_Bone11
+    100022: Monster_Adobe_Bone13
+    100024: Monster_Adobe_Bone14
+    100026: Monster_Adobe_Bone16
+    100028: Monster_Adobe_Bone18
+    100030: Monster_Adobe_Bone24
+    100032: Monster_Adobe_connectBone01
+    100034: Monster_Adobe_connectBone02
+    100036: Monster_Adobe_connectBone06
+    100038: Monster_Adobe_connectBone07
+    100040: Monster_Adobe_connectBone08
+    100042: Monster_Adobe_connectBone09
+    100044: Monster_Adobe_connectBone10
+    100046: World_Center_Mon_Adobe
+    400000: //RootNode
+    400002: Monster_Adobe
+    400004: Monster_Adobe_Bone01
+    400006: Monster_Adobe_Bone02
+    400008: Monster_Adobe_Bone03
+    400010: Monster_Adobe_Bone04
+    400012: Monster_Adobe_Bone05
+    400014: Monster_Adobe_Bone07
+    400016: Monster_Adobe_Bone08
+    400018: Monster_Adobe_Bone10
+    400020: Monster_Adobe_Bone11
+    400022: Monster_Adobe_Bone13
+    400024: Monster_Adobe_Bone14
+    400026: Monster_Adobe_Bone16
+    400028: Monster_Adobe_Bone18
+    400030: Monster_Adobe_Bone24
+    400032: Monster_Adobe_connectBone01
+    400034: Monster_Adobe_connectBone02
+    400036: Monster_Adobe_connectBone06
+    400038: Monster_Adobe_connectBone07
+    400040: Monster_Adobe_connectBone08
+    400042: Monster_Adobe_connectBone09
+    400044: Monster_Adobe_connectBone10
+    400046: World_Center_Mon_Adobe
+    4300000: Monster_Adobe
+    7400000: Idle
+    9500000: //RootNode
+    13700000: Monster_Adobe
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Monster_Adobe
+        weight: 1
+      - path: World_Center_Mon_Adobe
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_Bone03
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_Bone03/Monster_Adobe_Bone04
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_Bone03/Monster_Adobe_connectBone08
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_Bone03/Monster_Adobe_connectBone08/Monster_Adobe_Bone10
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_Bone03/Monster_Adobe_connectBone08/Monster_Adobe_Bone10/Monster_Adobe_Bone11
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_Bone03/Monster_Adobe_connectBone09
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_Bone03/Monster_Adobe_connectBone09/Monster_Adobe_Bone07
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_Bone03/Monster_Adobe_connectBone09/Monster_Adobe_Bone07/Monster_Adobe_Bone08
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_connectBone01
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_connectBone01/Monster_Adobe_Bone16
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_connectBone02
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_connectBone02/Monster_Adobe_Bone18
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_connectBone07
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_Bone02/Monster_Adobe_connectBone07/Monster_Adobe_Bone24
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_connectBone06
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_connectBone06/Monster_Adobe_Bone13
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_connectBone06/Monster_Adobe_Bone13/Monster_Adobe_Bone14
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_connectBone10
+        weight: 1
+      - path: World_Center_Mon_Adobe/Monster_Adobe_Bone01/Monster_Adobe_connectBone10/Monster_Adobe_Bone05
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

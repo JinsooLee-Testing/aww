@@ -1,5 +1,0 @@
-attack 0 ~ 20
-
-move 30 ~ 50
-
-dead 60 ~ 90

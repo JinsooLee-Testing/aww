@@ -47,6 +47,9 @@
   <ItemGroup>
      <Compile Include="Assets\Editor\TextureAtlasSlicer.cs" />
      <Compile Include="Assets\Editor\uGUITools.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_InspectorHelpEditor.cs" />
+     <Compile Include="Assets\JMO Assets\Cartoon FX\Editor\CFX_SpawnSystemEditor.cs" />
      <Compile Include="Assets\어셋 다운자료\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
      <None Include="Assets\Resources\XML\stage2.xml" />
      <None Include="Assets\Scripts\Shader\Normals\UniNormal.shader" />
@@ -55,11 +58,13 @@
      <None Include="Assets\Shader\Rims\Specular\SpecularNoOutline.shader" />
      <None Include="Assets\Materials\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\stage2.xml" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
      <None Include="Assets\Shader\Parallax\_Rim\_Specular\UniRimParrallaxSpecular.shader" />
      <None Include="Assets\어셋 다운자료\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
      <None Include="Assets\StreamingAssets\map_Y.xml" />
      <None Include="Assets\StreamingAssets\golem.xml" />
      <None Include="Assets\cardtest.xml" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
      <None Include="Assets\Shader\Parallax\_Specular\UniParrallaxNormalSpecOutline.shader" />
      <None Include="Assets\Materials\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\Materials\Shaders\ColorCorrectionCurves.shader" />
@@ -76,6 +81,7 @@
      <None Include="Assets\Scripts\Shader\Specular\ToonSpecularOutline 1.shader" />
      <None Include="Assets\3.xml" />
      <None Include="Assets\기획 추가FBX파일\전투결과창\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\license.txt" />
+     <None Include="Assets\Toon Environment Pack\Read me.txt" />
      <None Include="Assets\Shader\Rims\Specular\SpecularOutline.shader" />
      <None Include="Assets\Materials\Shaders\MotionBlur.shader" />
      <None Include="Assets\Materials\Shaders\_BloomAndFlares\MobileBloom.shader" />
@@ -95,6 +101,7 @@
      <None Include="Assets\StreamingAssets\C.xml" />
      <None Include="Assets\StreamingAssets\asd.xml" />
      <None Include="Assets\Shader\Parallax\_Regular\UniParralax.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAlphaBlend_Alpha8.shader" />
      <None Include="Assets\Scripts\Shader\BasicToon\Rim\BasicRimNoOutline.shader" />
      <None Include="Assets\Toon Rock Golem\Read me.txt" />
      <None Include="Assets\StreamingAssets\z.xml" />
@@ -104,11 +111,13 @@
      <None Include="Assets\기획 추가FBX파일\denti_10_ani\denti_list.txt" />
      <None Include="Assets\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNormal.shader" />
      <None Include="Assets\StreamingAssets\cardtest.xml" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Invert.shader" />
      <None Include="Assets\Resources\XML\cardtest.xml" />
      <None Include="Assets\Scripts\Shader\Parallax\_Rim\_Specular\UniRimParrallaxSpecular.shader" />
      <None Include="Assets\Materials\Shaders\_DepthOfField\DepthOfField34.shader" />
      <None Include="Assets\Scripts\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNoOutline.shader" />
      <None Include="Assets\StreamingAssets\map_C.xml" />
+     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
      <None Include="Assets\기획 추가FBX파일\reference\큐비클모델\ani_list.txt" />
      <None Include="Assets\Resources\XML\story1.xml" />
      <None Include="Assets\Scripts\Shader\Parallax\_Specular\UniParrallaxNormalSpecOutline.shader" />
@@ -117,6 +126,7 @@
      <None Include="Assets\Scripts\Shader\BasicToon\BasicOutline 1.shader" />
      <None Include="Assets\Materials\Shaders\SSAOShader.shader" />
      <None Include="Assets\Shader\Parallax\_Regular\UniParralaxOutline.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+AddSoft.shader" />
      <None Include="Assets\Materials\Shaders\ConvertDepth.shader" />
      <None Include="Assets\Resources\XML\stage2-2.xml" />
      <None Include="Assets\Scripts\Shader\BasicToon\Rim\BasicRimOutline.shader" />
@@ -126,8 +136,13 @@
      <None Include="Assets\Materials\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\Shader\BasicToon\BasicToon.shader" />
      <None Include="Assets\기획 추가FBX파일\전투결과창 1\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\how-to-use.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+AddSoft VColor.shader" />
      <None Include="Assets\Materials\Shaders\CreaseApply.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+Add.shader" />
+     <None Include="Assets\Toon Environment Pack\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\StreamingAssets\test.xml" />
+     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Hidden.shader" />
      <None Include="Assets\Shader\BasicToon\Rim\BasicRimOutline.shader" />
      <None Include="Assets\Materials\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\StreamingAssets\stage1.xml" />
@@ -145,6 +160,7 @@
      <None Include="Assets\Materials\Shaders\CameraMotionBlurDX11.shader" />
      <None Include="Assets\Resources\XML\map_Y.xml" />
      <None Include="Assets\Materials\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+Add VColor.shader" />
      <None Include="Assets\Materials\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
      <None Include="Assets\Shader\Specular\ToonSpecularOutline 1.shader" />
      <None Include="Assets\기획 추가FBX파일\스테이지선택\lock-shapes-Shapes4FREE\lock-shapes-Shapes4FREE\license.txt" />
@@ -182,6 +198,7 @@
      <None Include="Assets\Materials\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\Resources\XML\stage3.xml" />
      <None Include="Assets\Shader\Parallax\_Specular\UniParrallaxSpecular.shader" />
+     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX4 Readme.txt" />
      <None Include="Assets\Resources\XML\testData2.xml" />
      <None Include="Assets\StreamingAssets\testz.xml" />
      <None Include="Assets\Materials\Shaders\ColorCorrection3DLut.shader" />
@@ -244,6 +261,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{66166638-DAA4-0619-7925-3327022DA68C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{EBE778F5-4BD9-E0F6-FB6D-A7DB79C113D5}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
