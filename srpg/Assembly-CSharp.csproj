@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_3;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT;MOBILE_INPUT</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_3;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_WEBPLAYER;ENABLE_SUBSTANCE;WEBPLUG;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -45,24 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\52SpecialEffectPack\Legacy Effect Editor\csLegacyEffectChanger.cs" />
-     <Compile Include="Assets\52SpecialEffectPack\Legacy Effect Editor\csLegacyEffectEditor.cs" />
-     <Compile Include="Assets\Adobe\DemoController.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_Translate.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\UI\CFX_Demo_GTButton.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\UI\CFX_Demo_GTToggle.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_InspectorHelp.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
-     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
      <Compile Include="Assets\Scripts\Battle\Map\Hex.cs" />
      <Compile Include="Assets\Scripts\Battle\Map\MapManager.cs" />
      <Compile Include="Assets\Scripts\Battle\Map\Mark.cs" />
@@ -70,19 +52,15 @@
      <Compile Include="Assets\Scripts\Battle\Map\pick.cs" />
      <Compile Include="Assets\Scripts\Battle\Player\AI.cs" />
      <Compile Include="Assets\Scripts\Battle\Player\AIPlayer.cs" />
-     <Compile Include="Assets\Scripts\Battle\Player\AI_Golem.cs" />
      <Compile Include="Assets\Scripts\Battle\Player\BattleManager.cs" />
      <Compile Include="Assets\Scripts\Battle\Player\PlayerBase.cs" />
      <Compile Include="Assets\Scripts\Battle\Player\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\Battle\Player\PlayerStatus.cs" />
      <Compile Include="Assets\Scripts\Battle\Player\UserPlayer.cs" />
-     <Compile Include="Assets\Scripts\Battle\Player\npc.cs" />
      <Compile Include="Assets\Scripts\Battle\UI\GUIManager.cs" />
      <Compile Include="Assets\Scripts\Battle\UI\SelectObject.cs" />
      <Compile Include="Assets\Scripts\Battle\UI\hpContorl.cs" />
      <Compile Include="Assets\Scripts\Battle\UI\pickthis.cs" />
-     <Compile Include="Assets\Scripts\Battle\UI\scene.cs" />
-     <Compile Include="Assets\Scripts\Battle\UI\scene_retry.cs" />
      <Compile Include="Assets\Scripts\Battle\UI\ui.cs" />
      <Compile Include="Assets\Scripts\Battle\cost\costBase.cs" />
      <Compile Include="Assets\Scripts\Battle\cost\costManager.cs" />
@@ -98,7 +76,6 @@
      <Compile Include="Assets\Scripts\CardPage\CardUseBase.cs" />
      <Compile Include="Assets\Scripts\CardPage\MagicCard.cs" />
      <Compile Include="Assets\Scripts\CardPage\SummonCard.cs" />
-     <Compile Include="Assets\Scripts\Condition.cs" />
      <Compile Include="Assets\Scripts\ETC\CameraManager.cs" />
      <Compile Include="Assets\Scripts\ETC\EffectManager.cs" />
      <Compile Include="Assets\Scripts\ETC\Manager.cs" />
@@ -111,17 +88,12 @@
      <Compile Include="Assets\Scripts\MainTitle\BattleStart.cs" />
      <Compile Include="Assets\Scripts\MainTitle\MainTilteStart.cs" />
      <Compile Include="Assets\Scripts\MainTitle\MainTitle.cs" />
-     <Compile Include="Assets\Scripts\MainTitle\StageManager.cs" />
      <Compile Include="Assets\Scripts\MainTitle\ToStageSelect.cs" />
-     <Compile Include="Assets\Scripts\PlayerInfo.cs" />
      <Compile Include="Assets\Scripts\ui\FIleManager.cs" />
      <Compile Include="Assets\Scripts\ui\clickthis.cs" />
      <Compile Include="Assets\Scripts\ui\talkbox.cs" />
      <Compile Include="Assets\Scripts\ui\turn.cs" />
-     <Compile Include="Assets\Scripts\ui\ui_count.cs" />
-     <Compile Include="Assets\Scripts\ui_setting.cs" />
      <Compile Include="Assets\Scripts\wall.cs" />
-     <Compile Include="Assets\Toon Environment Pack\Water (Basic)\Scripts\WaterBasic.cs" />
      <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\ModelRotate.cs" />
      <Compile Include="Assets\어셋 다운자료\Animal Friends\Scripts\VoxelModel1Manager.cs" />
      <Compile Include="Assets\어셋 다운자료\Elementals\Demo\Scripts\GE_Elementals_Demo.cs" />
@@ -138,13 +110,9 @@
      <None Include="Assets\Shader\Rims\Specular\SpecularNoOutline.shader" />
      <None Include="Assets\Materials\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
      <None Include="Assets\stage2.xml" />
-     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
      <None Include="Assets\Shader\Parallax\_Rim\_Specular\UniRimParrallaxSpecular.shader" />
      <None Include="Assets\어셋 다운자료\KY_effects\FX_pack0\prefab\01_shot\00_ReadMe.txt" />
-     <None Include="Assets\StreamingAssets\map_Y.xml" />
-     <None Include="Assets\StreamingAssets\golem.xml" />
      <None Include="Assets\cardtest.xml" />
-     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
      <None Include="Assets\Shader\Parallax\_Specular\UniParrallaxNormalSpecOutline.shader" />
      <None Include="Assets\Materials\Shaders\SunShaftsComposite.shader" />
      <None Include="Assets\Materials\Shaders\ColorCorrectionCurves.shader" />
@@ -160,8 +128,6 @@
      <None Include="Assets\Scripts\Shader\BasicToon\BasicToon.shader" />
      <None Include="Assets\Scripts\Shader\Specular\ToonSpecularOutline 1.shader" />
      <None Include="Assets\3.xml" />
-     <None Include="Assets\기획 추가FBX파일\전투결과창\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\license.txt" />
-     <None Include="Assets\Toon Environment Pack\Read me.txt" />
      <None Include="Assets\Shader\Rims\Specular\SpecularOutline.shader" />
      <None Include="Assets\Materials\Shaders\MotionBlur.shader" />
      <None Include="Assets\Materials\Shaders\_BloomAndFlares\MobileBloom.shader" />
@@ -181,7 +147,6 @@
      <None Include="Assets\StreamingAssets\C.xml" />
      <None Include="Assets\StreamingAssets\asd.xml" />
      <None Include="Assets\Shader\Parallax\_Regular\UniParralax.shader" />
-     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAlphaBlend_Alpha8.shader" />
      <None Include="Assets\Scripts\Shader\BasicToon\Rim\BasicRimNoOutline.shader" />
      <None Include="Assets\Toon Rock Golem\Read me.txt" />
      <None Include="Assets\StreamingAssets\z.xml" />
@@ -191,22 +156,17 @@
      <None Include="Assets\기획 추가FBX파일\denti_10_ani\denti_list.txt" />
      <None Include="Assets\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNormal.shader" />
      <None Include="Assets\StreamingAssets\cardtest.xml" />
-     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Invert.shader" />
      <None Include="Assets\Resources\XML\cardtest.xml" />
      <None Include="Assets\Scripts\Shader\Parallax\_Rim\_Specular\UniRimParrallaxSpecular.shader" />
      <None Include="Assets\Materials\Shaders\_DepthOfField\DepthOfField34.shader" />
      <None Include="Assets\Scripts\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNoOutline.shader" />
-     <None Include="Assets\StreamingAssets\map_C.xml" />
-     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
      <None Include="Assets\기획 추가FBX파일\reference\큐비클모델\ani_list.txt" />
-     <None Include="Assets\Resources\XML\story1.xml" />
      <None Include="Assets\Scripts\Shader\Parallax\_Specular\UniParrallaxNormalSpecOutline.shader" />
      <None Include="Assets\어셋 다운자료\Fantasy SFX for Particle Distort Texture effect library\readme_Fantasy SFX for Particle Distort Texture effect library.txt" />
      <None Include="Assets\Materials\Shaders\_BloomAndFlares\MobileBlur.shader" />
      <None Include="Assets\Scripts\Shader\BasicToon\BasicOutline 1.shader" />
      <None Include="Assets\Materials\Shaders\SSAOShader.shader" />
      <None Include="Assets\Shader\Parallax\_Regular\UniParralaxOutline.shader" />
-     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+AddSoft.shader" />
      <None Include="Assets\Materials\Shaders\ConvertDepth.shader" />
      <None Include="Assets\Resources\XML\stage2-2.xml" />
      <None Include="Assets\Scripts\Shader\BasicToon\Rim\BasicRimOutline.shader" />
@@ -215,40 +175,27 @@
      <None Include="Assets\Scripts\Shader\Parallax\_Regular\UniParralax.shader" />
      <None Include="Assets\Materials\Shaders\NoiseEffectShaderYUV.shader" />
      <None Include="Assets\Shader\BasicToon\BasicToon.shader" />
-     <None Include="Assets\기획 추가FBX파일\전투결과창 1\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\how-to-use.txt" />
-     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+AddSoft VColor.shader" />
      <None Include="Assets\Materials\Shaders\CreaseApply.shader" />
-     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+Add.shader" />
-     <None Include="Assets\Toon Environment Pack\Water (Basic)\Shaders\FXWaterBasic.shader" />
      <None Include="Assets\StreamingAssets\test.xml" />
-     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
-     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Hidden.shader" />
      <None Include="Assets\Shader\BasicToon\Rim\BasicRimOutline.shader" />
      <None Include="Assets\Materials\Shaders\ChromaticAberrationShader.shader" />
      <None Include="Assets\StreamingAssets\stage1.xml" />
-     <None Include="Assets\StreamingAssets\story1.xml" />
      <None Include="Assets\StreamingAssets\st1.xml" />
      <None Include="Assets\Materials\Shaders\GlobalFog.shader" />
      <None Include="Assets\어셋 다운자료\Elementals\Readme.txt" />
      <None Include="Assets\Materials\Shaders\Contrast Stretch\Luminance.shader" />
      <None Include="Assets\Scripts\Shader\Normals\UniNormalNoOutLine.shader" />
-     <None Include="Assets\기획 추가FBX파일\전투결과창\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\how-to-use.txt" />
-     <None Include="Assets\기획 추가FBX파일\전투결과창 1\120-arrows-shapes-Shapes4FREE\120-arrows-shapes-Shapes4FREE\license.txt" />
      <None Include="Assets\Materials\Shaders\ColorCorrectionSelective.shader" />
      <None Include="Assets\Materials\Shaders\_DepthOfField\Bokeh34.shader" />
      <None Include="Assets\Shader\Rims\Normals\NormalRim.shader" />
      <None Include="Assets\Materials\Shaders\CameraMotionBlurDX11.shader" />
-     <None Include="Assets\Resources\XML\map_Y.xml" />
      <None Include="Assets\Materials\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
-     <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX4 Particle AlphaBlend+Add VColor.shader" />
      <None Include="Assets\Materials\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
      <None Include="Assets\Shader\Specular\ToonSpecularOutline 1.shader" />
      <None Include="Assets\기획 추가FBX파일\스테이지선택\lock-shapes-Shapes4FREE\lock-shapes-Shapes4FREE\license.txt" />
      <None Include="Assets\StreamingAssets\testData3.xml" />
      <None Include="Assets\Materials\Shaders\BlurEffectConeTaps.shader" />
-     <None Include="Assets\StreamingAssets\stage.xml" />
      <None Include="Assets\Materials\Shaders\CameraMotionBlur.shader" />
-     <None Include="Assets\Resources\XML\golem.xml" />
      <None Include="Assets\Resources\XML\stage1.xml" />
      <None Include="Assets\Materials\Shaders\_Antialiasing\DLAA.shader" />
      <None Include="Assets\Materials\Shaders\NoiseAndGrainDX11.shader" />
@@ -263,7 +210,6 @@
      <None Include="Assets\Materials\Shaders\SepiaToneEffect.shader" />
      <None Include="Assets\Materials\Shaders\TwirlEffect.shader" />
      <None Include="Assets\Materials\Shaders\VortexEffect.shader" />
-     <None Include="Assets\Resources\XML\map_C.xml" />
      <None Include="Assets\Materials\Shaders\Contrast Stretch\Adaptation.shader" />
      <None Include="Assets\StreamingAssets\stage2-2.xml" />
      <None Include="Assets\Materials\Shaders\NoiseAndGrain.shader" />
@@ -278,11 +224,9 @@
      <None Include="Assets\Materials\Shaders\_Antialiasing\FXAA2.shader" />
      <None Include="Assets\Resources\XML\stage3.xml" />
      <None Include="Assets\Shader\Parallax\_Specular\UniParrallaxSpecular.shader" />
-     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX4 Readme.txt" />
      <None Include="Assets\Resources\XML\testData2.xml" />
      <None Include="Assets\StreamingAssets\testz.xml" />
      <None Include="Assets\Materials\Shaders\ColorCorrection3DLut.shader" />
-     <None Include="Assets\StreamingAssets\map_M.xml" />
      <None Include="Assets\Materials\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
      <None Include="Assets\StreamingAssets\a.xml" />
      <None Include="Assets\StreamingAssets\testData2.xml" />
@@ -292,7 +236,6 @@
      <None Include="Assets\Shader\Normals\UniNormalNoOutLine.shader" />
      <None Include="Assets\기획 추가FBX파일\스테이지선택\lock-shapes-Shapes4FREE\lock-shapes-Shapes4FREE\how-to-use.txt" />
      <None Include="Assets\Resources\XML\stage4.xml" />
-     <None Include="Assets\Resources\XML\stage.xml" />
      <None Include="Assets\Scripts\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNormal.shader" />
      <None Include="Assets\Materials\Shaders\SimpleClear.shader" />
      <None Include="Assets\Scripts\Shader\Parallax\_Specular\UniParrallaxSpecular.shader" />
@@ -300,7 +243,6 @@
      <None Include="Assets\Materials\Shaders\_Antialiasing\FXAA3Console.shader" />
      <None Include="Assets\StreamingAssets\stage4.xml" />
      <None Include="Assets\Resources\XML\testData.xml" />
-     <None Include="Assets\Resources\XML\map_M.xml" />
      <None Include="Assets\Shader\Parallax\_Rim\_Regular\UniParrallaxRimNoOutline.shader" />
      <None Include="Assets\Materials\Shaders\_Antialiasing\FXAAPreset2.shader" />
      <None Include="Assets\Materials\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
@@ -312,10 +254,6 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{66166638-DAA4-0619-7925-3327022DA68C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
