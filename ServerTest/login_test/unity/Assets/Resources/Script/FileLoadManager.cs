@@ -29,7 +29,7 @@ public class FileLoadManager : MonoBehaviour {
        Instantiate(inst.mCards[0], new Vector3(0,0, 0), mRot);
        Instantiate(inst.mCards[1], new Vector3(-5, 0, 0), mRot);
        Instantiate(inst.mCards[2], new Vector3(5, 0, 0), mRot);
-       // Instantiate(card, new Vector3(0,0,0), Quaternion.identity);
-       //card.SetActive(true);
+        // Instantiate(card, new Vector3(0,0,0), Quaternion.identity);
+        //card.SetActive(true);
     }
 }

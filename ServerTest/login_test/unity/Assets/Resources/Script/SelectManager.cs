@@ -3,11 +3,11 @@ using System.Collections;
 
 public class SelectManager : MonoBehaviour {
     RaycastHit mHit;
-
+    byte mCount;
     // Use this for initialization
     void Start()
     {
-       
+        mCount = 0;
     }
 
     // Update is called once per frame
@@ -25,11 +25,31 @@ public class SelectManager : MonoBehaviour {
 
             if (Physics.Raycast(ray, out mHit, 100)) // 피킹이 되면 mHit에 피킹된 오브젝트정보가 달려온다.
             {
-                Debug.Log(mHit.transform.name);
+                    CardActivate(mHit.transform.name);
             }
         }
 
     }
+
+    bool CardActivate(string mCardName)
+    {
+        mCardName =  mCardName.Replace("(Clone)", "");
+        if (0 == mCount)
+        {
+            mCount += 1;
+            CardDeckManager.GetInst().InsertCardDeck(mCardName);
+            //Debug.Log(mCDM);
+            //CardDeckManager.GetInst().InsertCardDeck(mCardName);
+            //mCDM.InsertCardDeck(mCardName);
+            //Debug.Log(mCardName + " insert Deck");
+            return true;
+        }
+        mCount -= 1;
+        CardDeckManager.GetInst().PullCardDeck(mCardName);
+        //Debug.Log(mCardName + " out Deck");
+        return false;
+    }
+
 
 
 }
