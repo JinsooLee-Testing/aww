@@ -55,6 +55,7 @@
      <Compile Include="Assets\Resources\Script\Login.cs" />
      <Compile Include="Assets\Resources\Script\MStageSceneManager.cs" />
      <Compile Include="Assets\Resources\Script\ObjectManager.cs" />
+     <Compile Include="Assets\Resources\Script\SelectManager.cs" />
      <Compile Include="Assets\Resources\Script\SelectStageManager.cs" />
      <Compile Include="Assets\Resources\Script\StageButton.cs" />
      <Compile Include="Assets\Resources\Script\StaticData.cs" />

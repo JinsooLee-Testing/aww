@@ -2,52 +2,34 @@
 using System.Collections;
 
 public class SelectManager : MonoBehaviour {
-    Camera _mainCamera = null;
-    private bool _mouseState;
-    private GameObject target;
-    private Vector3 MousePos;
+    RaycastHit mHit;
 
     // Use this for initialization
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            target = GetClickedObject();
-            if(target.Equals(gameObject))
-            {
-                _mouseState = true;
-            }
-            else if(Input.GetMouseButtonUp(0))
-            {
-                _mouseState = false;
-            }
-            if(_mouseState)
-            {
-                transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            }
-        }
-        
+        MousePicking();
     }
 
-    private GameObject GetClickedObject()
+    void MousePicking()
     {
-        RaycastHit hit;
-        GameObject target = null;
-        Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray.origin,ray.direction*10,out hit))
+        
+        if (Input.GetMouseButtonDown(0)) //마우스를 눌르면
         {
-            target = hit.collider.gameObject;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //현재 마우스클릭한 위치
+
+            if (Physics.Raycast(ray, out mHit, 100)) // 피킹이 되면 mHit에 피킹된 오브젝트정보가 달려온다.
+            {
+                Debug.Log(mHit.transform.name);
+            }
         }
-        return target;
+
     }
+
+
 }
