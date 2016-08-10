@@ -81,7 +81,7 @@ public class PlayerManager : MonoBehaviour {
             if (select_object != null)
             {
                 Vector3 temp = select_object.transform.position;
-                temp.y = 3;
+                temp.y = 3.4f;
                 pick_ob.transform.position = temp;
             }
         }

@@ -50,7 +50,7 @@ public class CostManager : MonoBehaviour
     {
         removeTime = 0;
         ui = ((GameObject)Instantiate(GO_turn)).GetComponent<turn>();
-        ui.transform.position = new Vector3(0,50,0);
+        ui.transform.position = new Vector3(0,150,0);
         removeTime += Time.deltaTime;
         //
     }

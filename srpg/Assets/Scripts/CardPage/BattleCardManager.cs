@@ -114,7 +114,7 @@ public class BattleCardManager : MonoBehaviour
             cardUse[x].Buttonnum = x;
             cardUse[x].On_active = true;
             card[x].SetCost(cardUse[x].cost);
-            temp.x += 5;
+            temp.x += 3;
         }
     
     }
@@ -165,7 +165,7 @@ public class BattleCardManager : MonoBehaviour
             cardUse[x].Buttonnum = x;
             card[x].On_active = true;
             card[x].SetCost(cardUse[x].cost);
-            temp.x += 5;
+            temp.x += 3;
         }
     }
     public void LoadCard()
@@ -180,7 +180,7 @@ public class BattleCardManager : MonoBehaviour
             card[x].transform.position = Initpos;
             
             card[x].Buttonnum = x;
-            Initpos.x += 5;
+            Initpos.x += 3;
             card[x].On_active = true;
  
         }
