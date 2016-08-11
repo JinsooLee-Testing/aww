@@ -51,6 +51,7 @@
      <Compile Include="Assets\Resources\Script\CStageSceneManager.cs" />
      <Compile Include="Assets\Resources\Script\CardBase.cs" />
      <Compile Include="Assets\Resources\Script\CardData.cs" />
+     <Compile Include="Assets\Resources\Script\CardDeckManager.cs" />
      <Compile Include="Assets\Resources\Script\FileLoadManager.cs" />
      <Compile Include="Assets\Resources\Script\Login.cs" />
      <Compile Include="Assets\Resources\Script\MStageSceneManager.cs" />

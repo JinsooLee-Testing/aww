@@ -34,20 +34,22 @@ public class SelectManager : MonoBehaviour {
     bool CardActivate(string mCardName)
     {
         mCardName =  mCardName.Replace("(Clone)", "");
-        if (0 == mCount)
+        mCount += 1;
+        CardDeckManager.GetInst().InsertCardDeck(mCardName);
+        return true;
+        /*if (0 == mCount)
         {
-            mCount += 1;
-            CardDeckManager.GetInst().InsertCardDeck(mCardName);
+            
             //Debug.Log(mCDM);
             //CardDeckManager.GetInst().InsertCardDeck(mCardName);
             //mCDM.InsertCardDeck(mCardName);
             //Debug.Log(mCardName + " insert Deck");
             return true;
         }
-        mCount -= 1;
-        CardDeckManager.GetInst().PullCardDeck(mCardName);
+       // mCount -= 1;
+        //CardDeckManager.GetInst().PullCardDeck(mCardName);
         //Debug.Log(mCardName + " out Deck");
-        return false;
+        return false;*/
     }
 
 
