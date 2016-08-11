@@ -3,11 +3,9 @@ using System.Collections;
 
 public class SelectManager : MonoBehaviour {
     RaycastHit mHit;
-    byte mCount;
     // Use this for initialization
     void Start()
     {
-        mCount = 0;
     }
 
     // Update is called once per frame
@@ -34,9 +32,10 @@ public class SelectManager : MonoBehaviour {
     bool CardActivate(string mCardName)
     {
         mCardName =  mCardName.Replace("(Clone)", "");
-        mCount += 1;
-        CardDeckManager.GetInst().InsertCardDeck(mCardName);
-        return true;
+            CardDeckManager.GetInst().InsertCardDeck(mCardName);
+            return true;
+
+
         /*if (0 == mCount)
         {
             
