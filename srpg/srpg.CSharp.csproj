@@ -238,6 +238,7 @@
     <None Include="Assets\Resources\XML\map_M.xml" />
     <None Include="Assets\Resources\XML\map_Y.xml" />
     <None Include="Assets\Resources\XML\stage.xml" />
+    <None Include="Assets\Resources\XML\stage1-2.xml" />
     <None Include="Assets\Resources\XML\stage1.xml" />
     <None Include="Assets\Resources\XML\stage2-2.xml" />
     <None Include="Assets\Resources\XML\stage2.xml" />
@@ -300,6 +301,7 @@
     <None Include="Assets\StreamingAssets\map_Y.xml" />
     <None Include="Assets\StreamingAssets\st1.xml" />
     <None Include="Assets\StreamingAssets\stage.xml" />
+    <None Include="Assets\StreamingAssets\stage1-2.xml" />
     <None Include="Assets\StreamingAssets\stage1.xml" />
     <None Include="Assets\StreamingAssets\stage2-2.xml" />
     <None Include="Assets\StreamingAssets\stage2.xml" />
