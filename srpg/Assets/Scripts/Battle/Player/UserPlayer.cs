@@ -118,7 +118,7 @@ public class UserPlayer : PlayerBase
             equip = ((GameObject)Instantiate(magic.GetInst().magics[4])).GetComponent<Equipment>();
             Equip = true;
             Vector3 v2 = transform.position;
-            v2.y += 2.5f;
+            v2.y = 1.0f;
             equip.transform.position = v2;
             equip_type = "shield";
         }
@@ -147,7 +147,7 @@ public class UserPlayer : PlayerBase
             act = ACT.DIYING;
         }
         ShowCondition();
-
+        
         if (brokentime != 0)
         {
             brokentime += Time.deltaTime;
@@ -191,7 +191,7 @@ public class UserPlayer : PlayerBase
             if(equip_type=="helmet")
                 v2.y += 1.5f;
             else
-                v2.y += 3.5f;
+                v2.y += 2f;
             equip.transform.position = v2;
         }
         if (act==ACT.IDLE)
@@ -269,7 +269,7 @@ public class UserPlayer : PlayerBase
                     act = ACT.IDLE;
                     if (CurHex.obj_id == 5)
                         EquipHelmet();
-                    //PlayerManager.GetInst().TurnOver();
+                    
                 }
 
             }

@@ -36,6 +36,7 @@ public class Object_Manager : MonoBehaviour {
         inst.Structures[10] = (GameObject)Resources.Load("object/chapter2_wall");
         inst.Structures[11] = (GameObject)Resources.Load("object/chapter2_watchtower");
         inst.Structures[12] = (GameObject)Resources.Load("object/firefeather");
+        inst.Structures[13] = (GameObject)Resources.Load("object/tree");
     }
     public GameObject FindObj(int id)
     {

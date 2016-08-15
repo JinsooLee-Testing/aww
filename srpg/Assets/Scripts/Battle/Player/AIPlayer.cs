@@ -15,6 +15,7 @@ public class AIPlayer : PlayerBase
     public string info2="hi";
     public int id = 1;
     public float ef_time = 0f;
+    public float anitime = 0f;
   
     void Awake()
     {
@@ -146,7 +147,9 @@ public class AIPlayer : PlayerBase
         }
         if (ACT.ATTACKING == act)
         {
-           // anim.SetBool("attack", true);
+            // anim.SetBool("attack", true);
+         
+            
         }
         if (act == ACT.MOVING)
         {//이동처리
@@ -215,6 +218,7 @@ public class AIPlayer : PlayerBase
 
             }
         }
+      
     }
     void RemoveRoutine()
     {
@@ -291,7 +295,7 @@ public class AIPlayer : PlayerBase
         AIProcess();
         ef_time += Time.deltaTime;
         RemoveRoutine();
-       
+     
         if (magic.GetInst().type == "wind")
         {
             if (ef_time > 1.0f&&CurHex.At_Marked==true)

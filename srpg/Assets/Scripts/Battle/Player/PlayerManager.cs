@@ -37,6 +37,8 @@ public class PlayerManager : MonoBehaviour {
     public pick pick_ob = new pick();
     public bool isnpc = false;
 
+    public int exitx = 100;
+    public int exity = 100;
     public void SetTurnOverTime(float time)
     {
         turnOverTiem = time;
@@ -222,7 +224,7 @@ public class PlayerManager : MonoBehaviour {
         if (pb.act != ACT.CASTING)
             pb.act = ACT.IDLE;
 
-
+        CostManager.GetInst().DestoryTurn();
         if (Players.Count > 0)
         {
             CurTurnIdx++;

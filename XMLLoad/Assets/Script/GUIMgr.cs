@@ -68,7 +68,8 @@ public class GUIMgr
             inst.Structures[10] = (GameObject)Resources.Load("object/chapter2_wall");
             inst.Structures[11] = (GameObject)Resources.Load("object/chapter2_watchtower");
             inst.Structures[12] = (GameObject)Resources.Load("object/firefeather");
-            inst.MaxCurStructIdx = 12;
+            inst.Structures[13] = (GameObject)Resources.Load("object/tree");
+            inst.MaxCurStructIdx = 13;
             inst.CurMat_Max = 4;
             inst.CurStruct = inst.Structures[0];
             inst.CurTexture = inst.Texures[0];

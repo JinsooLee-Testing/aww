@@ -77,7 +77,7 @@ public class CostManager : MonoBehaviour
 
             cost[x] = ((GameObject)Instantiate(GO_hex)).GetComponent<costBase>();
             cost[x].transform.position = Initpos;
-            Initpos.x += 3;
+            Initpos.x += 4;
         }
         DrawTurn();
     }
@@ -91,6 +91,11 @@ public class CostManager : MonoBehaviour
         DrawCost();
         SetCost();
     }
+    public void DestoryTurn()
+    {
+       //if(removeTime!=0)
+      //   GameObject.Destroy(ui.gameObject);
+    }
     void Update()
     {
 
@@ -99,7 +104,7 @@ public class CostManager : MonoBehaviour
             if (removeTime != 0)
             {
                 removeTime += Time.deltaTime;
-                if (removeTime >= 1.5f)
+                if (removeTime >= 1.0f)
                 {
                     GameObject.Destroy(ui.gameObject);
 

@@ -71,10 +71,16 @@ public class GUIManager : MonoBehaviour {
         {
             GameObject.Destroy(talk_box.gameObject);
             ui_box = ((GameObject)Instantiate(ui)).GetComponent<uibox>();
+            /*
             CreatePos(new Vector3(-39.67f, 74.27f, -1.71f));
             InitPos1 = new Vector3(-39.67f, 74.27f, -1.71f);
             CreatePop(new Vector3(-35.57f, 76.97f, 0.09f));
             InitPos2 = new Vector3(-35.57f, 76.97f, 0.09f);
+            */
+            //CreatePos(new Vector3(-39.67f, 74.27f, -1.71f));
+            InitPos1 = new Vector3(-39.67f, 74.27f, -1.71f);
+            CreatePop(new Vector3(-21.3f, 76.45f, 0.09f));
+            InitPos2 = new Vector3(-21.3f, 76.45f, 0.09f);
             create = false;
         }
     }
@@ -93,20 +99,22 @@ public class GUIManager : MonoBehaviour {
             Vector3 pos2 = InitPos2;
             if (idx == 3)
             {
-                pos.x += 2;
-                pos2.x += 2;
+                pos.x += 3;
+                pos2.x += 3;
             }
             if (idx == 4)
             {
-                pos2.x += 5;
-                pos.x += 5;
+                pos2.x += 6;
+                pos.x += 6;
             }
             if (idx == 5)
             {
                 pos2.x += 12;
                 pos.x += 12;
-            }
-            a.transform.position = pos;
+            pos.y -= 2;
+            pos2.y -= 2;
+        }
+            //a.transform.position = pos;
             popa.transform.position = pos2;
       
     }
