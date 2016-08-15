@@ -69,7 +69,8 @@ public class FaceBookScript : MonoBehaviour {
     {
         IDictionary<string, object> profile = result.ResultDictionary;
         LoggedInUI.transform.FindChild("Name").GetComponent<Text>().text = "Hello " + profile["name"];
-        Debug.Log(profile["id"]);
+        //Debug.Log(profile["id"]);
+        StartCoroutine(Printphp(profile));
     }
 
     public void LogOut()
@@ -77,6 +78,44 @@ public class FaceBookScript : MonoBehaviour {
         FB.LogOut();
         ShowUI();
     }
+    IEnumerator Printphp(IDictionary<string, object> profile)
+    {
+        string id =  profile["id"].ToString();
+        string name = profile["name"].ToString();
+        //Debug.Log(id);
+        //Debug.Log(name);
+        string url = "http://52.78.5.177/AwwLogin.php";
+        //string url = "http://localhost/Aww/Awwlogin.php";
+        WWWForm form = new WWWForm();
+        form.AddField("ID", id);
+        form.AddField("NAME", name);
 
+        WWW www = new WWW(url,form);
+
+        yield return www;
+
+
+        if (null == www.error)
+        {
+            Debug.Log(www.text);
+            //StaticData.userId = id.text;
+            //StaticData.userPasswd = pass.text;
+
+            Debug.Log(www.text);
+            if ("Success" == www.text)
+            {
+                Application.LoadLevel("main_scene");
+            }
+            else
+            {
+                Debug.Log("Login fail");
+            }
+        }
+        else
+        {
+            Debug.Log(www.error);
+        }
+
+    }
 
 }

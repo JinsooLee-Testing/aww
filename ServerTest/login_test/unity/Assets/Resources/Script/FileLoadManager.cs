@@ -32,4 +32,6 @@ public class FileLoadManager : MonoBehaviour {
         // Instantiate(card, new Vector3(0,0,0), Quaternion.identity);
         //card.SetActive(true);
     }
+
+
 }
