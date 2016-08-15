@@ -21,6 +21,7 @@ public class GUIManager : MonoBehaviour {
     public bool create = true;
     public bool tutorial=false;
     public bool talkmode = false;
+    public bool talkscene = false;
     public string named = "denti";
     public int tidx = 2;
     Vector3 InitPos1;
@@ -29,14 +30,22 @@ public class GUIManager : MonoBehaviour {
     {
         inst = this;
         inst.result = (GameObject)Resources.Load("Prefabs/ui/result");
-        pm = PlayerManager.GetInst();
+        if (talkscene == false)
+            pm = PlayerManager.GetInst();
         //ui_box = ((GameObject)Instantiate(ui)).GetComponent<uibox>();
-        if (CameraManager.GetInst().event_mode == false)
+        if (talkscene == false)
         {
-            if (tutorial == true)
-                talk_box = ((GameObject)Instantiate(talk)).GetComponent<talkbox>();
-            else
-                ui_box = ((GameObject)Instantiate(ui)).GetComponent<uibox>();
+            if (CameraManager.GetInst().event_mode == false)
+            {
+                if (tutorial == true)
+                    talk_box = ((GameObject)Instantiate(talk)).GetComponent<talkbox>();
+                else
+                    ui_box = ((GameObject)Instantiate(ui)).GetComponent<uibox>();
+            }
+        }
+        else
+        {
+            talk_box = ((GameObject)Instantiate(talk)).GetComponent<talkbox>();
         }
        
     }
@@ -91,6 +100,10 @@ public class GUIManager : MonoBehaviour {
         a.transform.position = pos;
 
     }
+    public void DestroyPop()
+    {
+        Destroy(popa.gameObject);
+    }
     public void MovePos(int idx)
     {
        
@@ -114,9 +127,15 @@ public class GUIManager : MonoBehaviour {
             pos.y -= 2;
             pos2.y -= 2;
         }
-            //a.transform.position = pos;
-            popa.transform.position = pos2;
+        if (idx == 8)
+        {
+            pos2.x += 1200;
+            pos.x += 1200;
+        }
+        //a.transform.position = pos;
+        popa.transform.position = pos2;
       
+
     }
     public void CreatePop(Vector3 pos)
     {
@@ -124,6 +143,7 @@ public class GUIManager : MonoBehaviour {
         popa = ((GameObject)Instantiate(popup)).GetComponent<clickthis>();
         popa.transform.position = pos;
     }
+  
     // Update is called once per frame
     void Update () {
     }

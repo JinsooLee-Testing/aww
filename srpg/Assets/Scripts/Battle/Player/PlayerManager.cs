@@ -220,7 +220,7 @@ public class PlayerManager : MonoBehaviour {
         MapManager.GetInst().ResetMapColor();
         PlayerBase pb = Players[CurTurnIdx];
         pb.CurHex.Passable = false;
-
+        CostManager.GetInst().removeTime=2.0f;
         if (pb.act != ACT.CASTING)
             pb.act = ACT.IDLE;
 

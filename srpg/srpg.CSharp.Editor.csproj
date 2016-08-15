@@ -209,6 +209,7 @@
     <None Include="Assets\Resources\XML\testData.xml" />
     <None Include="Assets\Resources\XML\testData2.xml" />
     <None Include="Assets\Resources\XML\testData3.xml" />
+    <None Include="Assets\Resources\XML\testData4.xml" />
     <None Include="Assets\Resources\text\data.txt" />
     <None Include="Assets\Scripts\Shader\BasicToon\BasicOutline 1.shader" />
     <None Include="Assets\Scripts\Shader\BasicToon\BasicToon.shader" />
@@ -274,6 +275,7 @@
     <None Include="Assets\StreamingAssets\testData.xml" />
     <None Include="Assets\StreamingAssets\testData2.xml" />
     <None Include="Assets\StreamingAssets\testData3.xml" />
+    <None Include="Assets\StreamingAssets\testData4.xml" />
     <None Include="Assets\StreamingAssets\testcc.xml" />
     <None Include="Assets\StreamingAssets\testz.xml" />
     <None Include="Assets\StreamingAssets\z.xml" />

@@ -16,7 +16,7 @@ public class CostManager : MonoBehaviour
 
     int enemy_cost_max = 1;
     public int enemy_cost_num = 1;
-    float removeTime = 0;
+    public float removeTime = 0;
     costBase[] cost;
     public static CostManager GetInst()
     {

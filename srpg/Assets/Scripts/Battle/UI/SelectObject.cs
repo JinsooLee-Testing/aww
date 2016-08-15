@@ -28,32 +28,35 @@ public class SelectObject : MonoBehaviour {
            else
                 GetComponent<SpriteRenderer>().sprite = DENTI;
         }
-        if (CameraManager.GetInst().event_mode == false&& GUIManager.GetInst().talkmode==false)
+        if (GUIManager.GetInst().talkscene == false)
         {
-            
-            PlayerBase pb = PlayerManager.GetInst().select_object;
-            if (pb.m_type == Type.MAINCHARACTER)
+            if (CameraManager.GetInst().event_mode == false && GUIManager.GetInst().talkmode == false)
             {
-                GetComponent<SpriteRenderer>().sprite = DENTI;
 
-            }
-            else if (pb.m_type == Type.USER)
-            {
-                GetComponent<SpriteRenderer>().sprite = Obj;
-            }
-            else
-            {
-                if (pb.Monster_id == 1)
-                    GetComponent<SpriteRenderer>().sprite = chick;
-                if (pb.Monster_id == 2)
-                    GetComponent<SpriteRenderer>().sprite = bunny;
-                if (pb.Monster_id == 3)
-                    GetComponent<SpriteRenderer>().sprite = gorilra;
-                if (pb.Monster_id == 4)
+                PlayerBase pb = PlayerManager.GetInst().select_object;
+                if (pb.m_type == Type.MAINCHARACTER)
+                {
+                    GetComponent<SpriteRenderer>().sprite = DENTI;
+
+                }
+                else if (pb.m_type == Type.USER)
+                {
                     GetComponent<SpriteRenderer>().sprite = Obj;
-                if (pb.Monster_id == 5)
-                    GetComponent<SpriteRenderer>().sprite = golem;
+                }
+                else
+                {
+                    if (pb.Monster_id == 1)
+                        GetComponent<SpriteRenderer>().sprite = chick;
+                    if (pb.Monster_id == 2)
+                        GetComponent<SpriteRenderer>().sprite = bunny;
+                    if (pb.Monster_id == 3)
+                        GetComponent<SpriteRenderer>().sprite = gorilra;
+                    if (pb.Monster_id == 4)
+                        GetComponent<SpriteRenderer>().sprite = Obj;
+                    if (pb.Monster_id == 5)
+                        GetComponent<SpriteRenderer>().sprite = golem;
 
+                }
             }
         }
     }

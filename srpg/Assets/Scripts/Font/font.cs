@@ -27,13 +27,15 @@ public class font : MonoBehaviour {
     public Fontlist font_list;
     void Start()
     {
-        if(GUIManager.GetInst().tutorial==true)
+        if (GUIManager.GetInst().talkscene == true)
+            path = GUIManager.GetInst().fontPath;
+        if (GUIManager.GetInst().tutorial==true || GUIManager.GetInst().talkscene==true)
         font_list= FIleManager.Getinst().LoadTextData(path);
-        if(GUIManager.GetInst().talkmode)
+        if(GUIManager.GetInst().talkmode || GUIManager.GetInst().talkscene == true)
             font_list = FIleManager.Getinst().LoadTextData(GUIManager.GetInst().fontPath);
         //LoadTextFile("text/data.txt");
         text = GetComponent<TextMesh>();
-        if (GUIManager.GetInst().tutorial == true)
+        if (GUIManager.GetInst().tutorial == true || GUIManager.GetInst().talkscene == true)
             text.text = font_list.bonInfos[1].text;
         maintext = maintext;
     }
@@ -44,7 +46,7 @@ public class font : MonoBehaviour {
 
     void Update()
     {
-        if (GUIManager.GetInst().tutorial == true)
+        if (GUIManager.GetInst().tutorial == true )
         {
             //  if(Max>= TextDialog.GetInst().currentTextNumber)
             if (font_list.bonInfos[currentTextNumber].tesx_idx == 1)
@@ -87,13 +89,23 @@ public class font : MonoBehaviour {
         }
         if (GUIManager.GetInst().talkmode)
         {
-            text.text = font_list.bonInfos[currentTextNumber].text;
-            GUIManager.GetInst().named = font_list.bonInfos[currentTextNumber].Who_say;
-            if (font_list.bonInfos[currentTextNumber].tesx_idx == 1)
+            if (font_list.bonInfos[currentTextNumber].tesx_idx != 1000)
             {
-                GUIManager.GetInst().DestoryTalkBox();
-                MapManager.GetInst().openDoor();
+                text.text = font_list.bonInfos[currentTextNumber].text;
+                GUIManager.GetInst().named = font_list.bonInfos[currentTextNumber].Who_say;
+                if (font_list.bonInfos[currentTextNumber].tesx_idx == 1)
+                {
+                    GUIManager.GetInst().DestoryTalkBox();
+                    MapManager.GetInst().openDoor();
+                }
             }
+        }
+        if(GUIManager.GetInst().talkscene == true)
+        {
+            if (font_list.bonInfos[currentTextNumber].tesx_idx == 1000)
+                GUIManager.GetInst().CreateResult();
+            else
+            text.text = font_list.bonInfos[currentTextNumber].text;
         }
     }
    void LoadTextFile(string fileName)
@@ -130,7 +142,7 @@ public class font : MonoBehaviour {
     }
     void OnMouseDown()
     {
-        if (font_list.bonInfos[currentTextNumber].tesx_idx != 8)
+        if (font_list.bonInfos[currentTextNumber].tesx_idx != 1000)
         {
             currentTextNumber++;
         }
