@@ -42,6 +42,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 432798}
+  - 65: {fileID: 6553942}
   m_Layer: 0
   m_Name: gorilla
   m_TagString: Untagged
@@ -153,6 +154,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122190}
   m_Mesh: {fileID: 4300002, guid: e1a54b05727ded3429c5905eea60b78f, type: 3}
+--- !u!65 &6553942
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129704}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 4.5, z: 2.8}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

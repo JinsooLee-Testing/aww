@@ -7,15 +7,15 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Resources/Scene/login_main.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Scene/main_scene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Scene/card_sel_scene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Scene/stage_sel_scene.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Scene/C_Stage.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Scene/Y_Stage.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Scene/M_Stage.unity

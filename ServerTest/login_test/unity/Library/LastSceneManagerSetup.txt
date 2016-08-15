@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Resources/Scene/card_sel_scene.unity
+- path: Assets/Resources/Scene/login_main.unity
   isLoaded: 1
   isActive: 1
