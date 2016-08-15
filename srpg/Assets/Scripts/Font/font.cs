@@ -78,7 +78,7 @@ public class font : MonoBehaviour {
             else if (font_list.bonInfos[currentTextNumber].tesx_idx >= 3 && font_list.bonInfos[currentTextNumber].tesx_idx == 105)
             {
                 GUIManager.GetInst().DestoryTalkBox();
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(5);
             }
             else
                 CameraManager.GetInst().SetPosition(new Vector3(0, 5, 0));
